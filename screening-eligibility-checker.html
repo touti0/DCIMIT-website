@@ -1,0 +1,939 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Screening Eligibility Checker</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon" />
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link
+      href="assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link
+      href="assets/vendor/glightbox/css/glightbox.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="assets/vendor/fontawesome-free/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+    <!-- Main CSS File -->
+    <link href="assets/css/main.css" rel="stylesheet" />
+
+    <style>
+      /* ========================================= COLOR PALETTE ========================================= */
+      :root {
+        --teal: #3c9b91;
+        --teal-dark: #174f4a;
+        --teal-light: #f7fbfa;
+        --purple: #7451a6;
+        --purple-light: #ebe3f5;
+        --purple-dark: #7451a6;
+        --orange: #ef714f;
+        --dark: #172d2e;
+        --white: #ffffff;
+        --border: #dceae7;
+        --shadow: 0 10px 30px rgba(23, 79, 74, 0.08);
+      }
+
+      /* ========================================= CARD ========================================= */
+      .triage-card {
+        background: var(--white);
+        border-radius: 18px;
+        padding: 10px 90px 90px 90px;
+        box-shadow: var(--shadow);
+      }
+      .card-heading {
+        margin-bottom: 25px;
+        text-align: center;
+      }
+      .card-heading h2 {
+        margin: 0 0 7px;
+        color: var(--teal-dark);
+        font-size: 1.4rem;
+      }
+      .card-heading p {
+        margin: 0;
+        color: #657b79;
+        font-size: 0.92rem;
+      }
+      .section-block {
+        margin-bottom: 30px;
+      }
+      .section-block h3 {
+        color: var(--teal-dark);
+        font-size: 1.05rem;
+        font-weight: 700;
+        margin-bottom: 4px;
+      }
+      .section-block .section-hint {
+        color: #657b79;
+        font-size: 0.85rem;
+        margin-bottom: 14px;
+      }
+
+      /* ========================================= EXCLUSION OPTIONS (checkbox grid) ========================================= */
+      .symptom-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+      .symptom-option {
+        position: relative;
+      }
+      .symptom-option input {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+      }
+      .symptom-option label {
+        display: flex;
+        align-items: center;
+        min-height: 64px;
+        padding: 14px 17px;
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        cursor: pointer;
+        color: var(--dark);
+        font-size: 0.92rem;
+        transition: all 0.2s ease;
+      }
+      .symptom-option label:hover {
+        border-color: var(--purple);
+        background: var(--purple-light);
+      }
+      .symptom-option input:checked + label {
+        border-color: var(--purple);
+        background: #ebe3f5;
+        color: var(--purple-dark);
+        font-weight: 600;
+        box-shadow: inset 4px 0 0 var(--purple);
+      }
+      .symptom-option.info-option input:checked + label {
+        border-color: var(--teal);
+        background: var(--teal-light);
+        color: var(--teal-dark);
+        box-shadow: inset 4px 0 0 var(--teal);
+      }
+
+      /* ========================================= AGE INPUT ========================================= */
+      .age-input-wrap {
+        max-width: 220px;
+        margin: 0 auto;
+      }
+      .age-input-wrap input {
+        width: 100%;
+        padding: 14px 17px;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        font-size: 1.1rem;
+        text-align: center;
+        color: var(--dark);
+        transition: all 0.2s ease;
+      }
+      .age-input-wrap input:focus {
+        outline: none;
+        border-color: var(--purple);
+        box-shadow: 0 0 0 3px rgba(116, 81, 166, 0.15);
+      }
+
+      /* ========================================= YES/NO CHOICE PILLS ========================================= */
+      .choice-question {
+        margin-bottom: 18px;
+      }
+      .choice-question > p {
+        color: var(--dark);
+        font-size: 0.92rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+      .choice-row {
+        display: flex;
+        gap: 12px;
+      }
+      .choice-option {
+        position: relative;
+        flex: 1;
+      }
+      .choice-option input {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+      }
+      .choice-option label {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 50px;
+        padding: 10px 16px;
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        cursor: pointer;
+        color: var(--dark);
+        font-size: 0.92rem;
+        font-weight: 600;
+        transition: all 0.2s ease;
+      }
+      .choice-option label:hover {
+        border-color: var(--teal);
+        background: var(--teal-light);
+      }
+      .choice-option input:checked + label {
+        border-color: var(--teal);
+        background: var(--teal-light);
+        color: var(--teal-dark);
+        box-shadow: inset 4px 0 0 var(--teal);
+      }
+
+      .conditional-section {
+        display: none;
+        padding-top: 6px;
+      }
+      .conditional-section.visible {
+        display: block;
+      }
+      .age-bracket-note {
+        text-align: center;
+        color: var(--purple-dark);
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin-top: 10px;
+        min-height: 1.2em;
+      }
+
+      /* ========================================= BUTTON ========================================= */
+      .button-container {
+        margin-top: 30px;
+        text-align: center;
+      }
+
+      /* ========================================= RESULT ========================================= */
+      #chatOutput {
+        display: none;
+        margin-top: 25px;
+        padding: 25px;
+        border-radius: 12px;
+        background: var(--teal-light);
+        border: 1px solid var(--border);
+        text-align: center;
+      }
+      #chatOutput.visible {
+        display: block;
+      }
+      #chatOutput.warning {
+        background: #fbeee9;
+        border-color: #f3c9bb;
+      }
+      .result-label {
+        margin-bottom: 7px;
+        color: var(--orange);
+        font-size: 1.1rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+      }
+      .result-message {
+        color: var(--teal-dark);
+        font-size: 1.15rem;
+        font-weight: 700;
+      }
+      .result-note {
+        margin-top: 12px;
+        color: #657b79;
+        font-size: 0.85rem;
+      }
+      .result-pregnancy-note {
+        margin-top: 14px;
+        padding-top: 14px;
+        border-top: 1px dashed var(--border);
+        color: var(--teal-dark);
+        font-size: 0.85rem;
+      }
+
+      /* ========================================= FOOTER ========================================= */
+      footer {
+        padding: 30px 20px;
+        background: var(--teal-dark);
+        color: rgba(255, 255, 255, 0.8);
+        text-align: center;
+        font-size: 0.8rem;
+      }
+
+      /* ========================================= RESPONSIVE ========================================= */
+      @media (max-width: 700px) {
+        .triage-card {
+          padding: 23px;
+        }
+        .symptom-list {
+          grid-template-columns: 1fr;
+        }
+        .header-inner {
+          padding: 0 5px;
+        }
+        h1 {
+          font-size: 2.3rem;
+        }
+      }
+    </style>
+
+    <script>
+      /* ===================================================================
+         Screening Eligibility Checker — rule-based engine
+         Applies only to average-risk women (see exclusion criteria below).
+         Rules 1–8 as specified by the clinical protocol.
+      =================================================================== */
+
+      function toggleAgeSection() {
+        const age = parseInt(document.getElementById("ageInput").value, 10);
+        const under25Note = document.getElementById("under25Note");
+        const papSection = document.getElementById("papSection");
+        const hpvSection = document.getElementById("hpvSection");
+        const olderSection = document.getElementById("olderSection");
+        const gapNote = document.getElementById("ageGapNote");
+
+        [under25Note, papSection, hpvSection, olderSection, gapNote].forEach(
+          (el) => el.classList.remove("visible"),
+        );
+
+        if (isNaN(age)) return;
+
+        if (age < 25) {
+          under25Note.classList.add("visible");
+        } else if (age >= 25 && age <= 29) {
+          papSection.classList.add("visible");
+        } else if (age >= 30 && age <= 64) {
+          hpvSection.classList.add("visible");
+        } else if (age > 65) {
+          olderSection.classList.add("visible");
+        } else {
+          /* age === 65: falls between the 30–64 and >65 brackets */
+          gapNote.classList.add("visible");
+        }
+      }
+
+      function toggleHpvFollowUp() {
+        const hpvTested = document.querySelector(
+          'input[name="hpvTested"]:checked',
+        );
+        const followUp = document.getElementById("hpvResultFollowUp");
+        if (hpvTested && hpvTested.value === "yes") {
+          followUp.classList.add("visible");
+        } else {
+          followUp.classList.remove("visible");
+        }
+      }
+
+      function getRadioValue(name) {
+        const el = document.querySelector(`input[name="${name}"]:checked`);
+        return el ? el.value : null;
+      }
+
+      function checkEligibility() {
+        const exclusions = {
+          prevCancer: document.getElementById("excl-cancer").checked,
+          hiv: document.getElementById("excl-hiv").checked,
+          immunosuppression: document.getElementById("excl-immunosuppression")
+            .checked,
+          des: document.getElementById("excl-des").checked,
+          cin2plus: document.getElementById("excl-cin2plus").checked,
+          hysterectomy: document.getElementById("excl-hysterectomy").checked,
+        };
+        const pregnant = document.getElementById("info-pregnant").checked;
+
+        const pregnancyNote = pregnant
+          ? "Pregnancy does not remove the need for evaluation of abnormal results, but it may change management. Discuss timing with your clinician."
+          : "";
+
+        /* --- Exclusions unrelated to hysterectomy / CIN2+: outside this pathway --- */
+        if (
+          exclusions.prevCancer ||
+          exclusions.hiv ||
+          exclusions.immunosuppression ||
+          exclusions.des
+        ) {
+          showResult(
+            "Outside this pathway",
+            "This checker applies only to average-risk women. Based on your answers, your screening plan should be defined with a clinician following the appropriate special protocol.",
+            pregnancyNote,
+            true,
+          );
+          return;
+        }
+
+        /* --- Rule 8: previous CIN2+ (always takes priority, regardless of age or hysterectomy) --- */
+        if (exclusions.cin2plus) {
+          showResult(
+            "Refer to surveillance protocol",
+            "The routine screening algorithm does not apply. Follow-up should continue under the dedicated post-CIN2+ surveillance protocol.",
+            pregnancyNote,
+            true,
+          );
+          return;
+        }
+
+        /* --- Rule 7: hysterectomy with cervix removed, no previous CIN2+ --- */
+        if (exclusions.hysterectomy) {
+          showResult(
+            "No further routine cervical screening",
+            "Rule 7: previous total hysterectomy with cervix removed for benign disease, with no history of CIN2+.",
+            pregnancyNote,
+          );
+          return;
+        }
+
+        /* --- Age-based rules --- */
+        const ageRaw = document.getElementById("ageInput").value;
+        const age = parseInt(ageRaw, 10);
+
+        if (ageRaw === "" || isNaN(age)) {
+          showResult(
+            "Age required",
+            "Please enter an age to continue.",
+            "",
+            true,
+          );
+          return;
+        }
+
+        /* Rule 1 */
+        if (age < 25) {
+          showResult(
+            "Routine cervical screening is NOT recommended",
+            "Rule 1: age under 25.",
+            pregnancyNote,
+          );
+          return;
+        }
+
+        /* Rules 2–3 */
+        if (age >= 25 && age <= 29) {
+          const papRecent = getRadioValue("papRecent");
+          if (papRecent === null) {
+            showResult(
+              "Answer required",
+              "Please indicate whether a Pap test was performed in the previous 3 years.",
+              "",
+              true,
+            );
+            return;
+          }
+          if (papRecent === "no") {
+            showResult(
+              "Recommend Pap test",
+              "Rule 2: age 25–29 with no cervical cytology in the previous 3 years.",
+              pregnancyNote,
+            );
+          } else {
+            showResult(
+              "No screening currently required",
+              "Rule 3: age 25–29 with a Pap test performed within the previous 3 years.",
+              pregnancyNote,
+            );
+          }
+          return;
+        }
+
+        /* Rules 4–5 */
+        if (age >= 30 && age <= 64) {
+          const hpvTested = getRadioValue("hpvTested");
+          if (hpvTested === null) {
+            showResult(
+              "Answer required",
+              "Please indicate whether an HPV test was performed in the previous 5 years.",
+              "",
+              true,
+            );
+            return;
+          }
+          if (hpvTested === "no") {
+            showResult(
+              "Recommend HPV test",
+              "Rule 4: age 30–64 with no HPV screening during the previous 5 years.",
+              pregnancyNote,
+            );
+            return;
+          }
+          const hpvNegative = getRadioValue("hpvNegative");
+          if (hpvNegative === null) {
+            showResult(
+              "Answer required",
+              "Please indicate whether the HPV test result was negative.",
+              "",
+              true,
+            );
+            return;
+          }
+          if (hpvNegative === "yes") {
+            showResult(
+              "Routine recall",
+              "Rule 5: age 30–64, HPV negative within the previous 5 years.",
+              pregnancyNote,
+            );
+          } else {
+            showResult(
+              "Outside this pathway",
+              "A non-negative HPV result requires follow-up under the appropriate clinical protocol; it is not covered by this routine pathway.",
+              pregnancyNote,
+              true,
+            );
+          }
+          return;
+        }
+
+        /* Rule 6 */
+        if (age > 65) {
+          const adequate = getRadioValue("adequateNegative");
+          if (adequate === null) {
+            showResult(
+              "Answer required",
+              "Please indicate whether there is a record of adequate previous negative screening.",
+              "",
+              true,
+            );
+            return;
+          }
+          if (adequate === "yes") {
+            showResult(
+              "Stop routine screening",
+              "Rule 6: age over 65 with adequate previous negative screening.",
+              pregnancyNote,
+            );
+          } else {
+            showResult(
+              "Screening history insufficient for a routine recommendation",
+              "Age over 65 without a confirmed adequate negative screening history falls outside the defined rules. Please discuss with a clinician.",
+              pregnancyNote,
+              true,
+            );
+          }
+          return;
+        }
+
+        /* age === 65: gap in the defined rule set */
+        showResult(
+          "No rule defined for this age",
+          "Age 65 falls between the 30–64 and over-65 rule brackets. Please consult a clinician.",
+          pregnancyNote,
+          true,
+        );
+      }
+
+      function showResult(message, note, pregnancyNote, isWarning) {
+        const output = document.getElementById("chatOutput");
+        output.classList.toggle("warning", !!isWarning);
+        output.innerHTML = `
+          <div class="result-label">${isWarning ? "Notice" : "Recommendation"}</div>
+          <div class="result-message">${message}</div>
+          <div class="result-note">${note}</div>
+          ${pregnancyNote ? `<div class="result-pregnancy-note">${pregnancyNote}</div>` : ""}
+        `;
+        output.classList.add("visible");
+        output.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    </script>
+  </head>
+
+  <body class="departments-page">
+    <!-- HEADER -->
+    <header id="header" class="header fixed-top">
+      <div class="topbar d-flex align-items-center dark-background">
+        <div
+          class="container d-flex justify-content-center justify-content-md-between"
+        >
+          <div class="contact-info d-flex align-items-center">
+            <i class="bi bi-envelope d-flex align-items-center"
+              ><a href="mailto:valentina.biagioli@unibo.it">valentina.biagioli@unibo.it</a></i
+            >
+            <i class="bi bi-phone d-flex align-items-center ms-4"
+              ><span>+1 5589 55488 55</span></i
+            >
+          </div>
+          <div class="social-links d-none d-md-flex align-items-center">
+            <a href="#!" class="twitter"><i class="bi bi-twitter-x"></i></a>
+            <a href="#!" class="facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#!" class="instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#!" class="linkedin"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- End Top Bar -->
+
+      <div class="branding d-flex align-items-cente">
+        <div
+          class="container position-relative d-flex align-items-center justify-content-between"
+        >
+          <a href="index.html" class="logo d-flex align-items-center">
+            <h1 class="sitename">DCIMIT</h1>
+          </a>
+
+        <nav id="navmenu" class="navmenu">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="womens-health.html" class="active">Women's Health</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="data.html">Data</a></li>
+            <li><a href="publications.html">Publications</a></li>
+            <li class="dropdown"><a href="#"><span>Resources</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="department-details.html">Department Details</a></li>
+              <li><a href="service-details.html">Service Details</a></li>
+              <li><a href="appointment.html">Appointment</a></li>
+              <li><a href="testimonials.html">Testimonials</a></li>
+              <li><a href="faq.html">Frequently Asked Questions</a></li>
+              <li><a href="gallery.html">Gallery</a></li>
+              <li><a href="terms.html">Terms</a></li>
+              <li><a href="privacy.html">Privacy</a></li>
+              <li><a href="404.html">404</a></li>
+            </ul>
+            </li>
+            <li class="dropdown"><a href="team.html"><span>Team</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+              <ul>
+                <li><a href="#">Dropdown 1</a></li>
+                <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                  <ul>
+                    <li><a href="#">Deep Dropdown 1</a></li>
+                    <li><a href="#">Deep Dropdown 2</a></li>
+                    <li><a href="#">Deep Dropdown 3</a></li>
+                    <li><a href="#">Deep Dropdown 4</a></li>
+                    <li><a href="#">Deep Dropdown 5</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">Dropdown 2</a></li>
+                <li><a href="#">Dropdown 3</a></li>
+                <li><a href="#">Dropdown 4</a></li>
+              </ul>
+            </li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="partner.html">Partners</a></li>
+            <div class="language">
+            <button type="button" class="active" data-lang="en" onclick="window.location.href='index.html';">EN</button> <button data-lang="it" onclick="window.location.href='index_it.html';">IT</button>
+            </div>
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main class="main">
+    <!-- Page Title -->
+    <div class="page-title">
+      <div class="heading">
+        <div class="container">
+          <div class="row d-flex justify-content-center text-center">
+            <div class="col-lg-8">
+              <h1 class="heading-title">Screening Eligibility Checker</h1>
+              <p class="mb-0">
+                This tool helps determine the recommended routine cervical screening pathway for average-risk women.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+ <!--  <nav class="breadcrumbs">
+        <div class="container">
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li class="current">Screening Eligibility Checker</li>
+          </ol>
+        </div>
+      </nav>  -->
+    </div><!-- End Page Title -->
+
+    <!-- Alert box -->
+    <section id="terms-of-service" class="terms-of-service section">
+        <div class="container" data-aos="fade-up">
+            <div class="tos-content" data-aos="fade-up" data-aos-delay="200">
+            <div id="user-accounts" class="content-section">
+                <div class="alert-box">
+                <i class="bi bi-exclamation-triangle"></i>
+                <div class="alert-content">
+                    <h5 style="font-weight: 700;">Important Notice</h5>
+                    <p>This tool applies only to <strong>average-risk women</strong> and is informational — it does not replace professional medical advice or a clinician's judgment. If any of the exclusion criteria below apply to you, this routine pathway is not appropriate and you should speak with a clinician about the correct special protocol.</p>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+
+      <!-- ELIGIBILITY CARD -->
+      <section id="appointment" class="triage-card appointmnet section">
+        <div class="booking-wrapper">
+
+          <!-- Step 1: exclusion criteria -->
+          <div class="section-block">
+            <div class="card-heading">
+              <h2 style="font-weight:600;">Do any of the following apply to you?</h2>
+              <p>Select all that apply. Any of these move you outside the routine screening pathway.</p>
+            </div>
+
+            <div class="symptom-list">
+              <div class="symptom-option">
+                <input type="checkbox" id="excl-cancer" />
+                <label for="excl-cancer">Previous cervical cancer</label>
+              </div>
+              <div class="symptom-option">
+                <input type="checkbox" id="excl-cin2plus" />
+                <label for="excl-cin2plus">Previous CIN2, CIN3, or AIS (including under surveillance)</label>
+              </div>
+              <div class="symptom-option">
+                <input type="checkbox" id="excl-hiv" />
+                <label for="excl-hiv">HIV infection</label>
+              </div>
+              <div class="symptom-option">
+                <input type="checkbox" id="excl-immunosuppression" />
+                <label for="excl-immunosuppression">Other significant immunosuppression</label>
+              </div>
+              <div class="symptom-option">
+                <input type="checkbox" id="excl-des" />
+                <label for="excl-des">In-utero DES exposure</label>
+              </div>
+              <div class="symptom-option">
+                <input type="checkbox" id="excl-hysterectomy" />
+                <label for="excl-hysterectomy">Previous total hysterectomy with cervix removed for benign disease</label>
+              </div>
+              <div class="symptom-option info-option">
+                <input type="checkbox" id="info-pregnant" />
+                <label for="info-pregnant">Currently pregnant</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2: age -->
+          <div class="section-block">
+            <div class="card-heading">
+              <h2 style="font-weight:600;">What is your age?</h2>
+              <p>Used to apply the correct age-based rule.</p>
+            </div>
+            <div class="age-input-wrap">
+              <input
+                type="number"
+                id="ageInput"
+                min="0"
+                max="120"
+                placeholder="Age"
+                oninput="toggleAgeSection()"
+              />
+            </div>
+
+            <div id="under25Note" class="age-bracket-note conditional-section">
+              Routine screening does not apply below age 25 — no further questions needed.
+            </div>
+            <div id="ageGapNote" class="age-bracket-note conditional-section">
+              Age 65 falls between the defined rule brackets (30–64 and over 65).
+            </div>
+
+            <!-- 25–29 bracket -->
+            <div id="papSection" class="conditional-section">
+              <div class="choice-question">
+                <p>Have you had a Pap (cytology) test in the previous 3 years?</p>
+                <div class="choice-row">
+                  <div class="choice-option">
+                    <input type="radio" name="papRecent" id="papYes" value="yes" />
+                    <label for="papYes">Yes</label>
+                  </div>
+                  <div class="choice-option">
+                    <input type="radio" name="papRecent" id="papNo" value="no" />
+                    <label for="papNo">No</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 30–64 bracket -->
+            <div id="hpvSection" class="conditional-section">
+              <div class="choice-question">
+                <p>Have you had an HPV test in the previous 5 years?</p>
+                <div class="choice-row">
+                  <div class="choice-option">
+                    <input type="radio" name="hpvTested" id="hpvYes" value="yes" onchange="toggleHpvFollowUp()" />
+                    <label for="hpvYes">Yes</label>
+                  </div>
+                  <div class="choice-option">
+                    <input type="radio" name="hpvTested" id="hpvNo" value="no" onchange="toggleHpvFollowUp()" />
+                    <label for="hpvNo">No</label>
+                  </div>
+                </div>
+              </div>
+              <div id="hpvResultFollowUp" class="choice-question conditional-section">
+                <p>Was the HPV test result negative?</p>
+                <div class="choice-row">
+                  <div class="choice-option">
+                    <input type="radio" name="hpvNegative" id="hpvNegYes" value="yes" />
+                    <label for="hpvNegYes">Yes, negative</label>
+                  </div>
+                  <div class="choice-option">
+                    <input type="radio" name="hpvNegative" id="hpvNegNo" value="no" />
+                    <label for="hpvNegNo">No / positive</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- >65 bracket -->
+            <div id="olderSection" class="conditional-section">
+              <div class="choice-question">
+                <p>Is there a record of adequate previous negative screening?</p>
+                <div class="choice-row">
+                  <div class="choice-option">
+                    <input type="radio" name="adequateNegative" id="adequateYes" value="yes" />
+                    <label for="adequateYes">Yes</label>
+                  </div>
+                  <div class="choice-option">
+                    <input type="radio" name="adequateNegative" id="adequateNo" value="no" />
+                    <label for="adequateNo">No</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="button-container">
+            <button type="button" class="btn btn-primary" onclick="checkEligibility()">Check eligibility</button>
+          </div>
+          <div id="chatOutput"></div>
+        </div>
+      </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+      <footer id="footer" class="footer-16 footer position-relative">
+
+    <div class="container">
+
+      <div class="footer-main" data-aos="fade-up" data-aos-delay="100">
+        <div class="row align-items-start">
+
+          <div class="col-lg-5">
+            <div class="brand-section">
+              <a href="index.html" class="logo d-flex align-items-center mb-4">
+                <span class="sitename">DCIMIT</span>
+              </a>
+              <p class="brand-description">Understanding and addressing health inequalities between immigrant communities and Italian natives to improve cervical cancer prevention and screening outcomes.</p>
+
+
+            </div>
+          </div>
+
+          <div class="col-lg-7">
+            <div class="footer-nav-wrapper">
+              <div class="row">
+
+
+                <div class="col-6 col-lg-3">
+                  <div class="nav-column">
+                    <h6>Explore</h6>
+                    <nav class="footer-nav">
+                      <a href="#!">Women's Health</a>
+                      <a href="#!">Research</a>
+                      <a href="#!">Data</a>
+                    </nav>
+                  </div>
+                </div>
+
+                <div class="col-6 col-lg-3">
+                  <div class="nav-column">
+                    <h6>Project</h6>
+                    <nav class="footer-nav">
+                      <a href="team.html">Team</a>
+                      <a href="#!">Publication</a>
+                      <a href="#!">Partner</a>
+                    </nav>
+                  </div>
+                </div>
+
+                <div class="col-6 col-lg-3">
+                  <div class="nav-column">
+                    <h6>Connect</h6>
+                    <nav class="footer-nav">
+                      <a href="#!">Resources</a>
+                      <a href="#!">Contact</a>
+                    </nav>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="bottom-content" data-aos="fade-up" data-aos-delay="300">
+          <div class="row align-items-center">
+
+            <div class="col-lg-6">
+              <div class="copyright">
+                <p>© <span class="sitename">DCIMIT</span>. All rights reserved.</p>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="legal-links">
+                <a href="#!">Privacy Policy</a>
+                <a href="#!">Terms of Service</a>
+                <a href="#!">Cookie Policy</a>
+                <div class="credits">
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </footer>
+  <!-- Scroll Top -->
+  <a href="#!" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+</html>

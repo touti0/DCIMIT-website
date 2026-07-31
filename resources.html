@@ -1,0 +1,622 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Resources</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon" />
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link
+      href="assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link
+      href="assets/vendor/glightbox/css/glightbox.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="assets/vendor/fontawesome-free/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+    <!-- Main CSS File -->
+    <link href="assets/css/main.css" rel="stylesheet" />
+
+    <style>
+      /* ========================================= COLOR PALETTE ========================================= */
+      :root {
+        --teal: #3c9b91;
+        --teal-dark: #174f4a;
+        --teal-light: #f7fbfa;
+        --purple: #7451a6;
+        --purple-light: #ebe3f5;
+        --purple-dark: #7451a6;
+        --orange: #ef714f;
+        --dark: #172d2e;
+        --white: #ffffff;
+        --border: #dceae7;
+        --shadow: 0 10px 30px rgba(23, 79, 74, 0.08);
+      }
+
+      /* ========================================= CARD ========================================= */
+      .triage-card {
+        background: var(--white);
+        border-radius: 18px;
+        padding: 10px 90px 90px 90px;
+        box-shadow: var(--shadow);
+      }
+      .card-heading {
+        margin-bottom: 25px;
+        text-align: center;
+      }
+      .card-heading h2 {
+        margin: 0 0 7px;
+        color: var(--teal-dark);
+        font-size: 1.4rem;
+      }
+      .card-heading p {
+        margin: 0;
+        color: #657b79;
+        font-size: 0.92rem;
+      }
+
+      /* ========================================= FILTERS ========================================= */
+      .filters-block {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+        margin-bottom: 12px;
+      }
+      .filter-field label {
+        display: block;
+        margin-bottom: 6px;
+        color: var(--dark);
+        font-size: 0.82rem;
+        font-weight: 600;
+      }
+      .filter-field select {
+        width: 100%;
+        padding: 12px 16px;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        font-size: 0.92rem;
+        color: var(--dark);
+        background: var(--white);
+        transition: all 0.2s ease;
+        appearance: none;
+        cursor: pointer;
+      }
+      .filter-field select:focus {
+        outline: none;
+        border-color: var(--purple);
+        box-shadow: 0 0 0 3px rgba(116, 81, 166, 0.15);
+      }
+      .filters-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 26px;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .results-count {
+        color: #657b79;
+        font-size: 0.85rem;
+      }
+      .reset-btn {
+        background: none;
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 6px 16px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: var(--teal-dark);
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+      .reset-btn:hover {
+        background: var(--teal-light);
+        border-color: var(--teal);
+      }
+
+      /* ========================================= RESOURCE CARDS ========================================= */
+      .paper-list {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+      }
+      .paper-card {
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 22px 26px;
+        transition: all 0.2s ease;
+      }
+      .paper-card:hover {
+        border-color: var(--teal);
+        box-shadow: 0 8px 20px -6px rgba(23, 79, 74, 0.12);
+      }
+      .paper-journal-badge {
+        display: inline-block;
+        background: var(--purple-light);
+        color: var(--purple-dark);
+        font-size: 0.72rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        padding: 4px 11px;
+        border-radius: 20px;
+        margin-bottom: 10px;
+      }
+      .paper-title {
+        color: var(--teal-dark);
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin: 0 0 6px;
+        line-height: 1.35;
+      }
+      .paper-authors {
+        color: #657b79;
+        font-size: 0.85rem;
+        margin: 0 0 4px;
+      }
+      .paper-meta {
+        color: #9db3b0;
+        font-size: 0.78rem;
+        margin: 0 0 12px;
+        font-family: monospace;
+      }
+      .paper-abstract {
+        color: var(--dark);
+        font-size: 0.9rem;
+        line-height: 1.55;
+        margin: 0 0 16px;
+      }
+      .paper-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        color: var(--white);
+        background: var(--teal);
+        padding: 8px 18px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.2s ease;
+      }
+      .paper-link:hover {
+        background: var(--teal-dark);
+        color: var(--white);
+      }
+      .paper-file {
+        color: #9db3b0;
+        font-size: 0.78rem;
+        margin-left: 12px;
+      }
+
+      #noResults {
+        display: none;
+        text-align: center;
+        padding: 40px 20px;
+        color: #657b79;
+      }
+      #noResults.visible {
+        display: block;
+      }
+
+      /* ========================================= RESPONSIVE ========================================= */
+      @media (max-width: 900px) {
+        .filters-block {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 700px) {
+        .triage-card {
+          padding: 23px;
+        }
+        .paper-card {
+          padding: 18px;
+        }
+      }
+    </style>
+
+    <script>
+      /* ===================================================================
+         Resources — filter by year + author (no free-text search)
+      =================================================================== */
+
+      const resources = [
+        {
+          title:
+            "Disparities in cervical cancer prevention and early detection among immigrants in Italy: The DCIMIT study protocol",
+          authors: [
+            "Eleonora Gorgati",
+            "Fereshte Lotfi",
+            "Angela Cuoco",
+            "Mohsen Boughriou",
+            "Sara Dionisi",
+            "Kazem Zendehdel",
+            "Paolo Boffetta",
+            "Valentina Biagioli",
+          ],
+          year: 2025,
+          category: "Conference Poster",
+          venueInfo: "ESMO Congress 2025, Berlin — FPN: CN35",
+          abstract:
+            "Study protocol poster presenting the DCIMIT project: a mixed-methods multicenter study, a registry-based analysis and a community-based educational intervention aimed at reducing disparities in cervical cancer prevention and early detection among immigrant women in Italy.",
+          file: "assets/resources/DCIMITposterESMO07.pdf",
+        },
+        {
+          title:
+            "Useful References — Cervical Cancer & Immigrant Health Reading List",
+          authors: ["DCIMIT Project Team"],
+          year: 2025,
+          category: "Reference List",
+          venueInfo: "Curated bibliography, 18 references",
+          abstract:
+            "A curated list of key references on cervical cancer, HPV and screening disparities in immigrant populations, compiled to support the DCIMIT project's research and public health outreach.",
+          file: "assets/resources/USEFULREFERENCES.pdf",
+        },
+      ];
+
+      function populateFilters() {
+        const yearSelect = document.getElementById("yearFilter");
+        const years = [...new Set(resources.map((r) => r.year))].sort(
+          (a, b) => b - a,
+        );
+        years.forEach((y) => {
+          const opt = document.createElement("option");
+          opt.value = y;
+          opt.textContent = y;
+          yearSelect.appendChild(opt);
+        });
+
+        const authorSelect = document.getElementById("authorFilter");
+        const authors = [...new Set(resources.flatMap((r) => r.authors))].sort();
+        authors.forEach((a) => {
+          const opt = document.createElement("option");
+          opt.value = a;
+          opt.textContent = a;
+          authorSelect.appendChild(opt);
+        });
+      }
+
+      function renderResources(list) {
+        const container = document.getElementById("paperList");
+        const noResults = document.getElementById("noResults");
+
+        container.innerHTML = list
+          .map(
+            (r) => `
+          <div class="paper-card">
+            <span class="paper-journal-badge">${r.category}</span>
+            <h3 class="paper-title">${r.title}</h3>
+            <p class="paper-authors">${r.authors.join(", ")}</p>
+            <p class="paper-meta">${r.venueInfo} &middot; ${r.year}</p>
+            <p class="paper-abstract">${r.abstract}</p>
+            <a class="paper-link" href="${r.file}" download>
+              Download PDF <i class="bi bi-download"></i>
+            </a>
+            <span class="paper-file">${r.file.split("/").pop()}</span>
+          </div>
+        `,
+          )
+          .join("");
+
+        document.getElementById("resultsCount").textContent =
+          list.length === resources.length
+            ? `Showing all ${resources.length} resources`
+            : `Showing ${list.length} of ${resources.length} resources`;
+
+        noResults.classList.toggle("visible", list.length === 0);
+      }
+
+      function applyFilters() {
+        const year = document.getElementById("yearFilter").value;
+        const author = document.getElementById("authorFilter").value;
+
+        const filtered = resources.filter((r) => {
+          const matchesYear = year === "all" || r.year === parseInt(year, 10);
+          const matchesAuthor = author === "all" || r.authors.includes(author);
+          return matchesYear && matchesAuthor;
+        });
+
+        renderResources(filtered);
+      }
+
+      function resetFilters() {
+        document.getElementById("yearFilter").value = "all";
+        document.getElementById("authorFilter").value = "all";
+        applyFilters();
+      }
+
+      window.addEventListener("DOMContentLoaded", () => {
+        populateFilters();
+        renderResources(resources);
+      });
+    </script>
+  </head>
+
+  <body class="departments-page">
+    <!-- HEADER -->
+    <header id="header" class="header fixed-top">
+      <div class="topbar d-flex align-items-center dark-background">
+        <div
+          class="container d-flex justify-content-center justify-content-md-between"
+        >
+          <div class="contact-info d-flex align-items-center">
+            <i class="bi bi-envelope d-flex align-items-center"
+              ><a href="mailto:contact@example.com">contact@example.com</a></i
+            >
+            <i class="bi bi-phone d-flex align-items-center ms-4"
+              ><span>+1 5589 55488 55</span></i
+            >
+          </div>
+          <div class="social-links d-none d-md-flex align-items-center">
+            <a href="#!" class="twitter"><i class="bi bi-twitter-x"></i></a>
+            <a href="#!" class="facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#!" class="instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#!" class="linkedin"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- End Top Bar -->
+
+      <div class="branding d-flex align-items-cente">
+        <div
+          class="container position-relative d-flex align-items-center justify-content-between"
+        >
+          <a href="index.html" class="logo d-flex align-items-center">
+            <h1 class="sitename">DCIMIT</h1>
+          </a>
+
+        <nav id="navmenu" class="navmenu">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="womens-health.html">Women's Health</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="data.html">Data</a></li>
+            <li><a href="publications.html">Publications</a></li>
+            <li class="dropdown"><a href="resources.html" class="active"><span>Resources</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="department-details.html">Department Details</a></li>
+              <li><a href="service-details.html">Service Details</a></li>
+              <li><a href="appointment.html">Appointment</a></li>
+              <li><a href="testimonials.html">Testimonials</a></li>
+              <li><a href="faq.html">Frequently Asked Questions</a></li>
+              <li><a href="gallery.html">Gallery</a></li>
+              <li><a href="terms.html">Terms</a></li>
+              <li><a href="privacy.html">Privacy</a></li>
+              <li><a href="404.html">404</a></li>
+            </ul>
+            </li>
+            <li class="dropdown"><a href="team.html"><span>Team</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+              <ul>
+                <li><a href="#">Dropdown 1</a></li>
+                <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                  <ul>
+                    <li><a href="#">Deep Dropdown 1</a></li>
+                    <li><a href="#">Deep Dropdown 2</a></li>
+                    <li><a href="#">Deep Dropdown 3</a></li>
+                    <li><a href="#">Deep Dropdown 4</a></li>
+                    <li><a href="#">Deep Dropdown 5</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">Dropdown 2</a></li>
+                <li><a href="#">Dropdown 3</a></li>
+                <li><a href="#">Dropdown 4</a></li>
+              </ul>
+            </li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="partner.html">Partners</a></li>
+            <div class="language">
+            <button type="button" class="active" data-lang="en" onclick="window.location.href='index.html';">EN</button> <button data-lang="it" onclick="window.location.href='index_it.html';">IT</button>
+            </div>
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main class="main">
+    <!-- Page Title -->
+    <div class="page-title">
+      <div class="heading">
+        <div class="container">
+          <div class="row d-flex justify-content-center text-center">
+            <div class="col-lg-8">
+              <h1 class="heading-title">Resources</h1>
+              <p class="mb-0">
+                Downloadable materials from the DCIMIT project: posters, protocols and curated reading lists.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+ <!--     <nav class="breadcrumbs">
+        <div class="container">
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li class="current">Resources</li>
+          </ol>
+        </div>
+      </nav> -->
+    </div><!-- End Page Title -->
+
+      <!-- RESOURCES CARD -->
+      <section id="appointment" class="triage-card appointmnet section">
+        <div class="booking-wrapper">
+
+          <div class="card-heading">
+            <h2 style="font-size: 2.2rem; font-weight: 700; color: #112344;">Browse the resources</h2>
+            <p>Filter by year and author</p>
+          </div>
+
+          <div class="filters-block">
+            <div class="filter-field">
+              <label for="yearFilter">Year</label>
+              <select id="yearFilter" onchange="applyFilters()">
+                <option value="all">All years</option>
+              </select>
+            </div>
+            <div class="filter-field">
+              <label for="authorFilter">Author</label>
+              <select id="authorFilter" onchange="applyFilters()">
+                <option value="all">All authors</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="filters-footer">
+            <span class="results-count" id="resultsCount"></span>
+            <button type="button" class="reset-btn" onclick="resetFilters()">Reset filters</button>
+          </div>
+
+          <div class="paper-list" id="paperList"></div>
+
+          <div id="noResults">
+            <i class="bi bi-file-earmark-x" style="font-size:2rem;color:#9db3b0;"></i>
+            <p style="margin-top:10px;">No resources match this filter combination.</p>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+      <footer id="footer" class="footer-16 footer position-relative">
+
+    <div class="container">
+
+      <div class="footer-main" data-aos="fade-up" data-aos-delay="100">
+        <div class="row align-items-start">
+
+          <div class="col-lg-5">
+            <div class="brand-section">
+              <a href="index.html" class="logo d-flex align-items-center mb-4">
+                <span class="sitename">DCIMIT</span>
+              </a>
+              <p class="brand-description">Understanding and addressing health inequalities between immigrant communities and Italian natives to improve cervical cancer prevention and screening outcomes.</p>
+
+
+            </div>
+          </div>
+
+          <div class="col-lg-7">
+            <div class="footer-nav-wrapper">
+              <div class="row">
+
+
+                <div class="col-6 col-lg-3">
+                  <div class="nav-column">
+                    <h6>Explore</h6>
+                    <nav class="footer-nav">
+                      <a href="#!">Women's Health</a>
+                      <a href="#!">Research</a>
+                      <a href="#!">Data</a>
+                    </nav>
+                  </div>
+                </div>
+
+                <div class="col-6 col-lg-3">
+                  <div class="nav-column">
+                    <h6>Project</h6>
+                    <nav class="footer-nav">
+                      <a href="#!">Team</a>
+                      <a href="#!">Publication</a>
+                      <a href="#!">Partner</a>
+                    </nav>
+                  </div>
+                </div>
+
+                <div class="col-6 col-lg-3">
+                  <div class="nav-column">
+                    <h6>Connect</h6>
+                    <nav class="footer-nav">
+                      <a href="#!">Resources</a>
+                      <a href="#!">Contact</a>
+                    </nav>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="bottom-content" data-aos="fade-up" data-aos-delay="300">
+          <div class="row align-items-center">
+
+            <div class="col-lg-6">
+              <div class="copyright">
+                <p>© <span class="sitename">DCIMIT</span>. All rights reserved.</p>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="legal-links">
+                <a href="#!">Privacy Policy</a>
+                <a href="#!">Terms of Service</a>
+                <a href="#!">Cookie Policy</a>
+                <div class="credits">
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </footer>
+  <!-- Scroll Top -->
+  <a href="#!" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+</html>

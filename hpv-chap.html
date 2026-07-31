@@ -1,0 +1,1751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cervical Cancer & HPV — A Complete Guide</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap');
+
+  :root{
+    --ink:#2B1330;
+    --ink-soft:#6B4C66;
+    --blush:#F7E9E3;
+    --blush-deep:#EFD9CF;
+    --coral:#E8637A;
+    --coral-deep:#C94D63;
+    --sage:#4F9C8A;
+    --sage-deep:#3C7C6D;
+    --amber:#E8A33D;
+    --white:#FFFDFB;
+    --shadow: 0 30px 60px -20px rgba(43,19,48,0.45);
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    min-height:100vh;
+    background:
+      radial-gradient(circle at 15% 20%, #3d1c42 0%, transparent 45%),
+      radial-gradient(circle at 85% 80%, #1f4a41 0%, transparent 50%),
+      var(--ink);
+    font-family:'Inter',sans-serif;
+    color:var(--ink);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:28px 16px;
+    position:relative;
+    overflow-x:hidden;
+  }
+
+  /* ambient drifting particles */
+  .particle{
+    position:fixed;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(232,163,61,0.35), transparent 70%);
+    filter:blur(2px);
+    animation:drift 14s ease-in-out infinite;
+    pointer-events:none;
+    z-index:0;
+  }
+  .p1{width:180px;height:180px;top:8%;left:6%;animation-delay:0s;background:radial-gradient(circle, rgba(79,156,138,0.35), transparent 70%);}
+  .p2{width:120px;height:120px;bottom:10%;right:8%;animation-delay:3s;}
+  .p3{width:90px;height:90px;top:60%;left:3%;animation-delay:6s;background:radial-gradient(circle, rgba(232,99,122,0.3), transparent 70%);}
+  @keyframes drift{
+    0%,100%{transform:translateY(0) translateX(0);}
+    50%{transform:translateY(-24px) translateX(14px);}
+  }
+
+  .page{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:14px;width:100%;}
+
+  .player{
+    width:min(94vw, 880px);
+    height:min(82vh, 620px);
+    min-height:520px;
+    background:var(--blush);
+    border-radius:28px;
+    box-shadow:var(--shadow);
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+    border:1px solid rgba(255,255,255,0.25);
+  }
+
+  /* progress track */
+  .progress-track{
+    display:flex;
+    gap:6px;
+    padding:16px 20px 0 20px;
+  }
+  .segment{
+    flex:1;
+    height:4px;
+    border-radius:4px;
+    background:rgba(43,19,48,0.15);
+    overflow:hidden;
+    cursor:pointer;
+  }
+  .segment .fill{
+    height:100%;
+    width:0%;
+    background:var(--ink);
+    border-radius:4px;
+  }
+  .segment.done .fill{width:100%;}
+
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    padding:12px 20px 0 20px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .brand svg{width:16px;height:16px;flex-shrink:0;transition:fill 0.6s ease;}
+
+  .scenes{position:relative;flex:1;min-height:0;}
+  .scene{
+    display:none;
+    position:absolute;
+    inset:0;
+    padding:18px 32px 10px 32px;
+    overflow-y:auto;
+  }
+  .scene.active{display:flex;flex-direction:column;justify-content:center;}
+  .scene.two-col{flex-direction:row;align-items:center;gap:28px;}
+
+  .scene-inner{width:100%;}
+  .scene-inner.center{text-align:center;display:flex;flex-direction:column;align-items:center;}
+
+  .art{flex:0 0 auto;width:44%;min-width:220px;display:flex;align-items:center;justify-content:center;}
+  .copy{flex:1;min-width:0;}
+  .copy svg{width:100%;height:auto;max-width:340px;}
+
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--coral-deep);
+    margin:0 0 10px 0;
+  }
+  h1.display{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:clamp(32px,5.5vw,52px);
+    line-height:1.05;
+    margin:0 0 14px 0;
+    color:var(--ink);
+  }
+  h1.display em{font-style:italic;font-weight:500;color:var(--coral-deep);}
+  h2{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:clamp(24px,3.4vw,32px);
+    margin:0 0 12px 0;
+    color:var(--ink);
+  }
+  p{font-size:15.5px;line-height:1.55;color:var(--ink-soft);margin:0 0 12px 0;}
+  p strong{color:var(--ink);font-weight:700;}
+  .lede{font-size:17px;max-width:440px;margin:0 auto 18px auto;}
+  .callout{
+    background:var(--blush-deep);
+    border-left:3px solid var(--coral);
+    padding:10px 14px;
+    border-radius:6px;
+    font-size:14px;
+    color:var(--ink);
+  }
+  .tap-hint{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--sage-deep);letter-spacing:0.04em;}
+
+  .enter{animation:floatUp 0.7s ease both;}
+  .d1{animation-delay:0.05s;}
+  .d2{animation-delay:0.18s;}
+  .d3{animation-delay:0.32s;}
+  .d4{animation-delay:0.46s;}
+  @keyframes floatUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+
+  .hero-blob{width:130px;height:130px;margin-bottom:10px;}
+  .blob{animation:pulseBlob 5s ease-in-out infinite;transform-origin:center;}
+  @keyframes pulseBlob{0%,100%{transform:scale(1);}50%{transform:scale(1.06);}}
+  .blob-ring{animation:pulseRing 3s ease-out infinite;transform-origin:center;}
+  @keyframes pulseRing{0%{transform:scale(0.85);opacity:0.6;}70%{transform:scale(1.55);opacity:0;}100%{opacity:0;}}
+
+  .cervix-pulse{animation:pulseRing 2.6s ease-out infinite;transform-origin:125px 125px;}
+
+  .cell-normal{animation:cellBreathe 3.4s ease-in-out infinite;transform-origin:center;}
+  @keyframes cellBreathe{0%,100%{opacity:0.9;transform:scale(1);}50%{opacity:1;transform:scale(1.05);}}
+  .cell-pop{animation:popIn 0.5s ease both;transform-origin:center;}
+  @keyframes popIn{from{opacity:0;transform:scale(0.3);}to{opacity:1;transform:scale(1);}}
+
+  .stat-number{
+    font-family:'IBM Plex Mono',monospace;
+    font-weight:600;
+    font-size:clamp(38px,6vw,58px);
+    color:var(--coral-deep);
+    line-height:1;
+  }
+  .stat-label{font-size:13px;color:var(--ink-soft);max-width:260px;}
+  .rank-badge{
+    display:inline-block;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    background:var(--sage);
+    color:var(--white);
+    padding:4px 10px;
+    border-radius:20px;
+    margin-bottom:10px;
+  }
+  .bar-row{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+  .bar-label{font-size:12px;color:var(--ink-soft);width:150px;flex-shrink:0;}
+  .bar-track{flex:1;height:10px;background:rgba(43,19,48,0.1);border-radius:6px;overflow:hidden;}
+  .bar-fill{height:100%;border-radius:6px;width:0%;animation:barGrow 1.4s ease forwards;animation-delay:0.3s;}
+  @keyframes barGrow{to{width:var(--w);}}
+
+  .marker{animation:sweepMarker 12s linear infinite;}
+  @keyframes sweepMarker{
+    0%{transform:translateX(0px);}
+    22%{transform:translateX(148px);}
+    50%{transform:translateX(296px);}
+    75%{transform:translateX(444px);}
+    100%{transform:translateX(444px);}
+  }
+  .node-glow{animation:nodeGlow 2.2s ease-in-out infinite;transform-origin:center;}
+  @keyframes nodeGlow{0%,100%{opacity:0.5;transform:scale(1);}50%{opacity:0.15;transform:scale(1.8);}}
+
+  .draw-line{stroke-dasharray:320;stroke-dashoffset:320;animation:drawLine 1.6s ease forwards;}
+  .draw-line-b{stroke-dasharray:260;stroke-dashoffset:260;animation:drawLine 1.6s ease forwards;animation-delay:0.4s;}
+  @keyframes drawLine{to{stroke-dashoffset:0;}}
+
+  .recap-row{display:flex;align-items:flex-start;gap:14px;margin-bottom:16px;}
+  .recap-icon{flex:0 0 auto;width:34px;height:34px;}
+  .recap-row p{margin:0;font-size:14px;}
+  .recap-row strong{display:block;color:var(--ink);font-family:'Fraunces',serif;font-size:16px;font-weight:600;margin-bottom:2px;}
+  .footnote{font-size:11px;color:var(--ink-soft);opacity:0.75;margin-top:6px;}
+
+  .controls{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:16px;
+    padding:12px 20px 18px 20px;
+  }
+  .controls button{
+    background:var(--ink);
+    color:var(--white);
+    border:none;
+    width:38px;height:38px;
+    border-radius:50%;
+    font-size:15px;
+    cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    transition:transform 0.15s ease, background 0.15s ease;
+  }
+  .controls button:hover{background:var(--coral-deep);}
+  .controls button:active{transform:scale(0.92);}
+  .controls button:focus-visible{outline:2px solid var(--sage);outline-offset:2px;}
+  #playBtn{width:46px;height:46px;font-size:16px;}
+  .counter{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    color:var(--ink-soft);
+    min-width:44px;
+    text-align:center;
+  }
+
+  .hint{color:rgba(247,233,227,0.55);font-size:12px;font-family:'IBM Plex Mono',monospace;text-align:center;}
+
+  @media (max-width:640px){
+    .scene.two-col{flex-direction:column;}
+    .art{width:70%;min-width:0;}
+    .scene{padding:14px 22px 8px 22px;}
+    .player{height:min(88vh,720px);min-height:560px;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .particle, .blob, .blob-ring, .cervix-pulse, .cell-normal, .cell-pop,
+    .marker, .node-glow, .draw-line, .draw-line-b{
+      animation:none !important;
+    }
+    .enter{animation:none !important;opacity:1;transform:none;}
+  }
+
+  .icon-badge{width:56px;height:56px;border-radius:16px;display:flex;align-items:center;justify-content:center;margin-bottom:10px;}
+  .mini-list{margin:0 0 12px 0;padding-left:18px;color:var(--ink-soft);font-size:14.5px;line-height:1.6;}
+  .mini-list li{margin-bottom:4px;}
+  .mini-list li::marker{color:var(--coral-deep);}
+  .myth-line{color:var(--coral-deep);font-size:14px;margin:10px 0 0 0;text-decoration:line-through;opacity:0.8;}
+  .fact-line{color:var(--sage-deep);font-weight:600;font-size:14.5px;margin:2px 0 4px 0;}
+
+  .menu{padding:22px 28px;overflow-y:auto;height:100%;}
+  .menu-title{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(22px,3.5vw,30px);margin:2px 0 4px 0;color:var(--ink);}
+  .menu-sub{font-size:13.5px;color:var(--ink-soft);margin:0 0 18px 0;}
+  .chapter-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;}
+  .chapter-card{
+    display:flex;gap:12px;align-items:flex-start;text-align:left;
+    background:var(--white);border:1px solid rgba(43,19,48,0.08);border-radius:16px;
+    padding:14px;cursor:pointer;transition:transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .chapter-card:hover{transform:translateY(-2px);box-shadow:0 12px 24px -12px rgba(43,19,48,0.25);}
+  .chapter-card .icon-badge{width:40px;height:40px;border-radius:12px;flex-shrink:0;margin-bottom:0;}
+  .chapter-card .icon-badge svg{width:24px;height:24px;}
+  .chapter-card-title{font-family:'Fraunces',serif;font-weight:600;font-size:14.5px;color:var(--ink);margin:0 0 3px 0;}
+  .chapter-card-desc{font-size:12px;color:var(--ink-soft);line-height:1.4;margin:0;}
+  .chapter-num{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--coral-deep);}
+
+  .player-view{display:none;flex-direction:column;height:100%;}
+  .player-view.active{display:flex;}
+  .chapter-header{
+    display:flex;align-items:center;gap:10px;padding:12px 20px 0 20px;
+  }
+  .back-btn{
+    background:none;border:1px solid rgba(43,19,48,0.15);color:var(--ink-soft);
+    font-family:'IBM Plex Mono',monospace;font-size:11px;padding:5px 11px;border-radius:16px;
+    cursor:pointer;
+  }
+  .back-btn:hover{background:var(--blush-deep);}
+  .chapter-header-title{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-soft);}
+</style>
+</head>
+<body>
+
+<div class="particle p1"></div>
+<div class="particle p2"></div>
+<div class="particle p3"></div>
+
+<div class="particle p1"></div>
+<div class="particle p2"></div>
+<div class="particle p3"></div>
+
+<div class="page">
+  <div class="player" id="player" style="height:min(86vh,660px);">
+
+    <div class="menu" id="menu">
+      <p class="eyebrow" style="margin-bottom:2px;">Cervical Cancer &amp; HPV</p>
+      <h1 class="menu-title">A Complete Guide</h1>
+      <p class="menu-sub">14 short chapters. Tap any topic to start.</p>
+      <div class="chapter-grid">
+      <div class="chapter-card" data-open="0">
+        <div class="icon-badge" style="background:var(--blush-deep)"><svg viewBox="0 0 40 40"><path d="M20,4 L37,34 H3 Z" fill="none" stroke="var(--sage)" stroke-width="2.8" stroke-linejoin="round"/><line x1="20" y1="15" x2="20" y2="23" stroke="var(--sage)" stroke-width="2.8" stroke-linecap="round"/><circle cx="20" cy="28" r="1.8" fill="var(--sage)"/></svg></div>
+        <div>
+          <div class="chapter-num">01</div>
+          <div class="chapter-card-title">Understanding HPV</div>
+          <p class="chapter-card-desc">What HPV is, how it spreads, and why infection isn't cancer.</p>
+        </div>
+      </div>
+      <div class="chapter-card" data-open="1">
+        <div class="icon-badge" style="background:var(--blush-deep)"><svg viewBox="0 0 40 40"><path d="M20,4 L34,10 V19 C34,29 28,35 20,37 C12,35 6,29 6,19 V10 Z" fill="var(--sage)"/><path d="M13,20 L18,26 L28,14" stroke="var(--white)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div>
+          <div class="chapter-num">02</div>
+          <div class="chapter-card-title">The HPV Vaccine</div>
+          <p class="chapter-card-desc">Who it's for, how safe it is, and what it doesn't replace.</p>
+        </div>
+      </div>
+      <div class="chapter-card" data-open="2">
+        <div class="icon-badge" style="background:var(--blush-deep)"><svg viewBox="0 0 40 40"><circle cx="17" cy="17" r="11" fill="none" stroke="var(--coral)" stroke-width="3"/><line x1="25" y1="25" x2="35" y2="35" stroke="var(--coral)" stroke-width="3.5" stroke-linecap="round"/></svg></div>
+        <div>
+          <div class="chapter-num">03</div>
+          <div class="chapter-card-title">Why Screening Matters</div>
+          <p class="chapter-card-desc">What screening means, and why it prevents cancer.</p>
+        </div>
+      </div>
+      <div class="chapter-card" data-open="3">
+        <div class="icon-badge" style="background:var(--blush-deep)"><svg viewBox="0 0 40 40"><circle cx="17" cy="17" r="11" fill="none" stroke="var(--sage)" stroke-width="3"/><line x1="25" y1="25" x2="35" y2="35" stroke="var(--sage)" stroke-width="3.5" stroke-linecap="round"/></svg></div>
+        <div>
+          <div class="chapter-num">04</div>
+          <div class="chapter-card-title">Pap Test vs. HPV Test</div>
+          <p class="chapter-card-desc">Two tests, two different questions.</p>
+        </div>
+      </div>
+      <div class="chapter-card" data-open="4">
+        <div class="icon-badge" style="background:var(--blush-deep)"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="17" fill="none" stroke="var(--sage)" stroke-width="2.5"/><path d="M13,17 C13,13 16,11 20,11 C24,11 27,13 27,17 L27,24 C27,28 24,30 20,30 C16,30 13,28 13,24 Z" fill="none" stroke="var(--sage)" stroke-width="2.2"/></svg></div>
+        <div>
+          <div class="chapter-num">05</div>
+          <div class="chapter-card-title">What Happens During the Exam</div>
+          <p class="chapter-card-desc">Arrival to aftercare, step by step.</p>
+        </div>
+      </div>
+      <div class="chapter-card" data-open="5">
+        <div class="icon-badge" style="background:var(--blush-deep)"><svg viewBox="0 0 40 40"><path d="M20,4 L37,34 H3 Z" fill="none" stroke="var(--coral-deep)" stroke-width="2.8" stroke-linejoin="round"/><line x1="20" y1="15" x2="20" y2="23" stroke="var(--coral-deep)" stroke-width="2.8" stroke-linecap="round"/><circle cx="20" cy="28" r="1.8" fill="var(--coral-deep)"/></svg></div>
+        <div>
+          <div class="chapter-num">06</div>
+          <div class="chapter-card-title">HPV Positive: What Now?</div>
+          <p class="chapter-card-desc">A positive result explained, step by step.</p>
+        </div>
+      </div>
+      <div class="chapter-card" data-open="6">
+        <div class="icon-badge" style="background:var(--blush-deep)"><svg viewBox="0 0 40 40"><circle cx="17" cy="17" r="11" fill="none" stroke="var(--sage)" stroke-width="3"/><line x1="25" y1="25" x2="35" y2="35" stroke="var(--sage)" stroke-width="3.5" stroke-linecap="round"/></svg></div>
+        <div>
+          <div class="chapter-num">07</div>
+          <div class="chapter-card-title">Colposcopy Explained</div>
+          <p class="chapter-card-desc">What it is, whether it hurts, and recovery.</p>
+        </div>
+      </div>
+      <div class="chapter-card" data-open="7">
+        <div class="icon-badge" style="background:var(--blush-deep)"><svg viewBox="0 0 40 40"><path d="M20,4 L37,34 H3 Z" fill="none" stroke="var(--coral)" stroke-width="2.8" stroke-linejoin="round"/><line x1="20" y1="15" x2="20" y2="23" stroke="var(--coral)" stroke-width="2.8" stroke-linecap="round"/><circle cx="20" cy="28" r="1.8" fill="var(--coral)"/></svg></div>
+        <div>
+          <div class="chapter-num">08</div>
+          <div class="chapter-card-title">Common Myths</div>
+          <p class="chapter-card-desc">The beliefs that keep women from getting screened.</p>
+        </div>
+      </div>
+      <div class="chapter-card" data-open="8">
+        <div class="icon-badge" style="background:var(--blush-deep)"><svg viewBox="0 0 40 40"><path d="M20,4 L37,34 H3 Z" fill="none" stroke="var(--coral)" stroke-width="2.8" stroke-linejoin="round"/><line x1="20" y1="15" x2="20" y2="23" stroke="var(--coral)" stroke-width="2.8" stroke-linecap="round"/><circle cx="20" cy="28" r="1.8" fill="var(--coral)"/></svg></div>
+        <div>
+          <div class="chapter-num">09</div>
+          <div class="chapter-card-title">Cervical Cancer Symptoms</div>
+          <p class="chapter-card-desc">What to watch for, and why not to wait.</p>
+        </div>
+      </div>
+      <div class="chapter-card" data-open="9">
+        <div class="icon-badge" style="background:var(--blush-deep)"><svg viewBox="0 0 40 40"><path d="M8,22 C8,15 13,10 20,10 C27,10 32,15 32,22" fill="none" stroke="var(--sage)" stroke-width="2.5" stroke-linecap="round"/><path d="M20,17 C15,12 9,15 10,21 C11,26 20,33 20,33 C20,33 29,26 30,21 C31,15 25,12 20,17 Z" fill="var(--sage)"/></svg></div>
+        <div>
+          <div class="chapter-num">10</div>
+          <div class="chapter-card-title">Overcoming Fear</div>
+          <p class="chapter-card-desc">The emotional side of screening, addressed directly.</p>
+        </div>
+      </div>
+      <div class="chapter-card" data-open="10">
+        <div class="icon-badge" style="background:var(--blush-deep)"><svg viewBox="0 0 40 40"><circle cx="20" cy="13" r="8" fill="var(--sage)"/><path d="M8,36 C8,25 13,21 20,21 C27,21 32,25 32,36" fill="var(--sage)"/><circle cx="17" cy="12" r="1.4" fill="var(--white)"/><circle cx="23" cy="12" r="1.4" fill="var(--white)"/></svg></div>
+        <div>
+          <div class="chapter-num">11</div>
+          <div class="chapter-card-title">Pregnancy & Screening</div>
+          <p class="chapter-card-desc">Timing questions during and after pregnancy.</p>
+        </div>
+      </div>
+      <div class="chapter-card" data-open="11">
+        <div class="icon-badge" style="background:var(--blush-deep)"><svg viewBox="0 0 40 40"><path d="M20,4 L37,34 H3 Z" fill="none" stroke="var(--amber)" stroke-width="2.8" stroke-linejoin="round"/><line x1="20" y1="15" x2="20" y2="23" stroke="var(--amber)" stroke-width="2.8" stroke-linecap="round"/><circle cx="20" cy="28" r="1.8" fill="var(--amber)"/></svg></div>
+        <div>
+          <div class="chapter-num">12</div>
+          <div class="chapter-card-title">Menopause & Screening</div>
+          <p class="chapter-card-desc">Why screening usually continues past menopause.</p>
+        </div>
+      </div>
+      <div class="chapter-card" data-open="12">
+        <div class="icon-badge" style="background:var(--blush-deep)"><svg viewBox="0 0 40 40"><path d="M9,32 C9,14 22,6 33,7 C33,20 25,32 9,32 Z" fill="var(--sage)"/><path d="M11,30 C18,22 24,16 32,8" stroke="var(--white)" stroke-width="1.6" fill="none" opacity="0.6"/></svg></div>
+        <div>
+          <div class="chapter-num">13</div>
+          <div class="chapter-card-title">Lifestyle & Prevention</div>
+          <p class="chapter-card-desc">What helps — and what it can't replace.</p>
+        </div>
+      </div>
+      <div class="chapter-card" data-open="13">
+        <div class="icon-badge" style="background:var(--blush-deep)"><svg viewBox="0 0 40 40"><circle cx="7" cy="8" r="4" fill="var(--sage)"/><circle cx="33" cy="32" r="4" fill="var(--sage)"/><path d="M7,12 C7,24 5,20 20,20 C35,20 33,16 33,28" fill="none" stroke="var(--sage)" stroke-width="2.4" stroke-dasharray="3,4"/></svg></div>
+        <div>
+          <div class="chapter-num">14</div>
+          <div class="chapter-card-title">The Screening Journey</div>
+          <p class="chapter-card-desc">One woman's path, from letter to result.</p>
+        </div>
+      </div>
+      </div>
+    </div>
+
+
+    <div class="player-view" data-chapter="0">
+      <div class="chapter-header">
+        <button class="back-btn" data-back="1">☰ All topics</button>
+        <span class="chapter-header-title">Understanding HPV</span>
+      </div>
+      <div class="progress-track" data-track="0"></div>
+      <div class="scenes" data-scenes="0">
+
+      <section class="scene active" data-index="0" aria-label="Introduction">
+        <div class="scene-inner center">
+          <svg class="hero-blob enter" viewBox="0 0 200 200" aria-hidden="true">
+            <circle class="blob-ring" cx="100" cy="100" r="60" fill="none" stroke="var(--coral)" stroke-width="2"/>
+            <path class="blob" d="M100,26 C138,26 172,50 175,92 C178,134 148,172 106,175 C64,178 28,150 24,106 C20,62 58,26 100,26 Z" fill="var(--sage)"/>
+          </svg>
+          <p class="eyebrow enter d1">A six-part guide</p>
+          <h1 class="display enter d2">Understanding <em>HPV</em></h1>
+          <p class="lede enter d3">You've probably heard the name. Here's what it actually is.</p>
+          <p class="tap-hint enter d4">Press play below to begin ▶</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="1" aria-label="What is HPV?">
+        <div class="scene-inner">
+          <div class="icon-badge" style="background:var(--blush-deep)"><svg viewBox="0 0 40 40" style="width:40px;height:40px;"><path d="M20,4 L37,34 H3 Z" fill="none" stroke="var(--sage)" stroke-width="2.8" stroke-linejoin="round"/><line x1="20" y1="15" x2="20" y2="23" stroke="var(--sage)" stroke-width="2.8" stroke-linecap="round"/><circle cx="20" cy="28" r="1.8" fill="var(--sage)"/></svg></div>
+          <p class="eyebrow enter d1">01</p>
+          <h2 class="enter d2">What is HPV?</h2>
+          <p class="enter d3">HPV is a family of more than <strong>200 related viruses</strong>. Most types are harmless; a smaller group of <strong>high-risk types</strong> can lead to cancer if left unchecked.</p>
+          <p class="callout enter d4">It's a completely different virus from HIV or herpes, despite the similar-sounding names.</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="2" aria-label="How is it transmitted?">
+        <div class="scene-inner">
+          <div class="icon-badge" style="background:var(--blush-deep)"><svg viewBox="0 0 40 40" style="width:40px;height:40px;"><circle cx="14" cy="12" r="6" fill="var(--coral-deep)" opacity="0.9"/><path d="M4,35 C4,25 8,20 14,20 C20,20 24,25 24,35" fill="var(--coral-deep)" opacity="0.9"/><circle cx="29" cy="14" r="5" fill="var(--coral-deep)" opacity="0.55"/><path d="M20,35 C20,27 24,23 29,23 C34,23 38,27 38,35" fill="var(--coral-deep)" opacity="0.55"/></svg></div>
+          <p class="eyebrow enter d1">02</p>
+          <h2 class="enter d2">How is it transmitted?</h2>
+          <p class="enter d3">Through <strong>skin-to-skin contact</strong> during vaginal, anal, or oral sex — not through blood. It can be passed even with no visible symptoms.</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="3" aria-label="Is HPV an STI?">
+        <div class="scene-inner">
+          <div class="icon-badge" style="background:var(--blush-deep)"><svg viewBox="0 0 40 40" style="width:40px;height:40px;"><path d="M10,4 H26 L32,10 V36 H10 Z" fill="none" stroke="var(--amber)" stroke-width="2.5" stroke-linejoin="round"/><path d="M26,4 V10 H32" fill="none" stroke="var(--amber)" stroke-width="2.5" stroke-linejoin="round"/><line x1="15" y1="19" x2="27" y2="19" stroke="var(--amber)" stroke-width="2"/><line x1="15" y1="25" x2="27" y2="25" stroke="var(--amber)" stroke-width="2"/><line x1="15" y1="31" x2="22" y2="31" stroke="var(--amber)" stroke-width="2"/></svg></div>
+          <p class="eyebrow enter d1">03</p>
+          <h2 class="enter d2">Is HPV an STI?</h2>
+          <p class="enter d3">Yes — the <strong>most common STI</strong> there is. Nearly all sexually active people get it at some point, even with only one partner, ever.</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="4" aria-label="Can it disappear naturally?">
+        <div class="scene-inner">
+          <div class="icon-badge" style="background:var(--blush-deep)"><svg viewBox="0 0 40 40" style="width:40px;height:40px;"><circle cx="20" cy="20" r="17" fill="var(--sage)"/><path d="M12,20 L18,27 L29,13" stroke="var(--white)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <p class="eyebrow enter d1">04</p>
+          <h2 class="enter d2">Can it disappear naturally?</h2>
+          <p class="enter d3">Yes. About <strong>9 in 10 infections</strong> clear on their own within one to two years, with no symptoms or lasting effects.</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="5" aria-label="Does it always cause cancer?">
+        <div class="scene-inner">
+          <div class="icon-badge" style="background:var(--blush-deep)"><svg viewBox="0 0 40 40" style="width:40px;height:40px;"><path d="M20,4 L34,10 V19 C34,29 28,35 20,37 C12,35 6,29 6,19 V10 Z" fill="var(--sage)"/><path d="M13,20 L18,26 L28,14" stroke="var(--white)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <p class="eyebrow enter d1">05</p>
+          <h2 class="enter d2">Does it always cause cancer?</h2>
+          <p class="enter d3">No. Only a subset of high-risk types can, and only if the infection <strong>persists for years</strong> without clearing. Most HPV never leads to cancer.</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="6" aria-label="HPV in men and women">
+        <div class="scene-inner">
+          <div class="icon-badge" style="background:var(--blush-deep)"><svg viewBox="0 0 40 40" style="width:40px;height:40px;"><circle cx="20" cy="20" r="16" fill="none" stroke="var(--coral)" stroke-width="2.5"/><ellipse cx="20" cy="20" rx="7" ry="16" fill="none" stroke="var(--coral)" stroke-width="2"/><line x1="4" y1="20" x2="36" y2="20" stroke="var(--coral)" stroke-width="2"/><line x1="7" y1="12" x2="33" y2="12" stroke="var(--coral)" stroke-width="1.6"/><line x1="7" y1="28" x2="33" y2="28" stroke="var(--coral)" stroke-width="1.6"/></svg></div>
+          <p class="eyebrow enter d1">06</p>
+          <h2 class="enter d2">HPV in men and women</h2>
+          <p class="enter d3">It affects everyone. In the U.S. it's linked to about 43,000 cancers a year — roughly 25,000 in women (mostly cervical) and 19,000 in men (mostly throat).</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="7" aria-label="Key takeaways">
+        <div class="scene-inner">
+          <p class="eyebrow enter d1">Key takeaways</p>
+          <h2 class="enter d2" style="margin-bottom:18px;">Three things worth remembering</h2>
+          <div class="recap-row enter d2">
+            <svg class="recap-icon" viewBox="0 0 40 40"><circle cx="20" cy="20" r="17" fill="var(--sage)"/><path d="M12,20 L18,27 L29,13" stroke="var(--white)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <p><strong>It's common.</strong> Most sexually active people get HPV at some point.</p>
+          </div>
+          <div class="recap-row enter d3">
+            <svg class="recap-icon" viewBox="0 0 40 40"><path d="M20,4 L34,10 V19 C34,29 28,35 20,37 C12,35 6,29 6,19 V10 Z" fill="var(--sage)"/><path d="M13,20 L18,26 L28,14" stroke="var(--white)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <p><strong>It usually clears.</strong> About 9 in 10 infections resolve on their own.</p>
+          </div>
+          <div class="recap-row enter d4">
+            <svg class="recap-icon" viewBox="0 0 40 40"><path d="M20,4 L37,34 H3 Z" fill="none" stroke="var(--coral-deep)" stroke-width="2.8" stroke-linejoin="round"/><line x1="20" y1="15" x2="20" y2="23" stroke="var(--coral-deep)" stroke-width="2.8" stroke-linecap="round"/><circle cx="20" cy="28" r="1.8" fill="var(--coral-deep)"/></svg>
+            <p><strong>It's not always risky.</strong> Only persistent high-risk types can lead to cancer.</p>
+          </div>
+          <p class="callout enter d4" style="margin-top:6px;">Talk to a doctor about HPV vaccination and, for women, routine screening.</p>
+          <p class="footnote enter d4">Sources: CDC, NCI (2024–2026). General information, not medical advice.</p>
+        </div>
+      </section>
+      </div>
+      <div class="controls">
+        <button class="prevBtn" aria-label="Previous scene">‹</button>
+        <button class="playBtn" aria-label="Play">▶</button>
+        <button class="nextBtn" aria-label="Next scene">›</button>
+        <span class="counter">1 / 8</span>
+      </div>
+    </div>
+
+    <div class="player-view" data-chapter="1">
+      <div class="chapter-header">
+        <button class="back-btn" data-back="1">☰ All topics</button>
+        <span class="chapter-header-title">The HPV Vaccine</span>
+      </div>
+      <div class="progress-track" data-track="1"></div>
+      <div class="scenes" data-scenes="1">
+
+      <section class="scene active" data-index="0" aria-label="Introduction">
+        <div class="scene-inner center">
+          <svg class="hero-blob enter" viewBox="0 0 200 200" aria-hidden="true">
+            <circle class="blob-ring" cx="100" cy="100" r="60" fill="none" stroke="var(--coral)" stroke-width="2"/>
+            <path class="blob" d="M100,26 C138,26 172,50 175,92 C178,134 148,172 106,175 C64,178 28,150 24,106 C20,62 58,26 100,26 Z" fill="var(--sage)"/>
+          </svg>
+          <p class="eyebrow enter d1">A four-part guide</p>
+          <h1 class="display enter d2">The <em>HPV Vaccine</em></h1>
+          <p class="lede enter d3">One of the biggest sources of confusion online. Here's what's true.</p>
+          <p class="tap-hint enter d4">Press play below to begin ▶</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="1" aria-label="Who should receive it?">
+        <div class="scene-inner">
+          <div class="icon-badge" style="background:var(--blush-deep)"><svg viewBox="0 0 40 40" style="width:40px;height:40px;"><circle cx="14" cy="12" r="6" fill="var(--sage)" opacity="0.9"/><path d="M4,35 C4,25 8,20 14,20 C20,20 24,25 24,35" fill="var(--sage)" opacity="0.9"/><circle cx="29" cy="14" r="5" fill="var(--sage)" opacity="0.55"/><path d="M20,35 C20,27 24,23 29,23 C34,23 38,27 38,35" fill="var(--sage)" opacity="0.55"/></svg></div>
+          <p class="eyebrow enter d1">01</p>
+          <h2 class="enter d2">Who should receive it?</h2>
+          <p class="enter d3">Recommended for <strong>boys and girls from age 11–12</strong> (as early as 9). Catch-up vaccination is recommended through age 26.</p>
+          <p class="callout enter d4">Two doses if started before 15; three doses if started later.</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="2" aria-label="Is it safe?">
+        <div class="scene-inner">
+          <div class="icon-badge" style="background:var(--blush-deep)"><svg viewBox="0 0 40 40" style="width:40px;height:40px;"><path d="M20,4 L34,10 V19 C34,29 28,35 20,37 C12,35 6,29 6,19 V10 Z" fill="var(--sage)"/><path d="M13,20 L18,26 L28,14" stroke="var(--white)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <p class="eyebrow enter d1">02</p>
+          <h2 class="enter d2">Is it safe?</h2>
+          <p class="enter d3">Yes — one of the most closely studied vaccines in use, with over 15 years of safety data across hundreds of millions of doses.</p>
+          <p class="callout enter d4">It does not cause infertility. That's a persistent myth with no supporting evidence.</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="3" aria-label="Can adults still get vaccinated?">
+        <div class="scene-inner">
+          <div class="icon-badge" style="background:var(--blush-deep)"><svg viewBox="0 0 40 40" style="width:40px;height:40px;"><rect x="6" y="9" width="28" height="25" rx="4" fill="none" stroke="var(--amber)" stroke-width="2.5"/><line x1="6" y1="16" x2="34" y2="16" stroke="var(--amber)" stroke-width="2.5"/><line x1="13" y1="5" x2="13" y2="12" stroke="var(--amber)" stroke-width="2.5" stroke-linecap="round"/><line x1="27" y1="5" x2="27" y2="12" stroke="var(--amber)" stroke-width="2.5" stroke-linecap="round"/><circle cx="20" cy="25" r="3.4" fill="var(--amber)"/></svg></div>
+          <p class="eyebrow enter d1">03</p>
+          <h2 class="enter d2">Can adults still get vaccinated?</h2>
+          <p class="enter d3">Yes, up to age 45, through a shared decision with a doctor — the benefit is smaller since many adults have already had some HPV exposure.</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="4" aria-label="Does it replace screening?">
+        <div class="scene-inner">
+          <div class="icon-badge" style="background:var(--blush-deep)"><svg viewBox="0 0 40 40" style="width:40px;height:40px;"><path d="M20,4 L37,34 H3 Z" fill="none" stroke="var(--coral-deep)" stroke-width="2.8" stroke-linejoin="round"/><line x1="20" y1="15" x2="20" y2="23" stroke="var(--coral-deep)" stroke-width="2.8" stroke-linecap="round"/><circle cx="20" cy="28" r="1.8" fill="var(--coral-deep)"/></svg></div>
+          <p class="eyebrow enter d1">04</p>
+          <h2 class="enter d2">Does it replace screening?</h2>
+          <p class="enter d3">No. It doesn't cover every cancer-causing type and can't treat an existing infection.</p>
+          <p class="callout enter d4">Vaccinated women still need routine cervical screening.</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="5" aria-label="Key takeaways">
+        <div class="scene-inner">
+          <p class="eyebrow enter d1">Key takeaways</p>
+          <h2 class="enter d2" style="margin-bottom:18px;">Three things worth remembering</h2>
+          <div class="recap-row enter d2">
+            <svg class="recap-icon" viewBox="0 0 40 40"><circle cx="14" cy="12" r="6" fill="var(--sage)" opacity="0.9"/><path d="M4,35 C4,25 8,20 14,20 C20,20 24,25 24,35" fill="var(--sage)" opacity="0.9"/><circle cx="29" cy="14" r="5" fill="var(--sage)" opacity="0.55"/><path d="M20,35 C20,27 24,23 29,23 C34,23 38,27 38,35" fill="var(--sage)" opacity="0.55"/></svg>
+            <p><strong>It's for everyone.</strong> From age 11–12, with catch-up through 26.</p>
+          </div>
+          <div class="recap-row enter d3">
+            <svg class="recap-icon" viewBox="0 0 40 40"><path d="M20,4 L34,10 V19 C34,29 28,35 20,37 C12,35 6,29 6,19 V10 Z" fill="var(--sage)"/><path d="M13,20 L18,26 L28,14" stroke="var(--white)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <p><strong>It's safety-tested.</strong> Extensively studied, mild side effects.</p>
+          </div>
+          <div class="recap-row enter d4">
+            <svg class="recap-icon" viewBox="0 0 40 40"><path d="M20,4 L37,34 H3 Z" fill="none" stroke="var(--coral-deep)" stroke-width="2.8" stroke-linejoin="round"/><line x1="20" y1="15" x2="20" y2="23" stroke="var(--coral-deep)" stroke-width="2.8" stroke-linecap="round"/><circle cx="20" cy="28" r="1.8" fill="var(--coral-deep)"/></svg>
+            <p><strong>It doesn't replace screening.</strong> The two work together, not instead of each other.</p>
+          </div>
+          <p class="callout enter d4" style="margin-top:6px;">Talk to a doctor about vaccination — for yourself or your children, at any eligible age.</p>
+          <p class="footnote enter d4">Sources: CDC, NCI (2024–2026). General information, not medical advice.</p>
+        </div>
+      </section>
+      </div>
+      <div class="controls">
+        <button class="prevBtn" aria-label="Previous scene">‹</button>
+        <button class="playBtn" aria-label="Play">▶</button>
+        <button class="nextBtn" aria-label="Next scene">›</button>
+        <span class="counter">1 / 6</span>
+      </div>
+    </div>
+
+    <div class="player-view" data-chapter="2">
+      <div class="chapter-header">
+        <button class="back-btn" data-back="1">☰ All topics</button>
+        <span class="chapter-header-title">Why Screening Matters</span>
+      </div>
+      <div class="progress-track" data-track="2"></div>
+      <div class="scenes" data-scenes="2">
+
+      <section class="scene active" data-index="0" aria-label="Introduction">
+        <div class="scene-inner center">
+          <svg class="hero-blob enter" viewBox="0 0 200 200" aria-hidden="true">
+            <circle class="blob-ring" cx="100" cy="100" r="60" fill="none" stroke="var(--coral)" stroke-width="2"/>
+            <path class="blob" d="M100,26 C138,26 172,50 175,92 C178,134 148,172 106,175 C64,178 28,150 24,106 C20,62 58,26 100,26 Z" fill="var(--coral)"/>
+          </svg>
+          <p class="eyebrow enter d1">A four-part guide</p>
+          <h1 class="display enter d2">Why <em>Screening</em> Matters</h1>
+          <p class="lede enter d3">Probably the single most important idea in preventing cervical cancer.</p>
+          <p class="tap-hint enter d4">Press play below to begin ▶</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="1" aria-label="What screening means">
+        <div class="scene-inner">
+          <div class="icon-badge" style="background:var(--blush-deep)"><svg viewBox="0 0 40 40" style="width:40px;height:40px;"><circle cx="17" cy="17" r="11" fill="none" stroke="var(--sage)" stroke-width="3"/><line x1="25" y1="25" x2="35" y2="35" stroke="var(--sage)" stroke-width="3.5" stroke-linecap="round"/></svg></div>
+          <p class="eyebrow enter d1">01</p>
+          <h2 class="enter d2">What screening means</h2>
+          <p class="enter d3">Checking for early warning signs — like precancerous cells or HPV — in people who feel <strong>completely healthy</strong>, before anything is wrong.</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="2" aria-label="Why no symptoms still means screen">
+        <div class="scene-inner">
+          <div class="icon-badge" style="background:var(--blush-deep)"><svg viewBox="0 0 40 40" style="width:40px;height:40px;"><path d="M20,4 L37,34 H3 Z" fill="none" stroke="var(--amber)" stroke-width="2.8" stroke-linejoin="round"/><line x1="20" y1="15" x2="20" y2="23" stroke="var(--amber)" stroke-width="2.8" stroke-linecap="round"/><circle cx="20" cy="28" r="1.8" fill="var(--amber)"/></svg></div>
+          <p class="eyebrow enter d1">02</p>
+          <h2 class="enter d2">Why no symptoms still means screen</h2>
+          <p class="enter d3">Early cervical changes usually cause <strong>no symptoms at all</strong>. Feeling fine isn't the same as being in the clear.</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="3" aria-label="Prevention vs. diagnosis">
+        <div class="scene-inner">
+          <div class="icon-badge" style="background:var(--blush-deep)"><svg viewBox="0 0 40 40" style="width:40px;height:40px;"><path d="M10,4 H26 L32,10 V36 H10 Z" fill="none" stroke="var(--sage)" stroke-width="2.5" stroke-linejoin="round"/><path d="M26,4 V10 H32" fill="none" stroke="var(--sage)" stroke-width="2.5" stroke-linejoin="round"/><line x1="15" y1="19" x2="27" y2="19" stroke="var(--sage)" stroke-width="2"/><line x1="15" y1="25" x2="27" y2="25" stroke="var(--sage)" stroke-width="2"/><line x1="15" y1="31" x2="22" y2="31" stroke="var(--sage)" stroke-width="2"/></svg></div>
+          <p class="eyebrow enter d1">03</p>
+          <h2 class="enter d2">Prevention vs. diagnosis</h2>
+          <p class="enter d3">Diagnosis confirms a disease that's already there. <strong>Prevention</strong> catches changes early enough that disease never develops.</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="4" aria-label="Why it prevents, not just detects">
+        <div class="scene-inner">
+          <div class="icon-badge" style="background:var(--blush-deep)"><svg viewBox="0 0 40 40" style="width:40px;height:40px;"><path d="M20,4 L34,10 V19 C34,29 28,35 20,37 C12,35 6,29 6,19 V10 Z" fill="var(--sage)"/><path d="M13,20 L18,26 L28,14" stroke="var(--white)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <p class="eyebrow enter d1">04</p>
+          <h2 class="enter d2">Why it prevents, not just detects</h2>
+          <p class="enter d3">Screening finds and removes precancerous cells <strong>before</strong> they ever become cancer — genuinely different from finding cancer that already exists.</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="5" aria-label="Key takeaways">
+        <div class="scene-inner">
+          <p class="eyebrow enter d1">Key takeaways</p>
+          <h2 class="enter d2" style="margin-bottom:18px;">Three things worth remembering</h2>
+          <div class="recap-row enter d2">
+            <svg class="recap-icon" viewBox="0 0 40 40"><circle cx="17" cy="17" r="11" fill="none" stroke="var(--sage)" stroke-width="3"/><line x1="25" y1="25" x2="35" y2="35" stroke="var(--sage)" stroke-width="3.5" stroke-linecap="round"/></svg>
+            <p><strong>It's for the healthy, too.</strong> No symptoms needed — that's the whole point.</p>
+          </div>
+          <div class="recap-row enter d3">
+            <svg class="recap-icon" viewBox="0 0 40 40"><path d="M20,4 L34,10 V19 C34,29 28,35 20,37 C12,35 6,29 6,19 V10 Z" fill="var(--sage)"/><path d="M13,20 L18,26 L28,14" stroke="var(--white)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <p><strong>It stops cancer before it starts.</strong> Treating precancer prevents cancer entirely.</p>
+          </div>
+          <div class="recap-row enter d4">
+            <svg class="recap-icon" viewBox="0 0 40 40"><path d="M20,4 L37,34 H3 Z" fill="none" stroke="var(--amber)" stroke-width="2.8" stroke-linejoin="round"/><line x1="20" y1="15" x2="20" y2="23" stroke="var(--amber)" stroke-width="2.8" stroke-linecap="round"/><circle cx="20" cy="28" r="1.8" fill="var(--amber)"/></svg>
+            <p><strong>Waiting for symptoms is the risk.</strong> By then, it's often no longer prevention.</p>
+          </div>
+          <p class="callout enter d4" style="margin-top:6px;">If you're due for screening, book it — you don't need to feel worried to justify going.</p>
+          <p class="footnote enter d4">Sources: WHO, CDC, USPSTF (2024–2026). General information, not medical advice.</p>
+        </div>
+      </section>
+      </div>
+      <div class="controls">
+        <button class="prevBtn" aria-label="Previous scene">‹</button>
+        <button class="playBtn" aria-label="Play">▶</button>
+        <button class="nextBtn" aria-label="Next scene">›</button>
+        <span class="counter">1 / 6</span>
+      </div>
+    </div>
+
+    <div class="player-view" data-chapter="3">
+      <div class="chapter-header">
+        <button class="back-btn" data-back="1">☰ All topics</button>
+        <span class="chapter-header-title">Pap Test vs. HPV Test</span>
+      </div>
+      <div class="progress-track" data-track="3"></div>
+      <div class="scenes" data-scenes="3">
+
+      <section class="scene active" data-index="0" aria-label="Introduction">
+        <div class="scene-inner center">
+          <svg class="hero-blob enter" viewBox="0 0 200 200" aria-hidden="true">
+            <circle class="blob-ring" cx="100" cy="100" r="60" fill="none" stroke="var(--coral)" stroke-width="2"/>
+            <path class="blob" d="M100,26 C138,26 172,50 175,92 C178,134 148,172 106,175 C64,178 28,150 24,106 C20,62 58,26 100,26 Z" fill="var(--sage)"/>
+          </svg>
+          <p class="eyebrow enter d1">A four-part guide</p>
+          <h1 class="display enter d2">Pap Test <em>vs.</em> HPV Test</h1>
+          <p class="lede enter d3">Two different tests, often confused.</p>
+          <p class="tap-hint enter d4">Press play below to begin ▶</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="1" aria-label="The Pap test">
+        <div class="scene-inner">
+          <div class="icon-badge" style="background:var(--blush-deep)"><svg viewBox="0 0 40 40" style="width:40px;height:40px;"><circle cx="17" cy="17" r="11" fill="none" stroke="var(--coral-deep)" stroke-width="3"/><line x1="25" y1="25" x2="35" y2="35" stroke="var(--coral-deep)" stroke-width="3.5" stroke-linecap="round"/></svg></div>
+          <p class="eyebrow enter d1">01</p>
+          <h2 class="enter d2">The Pap test</h2>
+          <p class="enter d3">Examines cervical cells under a microscope for <strong>abnormal changes</strong> — signs cells have already started changing.</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="2" aria-label="The HPV test">
+        <div class="scene-inner">
+          <div class="icon-badge" style="background:var(--blush-deep)"><svg viewBox="0 0 40 40" style="width:40px;height:40px;"><circle cx="17" cy="17" r="11" fill="none" stroke="var(--sage)" stroke-width="3"/><line x1="25" y1="25" x2="35" y2="35" stroke="var(--sage)" stroke-width="3.5" stroke-linecap="round"/></svg></div>
+          <p class="eyebrow enter d1">02</p>
+          <h2 class="enter d2">The HPV test</h2>
+          <p class="enter d3">Checks the same sample for <strong>high-risk HPV DNA</strong> — the underlying cause — rather than looking at the cells.</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="3" aria-label="Who, and how often">
+        <div class="scene-inner">
+          <div class="icon-badge" style="background:var(--blush-deep)"><svg viewBox="0 0 40 40" style="width:40px;height:40px;"><rect x="6" y="9" width="28" height="25" rx="4" fill="none" stroke="var(--amber)" stroke-width="2.5"/><line x1="6" y1="16" x2="34" y2="16" stroke="var(--amber)" stroke-width="2.5"/><line x1="13" y1="5" x2="13" y2="12" stroke="var(--amber)" stroke-width="2.5" stroke-linecap="round"/><line x1="27" y1="5" x2="27" y2="12" stroke="var(--amber)" stroke-width="2.5" stroke-linecap="round"/><circle cx="20" cy="25" r="3.4" fill="var(--amber)"/></svg></div>
+          <p class="eyebrow enter d1">03</p>
+          <h2 class="enter d2">Who, and how often</h2>
+          <p class="enter d3">General guidance: ages 21–29, Pap every 3 years. Ages 30–65, HPV test every 5 years (or Pap every 3, or both together every 5).</p>
+          <p class="callout enter d4">Exact intervals vary by country's program — follow the one you're invited for.</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="4" aria-label="Why age changes the answer">
+        <div class="scene-inner">
+          <div class="icon-badge" style="background:var(--blush-deep)"><svg viewBox="0 0 40 40" style="width:40px;height:40px;"><circle cx="14" cy="12" r="6" fill="var(--sage)" opacity="0.9"/><path d="M4,35 C4,25 8,20 14,20 C20,20 24,25 24,35" fill="var(--sage)" opacity="0.9"/><circle cx="29" cy="14" r="5" fill="var(--sage)" opacity="0.55"/><path d="M20,35 C20,27 24,23 29,23 C34,23 38,27 38,35" fill="var(--sage)" opacity="0.55"/></svg></div>
+          <p class="eyebrow enter d1">04</p>
+          <h2 class="enter d2">Why age changes the answer</h2>
+          <p class="enter d3">In the 20s, HPV is common and usually clears on its own — testing for it directly would over-flag harmless infections. After 30, a lingering infection is more meaningful.</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="5" aria-label="Key takeaways">
+        <div class="scene-inner">
+          <p class="eyebrow enter d1">Key takeaways</p>
+          <h2 class="enter d2" style="margin-bottom:18px;">Three things worth remembering</h2>
+          <div class="recap-row enter d2">
+            <svg class="recap-icon" viewBox="0 0 40 40"><circle cx="17" cy="17" r="11" fill="none" stroke="var(--coral-deep)" stroke-width="3"/><line x1="25" y1="25" x2="35" y2="35" stroke="var(--coral-deep)" stroke-width="3.5" stroke-linecap="round"/></svg>
+            <p><strong>Pap looks at cells.</strong> Checks for abnormal changes already present.</p>
+          </div>
+          <div class="recap-row enter d3">
+            <svg class="recap-icon" viewBox="0 0 40 40"><circle cx="17" cy="17" r="11" fill="none" stroke="var(--sage)" stroke-width="3"/><line x1="25" y1="25" x2="35" y2="35" stroke="var(--sage)" stroke-width="3.5" stroke-linecap="round"/></svg>
+            <p><strong>HPV looks for the cause.</strong> Checks whether high-risk HPV is present.</p>
+          </div>
+          <div class="recap-row enter d4">
+            <svg class="recap-icon" viewBox="0 0 40 40"><rect x="6" y="9" width="28" height="25" rx="4" fill="none" stroke="var(--amber)" stroke-width="2.5"/><line x1="6" y1="16" x2="34" y2="16" stroke="var(--amber)" stroke-width="2.5"/><line x1="13" y1="5" x2="13" y2="12" stroke="var(--amber)" stroke-width="2.5" stroke-linecap="round"/><line x1="27" y1="5" x2="27" y2="12" stroke="var(--amber)" stroke-width="2.5" stroke-linecap="round"/><circle cx="20" cy="25" r="3.4" fill="var(--amber)"/></svg>
+            <p><strong>Age shapes the recommendation.</strong> Which test, and how often, depends on age.</p>
+          </div>
+          <p class="callout enter d4" style="margin-top:6px;">Ask your doctor or clinic which test your screening program recommends for your age.</p>
+          <p class="footnote enter d4">Sources: USPSTF, ACS, WHO (2024–2026). General information, not medical advice.</p>
+        </div>
+      </section>
+      </div>
+      <div class="controls">
+        <button class="prevBtn" aria-label="Previous scene">‹</button>
+        <button class="playBtn" aria-label="Play">▶</button>
+        <button class="nextBtn" aria-label="Next scene">›</button>
+        <span class="counter">1 / 6</span>
+      </div>
+    </div>
+
+    <div class="player-view" data-chapter="4">
+      <div class="chapter-header">
+        <button class="back-btn" data-back="1">☰ All topics</button>
+        <span class="chapter-header-title">What Happens During the Exam</span>
+      </div>
+      <div class="progress-track" data-track="4"></div>
+      <div class="scenes" data-scenes="4">
+
+      <section class="scene active" data-index="0" aria-label="Introduction">
+        <div class="scene-inner center">
+          <svg class="hero-blob enter" viewBox="0 0 200 200" aria-hidden="true">
+            <circle class="blob-ring" cx="100" cy="100" r="60" fill="none" stroke="var(--coral)" stroke-width="2"/>
+            <path class="blob" d="M100,26 C138,26 172,50 175,92 C178,134 148,172 106,175 C64,178 28,150 24,106 C20,62 58,26 100,26 Z" fill="var(--sage)"/>
+          </svg>
+          <p class="eyebrow enter d1">A five-part guide</p>
+          <h1 class="display enter d2">What Happens <em>During the Exam</em></h1>
+          <p class="lede enter d3">Fear of the unknown is the biggest barrier. Here's exactly what to expect.</p>
+          <p class="tap-hint enter d4">Press play below to begin ▶</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="1" aria-label="Arriving &amp; talking with your provider">
+        <div class="scene-inner">
+          <div class="icon-badge" style="background:var(--blush-deep)"><svg viewBox="0 0 40 40" style="width:40px;height:40px;"><rect x="7" y="12" width="26" height="24" rx="2" fill="var(--sage)" opacity="0.9"/><rect x="16" y="4" width="8" height="12" fill="var(--sage)"/><line x1="17" y1="21" x2="23" y2="21" stroke="var(--white)" stroke-width="2.4"/><line x1="20" y1="18" x2="20" y2="24" stroke="var(--white)" stroke-width="2.4"/><rect x="16" y="27" width="8" height="9" fill="var(--white)" opacity="0.85"/></svg></div>
+          <p class="eyebrow enter d1">01</p>
+          <h2 class="enter d2">Arriving & talking with your provider</h2>
+          <p class="enter d3">You'll check in, wait briefly, and be taken to a private room. The provider will ask a few quick health questions and explain the steps — you can ask anything first.</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="2" aria-label="The exam room &amp; speculum">
+        <div class="scene-inner">
+          <div class="icon-badge" style="background:var(--blush-deep)"><svg viewBox="0 0 40 40" style="width:40px;height:40px;"><circle cx="20" cy="20" r="17" fill="none" stroke="var(--coral-deep)" stroke-width="2.5"/><path d="M13,17 C13,13 16,11 20,11 C24,11 27,13 27,17 L27,24 C27,28 24,30 20,30 C16,30 13,28 13,24 Z" fill="none" stroke="var(--coral-deep)" stroke-width="2.2"/></svg></div>
+          <p class="eyebrow enter d1">02</p>
+          <h2 class="enter d2">The exam room & speculum</h2>
+          <p class="enter d3">You'll undress from the waist down under a sheet or gown, then lie back with your knees supported. A <strong>speculum</strong> — a smooth instrument — gently holds the vaginal walls open so the cervix is visible.</p>
+          <p class="callout enter d4">It can feel like pressure or coolness, but shouldn't be painful.</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="3" aria-label="Sample collection, duration &amp; pain">
+        <div class="scene-inner">
+          <div class="icon-badge" style="background:var(--blush-deep)"><svg viewBox="0 0 40 40" style="width:40px;height:40px;"><circle cx="20" cy="20" r="16" fill="none" stroke="var(--amber)" stroke-width="2.5"/><path d="M20,10 L20,20 L27,25" stroke="var(--amber)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <p class="eyebrow enter d1">03</p>
+          <h2 class="enter d2">Sample collection, duration & pain</h2>
+          <p class="enter d3">A soft brush wipes cells from the cervix in seconds. The whole visit is usually <strong>10–15 minutes</strong>; the sample itself takes under a minute.</p>
+          <p class="callout enter d4">Most people feel brief discomfort, not pain. Tell your provider if you're anxious — they can go slower or use a smaller speculum.</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="4" aria-label="Afterward">
+        <div class="scene-inner">
+          <div class="icon-badge" style="background:var(--blush-deep)"><svg viewBox="0 0 40 40" style="width:40px;height:40px;"><circle cx="20" cy="20" r="17" fill="var(--sage)"/><path d="M12,20 L18,27 L29,13" stroke="var(--white)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <p class="eyebrow enter d1">04</p>
+          <h2 class="enter d2">Afterward</h2>
+          <p class="enter d3">You can resume normal activities immediately. Light spotting is normal. Results typically arrive within a couple of weeks, with next steps explained clearly.</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="5" aria-label="Key takeaways">
+        <div class="scene-inner">
+          <p class="eyebrow enter d1">Key takeaways</p>
+          <h2 class="enter d2" style="margin-bottom:18px;">Three things worth remembering</h2>
+          <div class="recap-row enter d2">
+            <svg class="recap-icon" viewBox="0 0 40 40"><circle cx="20" cy="20" r="16" fill="none" stroke="var(--amber)" stroke-width="2.5"/><path d="M20,10 L20,20 L27,25" stroke="var(--amber)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <p><strong>It's quick.</strong> Around 10–15 minutes, most of it just conversation.</p>
+          </div>
+          <div class="recap-row enter d3">
+            <svg class="recap-icon" viewBox="0 0 40 40"><circle cx="20" cy="20" r="17" fill="none" stroke="var(--coral-deep)" stroke-width="2.5"/><path d="M13,17 C13,13 16,11 20,11 C24,11 27,13 27,17 L27,24 C27,28 24,30 20,30 C16,30 13,28 13,24 Z" fill="none" stroke="var(--coral-deep)" stroke-width="2.2"/></svg>
+            <p><strong>Discomfort, not pain.</strong> Brief pressure is normal; sharp pain is not — speak up.</p>
+          </div>
+          <div class="recap-row enter d4">
+            <svg class="recap-icon" viewBox="0 0 40 40"><circle cx="20" cy="20" r="17" fill="var(--sage)"/><path d="M12,20 L18,27 L29,13" stroke="var(--white)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <p><strong>Life goes on right after.</strong> No recovery time needed for a routine test.</p>
+          </div>
+          <p class="callout enter d4" style="margin-top:6px;">You can always ask for a female provider, a support person, or extra time to feel ready.</p>
+          <p class="footnote enter d4">General information, not medical advice. Ask your clinic what to expect at your specific appointment.</p>
+        </div>
+      </section>
+      </div>
+      <div class="controls">
+        <button class="prevBtn" aria-label="Previous scene">‹</button>
+        <button class="playBtn" aria-label="Play">▶</button>
+        <button class="nextBtn" aria-label="Next scene">›</button>
+        <span class="counter">1 / 6</span>
+      </div>
+    </div>
+
+    <div class="player-view" data-chapter="5">
+      <div class="chapter-header">
+        <button class="back-btn" data-back="1">☰ All topics</button>
+        <span class="chapter-header-title">HPV Positive: What Now?</span>
+      </div>
+      <div class="progress-track" data-track="5"></div>
+      <div class="scenes" data-scenes="5">
+
+      <section class="scene active" data-index="0" aria-label="Introduction">
+        <div class="scene-inner center">
+          <svg class="hero-blob enter" viewBox="0 0 200 200" aria-hidden="true">
+            <circle class="blob-ring" cx="100" cy="100" r="60" fill="none" stroke="var(--coral)" stroke-width="2"/>
+            <path class="blob" d="M100,26 C138,26 172,50 175,92 C178,134 148,172 106,175 C64,178 28,150 24,106 C20,62 58,26 100,26 Z" fill="var(--coral)"/>
+          </svg>
+          <p class="eyebrow enter d1">A four-part guide</p>
+          <h1 class="display enter d2">HPV Positive: <em>What Now?</em></h1>
+          <p class="lede enter d3">A positive result feels alarming. Here's what it actually means.</p>
+          <p class="tap-hint enter d4">Press play below to begin ▶</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="1" aria-label="HPV positive ≠ cancer">
+        <div class="scene-inner">
+          <div class="icon-badge" style="background:var(--blush-deep)"><svg viewBox="0 0 40 40" style="width:40px;height:40px;"><path d="M20,4 L37,34 H3 Z" fill="none" stroke="var(--coral-deep)" stroke-width="2.8" stroke-linejoin="round"/><line x1="20" y1="15" x2="20" y2="23" stroke="var(--coral-deep)" stroke-width="2.8" stroke-linecap="round"/><circle cx="20" cy="28" r="1.8" fill="var(--coral-deep)"/></svg></div>
+          <p class="eyebrow enter d1">01</p>
+          <h2 class="enter d2">HPV positive ≠ cancer</h2>
+          <p class="enter d3">A positive HPV test means the virus was detected — <strong>nothing more</strong>. It does not mean you have cancer, or that you will get it.</p>
+          <p class="callout enter d4">Most HPV-positive results resolve on their own without ever needing treatment.</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="2" aria-label="What usually happens next">
+        <div class="scene-inner">
+          <p class="eyebrow enter d1">02 · The pathway</p>
+          <h2 class="enter d2">What usually happens next</h2>
+          <svg viewBox="0 0 560 140" class="enter d3" style="width:100%;max-width:560px;display:block;margin:6px auto;" aria-hidden="true"><line x1="45.0" y1="65" x2="515.0" y2="65" stroke="var(--ink-soft)" stroke-width="2" opacity="0.3"/><circle cx="45.0" cy="65" r="9" fill="var(--coral-deep)"/><text x="45.0" y="41" text-anchor="middle" font-family="Inter" font-size="11" font-weight="600" fill="var(--coral-deep)">HPV positive</text><text x="45.0" y="53" text-anchor="middle" font-family="IBM Plex Mono" font-size="9.5" fill="var(--ink-soft)">test result</text><circle cx="162.5" cy="65" r="9" fill="var(--amber)"/><text x="162.5" y="95" text-anchor="middle" font-family="Inter" font-size="11" font-weight="600" fill="var(--amber)">Repeat testing</text><text x="162.5" y="109" text-anchor="middle" font-family="IBM Plex Mono" font-size="9.5" fill="var(--ink-soft)">often first step</text><circle cx="280.0" cy="65" r="9" fill="var(--amber)"/><text x="280.0" y="41" text-anchor="middle" font-family="Inter" font-size="11" font-weight="600" fill="var(--amber)">Colposcopy</text><text x="280.0" y="53" text-anchor="middle" font-family="IBM Plex Mono" font-size="9.5" fill="var(--ink-soft)">if needed</text><circle cx="397.5" cy="65" r="9" fill="var(--sage)"/><text x="397.5" y="95" text-anchor="middle" font-family="Inter" font-size="11" font-weight="600" fill="var(--sage)">Treatment</text><text x="397.5" y="109" text-anchor="middle" font-family="IBM Plex Mono" font-size="9.5" fill="var(--ink-soft)">if needed</text><circle cx="515.0" cy="65" r="19" fill="var(--sage)" opacity="0.25" class="node-glow"/><circle cx="515.0" cy="65" r="14" fill="var(--sage)"/><text x="515.0" y="41" text-anchor="middle" font-family="Inter" font-size="11" font-weight="600" fill="var(--sage)">No cancer</text><text x="515.0" y="53" text-anchor="middle" font-family="IBM Plex Mono" font-size="9.5" fill="var(--ink-soft)">for most women</text></svg>
+          <p class="enter d4" style="max-width:560px;">Depending on the result, a doctor may repeat the test later, or refer you for a closer look. Each step is a chance to catch changes early — not a sign something is already wrong.</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="3" aria-label="The likely outcome">
+        <div class="scene-inner">
+          <div class="icon-badge" style="background:var(--blush-deep)"><svg viewBox="0 0 40 40" style="width:40px;height:40px;"><circle cx="20" cy="20" r="17" fill="var(--sage)"/><path d="M12,20 L18,27 L29,13" stroke="var(--white)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <p class="eyebrow enter d1">03</p>
+          <h2 class="enter d2">The likely outcome</h2>
+          <p class="enter d3">Most women with a positive HPV result are monitored, and the infection clears. Only a small number need a colposcopy, and fewer still need any treatment.</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="4" aria-label="Key takeaways">
+        <div class="scene-inner">
+          <p class="eyebrow enter d1">Key takeaways</p>
+          <h2 class="enter d2" style="margin-bottom:18px;">Three things worth remembering</h2>
+          <div class="recap-row enter d2">
+            <svg class="recap-icon" viewBox="0 0 40 40"><path d="M20,4 L37,34 H3 Z" fill="none" stroke="var(--coral-deep)" stroke-width="2.8" stroke-linejoin="round"/><line x1="20" y1="15" x2="20" y2="23" stroke="var(--coral-deep)" stroke-width="2.8" stroke-linecap="round"/><circle cx="20" cy="28" r="1.8" fill="var(--coral-deep)"/></svg>
+            <p><strong>Positive isn't a diagnosis.</strong> It means monitoring is needed — not that anything is wrong yet.</p>
+          </div>
+          <div class="recap-row enter d3">
+            <svg class="recap-icon" viewBox="0 0 40 40"><circle cx="7" cy="8" r="4" fill="var(--amber)"/><circle cx="33" cy="32" r="4" fill="var(--amber)"/><path d="M7,12 C7,24 5,20 20,20 C35,20 33,16 33,28" fill="none" stroke="var(--amber)" stroke-width="2.4" stroke-dasharray="3,4"/></svg>
+            <p><strong>There's a clear next step.</strong> Repeat testing or colposcopy, decided by your doctor.</p>
+          </div>
+          <div class="recap-row enter d4">
+            <svg class="recap-icon" viewBox="0 0 40 40"><circle cx="20" cy="20" r="17" fill="var(--sage)"/><path d="M12,20 L18,27 L29,13" stroke="var(--white)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <p><strong>Most never develop cancer.</strong> The system is designed to catch changes long before that.</p>
+          </div>
+          <p class="callout enter d4" style="margin-top:6px;">If you've tested positive, your next appointment is a precaution, not a verdict.</p>
+          <p class="footnote enter d4">General information, not medical advice. Always follow your own provider's guidance.</p>
+        </div>
+      </section>
+      </div>
+      <div class="controls">
+        <button class="prevBtn" aria-label="Previous scene">‹</button>
+        <button class="playBtn" aria-label="Play">▶</button>
+        <button class="nextBtn" aria-label="Next scene">›</button>
+        <span class="counter">1 / 5</span>
+      </div>
+    </div>
+
+    <div class="player-view" data-chapter="6">
+      <div class="chapter-header">
+        <button class="back-btn" data-back="1">☰ All topics</button>
+        <span class="chapter-header-title">Colposcopy Explained</span>
+      </div>
+      <div class="progress-track" data-track="6"></div>
+      <div class="scenes" data-scenes="6">
+
+      <section class="scene active" data-index="0" aria-label="Introduction">
+        <div class="scene-inner center">
+          <svg class="hero-blob enter" viewBox="0 0 200 200" aria-hidden="true">
+            <circle class="blob-ring" cx="100" cy="100" r="60" fill="none" stroke="var(--coral)" stroke-width="2"/>
+            <path class="blob" d="M100,26 C138,26 172,50 175,92 C178,134 148,172 106,175 C64,178 28,150 24,106 C20,62 58,26 100,26 Z" fill="var(--sage)"/>
+          </svg>
+          <p class="eyebrow enter d1">A four-part guide</p>
+          <h1 class="display enter d2">Colposcopy <em>Explained</em></h1>
+          <p class="lede enter d3">A scary-sounding word for a routine, closer look.</p>
+          <p class="tap-hint enter d4">Press play below to begin ▶</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="1" aria-label="What it is">
+        <div class="scene-inner">
+          <div class="icon-badge" style="background:var(--blush-deep)"><svg viewBox="0 0 40 40" style="width:40px;height:40px;"><circle cx="17" cy="17" r="11" fill="none" stroke="var(--sage)" stroke-width="3"/><line x1="25" y1="25" x2="35" y2="35" stroke="var(--sage)" stroke-width="3.5" stroke-linecap="round"/></svg></div>
+          <p class="eyebrow enter d1">01</p>
+          <h2 class="enter d2">What it is</h2>
+          <p class="enter d3">A colposcopy uses a magnifying instrument to examine the cervix more closely than a Pap test allows — usually after an abnormal screening result.</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="2" aria-label="Does it hurt?">
+        <div class="scene-inner">
+          <div class="icon-badge" style="background:var(--blush-deep)"><svg viewBox="0 0 40 40" style="width:40px;height:40px;"><path d="M20,35 C6,26 3,17 8,11 C12,6.5 18,7.5 20,13 C22,7.5 28,6.5 32,11 C37,17 34,26 20,35 Z" fill="var(--coral-deep)"/></svg></div>
+          <p class="eyebrow enter d1">02</p>
+          <h2 class="enter d2">Does it hurt?</h2>
+          <p class="enter d3">It's similar to a Pap test. A vinegar-like solution highlights abnormal areas and may cause brief stinging or mild cramping.</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="3" aria-label="Biopsy">
+        <div class="scene-inner">
+          <div class="icon-badge" style="background:var(--blush-deep)"><svg viewBox="0 0 40 40" style="width:40px;height:40px;"><path d="M10,4 H26 L32,10 V36 H10 Z" fill="none" stroke="var(--amber)" stroke-width="2.5" stroke-linejoin="round"/><path d="M26,4 V10 H32" fill="none" stroke="var(--amber)" stroke-width="2.5" stroke-linejoin="round"/><line x1="15" y1="19" x2="27" y2="19" stroke="var(--amber)" stroke-width="2"/><line x1="15" y1="25" x2="27" y2="25" stroke="var(--amber)" stroke-width="2"/><line x1="15" y1="31" x2="22" y2="31" stroke="var(--amber)" stroke-width="2"/></svg></div>
+          <p class="eyebrow enter d1">03</p>
+          <h2 class="enter d2">Biopsy</h2>
+          <p class="enter d3">If an area looks abnormal, a tiny tissue sample may be taken for lab testing — usually felt as a brief pinch or cramp, not sharp pain.</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="4" aria-label="Duration &amp; recovery">
+        <div class="scene-inner">
+          <div class="icon-badge" style="background:var(--blush-deep)"><svg viewBox="0 0 40 40" style="width:40px;height:40px;"><circle cx="20" cy="20" r="16" fill="none" stroke="var(--sage)" stroke-width="2.5"/><path d="M20,10 L20,20 L27,25" stroke="var(--sage)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <p class="eyebrow enter d1">04</p>
+          <h2 class="enter d2">Duration & recovery</h2>
+          <p class="enter d3">The appointment usually takes 15–20 minutes. Light spotting can follow for a few days; your provider may suggest avoiding tampons or sex briefly if a biopsy was taken.</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="5" aria-label="Key takeaways">
+        <div class="scene-inner">
+          <p class="eyebrow enter d1">Key takeaways</p>
+          <h2 class="enter d2" style="margin-bottom:18px;">Three things worth remembering</h2>
+          <div class="recap-row enter d2">
+            <svg class="recap-icon" viewBox="0 0 40 40"><circle cx="17" cy="17" r="11" fill="none" stroke="var(--sage)" stroke-width="3"/><line x1="25" y1="25" x2="35" y2="35" stroke="var(--sage)" stroke-width="3.5" stroke-linecap="round"/></svg>
+            <p><strong>It's just a closer look.</strong> A more detailed exam, not a treatment.</p>
+          </div>
+          <div class="recap-row enter d3">
+            <svg class="recap-icon" viewBox="0 0 40 40"><path d="M20,35 C6,26 3,17 8,11 C12,6.5 18,7.5 20,13 C22,7.5 28,6.5 32,11 C37,17 34,26 20,35 Z" fill="var(--coral-deep)"/></svg>
+            <p><strong>Discomfort is usually mild.</strong> Similar to or slightly more than a Pap test.</p>
+          </div>
+          <div class="recap-row enter d4">
+            <svg class="recap-icon" viewBox="0 0 40 40"><circle cx="20" cy="20" r="16" fill="none" stroke="var(--sage)" stroke-width="2.5"/><path d="M20,10 L20,20 L27,25" stroke="var(--sage)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <p><strong>Recovery is quick.</strong> Most people resume normal activities the same day.</p>
+          </div>
+          <p class="callout enter d4" style="margin-top:6px;">Ask your provider to explain each step as they go — most are glad to.</p>
+          <p class="footnote enter d4">General information, not medical advice.</p>
+        </div>
+      </section>
+      </div>
+      <div class="controls">
+        <button class="prevBtn" aria-label="Previous scene">‹</button>
+        <button class="playBtn" aria-label="Play">▶</button>
+        <button class="nextBtn" aria-label="Next scene">›</button>
+        <span class="counter">1 / 6</span>
+      </div>
+    </div>
+
+    <div class="player-view" data-chapter="7">
+      <div class="chapter-header">
+        <button class="back-btn" data-back="1">☰ All topics</button>
+        <span class="chapter-header-title">Common Myths</span>
+      </div>
+      <div class="progress-track" data-track="7"></div>
+      <div class="scenes" data-scenes="7">
+
+      <section class="scene active" data-index="0" aria-label="Introduction">
+        <div class="scene-inner center">
+          <svg class="hero-blob enter" viewBox="0 0 200 200" aria-hidden="true">
+            <circle class="blob-ring" cx="100" cy="100" r="60" fill="none" stroke="var(--coral)" stroke-width="2"/>
+            <path class="blob" d="M100,26 C138,26 172,50 175,92 C178,134 148,172 106,175 C64,178 28,150 24,106 C20,62 58,26 100,26 Z" fill="var(--coral)"/>
+          </svg>
+          <p class="eyebrow enter d1">Myth vs. fact</p>
+          <h1 class="display enter d2">Common Myths <em>About Cervical Cancer</em></h1>
+          <p class="lede enter d3">Beliefs that quietly keep women from getting screened.</p>
+          <p class="tap-hint enter d4">Press play below to begin ▶</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="1" aria-label="&quot;No symptoms&quot; &amp; &quot;I&#x27;m married&quot;">
+        <div class="scene-inner">
+          <div class="icon-badge" style="background:var(--blush-deep)"><svg viewBox="0 0 40 40" style="width:40px;height:40px;"><path d="M20,4 L37,34 H3 Z" fill="none" stroke="var(--coral-deep)" stroke-width="2.8" stroke-linejoin="round"/><line x1="20" y1="15" x2="20" y2="23" stroke="var(--coral-deep)" stroke-width="2.8" stroke-linecap="round"/><circle cx="20" cy="28" r="1.8" fill="var(--coral-deep)"/></svg></div>
+          <p class="eyebrow enter d1">01</p>
+          <h2 class="enter d2">"No symptoms" & "I'm married"</h2>
+          <p class="myth-line enter d3">✕ I have no symptoms, so I'm healthy.</p>
+          <p class="fact-line enter d4">✓ Early cell changes are usually silent — that's exactly why screening exists.</p>
+          <p class="myth-line enter d4">✕ I'm married, so I can't get HPV.</p>
+          <p class="fact-line enter d4">✓ HPV can be carried and passed by a partner from any point in the past — marital status doesn't change risk.</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="2" aria-label="&quot;Too old&quot; &amp; &quot;already vaccinated&quot;">
+        <div class="scene-inner">
+          <div class="icon-badge" style="background:var(--blush-deep)"><svg viewBox="0 0 40 40" style="width:40px;height:40px;"><rect x="6" y="9" width="28" height="25" rx="4" fill="none" stroke="var(--amber)" stroke-width="2.5"/><line x1="6" y1="16" x2="34" y2="16" stroke="var(--amber)" stroke-width="2.5"/><line x1="13" y1="5" x2="13" y2="12" stroke="var(--amber)" stroke-width="2.5" stroke-linecap="round"/><line x1="27" y1="5" x2="27" y2="12" stroke="var(--amber)" stroke-width="2.5" stroke-linecap="round"/><circle cx="20" cy="25" r="3.4" fill="var(--amber)"/></svg></div>
+          <p class="eyebrow enter d1">02</p>
+          <h2 class="enter d2">"Too old" & "already vaccinated"</h2>
+          <p class="myth-line enter d3">✕ I'm too old for this to matter.</p>
+          <p class="fact-line enter d4">✓ Screening guidelines extend to 65 — risk doesn't disappear with age.</p>
+          <p class="myth-line enter d4">✕ I've had the vaccine, so I don't need screening.</p>
+          <p class="fact-line enter d4">✓ The vaccine doesn't cover every risk type — screening is still needed.</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="3" aria-label="Embarrassment &amp; access">
+        <div class="scene-inner">
+          <div class="icon-badge" style="background:var(--blush-deep)"><svg viewBox="0 0 40 40" style="width:40px;height:40px;"><path d="M8,22 C8,15 13,10 20,10 C27,10 32,15 32,22" fill="none" stroke="var(--sage)" stroke-width="2.5" stroke-linecap="round"/><path d="M20,17 C15,12 9,15 10,21 C11,26 20,33 20,33 C20,33 29,26 30,21 C31,15 25,12 20,17 Z" fill="var(--sage)"/></svg></div>
+          <p class="eyebrow enter d1">03</p>
+          <h2 class="enter d2">Embarrassment & access</h2>
+          <p class="myth-line enter d3">✕ I'm too embarrassed.</p>
+          <p class="fact-line enter d4">✓ Providers do this every day — you can ask for privacy, a female provider, or to go slowly.</p>
+          <p class="myth-line enter d4">✕ I don't have the right documents, language, or background for this.</p>
+          <p class="fact-line enter d4">✓ Screening is a health service, not a citizenship or language test — interpreters and support are often available.</p>
+          <p class="myth-line enter d4">✕ My husband says I don't need it.</p>
+          <p class="fact-line enter d4">✓ This is your own health decision, and your results are kept confidential.</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="4" aria-label="Key takeaways">
+        <div class="scene-inner">
+          <p class="eyebrow enter d1">Key takeaways</p>
+          <h2 class="enter d2" style="margin-bottom:18px;">The pattern behind every myth</h2>
+          <div class="recap-row enter d2">
+            <svg class="recap-icon" viewBox="0 0 40 40"><path d="M20,4 L37,34 H3 Z" fill="none" stroke="var(--coral-deep)" stroke-width="2.8" stroke-linejoin="round"/><line x1="20" y1="15" x2="20" y2="23" stroke="var(--coral-deep)" stroke-width="2.8" stroke-linecap="round"/><circle cx="20" cy="28" r="1.8" fill="var(--coral-deep)"/></svg>
+            <p><strong>Feeling fine isn't proof.</strong> Cervical changes are usually symptom-free until late.</p>
+          </div>
+          <div class="recap-row enter d3">
+            <svg class="recap-icon" viewBox="0 0 40 40"><path d="M8,22 C8,15 13,10 20,10 C27,10 32,15 32,22" fill="none" stroke="var(--sage)" stroke-width="2.5" stroke-linecap="round"/><path d="M20,17 C15,12 9,15 10,21 C11,26 20,33 20,33 C20,33 29,26 30,21 C31,15 25,12 20,17 Z" fill="var(--sage)"/></svg>
+            <p><strong>Barriers can be worked around.</strong> Privacy, language, and comfort concerns all have solutions.</p>
+          </div>
+          <div class="recap-row enter d4">
+            <svg class="recap-icon" viewBox="0 0 40 40"><circle cx="20" cy="20" r="17" fill="var(--sage)"/><path d="M12,20 L18,27 L29,13" stroke="var(--white)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <p><strong>It's still your decision.</strong> No one else's opinion changes what's right for your health.</p>
+          </div>
+          <p class="callout enter d4" style="margin-top:6px;">If one of these thoughts sounds familiar, it's worth asking a provider directly.</p>
+          <p class="footnote enter d4">General information, not medical advice.</p>
+        </div>
+      </section>
+      </div>
+      <div class="controls">
+        <button class="prevBtn" aria-label="Previous scene">‹</button>
+        <button class="playBtn" aria-label="Play">▶</button>
+        <button class="nextBtn" aria-label="Next scene">›</button>
+        <span class="counter">1 / 5</span>
+      </div>
+    </div>
+
+    <div class="player-view" data-chapter="8">
+      <div class="chapter-header">
+        <button class="back-btn" data-back="1">☰ All topics</button>
+        <span class="chapter-header-title">Cervical Cancer Symptoms</span>
+      </div>
+      <div class="progress-track" data-track="8"></div>
+      <div class="scenes" data-scenes="8">
+
+      <section class="scene active" data-index="0" aria-label="Introduction">
+        <div class="scene-inner center">
+          <svg class="hero-blob enter" viewBox="0 0 200 200" aria-hidden="true">
+            <circle class="blob-ring" cx="100" cy="100" r="60" fill="none" stroke="var(--coral)" stroke-width="2"/>
+            <path class="blob" d="M100,26 C138,26 172,50 175,92 C178,134 148,172 106,175 C64,178 28,150 24,106 C20,62 58,26 100,26 Z" fill="var(--coral)"/>
+          </svg>
+          <p class="eyebrow enter d1">A three-part guide</p>
+          <h1 class="display enter d2">Cervical Cancer <em>Symptoms</em></h1>
+          <p class="lede enter d3">What to watch for — and why not to wait for it.</p>
+          <p class="tap-hint enter d4">Press play below to begin ▶</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="1" aria-label="The symptoms">
+        <div class="scene-inner">
+          <div class="icon-badge" style="background:var(--blush-deep)"><svg viewBox="0 0 40 40" style="width:40px;height:40px;"><path d="M20,4 L37,34 H3 Z" fill="none" stroke="var(--coral-deep)" stroke-width="2.8" stroke-linejoin="round"/><line x1="20" y1="15" x2="20" y2="23" stroke="var(--coral-deep)" stroke-width="2.8" stroke-linecap="round"/><circle cx="20" cy="28" r="1.8" fill="var(--coral-deep)"/></svg></div>
+          <p class="eyebrow enter d1">01</p>
+          <h2 class="enter d2">The symptoms</h2>
+          <ul class="mini-list enter d3"><li>Unusual vaginal bleeding — between periods, after sex, or after menopause</li><li>Unusual vaginal discharge</li><li>Pelvic pain</li><li>Pain during sex</li></ul>
+          <p class="callout enter d4">Early precancerous changes usually cause none of these — symptoms tend to appear later.</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="2" aria-label="When to seek care">
+        <div class="scene-inner">
+          <div class="icon-badge" style="background:var(--blush-deep)"><svg viewBox="0 0 40 40" style="width:40px;height:40px;"><rect x="7" y="12" width="26" height="24" rx="2" fill="var(--amber)" opacity="0.9"/><rect x="16" y="4" width="8" height="12" fill="var(--amber)"/><line x1="17" y1="21" x2="23" y2="21" stroke="var(--white)" stroke-width="2.4"/><line x1="20" y1="18" x2="20" y2="24" stroke="var(--white)" stroke-width="2.4"/><rect x="16" y="27" width="8" height="9" fill="var(--white)" opacity="0.85"/></svg></div>
+          <p class="eyebrow enter d1">02</p>
+          <h2 class="enter d2">When to seek care</h2>
+          <p class="enter d3">Any of these symptoms — especially bleeding after menopause — deserves a prompt visit to a doctor. Don't wait for them to go away on their own.</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="3" aria-label="Why waiting is risky">
+        <div class="scene-inner">
+          <div class="icon-badge" style="background:var(--blush-deep)"><svg viewBox="0 0 40 40" style="width:40px;height:40px;"><circle cx="20" cy="20" r="16" fill="none" stroke="var(--coral-deep)" stroke-width="2.5"/><path d="M20,10 L20,20 L27,25" stroke="var(--coral-deep)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <p class="eyebrow enter d1">03</p>
+          <h2 class="enter d2">Why waiting is risky</h2>
+          <p class="enter d3">Symptoms often mean the disease has already advanced past the easily-treatable stage. Screening exists precisely to catch problems <strong>before</strong> symptoms appear.</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="4" aria-label="Key takeaways">
+        <div class="scene-inner">
+          <p class="eyebrow enter d1">Key takeaways</p>
+          <h2 class="enter d2" style="margin-bottom:18px;">Three things worth remembering</h2>
+          <div class="recap-row enter d2">
+            <svg class="recap-icon" viewBox="0 0 40 40"><path d="M20,4 L37,34 H3 Z" fill="none" stroke="var(--coral-deep)" stroke-width="2.8" stroke-linejoin="round"/><line x1="20" y1="15" x2="20" y2="23" stroke="var(--coral-deep)" stroke-width="2.8" stroke-linecap="round"/><circle cx="20" cy="28" r="1.8" fill="var(--coral-deep)"/></svg>
+            <p><strong>Know the signs.</strong> Unusual bleeding, discharge, or pelvic pain are worth checking.</p>
+          </div>
+          <div class="recap-row enter d3">
+            <svg class="recap-icon" viewBox="0 0 40 40"><rect x="7" y="12" width="26" height="24" rx="2" fill="var(--amber)" opacity="0.9"/><rect x="16" y="4" width="8" height="12" fill="var(--amber)"/><line x1="17" y1="21" x2="23" y2="21" stroke="var(--white)" stroke-width="2.4"/><line x1="20" y1="18" x2="20" y2="24" stroke="var(--white)" stroke-width="2.4"/><rect x="16" y="27" width="8" height="9" fill="var(--white)" opacity="0.85"/></svg>
+            <p><strong>Don't wait it out.</strong> See a doctor promptly rather than watching and hoping.</p>
+          </div>
+          <div class="recap-row enter d4">
+            <svg class="recap-icon" viewBox="0 0 40 40"><path d="M20,4 L34,10 V19 C34,29 28,35 20,37 C12,35 6,29 6,19 V10 Z" fill="var(--sage)"/><path d="M13,20 L18,26 L28,14" stroke="var(--white)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <p><strong>Screening comes first.</strong> The goal is catching changes before symptoms ever start.</p>
+          </div>
+          <p class="callout enter d4" style="margin-top:6px;">If something feels off, trust that and get it checked — it's rarely a wasted visit.</p>
+          <p class="footnote enter d4">General information, not medical advice.</p>
+        </div>
+      </section>
+      </div>
+      <div class="controls">
+        <button class="prevBtn" aria-label="Previous scene">‹</button>
+        <button class="playBtn" aria-label="Play">▶</button>
+        <button class="nextBtn" aria-label="Next scene">›</button>
+        <span class="counter">1 / 5</span>
+      </div>
+    </div>
+
+    <div class="player-view" data-chapter="9">
+      <div class="chapter-header">
+        <button class="back-btn" data-back="1">☰ All topics</button>
+        <span class="chapter-header-title">Overcoming Fear</span>
+      </div>
+      <div class="progress-track" data-track="9"></div>
+      <div class="scenes" data-scenes="9">
+
+      <section class="scene active" data-index="0" aria-label="Introduction">
+        <div class="scene-inner center">
+          <svg class="hero-blob enter" viewBox="0 0 200 200" aria-hidden="true">
+            <circle class="blob-ring" cx="100" cy="100" r="60" fill="none" stroke="var(--coral)" stroke-width="2"/>
+            <path class="blob" d="M100,26 C138,26 172,50 175,92 C178,134 148,172 106,175 C64,178 28,150 24,106 C20,62 58,26 100,26 Z" fill="var(--sage)"/>
+          </svg>
+          <p class="eyebrow enter d1">A three-part guide</p>
+          <h1 class="display enter d2">Overcoming <em>Fear</em></h1>
+          <p class="lede enter d3">The emotional barriers are often bigger than the physical ones.</p>
+          <p class="tap-hint enter d4">Press play below to begin ▶</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="1" aria-label="Embarrassment">
+        <div class="scene-inner">
+          <div class="icon-badge" style="background:var(--blush-deep)"><svg viewBox="0 0 40 40" style="width:40px;height:40px;"><path d="M8,22 C8,15 13,10 20,10 C27,10 32,15 32,22" fill="none" stroke="var(--sage)" stroke-width="2.5" stroke-linecap="round"/><path d="M20,17 C15,12 9,15 10,21 C11,26 20,33 20,33 C20,33 29,26 30,21 C31,15 25,12 20,17 Z" fill="var(--sage)"/></svg></div>
+          <p class="eyebrow enter d1">01</p>
+          <h2 class="enter d2">Embarrassment</h2>
+          <p class="enter d3">It's one of the most common feelings in the room — and providers see it every day. You can ask for privacy, a female provider, or simply more time.</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="2" aria-label="Fear of what they&#x27;ll find">
+        <div class="scene-inner">
+          <div class="icon-badge" style="background:var(--blush-deep)"><svg viewBox="0 0 40 40" style="width:40px;height:40px;"><path d="M20,35 C6,26 3,17 8,11 C12,6.5 18,7.5 20,13 C22,7.5 28,6.5 32,11 C37,17 34,26 20,35 Z" fill="var(--coral-deep)"/></svg></div>
+          <p class="eyebrow enter d1">02</p>
+          <h2 class="enter d2">Fear of what they'll find</h2>
+          <p class="enter d3">Screening exists to <strong>prevent</strong> cancer, not diagnose it — most results are normal, and most abnormal results are not cancer either.</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="3" aria-label="Fear of pain &amp; general anxiety">
+        <div class="scene-inner">
+          <div class="icon-badge" style="background:var(--blush-deep)"><svg viewBox="0 0 40 40" style="width:40px;height:40px;"><path d="M20,4 L37,34 H3 Z" fill="none" stroke="var(--amber)" stroke-width="2.8" stroke-linejoin="round"/><line x1="20" y1="15" x2="20" y2="23" stroke="var(--amber)" stroke-width="2.8" stroke-linecap="round"/><circle cx="20" cy="28" r="1.8" fill="var(--amber)"/></svg></div>
+          <p class="eyebrow enter d1">03</p>
+          <h2 class="enter d2">Fear of pain & general anxiety</h2>
+          <p class="enter d3">Most people feel mild discomfort, not pain. Tell your provider if you're anxious — they can slow down, explain each step, or let you bring someone with you.</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="4" aria-label="Key takeaways">
+        <div class="scene-inner">
+          <p class="eyebrow enter d1">Key takeaways</p>
+          <h2 class="enter d2" style="margin-bottom:18px;">Three things worth remembering</h2>
+          <div class="recap-row enter d2">
+            <svg class="recap-icon" viewBox="0 0 40 40"><path d="M8,22 C8,15 13,10 20,10 C27,10 32,15 32,22" fill="none" stroke="var(--sage)" stroke-width="2.5" stroke-linecap="round"/><path d="M20,17 C15,12 9,15 10,21 C11,26 20,33 20,33 C20,33 29,26 30,21 C31,15 25,12 20,17 Z" fill="var(--sage)"/></svg>
+            <p><strong>You set the pace.</strong> You can ask questions, pause, or request accommodations.</p>
+          </div>
+          <div class="recap-row enter d3">
+            <svg class="recap-icon" viewBox="0 0 40 40"><path d="M20,35 C6,26 3,17 8,11 C12,6.5 18,7.5 20,13 C22,7.5 28,6.5 32,11 C37,17 34,26 20,35 Z" fill="var(--coral-deep)"/></svg>
+            <p><strong>It's about prevention.</strong> Most results bring reassurance, not bad news.</p>
+          </div>
+          <div class="recap-row enter d4">
+            <svg class="recap-icon" viewBox="0 0 40 40"><path d="M20,4 L37,34 H3 Z" fill="none" stroke="var(--amber)" stroke-width="2.8" stroke-linejoin="round"/><line x1="20" y1="15" x2="20" y2="23" stroke="var(--amber)" stroke-width="2.8" stroke-linecap="round"/><circle cx="20" cy="28" r="1.8" fill="var(--amber)"/></svg>
+            <p><strong>Naming the fear helps.</strong> Telling your provider you're anxious changes how the visit goes.</p>
+          </div>
+          <p class="callout enter d4" style="margin-top:6px;">The appointment is rarely as difficult as the anticipation of it.</p>
+          <p class="footnote enter d4">General information, not medical advice.</p>
+        </div>
+      </section>
+      </div>
+      <div class="controls">
+        <button class="prevBtn" aria-label="Previous scene">‹</button>
+        <button class="playBtn" aria-label="Play">▶</button>
+        <button class="nextBtn" aria-label="Next scene">›</button>
+        <span class="counter">1 / 5</span>
+      </div>
+    </div>
+
+    <div class="player-view" data-chapter="10">
+      <div class="chapter-header">
+        <button class="back-btn" data-back="1">☰ All topics</button>
+        <span class="chapter-header-title">Pregnancy & Screening</span>
+      </div>
+      <div class="progress-track" data-track="10"></div>
+      <div class="scenes" data-scenes="10">
+
+      <section class="scene active" data-index="0" aria-label="Introduction">
+        <div class="scene-inner center">
+          <svg class="hero-blob enter" viewBox="0 0 200 200" aria-hidden="true">
+            <circle class="blob-ring" cx="100" cy="100" r="60" fill="none" stroke="var(--coral)" stroke-width="2"/>
+            <path class="blob" d="M100,26 C138,26 172,50 175,92 C178,134 148,172 106,175 C64,178 28,150 24,106 C20,62 58,26 100,26 Z" fill="var(--sage)"/>
+          </svg>
+          <p class="eyebrow enter d1">A three-part guide</p>
+          <h1 class="display enter d2">Pregnancy <em>& Screening</em></h1>
+          <p class="lede enter d3">Common questions about timing, answered simply.</p>
+          <p class="tap-hint enter d4">Press play below to begin ▶</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="1" aria-label="Can I screen while pregnant?">
+        <div class="scene-inner">
+          <div class="icon-badge" style="background:var(--blush-deep)"><svg viewBox="0 0 40 40" style="width:40px;height:40px;"><circle cx="20" cy="13" r="8" fill="var(--sage)"/><path d="M8,36 C8,25 13,21 20,21 C27,21 32,25 32,36" fill="var(--sage)"/><circle cx="17" cy="12" r="1.4" fill="var(--white)"/><circle cx="23" cy="12" r="1.4" fill="var(--white)"/></svg></div>
+          <p class="eyebrow enter d1">01</p>
+          <h2 class="enter d2">Can I screen while pregnant?</h2>
+          <p class="enter d3">Generally yes — a Pap test is safe during pregnancy and is often included in an early prenatal visit if you're due for one.</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="2" aria-label="After giving birth?">
+        <div class="scene-inner">
+          <div class="icon-badge" style="background:var(--blush-deep)"><svg viewBox="0 0 40 40" style="width:40px;height:40px;"><rect x="6" y="9" width="28" height="25" rx="4" fill="none" stroke="var(--amber)" stroke-width="2.5"/><line x1="6" y1="16" x2="34" y2="16" stroke="var(--amber)" stroke-width="2.5"/><line x1="13" y1="5" x2="13" y2="12" stroke="var(--amber)" stroke-width="2.5" stroke-linecap="round"/><line x1="27" y1="5" x2="27" y2="12" stroke="var(--amber)" stroke-width="2.5" stroke-linecap="round"/><circle cx="20" cy="25" r="3.4" fill="var(--amber)"/></svg></div>
+          <p class="eyebrow enter d1">02</p>
+          <h2 class="enter d2">After giving birth?</h2>
+          <p class="enter d3">If screening is due, providers typically wait until around <strong>12 weeks postpartum</strong> before resuming routine testing.</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="3" aria-label="While breastfeeding?">
+        <div class="scene-inner">
+          <div class="icon-badge" style="background:var(--blush-deep)"><svg viewBox="0 0 40 40" style="width:40px;height:40px;"><path d="M20,35 C6,26 3,17 8,11 C12,6.5 18,7.5 20,13 C22,7.5 28,6.5 32,11 C37,17 34,26 20,35 Z" fill="var(--sage)"/></svg></div>
+          <p class="eyebrow enter d1">03</p>
+          <h2 class="enter d2">While breastfeeding?</h2>
+          <p class="enter d3">Screening is safe during breastfeeding — there's no need to delay or stop nursing for a Pap or HPV test.</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="4" aria-label="Key takeaways">
+        <div class="scene-inner">
+          <p class="eyebrow enter d1">Key takeaways</p>
+          <h2 class="enter d2" style="margin-bottom:18px;">Three things worth remembering</h2>
+          <div class="recap-row enter d2">
+            <svg class="recap-icon" viewBox="0 0 40 40"><circle cx="20" cy="13" r="8" fill="var(--sage)"/><path d="M8,36 C8,25 13,21 20,21 C27,21 32,25 32,36" fill="var(--sage)"/><circle cx="17" cy="12" r="1.4" fill="var(--white)"/><circle cx="23" cy="12" r="1.4" fill="var(--white)"/></svg>
+            <p><strong>Pregnancy doesn't pause it.</strong> Screening can safely happen during pregnancy.</p>
+          </div>
+          <div class="recap-row enter d3">
+            <svg class="recap-icon" viewBox="0 0 40 40"><rect x="6" y="9" width="28" height="25" rx="4" fill="none" stroke="var(--amber)" stroke-width="2.5"/><line x1="6" y1="16" x2="34" y2="16" stroke="var(--amber)" stroke-width="2.5"/><line x1="13" y1="5" x2="13" y2="12" stroke="var(--amber)" stroke-width="2.5" stroke-linecap="round"/><line x1="27" y1="5" x2="27" y2="12" stroke="var(--amber)" stroke-width="2.5" stroke-linecap="round"/><circle cx="20" cy="25" r="3.4" fill="var(--amber)"/></svg>
+            <p><strong>Postpartum has a rhythm.</strong> Usually resumes around 12 weeks after birth.</p>
+          </div>
+          <div class="recap-row enter d4">
+            <svg class="recap-icon" viewBox="0 0 40 40"><path d="M20,35 C6,26 3,17 8,11 C12,6.5 18,7.5 20,13 C22,7.5 28,6.5 32,11 C37,17 34,26 20,35 Z" fill="var(--sage)"/></svg>
+            <p><strong>Breastfeeding isn't a barrier.</strong> It doesn't need to be stopped or delayed.</p>
+          </div>
+          <p class="callout enter d4" style="margin-top:6px;">If you're due for screening and pregnant or postpartum, ask your provider what timing makes sense for you.</p>
+          <p class="footnote enter d4">General information, not medical advice.</p>
+        </div>
+      </section>
+      </div>
+      <div class="controls">
+        <button class="prevBtn" aria-label="Previous scene">‹</button>
+        <button class="playBtn" aria-label="Play">▶</button>
+        <button class="nextBtn" aria-label="Next scene">›</button>
+        <span class="counter">1 / 5</span>
+      </div>
+    </div>
+
+    <div class="player-view" data-chapter="11">
+      <div class="chapter-header">
+        <button class="back-btn" data-back="1">☰ All topics</button>
+        <span class="chapter-header-title">Menopause & Screening</span>
+      </div>
+      <div class="progress-track" data-track="11"></div>
+      <div class="scenes" data-scenes="11">
+
+      <section class="scene active" data-index="0" aria-label="Introduction">
+        <div class="scene-inner center">
+          <svg class="hero-blob enter" viewBox="0 0 200 200" aria-hidden="true">
+            <circle class="blob-ring" cx="100" cy="100" r="60" fill="none" stroke="var(--coral)" stroke-width="2"/>
+            <path class="blob" d="M100,26 C138,26 172,50 175,92 C178,134 148,172 106,175 C64,178 28,150 24,106 C20,62 58,26 100,26 Z" fill="var(--amber)"/>
+          </svg>
+          <p class="eyebrow enter d1">A two-part guide</p>
+          <h1 class="display enter d2">Menopause <em>& Screening</em></h1>
+          <p class="lede enter d3">A common assumption that isn't quite right.</p>
+          <p class="tap-hint enter d4">Press play below to begin ▶</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="1" aria-label="The myth">
+        <div class="scene-inner">
+          <div class="icon-badge" style="background:var(--blush-deep)"><svg viewBox="0 0 40 40" style="width:40px;height:40px;"><path d="M20,4 L37,34 H3 Z" fill="none" stroke="var(--coral-deep)" stroke-width="2.8" stroke-linejoin="round"/><line x1="20" y1="15" x2="20" y2="23" stroke="var(--coral-deep)" stroke-width="2.8" stroke-linecap="round"/><circle cx="20" cy="28" r="1.8" fill="var(--coral-deep)"/></svg></div>
+          <p class="eyebrow enter d1">01</p>
+          <h2 class="enter d2">The myth</h2>
+          <p class="myth-line enter d3">✕ Screening ends automatically at menopause.</p>
+          <p class="fact-line enter d4">✓ Guidelines generally continue screening through age 65, regardless of menopause status.</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="2" aria-label="When it can actually stop">
+        <div class="scene-inner">
+          <div class="icon-badge" style="background:var(--blush-deep)"><svg viewBox="0 0 40 40" style="width:40px;height:40px;"><circle cx="20" cy="20" r="17" fill="var(--sage)"/><path d="M12,20 L18,27 L29,13" stroke="var(--white)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <p class="eyebrow enter d1">02</p>
+          <h2 class="enter d2">When it can actually stop</h2>
+          <p class="enter d3">Screening can usually stop only after a documented history of <strong>adequate, normal results</strong> — a decision made with a doctor, not something that happens automatically.</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="3" aria-label="Key takeaways">
+        <div class="scene-inner">
+          <p class="eyebrow enter d1">Key takeaways</p>
+          <h2 class="enter d2" style="margin-bottom:18px;">Two things worth remembering</h2>
+          <div class="recap-row enter d2">
+            <svg class="recap-icon" viewBox="0 0 40 40"><path d="M20,4 L37,34 H3 Z" fill="none" stroke="var(--coral-deep)" stroke-width="2.8" stroke-linejoin="round"/><line x1="20" y1="15" x2="20" y2="23" stroke="var(--coral-deep)" stroke-width="2.8" stroke-linecap="round"/><circle cx="20" cy="28" r="1.8" fill="var(--coral-deep)"/></svg>
+            <p><strong>Menopause isn't a finish line.</strong> It doesn't automatically end the need to screen.</p>
+          </div>
+          <div class="recap-row enter d3">
+            <svg class="recap-icon" viewBox="0 0 40 40"><circle cx="20" cy="20" r="17" fill="var(--sage)"/><path d="M12,20 L18,27 L29,13" stroke="var(--white)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <p><strong>Stopping is a decision, not a default.</strong> Made with a doctor, based on your screening history.</p>
+          </div>
+          <p class="callout enter d4" style="margin-top:6px;">If you're near or past menopause, ask your doctor whether you're still due.</p>
+          <p class="footnote enter d4">General information, not medical advice.</p>
+        </div>
+      </section>
+      </div>
+      <div class="controls">
+        <button class="prevBtn" aria-label="Previous scene">‹</button>
+        <button class="playBtn" aria-label="Play">▶</button>
+        <button class="nextBtn" aria-label="Next scene">›</button>
+        <span class="counter">1 / 4</span>
+      </div>
+    </div>
+
+    <div class="player-view" data-chapter="12">
+      <div class="chapter-header">
+        <button class="back-btn" data-back="1">☰ All topics</button>
+        <span class="chapter-header-title">Lifestyle & Prevention</span>
+      </div>
+      <div class="progress-track" data-track="12"></div>
+      <div class="scenes" data-scenes="12">
+
+      <section class="scene active" data-index="0" aria-label="Introduction">
+        <div class="scene-inner center">
+          <svg class="hero-blob enter" viewBox="0 0 200 200" aria-hidden="true">
+            <circle class="blob-ring" cx="100" cy="100" r="60" fill="none" stroke="var(--coral)" stroke-width="2"/>
+            <path class="blob" d="M100,26 C138,26 172,50 175,92 C178,134 148,172 106,175 C64,178 28,150 24,106 C20,62 58,26 100,26 Z" fill="var(--sage)"/>
+          </svg>
+          <p class="eyebrow enter d1">A five-part guide</p>
+          <h1 class="display enter d2">Lifestyle <em>& Prevention</em></h1>
+          <p class="lede enter d3">What actually helps — and what it can't replace.</p>
+          <p class="tap-hint enter d4">Press play below to begin ▶</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="1" aria-label="Smoking">
+        <div class="scene-inner">
+          <div class="icon-badge" style="background:var(--blush-deep)"><svg viewBox="0 0 40 40" style="width:40px;height:40px;"><path d="M9,32 C9,14 22,6 33,7 C33,20 25,32 9,32 Z" fill="var(--coral-deep)"/><path d="M11,30 C18,22 24,16 32,8" stroke="var(--white)" stroke-width="1.6" fill="none" opacity="0.6"/></svg></div>
+          <p class="eyebrow enter d1">01</p>
+          <h2 class="enter d2">Smoking</h2>
+          <p class="enter d3">Smoking makes it harder for the immune system to clear HPV, raising risk. Quitting measurably helps.</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="2" aria-label="HPV vaccination">
+        <div class="scene-inner">
+          <div class="icon-badge" style="background:var(--blush-deep)"><svg viewBox="0 0 40 40" style="width:40px;height:40px;"><path d="M20,4 L34,10 V19 C34,29 28,35 20,37 C12,35 6,29 6,19 V10 Z" fill="var(--sage)"/><path d="M13,20 L18,26 L28,14" stroke="var(--white)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <p class="eyebrow enter d1">02</p>
+          <h2 class="enter d2">HPV vaccination</h2>
+          <p class="enter d3">The single most effective prevention tool available, when eligible — it prevents the infections that cause most cervical cancers.</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="3" aria-label="Safer sex &amp; immune health">
+        <div class="scene-inner">
+          <div class="icon-badge" style="background:var(--blush-deep)"><svg viewBox="0 0 40 40" style="width:40px;height:40px;"><path d="M20,35 C6,26 3,17 8,11 C12,6.5 18,7.5 20,13 C22,7.5 28,6.5 32,11 C37,17 34,26 20,35 Z" fill="var(--sage)"/></svg></div>
+          <p class="eyebrow enter d1">03</p>
+          <h2 class="enter d2">Safer sex & immune health</h2>
+          <p class="enter d3">Condoms lower HPV transmission risk (without eliminating it), and general immune health supports the body's ability to clear infections naturally.</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="4" aria-label="Screening — the constant">
+        <div class="scene-inner">
+          <div class="icon-badge" style="background:var(--blush-deep)"><svg viewBox="0 0 40 40" style="width:40px;height:40px;"><circle cx="17" cy="17" r="11" fill="none" stroke="var(--amber)" stroke-width="3"/><line x1="25" y1="25" x2="35" y2="35" stroke="var(--amber)" stroke-width="3.5" stroke-linecap="round"/></svg></div>
+          <p class="eyebrow enter d1">04</p>
+          <h2 class="enter d2">Screening — the constant</h2>
+          <p class="enter d3">None of the above replaces regular screening. It remains the most reliable way to catch problems before they become cancer.</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="5" aria-label="Key takeaways">
+        <div class="scene-inner">
+          <p class="eyebrow enter d1">Key takeaways</p>
+          <h2 class="enter d2" style="margin-bottom:18px;">The honest takeaway</h2>
+          <div class="recap-row enter d2">
+            <svg class="recap-icon" viewBox="0 0 40 40"><path d="M9,32 C9,14 22,6 33,7 C33,20 25,32 9,32 Z" fill="var(--coral-deep)"/><path d="M11,30 C18,22 24,16 32,8" stroke="var(--white)" stroke-width="1.6" fill="none" opacity="0.6"/></svg>
+            <p><strong>Lifestyle choices help.</strong> Not smoking and general health support your immune system.</p>
+          </div>
+          <div class="recap-row enter d3">
+            <svg class="recap-icon" viewBox="0 0 40 40"><path d="M20,4 L34,10 V19 C34,29 28,35 20,37 C12,35 6,29 6,19 V10 Z" fill="var(--sage)"/><path d="M13,20 L18,26 L28,14" stroke="var(--white)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <p><strong>Vaccination and screening do the heavy lifting.</strong> They're the two tools with the strongest evidence.</p>
+          </div>
+          <div class="recap-row enter d4">
+            <svg class="recap-icon" viewBox="0 0 40 40"><circle cx="17" cy="17" r="11" fill="none" stroke="var(--amber)" stroke-width="3"/><line x1="25" y1="25" x2="35" y2="35" stroke="var(--amber)" stroke-width="3.5" stroke-linecap="round"/></svg>
+            <p><strong>No lifestyle guarantees safety.</strong> Even the healthiest habits don't replace screening.</p>
+          </div>
+          <p class="callout enter d4" style="margin-top:6px;">Combine what you can control with the two things that matter most: vaccination and screening.</p>
+          <p class="footnote enter d4">General information, not medical advice.</p>
+        </div>
+      </section>
+      </div>
+      <div class="controls">
+        <button class="prevBtn" aria-label="Previous scene">‹</button>
+        <button class="playBtn" aria-label="Play">▶</button>
+        <button class="nextBtn" aria-label="Next scene">›</button>
+        <span class="counter">1 / 6</span>
+      </div>
+    </div>
+
+    <div class="player-view" data-chapter="13">
+      <div class="chapter-header">
+        <button class="back-btn" data-back="1">☰ All topics</button>
+        <span class="chapter-header-title">The Screening Journey</span>
+      </div>
+      <div class="progress-track" data-track="13"></div>
+      <div class="scenes" data-scenes="13">
+
+      <section class="scene active" data-index="0" aria-label="Introduction">
+        <div class="scene-inner center">
+          <svg class="hero-blob enter" viewBox="0 0 200 200" aria-hidden="true">
+            <circle class="blob-ring" cx="100" cy="100" r="60" fill="none" stroke="var(--coral)" stroke-width="2"/>
+            <path class="blob" d="M100,26 C138,26 172,50 175,92 C178,134 148,172 106,175 C64,178 28,150 24,106 C20,62 58,26 100,26 Z" fill="var(--sage)"/>
+          </svg>
+          <p class="eyebrow enter d1">One journey, six steps</p>
+          <h1 class="display enter d2">A Day in the <em>Screening Journey</em></h1>
+          <p class="lede enter d3">Following one woman through the whole process, start to finish.</p>
+          <p class="tap-hint enter d4">Press play below to begin ▶</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="1" aria-label="From invitation to follow-up">
+        <div class="scene-inner">
+          <p class="eyebrow enter d1">01 · The path</p>
+          <h2 class="enter d2">From invitation to follow-up</h2>
+          <svg viewBox="0 0 560 140" class="enter d3" style="width:100%;max-width:560px;display:block;margin:6px auto;" aria-hidden="true"><line x1="45.0" y1="65" x2="515.0" y2="65" stroke="var(--ink-soft)" stroke-width="2" opacity="0.3"/><circle cx="45.0" cy="65" r="9" fill="var(--sage)"/><text x="45.0" y="41" text-anchor="middle" font-family="Inter" font-size="11" font-weight="600" fill="var(--sage)">Invitation letter</text><text x="45.0" y="53" text-anchor="middle" font-family="IBM Plex Mono" font-size="9.5" fill="var(--ink-soft)">arrives by mail</text><circle cx="139.0" cy="65" r="9" fill="var(--sage)"/><text x="139.0" y="95" text-anchor="middle" font-family="Inter" font-size="11" font-weight="600" fill="var(--sage)">Book appointment</text><text x="139.0" y="109" text-anchor="middle" font-family="IBM Plex Mono" font-size="9.5" fill="var(--ink-soft)">call or online</text><circle cx="233.0" cy="65" r="9" fill="var(--sage)"/><text x="233.0" y="41" text-anchor="middle" font-family="Inter" font-size="11" font-weight="600" fill="var(--sage)">Clinic visit</text><text x="233.0" y="53" text-anchor="middle" font-family="IBM Plex Mono" font-size="9.5" fill="var(--ink-soft)">brief check-in</text><circle cx="327.0" cy="65" r="9" fill="var(--amber)"/><text x="327.0" y="95" text-anchor="middle" font-family="Inter" font-size="11" font-weight="600" fill="var(--amber)">The test</text><text x="327.0" y="109" text-anchor="middle" font-family="IBM Plex Mono" font-size="9.5" fill="var(--ink-soft)">under a minute</text><circle cx="421.0" cy="65" r="9" fill="var(--amber)"/><text x="421.0" y="41" text-anchor="middle" font-family="Inter" font-size="11" font-weight="600" fill="var(--amber)">Results</text><text x="421.0" y="53" text-anchor="middle" font-family="IBM Plex Mono" font-size="9.5" fill="var(--ink-soft)">within weeks</text><circle cx="515.0" cy="65" r="19" fill="var(--sage)" opacity="0.25" class="node-glow"/><circle cx="515.0" cy="65" r="14" fill="var(--sage)"/><text x="515.0" y="95" text-anchor="middle" font-family="Inter" font-size="11" font-weight="600" fill="var(--sage)">Follow-up</text><text x="515.0" y="109" text-anchor="middle" font-family="IBM Plex Mono" font-size="9.5" fill="var(--ink-soft)">if needed</text></svg>
+          <p class="enter d4" style="max-width:560px;">A letter arrives, an appointment gets booked, a short clinic visit happens — and within a few weeks, there's an answer. Most journeys end right there, with normal results.</p>
+        </div>
+      </section>
+
+      <section class="scene" data-index="2" aria-label="What each step feels like">
+        <div class="scene-inner">
+          <div class="icon-badge" style="background:var(--blush-deep)"><svg viewBox="0 0 40 40" style="width:40px;height:40px;"><circle cx="20" cy="20" r="16" fill="none" stroke="var(--sage)" stroke-width="2.5"/><path d="M20,10 L20,20 L27,25" stroke="var(--sage)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <p class="eyebrow enter d1">02</p>
+          <h2 class="enter d2">What each step feels like</h2>
+          <ul class="mini-list enter d3"><li>Invitation: a reminder, not an alarm</li><li>Booking: a five-minute call or a few clicks online</li><li>Clinic: a short wait, a private room, a quick conversation</li><li>Test: under a minute of mild discomfort</li><li>Results: arrive by mail, message, or a follow-up call</li></ul>
+        </div>
+      </section>
+
+      <section class="scene" data-index="3" aria-label="Key takeaways">
+        <div class="scene-inner">
+          <p class="eyebrow enter d1">Key takeaways</p>
+          <h2 class="enter d2" style="margin-bottom:18px;">The takeaway</h2>
+          <div class="recap-row enter d2">
+            <svg class="recap-icon" viewBox="0 0 40 40"><rect x="6" y="9" width="28" height="25" rx="4" fill="none" stroke="var(--sage)" stroke-width="2.5"/><line x1="6" y1="16" x2="34" y2="16" stroke="var(--sage)" stroke-width="2.5"/><line x1="13" y1="5" x2="13" y2="12" stroke="var(--sage)" stroke-width="2.5" stroke-linecap="round"/><line x1="27" y1="5" x2="27" y2="12" stroke="var(--sage)" stroke-width="2.5" stroke-linecap="round"/><circle cx="20" cy="25" r="3.4" fill="var(--sage)"/></svg>
+            <p><strong>It's a short process.</strong> From invitation to result, usually just a few weeks.</p>
+          </div>
+          <div class="recap-row enter d3">
+            <svg class="recap-icon" viewBox="0 0 40 40"><circle cx="20" cy="20" r="17" fill="var(--sage)"/><path d="M12,20 L18,27 L29,13" stroke="var(--white)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <p><strong>Most journeys end simply.</strong> A normal result — then the same reminder again in a few years.</p>
+          </div>
+          <div class="recap-row enter d4">
+            <svg class="recap-icon" viewBox="0 0 40 40"><path d="M8,22 C8,15 13,10 20,10 C27,10 32,15 32,22" fill="none" stroke="var(--sage)" stroke-width="2.5" stroke-linecap="round"/><path d="M20,17 C15,12 9,15 10,21 C11,26 20,33 20,33 C20,33 29,26 30,21 C31,15 25,12 20,17 Z" fill="var(--sage)"/></svg>
+            <p><strong>Every step is manageable.</strong> None of it requires more than an hour of your day.</p>
+          </div>
+          <p class="callout enter d4" style="margin-top:6px;">The hardest part is usually just picking up the phone to book it.</p>
+          <p class="footnote enter d4">General information, not medical advice.</p>
+        </div>
+      </section>
+      </div>
+      <div class="controls">
+        <button class="prevBtn" aria-label="Previous scene">‹</button>
+        <button class="playBtn" aria-label="Play">▶</button>
+        <button class="nextBtn" aria-label="Next scene">›</button>
+        <span class="counter">1 / 4</span>
+      </div>
+    </div>
+
+  </div>
+  <p class="hint">← → to navigate a chapter · space to play or pause · click a bar to jump</p>
+</div>
+
+<script>
+  const chapterDurations = [
+    [6700, 13557, 8414, 8985, 8128, 9271, 10128, 18414],
+    [7271, 10700, 12414, 9842, 7842, 18128],
+    [6985, 8414, 8414, 6414, 8414, 20700],
+    [6128, 6414, 7271, 12700, 10700, 18700],
+    [8414, 11557, 15842, 16128, 7842, 22128],
+    [7271, 12700, 18700, 9271, 21557],
+    [6128, 8700, 7557, 8985, 9842, 18414],
+    [6985, 16985, 14700, 23271, 18700],
+    [7557, 10985, 9842, 8128, 18985],
+    [6700, 9557, 8414, 10700, 17271],
+    [5842, 9271, 6414, 7271, 18414],
+    [6128, 6700, 9557, 15842],
+    [6700, 5842, 6985, 8128, 7842, 18700],
+    [8128, 18414, 14128, 19842]
+  ];
+
+  const menu = document.getElementById('menu');
+  const playerViews = Array.from(document.querySelectorAll('.player-view'));
+
+  let activeChapter = null;
+  let scenes = [];
+  let segments = [];
+  let current = 0;
+  let isPaused = false;
+  let sceneDuration = 3000;
+  let sceneElapsed = 0;
+  let lastResumeTime = null;
+  let rafId = null;
+  let fallbackTimeoutId = null;
+
+  function currentElapsed() {
+    if (lastResumeTime === null) return sceneElapsed;
+    return sceneElapsed + (performance.now() - lastResumeTime);
+  }
+  function setFillWidth(pct) { segments[current].querySelector('.fill').style.width = pct + '%'; }
+  function progressTick() {
+    const pct = Math.min(100, (currentElapsed() / sceneDuration) * 100);
+    setFillWidth(pct);
+    if (pct < 100) rafId = requestAnimationFrame(progressTick);
+  }
+  function startTicking() { lastResumeTime = performance.now(); rafId = requestAnimationFrame(progressTick); }
+  function stopTicking() {
+    if (lastResumeTime !== null) { sceneElapsed = currentElapsed(); lastResumeTime = null; }
+    if (rafId) cancelAnimationFrame(rafId);
+    rafId = null;
+  }
+  function clearFallbackAdvance() { if (fallbackTimeoutId) clearTimeout(fallbackTimeoutId); fallbackTimeoutId = null; }
+  function scheduleFallbackAdvance() {
+    const remaining = Math.max(200, sceneDuration - currentElapsed());
+    fallbackTimeoutId = setTimeout(() => { if (!isPaused) onSceneComplete(); }, remaining);
+  }
+  function onSceneComplete() {
+    setFillWidth(100);
+    if (current === scenes.length - 1) { setPaused(true); return; }
+    setTimeout(() => { if (!isPaused) next(); }, 250);
+  }
+  function resetSegmentsVisual() {
+    segments.forEach((seg, i) => {
+      const fill = seg.querySelector('.fill');
+      seg.classList.toggle('done', i < current);
+      seg.classList.toggle('current', i === current);
+      fill.style.width = (i < current) ? '100%' : '0%';
+    });
+  }
+  function updatePlayIcon() {
+    const btn = playerViews[activeChapter].querySelector('.playBtn');
+    btn.textContent = isPaused ? '▶' : '❚❚';
+  }
+  function goTo(index) {
+    stopTicking(); clearFallbackAdvance();
+    current = ((index % scenes.length) + scenes.length) % scenes.length;
+    scenes.forEach((s, i) => s.classList.toggle('active', i === current));
+    playerViews[activeChapter].querySelector('.counter').textContent = `${current + 1} / ${scenes.length}`;
+    sceneDuration = chapterDurations[activeChapter][current];
+    sceneElapsed = 0; lastResumeTime = null;
+    resetSegmentsVisual();
+    if (!isPaused) { startTicking(); scheduleFallbackAdvance(); }
+  }
+  function next() { goTo(current + 1); }
+  function prev() { goTo(current - 1); }
+  function setPaused(p) {
+    if (p === isPaused) return;
+    isPaused = p;
+    updatePlayIcon();
+    if (isPaused) { stopTicking(); clearFallbackAdvance(); }
+    else { startTicking(); scheduleFallbackAdvance(); }
+  }
+
+  function openChapter(idx) {
+    activeChapter = idx;
+    menu.style.display = 'none';
+    playerViews.forEach((v, i) => v.classList.toggle('active', i === idx));
+    const view = playerViews[idx];
+    scenes = Array.from(view.querySelectorAll('.scene'));
+    const track = view.querySelector('.progress-track');
+    track.innerHTML = '';
+    segments = [];
+    scenes.forEach((_, i) => {
+      const seg = document.createElement('div');
+      seg.className = 'segment';
+      const fill = document.createElement('div');
+      fill.className = 'fill';
+      seg.appendChild(fill);
+      seg.addEventListener('click', () => goTo(i));
+      track.appendChild(seg);
+      segments.push(seg);
+    });
+    view.querySelector('.prevBtn').onclick = () => prev();
+    view.querySelector('.nextBtn').onclick = () => next();
+    view.querySelector('.playBtn').onclick = () => setPaused(!isPaused);
+    view.querySelector('[data-back]').onclick = () => backToMenu();
+    isPaused = false;
+    current = 0;
+    goTo(0);
+    updatePlayIcon();
+  }
+
+  function backToMenu() {
+    stopTicking(); clearFallbackAdvance();
+    isPaused = true;
+    playerViews.forEach(v => v.classList.remove('active'));
+    menu.style.display = 'block';
+    activeChapter = null;
+  }
+
+  document.querySelectorAll('[data-open]').forEach(card => {
+    card.addEventListener('click', () => openChapter(parseInt(card.dataset.open, 10)));
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (activeChapter === null) return;
+    if (e.key === 'ArrowRight') next();
+    else if (e.key === 'ArrowLeft') prev();
+    else if (e.key === ' ') { e.preventDefault(); setPaused(!isPaused); }
+    else if (e.key === 'Escape') backToMenu();
+  });
+</script>
+</body>
+</html>

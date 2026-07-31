@@ -1,0 +1,610 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Symptom Triage Tool</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon" />
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link
+      href="assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link
+      href="assets/vendor/glightbox/css/glightbox.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="assets/vendor/fontawesome-free/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+    <!-- Main CSS File -->
+    <link href="assets/css/main.css" rel="stylesheet" />
+
+    <style>
+      /* ========================================= COLOR PALETTE ========================================= */
+      :root {
+        --teal: #3c9b91;
+        --teal-dark: #174f4a;
+        --teal-light: #f7fbfa;
+        ---purple: #7451a6;
+        --purple-light: #ebe3f5;
+        --purple-dark: #7451a6;
+        --orange: #ef714f;
+        --dark: #172d2e;
+        --white: #ffffff;
+        --border: #dceae7;
+        --shadow: 0 10px 30px rgba(23, 79, 74, 0.08);
+      } /* ========================================= GLOBAL ========================================= */
+
+/* ========================================= SYMPTOM CARD ========================================= */
+      .triage-card {
+        background: var(--white);
+        border-radius: 18px;
+        padding: 10px 90px 90px 90px;
+        box-shadow: var(--shadow);
+      }
+      .card-heading {
+        margin-bottom: 25px;
+        text-align: center;
+      }
+      .card-heading h2 {
+        margin: 0 0 7px;
+        color: var(--teal-dark);
+        font-size: 1.4rem;
+      }
+      .card-heading p {
+        margin: 0;
+        color: #657b79;
+        font-size: 0.92rem;
+      } /* ========================================= SYMPTOM OPTIONS ========================================= */
+      .symptom-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+      .symptom-option {
+        position: relative;
+      }
+      .symptom-option input {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+      }
+      .symptom-option label {
+        display: flex;
+        align-items: center;
+        min-height: 64px;
+        padding: 14px 17px;
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        cursor: pointer;
+        color: var(--dark);
+        font-size: 0.92rem;
+        transition: all 0.2s ease;
+      }
+      .symptom-option label:hover {
+        border-color: var(--purple);
+        background: var(--purple-light);
+      }
+      .symptom-option input:checked + label {
+        border-color: var(--purple);
+        background: #ebe3f5;
+        color: var(--purple-dark);
+        font-weight: 600;
+        box-shadow: inset 4px 0 0 var(--purple);
+      } /* ========================================= BUTTON ========================================= */
+      .button-container {
+        margin-top: 30px;
+        text-align: center;
+      }
+       /* ========================================= RESULT ========================================= */
+      #chatOutput {
+        display: none;
+        margin-top: 25px;
+        padding: 25px;
+        border-radius: 12px;
+        background: var(--teal-light);
+        border: 1px solid var(--border);
+        text-align: center;
+      }
+      #chatOutput.visible {
+        display: block;
+      }
+      .result-label {
+        margin-bottom: 7px;
+        color: var(--orange);
+        font-size: 1.1rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+      }
+      .result-message {
+        color: var(--teal-dark);
+        font-size: 1.15rem;
+        font-weight: 700;
+      }
+      .result-note {
+        margin-top: 12px;
+        color: #657b79;
+        font-size: 0.85rem;
+      } /* ========================================= FOOTER ========================================= */
+      footer {
+        padding: 30px 20px;
+        background: var(--teal-dark);
+        color: rgba(255, 255, 255, 0.8);
+        text-align: center;
+        font-size: 0.8rem;
+      } /* ========================================= RESPONSIVE ========================================= */
+      @media (max-width: 700px) {
+        .triage-card {
+          padding: 23px;
+        }
+        .symptom-list {
+          grid-template-columns: 1fr;
+        }
+        .header-inner {
+          padding: 0 5px;
+        }
+        h1 {
+          font-size: 2.3rem;
+        }
+      }
+    </style>
+
+    <script>
+      function evaluateSymptoms() {     /*creating the javascript obect with info inside, the symptoms clicked*/
+        const symptoms = {
+          bleedingAfterSex: document.getElementById("bleedingAfterSex").checked,
+          bleedingAfterMenopause: document.getElementById(
+            "bleedingAfterMenopause",
+          ).checked,
+          bleedingBetweenPeriods: document.getElementById(
+            "bleedingBetweenPeriods",
+          ).checked,
+          abnormalDischarge:
+            document.getElementById("abnormalDischarge").checked,
+          foulSmellingDischarge: document.getElementById(
+            "foulSmellingDischarge",
+          ).checked,
+          pelvicPain: document.getElementById("pelvicPain").checked,
+          lowerBackPain: document.getElementById("lowerBackPain").checked,
+          gynecologicSymptoms: document.getElementById("gynecologicSymptoms")
+            .checked,
+          legSwelling: document.getElementById("legSwelling").checked,
+          unexplainedWeightLoss: document.getElementById(
+            "unexplainedWeightLoss",
+          ).checked,
+          persistentFatigue:
+            document.getElementById("persistentFatigue").checked,
+        };
+
+        /* RULE 9 If NO symptoms*/ 
+
+        /*così oppure la versione sotto, dove metto come argomento di .some, la funzione Boolean*/
+
+        /*const symptomValues = Object.values(symptoms);
+
+        const hasSymptoms = symptomValues.some(function(symptom) {   qui la funzione dentro a .some è esplicitata
+            return symptom === true;
+        });
+
+        const noSymptoms = !hasSymptoms;*/
+
+
+        const noSymptoms = !Object.values(symptoms).some(Boolean);     /*Non c'è nessun sintomo?*/
+        if (noSymptoms) {
+          showResult(
+            "Continue routine screening pathway.",
+            "No warning symptoms selected.",
+          );
+          return;
+        }
+
+        /* RULE 2  perche non legarla alla rule 8? O meglio mettere un commento dettagliato per ogni sintomo? */ 
+        
+        if (symptoms.bleedingAfterMenopause) {
+          showResult(
+            "Urgent medical evaluation.",
+            "Bleeding after menopause requires prompt assessment.", /* Questo messaggio è dettagliato */
+          );
+          return;
+        }
+
+        /* RULE 8 */ 
+        if (
+          symptoms.legSwelling || /* OR*/
+          symptoms.unexplainedWeightLoss || /* OR*/
+          symptoms.persistentFatigue
+        ) {
+          showResult(
+            "Urgent medical evaluation.",
+            "One or more selected symptoms may require prompt assessment.", /* Questo messaggio è generico */
+          );
+          return;
+        }
+
+        /* RULE 1 */ 
+        if (symptoms.bleedingAfterSex) {
+          showResult(
+            "Prompt gynecological evaluation.",
+            "The selected symptom may warrant assessment by a healthcare professional.",
+          );
+          return;
+        }
+
+        /* RULES 3–6 */ 
+        if (
+          symptoms.bleedingBetweenPeriods || /* OR*/
+          symptoms.abnormalDischarge || /* OR*/
+          symptoms.foulSmellingDischarge || /* OR*/
+          symptoms.pelvicPain || /* OR*/
+          symptoms.lowerBackPain || /* OR*/
+          symptoms.gynecologicSymptoms
+        ) {
+          showResult(
+            "Medical evaluation.",
+            "The selected symptoms may warrant assessment by a healthcare professional.",
+          );
+          return;
+        }
+
+        /* RULE 7 */ 
+        if (
+          symptoms.lowerBackPain && /*AND*/
+          symptoms.gynecologicSymptoms
+        ) {
+          showResult(
+            "Medical evaluation.",
+            "The combination of selected symptoms may warrant assessment by a healthcare professional.",
+          );
+          return;
+        }
+      }
+      function showResult(message, note) {
+        const output = document.getElementById("chatOutput");
+        output.innerHTML = ` <div class="result-label">Triage result</div> <div class="result-message"> ${message} </div> <div class="result-note"> ${note} </div> `;
+        output.classList.add("visible");
+        output.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    </script>
+  </head>
+
+  <body class="departments-page" >
+    <!-- HEADER -->
+    <header id="header" class="header fixed-top">
+      <div class="topbar d-flex align-items-center dark-background">
+        <div
+          class="container d-flex justify-content-center justify-content-md-between"
+        >
+          <div class="contact-info d-flex align-items-center">
+            <i class="bi bi-envelope d-flex align-items-center"
+              ><a href="mailto:valentina.biagioli@unibo.it">valentina.biagioli@unibo.it</a></i
+            >
+            <i class="bi bi-phone d-flex align-items-center ms-4"
+              ><span>+1 5589 55488 55</span></i
+            >
+          </div>
+          <div class="social-links d-none d-md-flex align-items-center">
+            <a href="#!" class="twitter"><i class="bi bi-twitter-x"></i></a>
+            <a href="#!" class="facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#!" class="instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#!" class="linkedin"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- End Top Bar -->
+
+      <div class="branding d-flex align-items-cente">
+        <div
+          class="container position-relative d-flex align-items-center justify-content-between"
+        >
+          <a href="index.html" class="logo d-flex align-items-center">
+            <!-- Uncomment the line below if you also wish to use an image logo -->
+            <!-- <img src="assets/img/logo.webp" alt=""> -->
+            <h1 class="sitename">DCIMIT</h1>
+          </a>
+
+        <nav id="navmenu" class="navmenu">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="womens-health.html" class="active">Women's Health</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="data.html">Data</a></li>
+            <li><a href="publications.html">Publications</a></li>
+            <li class="dropdown"><a href="#"><span>Resources</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="department-details.html">Department Details</a></li>
+              <li><a href="service-details.html">Service Details</a></li>
+              <li><a href="appointment.html">Appointment</a></li>
+              <li><a href="testimonials.html">Testimonials</a></li>
+              <li><a href="faq.html">Frequently Asked Questions</a></li>
+              <li><a href="gallery.html">Gallery</a></li>
+              <li><a href="terms.html">Terms</a></li>
+              <li><a href="privacy.html">Privacy</a></li>
+              <li><a href="404.html">404</a></li>
+            </ul>
+            </li>
+            <li class="dropdown"><a href="team.html"><span>Team</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+              <ul>
+                <li><a href="#">Dropdown 1</a></li>
+                <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                  <ul>
+                    <li><a href="#">Deep Dropdown 1</a></li>
+                    <li><a href="#">Deep Dropdown 2</a></li>
+                    <li><a href="#">Deep Dropdown 3</a></li>
+                    <li><a href="#">Deep Dropdown 4</a></li>
+                    <li><a href="#">Deep Dropdown 5</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">Dropdown 2</a></li>
+                <li><a href="#">Dropdown 3</a></li>
+                <li><a href="#">Dropdown 4</a></li>
+              </ul>
+            </li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="partner.html">Partners</a></li>
+            <div class="language">
+
+              <!-- is it better to rewrite innerHTML? -->
+               
+            <button type="button" class="active" data-lang="en" onclick="window.location.href='index.html';">EN</button> <button data-lang="it" onclick="window.location.href='index_it.html';">IT</button>
+            </div>
+           <!--  <a href="contact.html" class="header-cta">Contact us</a> -->
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main class="main">
+    <!-- Page Title -->
+    <div class="page-title">
+      <div class="heading">
+        <div class="container">
+          <div class="row d-flex justify-content-center text-center">
+            <div class="col-lg-8">
+              <h1 class="heading-title">Symptom Triage</h1>
+              <p class="mb-0">
+                This tool helps determine whether selected symptoms may require prompt medical assessment.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+ <!--   <nav class="breadcrumbs">
+        <div class="container">
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li class="current">Symptom Triage</li>
+          </ol>
+        </div>
+      </nav> -->  
+    </div><!-- End Page Title -->
+
+          <!-- Alert box -->
+    <section id="terms-of-service" class="terms-of-service section">
+        <div class="container" data-aos="fade-up">
+            <div class="tos-content" data-aos="fade-up" data-aos-delay="200">  
+            <div id="user-accounts" class="content-section">
+                <div class="alert-box">
+                <i class="bi bi-exclamation-triangle"></i>
+                <div class="alert-content">
+                    <h5 style="font-weight: 700;">Important Notice</h5>
+                    <p>This is an informational tool and does not replace professional medical advice. If you are experiencing severe or rapidly worsening symptoms, seek medical assistance immediately.</p>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div> 
+    </section>
+      <!-- TRIAGE CARD -->
+      <section id="appointment" class="triage-card appointmnet section">
+        <div class="booking-wrapper">
+            <div class="card-heading ">
+            <h2 style="font-weight:600;">Which symptoms are you experiencing?</h2>
+            <p>Select all that apply.</p>
+            </div>
+            
+            <div class="symptom-list">
+            <div class="symptom-option">
+                <input type="checkbox" id="bleedingAfterSex" />
+                <label for="bleedingAfterSex">
+                Bleeding after sexual intercourse
+                </label>
+            </div>
+            <div class="symptom-option">
+                <input type="checkbox" id="bleedingAfterMenopause" />
+                <label for="bleedingAfterMenopause">
+                Bleeding after menopause
+                </label>
+            </div>
+            <div class="symptom-option">
+                <input type="checkbox" id="bleedingBetweenPeriods" />
+                <label for="bleedingBetweenPeriods">
+                Bleeding between menstrual periods
+                </label>
+            </div>
+            <div class="symptom-option">
+                <input type="checkbox" id="abnormalDischarge" />
+                <label for="abnormalDischarge">
+                Persistent abnormal vaginal discharge
+                </label>
+            </div>
+            <div class="symptom-option">
+                <input type="checkbox" id="foulSmellingDischarge" />
+                <label for="foulSmellingDischarge"> Foul-smelling discharge </label>
+            </div>
+            <div class="symptom-option">
+                <input type="checkbox" id="pelvicPain" />
+                <label for="pelvicPain"> Persistent pelvic pain </label>
+            </div>
+            <div class="symptom-option">
+                <input type="checkbox" id="lowerBackPain" />
+                <label for="lowerBackPain"> Persistent lower back pain </label>
+            </div>
+            <div class="symptom-option">
+                <input type="checkbox" id="gynecologicSymptoms" />
+                <label for="gynecologicSymptoms">
+                Associated gynecologic symptoms
+                </label>
+            </div>
+            <div class="symptom-option">
+                <input type="checkbox" id="legSwelling" />
+                <label for="legSwelling"> Leg swelling </label>
+            </div>
+            <div class="symptom-option">
+                <input type="checkbox" id="unexplainedWeightLoss" />
+                <label for="unexplainedWeightLoss"> Unexplained weight loss </label>
+            </div>
+            <div class="symptom-option">
+                <input type="checkbox" id="persistentFatigue" />
+                <label for="persistentFatigue"> Persistent fatigue </label>
+            </div>
+            </div>
+            <div class="button-container">
+            <button type="button" class="btn btn-primary" onclick="evaluateSymptoms()">Check symptoms</button>
+            </div>
+            <div id="chatOutput"></div>
+        </div>
+      
+    </main>
+
+
+    <!-- FOOTER -->
+      <footer id="footer" class="footer-16 footer position-relative">
+
+    <div class="container">
+
+      <div class="footer-main" data-aos="fade-up" data-aos-delay="100">
+        <div class="row align-items-start">
+
+          <div class="col-lg-5">
+            <div class="brand-section">
+              <a href="index.html" class="logo d-flex align-items-center mb-4">
+                <span class="sitename">DCIMIT</span>
+              </a>
+              <p class="brand-description">Understanding and addressing health inequalities between immigrant communities and Italian natives to improve cervical cancer prevention and screening outcomes.</p>
+
+
+            </div>
+          </div>
+
+          <div class="col-lg-7">
+            <div class="footer-nav-wrapper">
+              <div class="row">
+
+
+                <div class="col-6 col-lg-3">
+                  <div class="nav-column">
+                    <h6>Explore</h6>
+                    <nav class="footer-nav">
+                      <a href="#!">Women's Health</a>
+                      <a href="#!">Research</a>
+                      <a href="#!">Data</a>
+                    </nav>
+                  </div>
+                </div>
+
+                <div class="col-6 col-lg-3">
+                  <div class="nav-column">
+                    <h6>Project</h6>
+                    <nav class="footer-nav">
+                      <a href="#!">Team</a>
+                      <a href="#!">Publication</a>
+                      <a href="#!">Partner</a>
+                    </nav>
+                  </div>
+                </div>
+
+                <div class="col-6 col-lg-3">
+                  <div class="nav-column">
+                    <h6>Connect</h6>
+                    <nav class="footer-nav">
+                      <a href="#!">Resources</a>
+                      <a href="#!">Contact</a>
+                    </nav>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="bottom-content" data-aos="fade-up" data-aos-delay="300">
+          <div class="row align-items-center">
+
+            <div class="col-lg-6">
+              <div class="copyright">
+                <p>© <span class="sitename">DCIMIT</span>. All rights reserved.</p>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="legal-links">
+                <a href="#!">Privacy Policy</a>
+                <a href="#!">Terms of Service</a>
+                <a href="#!">Cookie Policy</a>
+                <div class="credits">
+                  
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </footer>
+  <!-- Scroll Top -->
+  <a href="#!" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>  
+
+</body>
+</html>
