@@ -1412,7 +1412,7 @@ url("./fonts/bootstrap-icons.woff?e34853135f9e39acf64315236852cd5a") format("wof
 .bi-strava::before { content: "\f668"; }
 .bi-wordpress::before { content: "\f669"; }
 .bi-vimeo::before { content: "\f66a"; }
-.bi-activity::before { content: "\f66b"; color: #ed7b3d;}
+.bi-activity::before { content: "\f66b"; }
 .bi-easel2-fill::before { content: "\f66c"; }
 .bi-easel2::before { content: "\f66d"; }
 .bi-easel3-fill::before { content: "\f66e"; }
