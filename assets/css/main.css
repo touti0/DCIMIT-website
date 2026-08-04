@@ -209,12 +209,25 @@ h6 {
 
 .header .logo {
   line-height: 1;
+  margin-left: -0.75rem;
 }
 
 .header .logo img {
   max-height: 36px;
   margin-right: 8px;
 }
+
+@media (max-width: 575px) {
+  .header .logo {
+    margin-left: -0.5rem;
+  }
+
+  .header .logo img {
+    max-height: 28px;
+    margin-right: 5px;
+  }
+}
+
 
 .header .logo h1 {
   font-size: 30px;
@@ -4149,7 +4162,7 @@ section,
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(45deg, var(--accent-color), color-mix(in srgb, var(--accent-color), transparent 20%));
+  border-radius: linear-gradient(45deg, var(--accent-color), color-mix(in srgb, var(--accent-color), transparent 20%));
   opacity: 0;
   display: flex;
   align-items: center;
