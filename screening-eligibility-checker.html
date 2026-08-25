@@ -132,12 +132,7 @@
         font-weight: 600;
         box-shadow: inset 4px 0 0 var(--purple);
       }
-      .symptom-option.info-option input:checked + label {
-        border-color: var(--teal);
-        background: var(--teal-light);
-        color: var(--teal-dark);
-        box-shadow: inset 4px 0 0 var(--teal);
-      }
+
 
       /* ========================================= AGE INPUT ========================================= */
       .age-input-wrap {
@@ -399,7 +394,7 @@
         if (exclusions.hysterectomy) {
           showResult(
             "No further routine cervical screening",
-            "Rule 7: previous total hysterectomy with cervix removed for benign disease, with no history of CIN2+.",
+            "Reason: previous total hysterectomy with cervix removed for benign disease, with no history of CIN2+.",
             pregnancyNote,
           );
           return;
@@ -423,7 +418,7 @@
         if (age < 25) {
           showResult(
             "Routine cervical screening is NOT recommended",
-            "Rule 1: age under 25.",
+            "Reason: age under 25.",
             pregnancyNote,
           );
           return;
@@ -444,13 +439,13 @@
           if (papRecent === "no") {
             showResult(
               "Recommend Pap test",
-              "Rule 2: age 25–29 with no cervical cytology in the previous 3 years.",
+              "Reason: age 25–29 with no cervical cytology in the previous 3 years.",
               pregnancyNote,
             );
           } else {
             showResult(
               "No screening currently required",
-              "Rule 3: age 25–29 with a Pap test performed within the previous 3 years.",
+              "Reason: age 25–29 with a Pap test performed within the previous 3 years.",
               pregnancyNote,
             );
           }
@@ -472,7 +467,7 @@
           if (hpvTested === "no") {
             showResult(
               "Recommend HPV test",
-              "Rule 4: age 30–64 with no HPV screening during the previous 5 years.",
+              "Reason: age 30–64 with no HPV screening during the previous 5 years.",
               pregnancyNote,
             );
             return;
@@ -490,7 +485,7 @@
           if (hpvNegative === "yes") {
             showResult(
               "Routine recall",
-              "Rule 5: age 30–64, HPV negative within the previous 5 years.",
+              "Reason: age 30–64, HPV negative within the previous 5 years.",
               pregnancyNote,
             );
           } else {
@@ -519,7 +514,7 @@
           if (adequate === "yes") {
             showResult(
               "Stop routine screening",
-              "Rule 6: age over 65 with adequate previous negative screening.",
+              "Reason: age over 65 with adequate previous negative screening.",
               pregnancyNote,
             );
           } else {
@@ -562,10 +557,21 @@
     <header id="header" class="header fixed-top">
       <div class="topbar d-flex align-items-center dark-background">
         <div
-          class="container d-flex justify-content-center justify-content-md-between">
-
+          class="container d-flex justify-content-center justify-content-md-between"
+        >
+          <div class="contact-info d-flex align-items-center">
+            <i class="bi bi-envelope d-flex align-items-center"
+              ><a href="mailto:valentina.biagioli@unibo.it">valentina.biagioli@unibo.it</a></i
+            >
+            <i class="bi bi-phone d-flex align-items-center ms-4"
+              ><span>+1 5589 55488 55</span></i
+            >
+          </div>
           <div class="social-links d-none d-md-flex align-items-center">
-          <a href="https://site.unibo.it/dcimit/it/eventi" class="twitter"><i class="bi bi-pc-display-horizontal"></i></a>
+            <a href="#!" class="twitter"><i class="bi bi-twitter-x"></i></a>
+            <a href="#!" class="facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#!" class="instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#!" class="linkedin"><i class="bi bi-linkedin"></i></a>
           </div>
         </div>
       </div>
@@ -576,8 +582,6 @@
           class="container position-relative d-flex align-items-center justify-content-between"
         >
           <a href="index.html" class="logo d-flex align-items-center">
-          <img src="assets/img/airc_logo.png" alt="AIRC Logo">
-          <img src="assets/img/alma_logo.png" alt="Unibo Logo">
             <h1 class="sitename">DCIMIT</h1>
           </a>
 
@@ -588,8 +592,36 @@
             <li><a href="research.html">Research</a></li>
             <li><a href="data.html">Data</a></li>
             <li><a href="publications.html">Publications</a></li>
-            <li><a href="resources.html">Resources</li>
-            <li><a href="team.html">Team</li>
+            <li class="dropdown"><a href="#"><span>Resources</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="department-details.html">Department Details</a></li>
+              <li><a href="service-details.html">Service Details</a></li>
+              <li><a href="appointment.html">Appointment</a></li>
+              <li><a href="testimonials.html">Testimonials</a></li>
+              <li><a href="faq.html">Frequently Asked Questions</a></li>
+              <li><a href="gallery.html">Gallery</a></li>
+              <li><a href="terms.html">Terms</a></li>
+              <li><a href="privacy.html">Privacy</a></li>
+              <li><a href="404.html">404</a></li>
+            </ul>
+            </li>
+            <li class="dropdown"><a href="team.html"><span>Team</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+              <ul>
+                <li><a href="#">Dropdown 1</a></li>
+                <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                  <ul>
+                    <li><a href="#">Deep Dropdown 1</a></li>
+                    <li><a href="#">Deep Dropdown 2</a></li>
+                    <li><a href="#">Deep Dropdown 3</a></li>
+                    <li><a href="#">Deep Dropdown 4</a></li>
+                    <li><a href="#">Deep Dropdown 5</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">Dropdown 2</a></li>
+                <li><a href="#">Dropdown 3</a></li>
+                <li><a href="#">Dropdown 4</a></li>
+              </ul>
+            </li>
             <li><a href="contact.html">Contact</a></li>
             <li><a href="partner.html">Partners</a></li>
             <div class="language">
@@ -649,46 +681,7 @@
       <section id="appointment" class="triage-card appointmnet section">
         <div class="booking-wrapper">
 
-          <!-- Step 1: exclusion criteria -->
-          <div class="section-block">
-            <div class="card-heading">
-              <h2 style="font-weight:600;">Do any of the following apply to you?</h2>
-              <p>Select all that apply. Any of these move you outside the routine screening pathway.</p>
-            </div>
-
-            <div class="symptom-list">
-              <div class="symptom-option">
-                <input type="checkbox" id="excl-cancer" />
-                <label for="excl-cancer">Previous cervical cancer</label>
-              </div>
-              <div class="symptom-option">
-                <input type="checkbox" id="excl-cin2plus" />
-                <label for="excl-cin2plus">Previous CIN2, CIN3, or AIS (including under surveillance)</label>
-              </div>
-              <div class="symptom-option">
-                <input type="checkbox" id="excl-hiv" />
-                <label for="excl-hiv">HIV infection</label>
-              </div>
-              <div class="symptom-option">
-                <input type="checkbox" id="excl-immunosuppression" />
-                <label for="excl-immunosuppression">Other significant immunosuppression</label>
-              </div>
-              <div class="symptom-option">
-                <input type="checkbox" id="excl-des" />
-                <label for="excl-des">In-utero DES exposure</label>
-              </div>
-              <div class="symptom-option">
-                <input type="checkbox" id="excl-hysterectomy" />
-                <label for="excl-hysterectomy">Previous total hysterectomy with cervix removed for benign disease</label>
-              </div>
-              <div class="symptom-option info-option">
-                <input type="checkbox" id="info-pregnant" />
-                <label for="info-pregnant">Currently pregnant</label>
-              </div>
-            </div>
-          </div>
-
-          <!-- Step 2: age -->
+          <!-- Step 1: age + previous screening history -->
           <div class="section-block">
             <div class="card-heading">
               <h2 style="font-weight:600;">What is your age?</h2>
@@ -773,6 +766,45 @@
                     <label for="adequateNo">No</label>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2: relevant health conditions -->
+          <div class="section-block">
+            <div class="card-heading">
+              <h2 style="font-weight:600;">Do any of the following apply to you?</h2>
+              <p>Select all that apply. Any of these move you outside the routine screening pathway.</p>
+            </div>
+
+            <div class="symptom-list">
+              <div class="symptom-option">
+                <input type="checkbox" id="excl-cancer" />
+                <label for="excl-cancer">Previous cervical cancer</label>
+              </div>
+              <div class="symptom-option">
+                <input type="checkbox" id="excl-cin2plus" />
+                <label for="excl-cin2plus">Previous CIN2, CIN3, or AIS (including under surveillance)</label>
+              </div>
+              <div class="symptom-option">
+                <input type="checkbox" id="excl-hiv" />
+                <label for="excl-hiv">HIV infection</label>
+              </div>
+              <div class="symptom-option">
+                <input type="checkbox" id="excl-immunosuppression" />
+                <label for="excl-immunosuppression">Other significant immunosuppression</label>
+              </div>
+              <div class="symptom-option">
+                <input type="checkbox" id="excl-des" />
+                <label for="excl-des">In-utero DES exposure</label>
+              </div>
+              <div class="symptom-option">
+                <input type="checkbox" id="excl-hysterectomy" />
+                <label for="excl-hysterectomy">Previous total hysterectomy with cervix removed for benign disease</label>
+              </div>
+              <div class="symptom-option">
+                <input type="checkbox" id="info-pregnant" />
+                <label for="info-pregnant">Currently pregnant</label>
               </div>
             </div>
           </div>
