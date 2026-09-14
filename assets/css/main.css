@@ -327,6 +327,23 @@ h6 {
     color: var(--nav-hover-color);
   }
 
+/* Always-purple, bold nav link with an orange hover/active underline */
+  .navmenu a.nav-highlight,
+  .navmenu a.nav-highlight:focus,
+  .navmenu li:hover>a.nav-highlight,
+  .navmenu a.nav-highlight.active,
+  .navmenu a.nav-highlight.active:focus {
+    color: var(--purple);
+    font-weight: 700;
+  }
+
+  .navmenu a.nav-highlight:hover:before,
+  .navmenu li:hover>a.nav-highlight:before,
+  .navmenu a.nav-highlight.active:before {
+    background-color: var(--nav-hover-color);
+  }
+
+
   .navmenu .dropdown ul {
     margin: 0;
     padding: 10px 0;
@@ -473,6 +490,16 @@ h6 {
   .navmenu .active:focus {
     color: var(--nav-dropdown-hover-color);
   }
+
+  .navmenu a.nav-highlight,
+  .navmenu a.nav-highlight:focus,
+  .navmenu a.nav-highlight:hover,
+  .navmenu a.nav-highlight.active,
+  .navmenu a.nav-highlight.active:focus {
+    color: var(--purple);
+    font-weight: 700;
+  }
+
 
   .navmenu .active i,
   .navmenu .active:focus i {
