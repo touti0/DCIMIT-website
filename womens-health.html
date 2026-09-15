@@ -24,7 +24,6 @@
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
   <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
   <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" />
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
 
@@ -32,6 +31,115 @@
   <link href="assets/css/main.css" rel="stylesheet" />
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+
+  <style>
+    /* ===== Thematic lesson accordion ===== */
+    .lesson-accordion {
+      margin-top: 10px;
+    }
+    .lesson-accordion .accordion-item {
+      border: none;
+      margin-bottom: 14px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(17, 35, 68, 0.08);
+    }
+    .lesson-accordion .accordion-header {
+      margin: 0;
+    }
+    .lesson-accordion .topic-button {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 20px 26px;
+      background: var(--purple);
+      color: #ffffff;
+      border: none;
+      font-family: var(--heading-font);
+      font-size: 1.05rem;
+      font-weight: 700;
+      text-align: left;
+      cursor: pointer;
+      transition: background 0.25s ease;
+    }
+    .lesson-accordion .topic-button .topic-title {
+      flex: 1;
+    }
+    .lesson-accordion .topic-button .topic-count {
+      font-weight: 500;
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.7);
+      white-space: nowrap;
+    }
+    .lesson-accordion .topic-button:hover,
+    .lesson-accordion .topic-button:not(.collapsed) {
+      background: var(--accent-color);
+    }
+    .lesson-accordion .topic-button .bi-chevron-down {
+      transition: transform 0.3s ease;
+      color: #ef714f;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .lesson-accordion .topic-button:not(.collapsed) .bi-chevron-down {
+      transform: rotate(180deg);
+    }
+    .lesson-accordion .topic-body {
+      background: #ffffff;
+      padding: 6px 10px;
+    }
+    .lesson-accordion .lesson-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 18px 20px;
+      border-bottom: 1px solid #eef2f4;
+    }
+    .lesson-accordion .lesson-row:last-child {
+      border-bottom: none;
+    }
+    .lesson-accordion .lesson-info {
+      min-width: 0;
+    }
+    .lesson-accordion .lesson-row .lesson-title {
+      display: block;
+      font-weight: 600;
+      color: var(--heading-color);
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+    .lesson-accordion .lesson-row .lesson-description {
+      margin: 0;
+      color: #657b79;
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+    .lesson-accordion .lesson-row .btn {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    @media (max-width: 576px) {
+      .lesson-accordion .lesson-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .lesson-accordion .lesson-row .btn {
+        align-self: stretch;
+        justify-content: center;
+      }
+      .lesson-accordion .topic-button {
+        padding: 16px 18px;
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+
 </head>
 
 <body class="departments-page">
@@ -121,1070 +229,264 @@
     <!-- Departments Tabs Section -->
     <section id="departments-tabs" class="departments-tabs section">
       <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="medical-specialties">
-          <div class="row">
-            <div class="col-12">
-              <div class="specialty-navigation">
-                <div class="nav nav-pills d-flex lessons-two-rows" id="specialty-tabs" role="tablist" data-aos="fade-up"
-                  data-aos-delay="400">
-                  <a class="nav-link department-tab active" id="neurology-tab" data-bs-toggle="pill"
-                    href="#departments-tabs-neurology" role="tab" aria-controls="departments-tabs-neurology"
-                    aria-selected="true" data-aos="fade-up" data-aos-delay="100">Lesson 1</a>
-                  <a class="nav-link department-tab" id="surgery-tab" data-bs-toggle="pill"
-                    href="#departments-tabs-surgery" role="tab" aria-controls="departments-tabs-surgery"
-                    aria-selected="false" data-aos="fade-up" data-aos-delay="150">Lesson 2</a>
-                  <a class="nav-link department-tab" id="dental-tab" data-bs-toggle="pill"
-                    href="#departments-tabs-dental" role="tab" aria-controls="departments-tabs-dental"
-                    aria-selected="false" data-aos="fade-up" data-aos-delay="200">Lesson 3</a>
-                  <a class="nav-link department-tab" id="ophthalmology-tab" data-bs-toggle="pill"
-                    href="#departments-tabs-ophthalmology" role="tab" aria-controls="departments-tabs-ophthalmology"
-                    aria-selected="false" data-aos="fade-up" data-aos-delay="250">Lesson 4</a>
-                  <a class="nav-link department-tab" id="cardiology-tab" data-bs-toggle="pill"
-                    href="#departments-tabs-cardiology" role="tab" aria-controls="departments-tabs-cardiology"
-                    aria-selected="false" data-aos="fade-up" data-aos-delay="300">Lesson 5</a>
-                  <a class="nav-link department-tab" id="6-tab" data-bs-toggle="pill" href="#departments-tabs-6"
-                    role="tab" aria-controls="departments-tabs-6" aria-selected="false" data-aos="fade-up"
-                    data-aos-delay="300">Lesson 6</a>
-                  <a class="nav-link department-tab" id="7-tab" data-bs-toggle="pill" href="#departments-tabs-7"
-                    role="tab" aria-controls="departments-tabs-7" aria-selected="false" data-aos="fade-up"
-                    data-aos-delay="300">Lesson 7</a>
-                  <a class="nav-link department-tab" id="8-tab" data-bs-toggle="pill" href="#departments-tabs-8"
-                    role="tab" aria-controls="departments-tabs-8" aria-selected="false" data-aos="fade-up"
-                    data-aos-delay="300">Lesson 8</a>
-                  <a class="nav-link department-tab" id="9-tab" data-bs-toggle="pill" href="#departments-tabs-9"
-                    role="tab" aria-controls="departments-tabs-9" aria-selected="false" data-aos="fade-up"
-                    data-aos-delay="300">Lesson 9</a>
-                  <a class="nav-link department-tab" id="10-tab" data-bs-toggle="pill" href="#departments-tabs-10"
-                    role="tab" aria-controls="departments-tabs-10" aria-selected="false" data-aos="fade-up"
-                    data-aos-delay="300">Lesson 10</a>
-                  <a class="nav-link department-tab" id="11-tab" data-bs-toggle="pill" href="#departments-tabs-11"
-                    role="tab" aria-controls="departments-tabs-11" aria-selected="false" data-aos="fade-up"
-                    data-aos-delay="300">Lesson 11</a>
-                  <a class="nav-link department-tab" id="12-tab" data-bs-toggle="pill" href="#departments-tabs-12"
-                    role="tab" aria-controls="departments-tabs-12" aria-selected="false" data-aos="fade-up"
-                    data-aos-delay="300">Lesson 12</a>
-                  <a class="nav-link department-tab" id="13-tab" data-bs-toggle="pill" href="#departments-tabs-13"
-                    role="tab" aria-controls="departments-tabs-13" aria-selected="false" data-aos="fade-up"
-                    data-aos-delay="300">Lesson 13</a>
-                  <a class="nav-link department-tab" id="14-tab" data-bs-toggle="pill" href="#departments-tabs-14"
-                    role="tab" aria-controls="departments-tabs-14" aria-selected="false" data-aos="fade-up"
-                    data-aos-delay="300">Lesson 14</a>
+
+        <div class="section-title text-center" data-aos="fade-up">
+          <h2>Browse lessons by topic</h2>
+          <p>Choose a topic area, then pick the specific lesson you want to watch.</p>
+        </div>
+
+        <div class="accordion lesson-accordion" id="lessonTopicsAccordion" data-aos="fade-up" data-aos-delay="150">
+
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="topic-heading-0">
+            <button class="topic-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#topic-collapse-0" aria-expanded="false" aria-controls="topic-collapse-0">
+              <span class="topic-title">Understanding HPV and cervical cancer</span>
+              <span class="topic-count">3 lessons</span>
+              <i class="bi bi-chevron-down"></i>
+            </button>
+          </h2>
+          <div id="topic-collapse-0" class="accordion-collapse collapse" aria-labelledby="topic-heading-0"
+            data-bs-parent="#lessonTopicsAccordion">
+            <div class="accordion-body topic-body">
+              <div class="lesson-row">
+                <div class="lesson-info">
+                  <span class="lesson-title">What is Cervical Cancer?</span>
+                  <p class="lesson-description">Cervical cancer develops in the cells lining the cervix, usually over many years and almost always linked to persistent HPV infection. Caught early through regular screening, it is one of the most preventable and treatable cancers.</p>
                 </div>
+                <button type="button" class="btn btn-primary lesson-watch-btn" data-video="cervical-cancer-explainer.html" data-title="What is Cervical Cancer?">
+                  <i class="bi bi-play-circle"></i> Watch video
+                </button>
+              </div>
+              <div class="lesson-row">
+                <div class="lesson-info">
+                  <span class="lesson-title">Understanding HPV</span>
+                  <p class="lesson-description">HPV is an extremely common virus — most sexually active people are exposed to it at some point, and about 9 in 10 infections clear on their own. Only a small group of high-risk types can lead to cancer if an infection persists for years.</p>
+                </div>
+                <button type="button" class="btn btn-primary lesson-watch-btn" data-video="cervical-cancer-chapter-01-understanding-hpv.html" data-title="Understanding HPV">
+                  <i class="bi bi-play-circle"></i> Watch video
+                </button>
+              </div>
+              <div class="lesson-row">
+                <div class="lesson-info">
+                  <span class="lesson-title">Cervical Cancer Symptoms</span>
+                  <p class="lesson-description">Unusual bleeding, discharge or pelvic pain can be warning signs, though early precancerous changes usually cause no symptoms at all — which is why regular screening matters even when you feel completely well.</p>
+                </div>
+                <button type="button" class="btn btn-primary lesson-watch-btn" data-video="cervical-cancer-chapter-09-cervical-cancer-symptoms.html" data-title="Cervical Cancer Symptoms">
+                  <i class="bi bi-play-circle"></i> Watch video
+                </button>
               </div>
             </div>
+          </div>
+        </div>
 
-            <div class="col-12">
-              <div class="tab-content department-content" id="specialty-content" data-aos="fade-up"
-                data-aos-delay="500">
-                <div class="tab-pane fade show active" id="departments-tabs-neurology" role="tabpanel"
-                  aria-labelledby="neurology-tab">
-                  <div class="row department-layout">
-                    <div class="col-lg-4 order-lg-2">
-                      <div class="department-image">
-                        <img src="assets/img/health/cervical_info.png" alt="Neurology Department" class="img-fluid" />
-                      </div>
-                    </div>
-                    <div class="col-lg-8 order-lg-1">
-                      <div class="department-info">
-                        <h2 class="department-title">
-                          What is cervical cancer?
-                        </h2>
-                        <p class="department-description">
-                          Cervical cancer develops in the cells lining the cervix, usually over many years and almost always linked to persistent HPV infection. Caught early through regular screening, it is one of the most preventable and treatable cancers.
-                        </p>
-
-                        <div class="row mt-4">
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              <div class="service-icon">
-                                <i class="fas fa-file-medical"></i>
-                              </div>
-                              <div class="service-content">
-                                <h4>Download the material</h4>
-                                <p>
-                                  A simple, illustrated factsheet explaining what cervical cancer is and why it matters for every woman.
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              <div class="service-icon">
-                                <i class="fas fa-video"></i>
-                              </div>
-
-                              <div class="service-content">
-                                <h4>Watch video</h4>
-                                <!-- Button trigger modal 
-                                <a href="https://www.youtube.com/embed/uqSEROiqqYs?si=mCu-hqk4-_sel8Re" class="btn btn-outline glightbox">Watch the video lesson</a>
-                                <a href="/cervical-cancer-complete-guide.html" class="btn btn-outline glightbox">Watch the video lesson</a> -->
-
-                                <p>
-                                  A short introductory video that explains cervical cancer in plain language, with no medical background required.
-                                </p>
-                                <!-- Button trigger modal -->
-                                <button type="button" id="modal-btn" class="btn btn-primary" data-bs-toggle="modal"
-                                  data-bs-target="#exampleModal" style="margin-top: 5px;">
-                                  Watch video
-                                </button>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="topic-heading-1">
+            <button class="topic-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#topic-collapse-1" aria-expanded="false" aria-controls="topic-collapse-1">
+              <span class="topic-title">Prevention and vaccination</span>
+              <span class="topic-count">2 lessons</span>
+              <i class="bi bi-chevron-down"></i>
+            </button>
+          </h2>
+          <div id="topic-collapse-1" class="accordion-collapse collapse" aria-labelledby="topic-heading-1"
+            data-bs-parent="#lessonTopicsAccordion">
+            <div class="accordion-body topic-body">
+              <div class="lesson-row">
+                <div class="lesson-info">
+                  <span class="lesson-title">The HPV Vaccine</span>
+                  <p class="lesson-description">The HPV vaccine is one of the most effective tools for preventing the infections that lead to cervical cancer. It's recommended from age 11-12, extensively safety-tested, and works alongside — not instead of — regular screening.</p>
                 </div>
-                <!-- End Neurology Tab -->
-
-                <div class="tab-pane fade" id="departments-tabs-surgery" role="tabpanel" aria-labelledby="surgery-tab">
-                  <div class="row department-layout">
-                    <div class="col-lg-4 order-lg-2">
-                      <div class="department-image">
-                        <img src="assets/img/health/cervical_info.png" alt="Surgery Department" class="img-fluid" />
-                      </div>
-                    </div>
-                    <div class="col-lg-8 order-lg-1">
-                      <div class="department-info">
-                        <h2 class="department-title">Understanding HPV</h2>
-                        <p class="department-description">
-                          Human papillomavirus (HPV) is a very common virus spread through skin-to-skin contact, and certain high-risk types are the main cause of cervical cancer. Most infections clear on their own, but persistent ones need to be monitored.
-                        </p>
-
-                        <div class="row mt-4">
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              <div class="service-icon">
-                                <i class="fas fa-file-medical"></i>
-                              </div>
-                              <div class="service-content">
-                                <h4>Download the material</h4>
-                                <p>
-                                  A factsheet on how HPV spreads, how common it is, and how it relates to cervical cancer risk.
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              <div class="service-icon">
-                                <i class="fas fa-video"></i>
-                              </div>
-                              <div class="service-content">
-                                <h4>Watch Video</h4>
-                                <p>
-                                  A clear explanation of what HPV is, how it is transmitted, and why most infections are not a cause for alarm.
-                                </p>
-                                <!-- Button trigger modal -->
-                                <button type="button" id="modal-btn-1" class="btn btn-primary" data-bs-toggle="modal"
-                                  data-bs-target="#exampleModal" style="margin-top: 5px;">
-                                  Watch video
-                                </button>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- End Surgery Tab -->
-
-                <div class="tab-pane fade" id="departments-tabs-dental" role="tabpanel" aria-labelledby="dental-tab">
-                  <div class="row department-layout">
-                    <div class="col-lg-4 order-lg-2">
-                      <div class="department-image">
-                        <img src="assets/img/health/cervical_info.png" alt="Dental Care Department" class="img-fluid" />
-                      </div>
-                    </div>
-                    <div class="col-lg-8 order-lg-1">
-                      <div class="department-info">
-                        <h2 class="department-title">The HPV Vaccine</h2>
-                        <p class="department-description">
-                          The HPV vaccine protects against the virus strains most responsible for cervical cancer. It works best when given before exposure to the virus, but can still offer protection later in life.
-                        </p>
-
-                        <div class="row mt-4">
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              <div class="service-icon">
-                                <i class="fas fa-file-medical"></i>
-                              </div>
-                              <div class="service-content">
-                                <h4>Download the material</h4>
-                                <p>
-                                  A printable guide on who should be vaccinated, at what age, and how the vaccine schedule works.
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              <div class="service-icon">
-                                <i class="fas fa-video"></i>
-                              </div>
-                              <div class="service-content">
-                                <h4>Watch video</h4>
-                                <p>A short video on how the HPV vaccine works and why it is a key tool in cervical cancer prevention.<p>
-                                <!-- Button trigger modal -->
-                                <button type="button" id="modal-btn-2" class="btn btn-primary" data-bs-toggle="modal"
-                                  data-bs-target="#exampleModal" style="margin-top: 5px;">
-                                  Watch video
-                                </button>                                
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- End Dental Tab -->
-
-                <div class="tab-pane fade" id="departments-tabs-ophthalmology" role="tabpanel"
-                  aria-labelledby="ophthalmology-tab">
-                  <div class="row department-layout">
-                    <div class="col-lg-4 order-lg-2">
-                      <div class="department-image">
-                        <img src="assets/img/health/cervical_info.png" alt="Ophthalmology Department"
-                          class="img-fluid" />
-                      </div>
-                    </div>
-                    <div class="col-lg-8 order-lg-1">
-                      <div class="department-info">
-                        <h2 class="department-title">
-                          Why Screening Matters
-                        </h2>
-                        <p class="department-description">
-                          Regular screening can detect abnormal cervical cells years before they turn into cancer, when they are easiest to treat. This is why routine checks save far more lives than treating symptoms after they appear.
-                        </p>
-
-                        <div class="row mt-4">
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              <div class="service-icon">
-                                <i class="fas fa-file-medical"></i>
-                              </div>
-                              <div class="service-content">
-                                <h4>Download the material</h4>
-                                <p>
-                                  A guide outlining recommended screening intervals and why consistent testing makes such a difference.
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              <div class="service-icon">
-                                <i class="fas fa-video"></i>
-                              </div>
-                              <div class="service-content">
-                                <h4>Watch video</h4>
-                                <p>
-                                  A video explaining, in real terms, how early detection through screening changes outcomes.
-                                </p>
-                                <!-- Button trigger modal -->
-                                <button type="button" id="modal-btn-3" class="btn btn-primary" data-bs-toggle="modal"
-                                  data-bs-target="#exampleModal" style="margin-top: 5px;">
-                                  Watch video
-                                </button>                                
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- End Ophthalmology Tab -->
-
-                <div class="tab-pane fade" id="departments-tabs-cardiology" role="tabpanel"
-                  aria-labelledby="cardiology-tab">
-                  <div class="row department-layout">
-                    <div class="col-lg-4 order-lg-2">
-                      <div class="department-image">
-                        <img src="assets/img/health/cervical_info.png" alt="Cardiology Department" class="img-fluid" />
-                      </div>
-                    </div>
-                    <div class="col-lg-8 order-lg-1">
-                      <div class="department-info">
-                        <h2 class="department-title">
-                          Pap Test vs. HPV Test
-                        </h2>
-                        <p class="department-description">
-                          The Pap test looks for abnormal cervical cells, while the HPV test looks for the virus that causes them. Both are valid screening tools, and knowing the difference helps you understand your own results.
-                        </p>
-
-                        <div class="row mt-4">
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              <div class="service-icon">
-                                <i class="fas fa-file-medical"></i>
-                              </div>
-                              <div class="service-content">
-                                <h4>Download the material</h4>
-                                <p>
-                                  A side-by-side comparison of the two tests, what each one checks for, and how often they are recommended.
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              <div class="service-icon">
-                                <i class="fas fa-video"></i>
-                              </div>
-                              <div class="service-content">
-                                <h4>Watch video</h4>
-                                <p>
-                                  A walkthrough of how the Pap test and the HPV test are performed and what their results mean.
-                                </p>
-                                <!-- Button trigger modal -->
-                                <button type="button" id="modal-btn-4" class="btn btn-primary" data-bs-toggle="modal"
-                                  data-bs-target="#exampleModal" style="margin-top: 5px;">
-                                  Watch video
-                                </button>                                
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- End Cardiology Tab -->
-
-                <div class="tab-pane fade" id="departments-tabs-5" role="tabpanel" aria-labelledby="6-tab">
-                  <div class="row department-layout">
-                    <div class="col-lg-4 order-lg-2">
-                      <div class="department-image">
-                        <img src="assets/img/health/cervical_info.png" alt="Cardiology Department" class="img-fluid" />
-                      </div>
-                    </div>
-                    <div class="col-lg-8 order-lg-1">
-                      <div class="department-info">
-                        <h2 class="department-title">
-                          What Happens During the Exam
-                        </h2>
-                        <p class="department-description">
-                          A cervical screening exam is quick and usually takes just a few minutes. Knowing each step in advance, from positioning to the sample collection itself, can make the visit feel far less intimidating.
-                        </p>
-
-                        <div class="row mt-4">
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              <div class="service-icon">
-                                <i class="fas fa-file-medical"></i>
-                              </div>
-                              <div class="service-content">
-                                <h4>Download the material</h4>
-                                <p>
-                                  A step-by-step guide describing what happens before, during, and after a screening appointment.
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              <div class="service-icon">
-                                <i class="fas fa-video"></i>
-                              </div>
-                              <div class="service-content">
-                                <h4>Watch video</h4>
-
-                                <p>
-                                  A video that walks you through a real screening exam from start to finish.
-                                </p>
-                                <!-- Button trigger modal -->
-                                <button type="button" id="modal-btn-5" class="btn btn-primary" data-bs-toggle="modal"
-                                  data-bs-target="#exampleModal" style="margin-top: 5px;">
-                                  Watch video
-                                </button>                                
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- End Tab 6-->
-
-                <div class="tab-pane fade" id="departments-tabs-6" role="tabpanel" aria-labelledby="7-tab">
-                  <div class="row department-layout">
-                    <div class="col-lg-4 order-lg-2">
-                      <div class="department-image">
-                        <img src="assets/img/health/cervical_info.png" alt="Cardiology Department" class="img-fluid" />
-                      </div>
-                    </div>
-                    <div class="col-lg-8 order-lg-1">
-                      <div class="department-info">
-                        <h2 class="department-title">
-                          Tips for a Comfortable Exam
-                        </h2>
-                        <p class="department-description">
-                          Small choices, like what to wear, when to schedule your visit, and what to ask beforehand, can make the exam noticeably easier. A little preparation goes a long way toward feeling at ease.
-                        </p>
-
-                        <div class="row mt-4">
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              <div class="service-icon">
-                                <i class="fas fa-file-medical"></i>
-                              </div>
-                              <div class="service-content">
-                                <h4>Download the material</h4>
-                                <p>
-                                  A checklist of practical tips to help you feel more relaxed and prepared before your appointment.
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              <div class="service-icon">
-                                <i class="fas fa-video"></i>
-                              </div>
-                              <div class="service-content">
-                                <h4>Watch video</h4>
-                                <p>
-                                  Simple, practical advice from healthcare professionals on making the exam as comfortable as possible.
-                                </p>
-                                <!-- Button trigger modal -->
-                                <button type="button" id="modal-btn-6" class="btn btn-primary" data-bs-toggle="modal"
-                                  data-bs-target="#exampleModal" style="margin-top: 5px;">
-                                  Watch video
-                                </button>                                
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- End Tab 7-->
-
-                <div class="tab-pane fade" id="departments-tabs-7" role="tabpanel" aria-labelledby="8-tab">
-                  <div class="row department-layout">
-                    <div class="col-lg-4 order-lg-2">
-                      <div class="department-image">
-                        <img src="assets/img/health/cervical_info.png" alt="Cardiology Department" class="img-fluid" />
-                      </div>
-                    </div>
-                    <div class="col-lg-8 order-lg-1">
-                      <div class="department-info">
-                        <h2 class="department-title">
-                          Colposcopy Explained
-                        </h2>
-                        <p class="department-description">
-                          A colposcopy is a follow-up exam used to take a closer look at the cervix after an abnormal screening result. It is a precaution, not a diagnosis, and helps doctors decide if any further treatment is needed.
-                        </p>
-
-                        <div class="row mt-4">
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              <div class="service-icon">
-                                <i class="fas fa-file-medical"></i>
-                              </div>
-                              <div class="service-content">
-                                <h4>Download the material</h4>
-                                <p>
-                                  A guide explaining why a colposcopy may be recommended and what to expect during the procedure.
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              <div class="service-icon">
-                                <i class="fas fa-video"></i>
-                              </div>
-                              <div class="service-content">
-                                <h4>Watch video</h4>
-                                <p>
-                                  A video explaining what a colposcopy involves and why being referred for one is not a cause for panic.
-                                </p>
-                                <!-- Button trigger modal -->
-                                <button type="button" id="modal-btn-7" class="btn btn-primary" data-bs-toggle="modal"
-                                  data-bs-target="#exampleModal" style="margin-top: 5px;">
-                                  Watch video
-                                </button>                                
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- End Tab 8-->
-
-                <div class="tab-pane fade" id="departments-tabs-8" role="tabpanel" aria-labelledby="9-tab">
-                  <div class="row department-layout">
-                    <div class="col-lg-4 order-lg-2">
-                      <div class="department-image">
-                        <img src="assets/img/health/cervical_info.png" alt="Cardiology Department" class="img-fluid" />
-                      </div>
-                    </div>
-                    <div class="col-lg-8 order-lg-1">
-                      <div class="department-info">
-                        <h2 class="department-title">
-                          Common Myths About Cervical Cancer
-                        </h2>
-                        <p class="department-description">
-                          Misinformation about cervical cancer, from who is at risk to what causes it, can keep women from getting screened. Separating fact from myth is a simple but powerful step toward prevention.
-                        </p>
-
-                        <div class="row mt-4">
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              <div class="service-icon">
-                                <i class="fas fa-file-medical"></i>
-                              </div>
-                              <div class="service-content">
-                                <h4>Download the material</h4>
-                                <p>
-                                  A myth-versus-fact sheet addressing the most common misconceptions about cervical cancer.
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              <div class="service-icon">
-                                <i class="fas fa-video"></i>
-                              </div>
-                              <div class="service-content">
-                                <h4>Watch video</h4>
-                                <p>
-                                  A video that debunks widespread myths with clear, evidence-based explanations.
-                                </p>
-                                <!-- Button trigger modal -->
-                                <button type="button" id="modal-btn-8" class="btn btn-primary" data-bs-toggle="modal"
-                                  data-bs-target="#exampleModal" style="margin-top: 5px;">
-                                  Watch video
-                                </button>                                
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- End Tab 9-->
-
-                <div class="tab-pane fade" id="departments-tabs-9" role="tabpanel" aria-labelledby="10-tab">
-                  <div class="row department-layout">
-                    <div class="col-lg-4 order-lg-2">
-                      <div class="department-image">
-                        <img src="assets/img/health/cervical_info.png" alt="Cardiology Department" class="img-fluid" />
-                      </div>
-                    </div>
-                    <div class="col-lg-8 order-lg-1">
-                      <div class="department-info">
-                        <h2 class="department-title">
-                          Cervical Cancer Symptoms
-                        </h2>
-                        <p class="department-description">
-                          In its early stages, cervical cancer often causes no symptoms at all, which is why screening matters so much. Knowing the warning signs, such as unusual bleeding or discharge, helps you know when to seek medical advice.
-                        </p>
-
-                        <div class="row mt-4">
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              <div class="service-icon">
-                                <i class="fas fa-file-medical"></i>
-                              </div>
-                              <div class="service-content">
-                                <h4>Download the material</h4>
-                                <p>
-                                  A checklist of symptoms to watch for and guidance on when they warrant a visit to your doctor.
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              <div class="service-icon">
-                                <i class="fas fa-video"></i>
-                              </div>
-                              <div class="service-content">
-                                <h4>Watch video</h4>
-                                <!-- Button trigger modal -->
-                                <button type="button" id="modal-btn-9" class="btn btn-primary" data-bs-toggle="modal"
-                                  data-bs-target="#exampleModal" style="margin-top: 5px;">
-                                  Watch video
-                                </button>
-                                <p>
-                                  A video covering the symptoms to be aware of and why early attention makes such a difference.
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- End Tab 10-->
-
-                <div class="tab-pane fade" id="departments-tabs-10" role="tabpanel" aria-labelledby="11-tab">
-                  <div class="row department-layout">
-                    <div class="col-lg-4 order-lg-2">
-                      <div class="department-image">
-                        <img src="assets/img/health/cervical_info.png" alt="Cardiology Department" class="img-fluid" />
-                      </div>
-                    </div>
-                    <div class="col-lg-8 order-lg-1">
-                      <div class="department-info">
-                        <h2 class="department-title">
-                          Overcoming Fear
-                        </h2>
-                        <p class="department-description">
-                          Fear and embarrassment are among the biggest reasons women delay or skip screening. Understanding what to expect, and knowing these feelings are completely normal, can make it easier to take the first step.
-                        </p>
-
-                        <div class="row mt-4">
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              <div class="service-icon">
-                                <i class="fas fa-file-medical"></i>
-                              </div>
-                              <div class="service-content">
-                                <h4>Download the material</h4>
-                                <p>
-                                  A guide with practical, reassuring advice for anyone feeling anxious about screening.
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              <div class="service-icon">
-                                <i class="fas fa-video"></i>
-                              </div>
-                              <div class="service-content">
-                                <h4>Watch video</h4>
-                                <p>
-                                  Real stories from women who overcame their fear of screening, in their own words.
-                                </p>
-                                <!-- Button trigger modal -->                                
-                                <button type="button" id="modal-btn-10" class="btn btn-primary" data-bs-toggle="modal"
-                                  data-bs-target="#exampleModal" style="margin-top: 5px;">
-                                  Watch video
-                                </button>
-
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- End Tab 11-->
-
-                <div class="tab-pane fade" id="departments-tabs-11" role="tabpanel" aria-labelledby="12-tab">
-                  <div class="row department-layout">
-                    <div class="col-lg-4 order-lg-2">
-                      <div class="department-image">
-                        <img src="assets/img/health/cervical_info.png" alt="Cardiology Department" class="img-fluid" />
-                      </div>
-                    </div>
-                    <div class="col-lg-8 order-lg-1">
-                      <div class="department-info">
-                        <h2 class="department-title">
-                          Pregnancy & Screening
-                        </h2>
-                        <p class="department-description">
-                          Cervical screening is safe during pregnancy and, in some cases, is a routine part of prenatal care. Knowing when and why it may be recommended helps you plan ahead with confidence.
-                        </p>
-
-                        <div class="row mt-4">
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              <div class="service-icon">
-                                <i class="fas fa-file-medical"></i>
-                              </div>
-                              <div class="service-content">
-                                <h4>Download the Material</h4>
-                                <p>
-                                  A guide on cervical screening recommendations before, during, and after pregnancy.
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              <div class="service-icon">
-                                <i class="fas fa-video"></i>
-                              </div>
-                              <div class="service-content">
-                                <h4>Watch video</h4>
-                                <p>
-                                  A video answering common questions about screening and pregnancy.
-                                </p>
-                                <!-- Button trigger modal -->
-                                <button type="button" id="modal-btn-11" class="btn btn-primary" data-bs-toggle="modal"
-                                  data-bs-target="#exampleModal" style="margin-top: 5px;">
-                                  Watch video
-                                </button>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- End Tab 12-->
-
-                <div class="tab-pane fade" id="departments-tabs-12" role="tabpanel" aria-labelledby="13-tab">
-                  <div class="row department-layout">
-                    <div class="col-lg-4 order-lg-2">
-                      <div class="department-image">
-                        <img src="assets/img/health/cervical_info.png" alt="Cardiology Department" class="img-fluid" />
-                      </div>
-                    </div>
-                    <div class="col-lg-8 order-lg-1">
-                      <div class="department-info">
-                        <h2 class="department-title">
-                          Menopause & Screening
-                        </h2>
-                        <p class="department-description">
-                          Cervical cancer risk does not disappear after menopause, which is why screening remains important for older women. Guidelines on when it is safe to stop can vary, so it is worth discussing with your doctor.
-                        </p>
-
-                        <div class="row mt-4">
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              <div class="service-icon">
-                                <i class="fas fa-file-medical"></i>
-                              </div>
-                              <div class="service-content">
-                                <h4>Download Material</h4>
-                                <p>
-                                  A guide on screening recommendations for women during and after menopause.
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              <div class="service-icon">
-                                <i class="fas fa-video"></i>
-                              </div>
-                              <div class="service-content">
-                                <h4>Watch video</h4>
-                                <p>
-                                  A video explaining why screening still matters after menopause and when it can safely stop.
-                                </p>
-                                <!-- Button trigger modal -->
-                                <button type="button" id="modal-btn-12" class="btn btn-primary" data-bs-toggle="modal"
-                                  data-bs-target="#exampleModal" style="margin-top: 5px;">
-                                  Watch video
-                                </button>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- End Tab 13-->
-
-                <div class="tab-pane fade" id="departments-tabs-13" role="tabpanel" aria-labelledby="14-tab">
-                  <div class="row department-layout">
-                    <div class="col-lg-4 order-lg-2">
-                      <div class="department-image">
-                        <img src="assets/img/health/cervical_info.png" alt="Cardiology Department" class="img-fluid" />
-                      </div>
-                    </div>
-                    <div class="col-lg-8 order-lg-1">
-                      <div class="department-info">
-                        <h2 class="department-title">
-                          Lifestyle & Prevention
-                        </h2>
-                        <p class="department-description">
-                          Alongside vaccination and screening, everyday choices such as not smoking, safe sex practices, and a healthy immune system all help lower the risk of cervical cancer.
-                        </p>
-
-                        <div class="row mt-4">
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              <div class="service-icon">
-                                <i class="fas fa-file-medical"></i>
-                              </div>
-                              <div class="service-content">
-                                <h4>Download Material</h4>
-                                <p>
-                                  A checklist of everyday lifestyle habits that support long-term cervical health.
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              <div class="service-icon">
-                                <i class="fas fa-video"></i>
-                              </div>
-                              <div class="service-content">
-                                <h4>Watch video</h4>
-                                <p>
-                                  A video on practical, everyday steps that contribute to cervical cancer prevention.
-                                </p>
-                                <!-- Button trigger modal -->
-                                <button type="button" id="modal-btn-13" class="btn btn-primary" data-bs-toggle="modal"
-                                  data-bs-target="#exampleModal" style="margin-top: 5px;">
-                                  Watch video
-                                </button>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- End Tab 14-->
-
-                  <!-- Questo non compare! CORREGGI - A Day in the Screening Journey-->
-                <div class="tab-pane fade" id="departments-tabs-14" role="tabpanel" aria-labelledby="14-tab">
-                  <div class="row department-layout">
-                    <div class="col-lg-4 order-lg-2">
-                      <div class="department-image">
-                        <img src="assets/img/health/cervical_info.png" alt="Cardiology Department" class="img-fluid" />
-                      </div>
-                    </div>
-                    <div class="col-lg-8 order-lg-1">
-                      <div class="department-info">
-                        <h2 class="department-title">
-                          A Day in the Screening Journey
-                        </h2>
-                        <p class="department-description">
-                          In voluptate velit esse cillum dolore eu fugiat
-                          nulla pariatur excepteur sint occaecat cupidatat non
-                          proident sunt in culpa qui officia deserunt.
-                        </p>
-
-                        <div class="row mt-4">
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              <div class="service-icon">
-                                <i class="fas fa-file-medical"></i>
-                              </div>
-                              <div class="service-content">
-                                <h4>Dwonload Material</h4>
-                                <p>
-                                  Mollit anim id est laborum sed ut
-                                  perspiciatis unde omnis iste natus error.
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              <div class="service-icon">
-                                <i class="fas fa-video"></i>
-                              </div>
-                              <div class="service-content">
-                                <h4>Wattch video</h4>
-                                <!-- Button trigger modal -->
-                                <button type="button" id="modal-btn-14" class="btn btn-primary" data-bs-toggle="modal"
-                                  data-bs-target="#exampleModal" style="margin-top: 5px;">
-                                  Watch video
-                                </button>
-                                <p>
-                                  Sit voluptatem accusantium doloremque
-                                  laudantium totam rem aperiam.
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="service-item">
-                              
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- End Tab 15-->                
-
-                <!-- Modal Window -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div class="modal-dialog modal-fullscreen">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Lesson</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body" id="modal-body">
-                        <iframe id="modal-frame" style="width: 100%; height: 100%; border: 0"></iframe>
-                      </div>
-                      <!--    <div class="modal-footer">
-
-                                    </div> -->
-                    </div>
-                  </div>
-                </div>
+                <button type="button" class="btn btn-primary lesson-watch-btn" data-video="cervical-cancer-chapter-02-the-hpv-vaccine.html" data-title="The HPV Vaccine">
+                  <i class="bi bi-play-circle"></i> Watch video
+                </button>
               </div>
+              <div class="lesson-row">
+                <div class="lesson-info">
+                  <span class="lesson-title">Lifestyle & Prevention</span>
+                  <p class="lesson-description">Not smoking, vaccination and general immune health all help lower your risk, but no lifestyle choice replaces regular screening, which remains the most reliable way to catch changes early.</p>
+                </div>
+                <button type="button" class="btn btn-primary lesson-watch-btn" data-video="cervical-cancer-chapter-13-lifestyle-and-prevention.html" data-title="Lifestyle & Prevention">
+                  <i class="bi bi-play-circle"></i> Watch video
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="topic-heading-2">
+            <button class="topic-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#topic-collapse-2" aria-expanded="false" aria-controls="topic-collapse-2">
+              <span class="topic-title">Cervical screening: what you need to know</span>
+              <span class="topic-count">4 lessons</span>
+              <i class="bi bi-chevron-down"></i>
+            </button>
+          </h2>
+          <div id="topic-collapse-2" class="accordion-collapse collapse" aria-labelledby="topic-heading-2"
+            data-bs-parent="#lessonTopicsAccordion">
+            <div class="accordion-body topic-body">
+              <div class="lesson-row">
+                <div class="lesson-info">
+                  <span class="lesson-title">Why Screening Matters</span>
+                  <p class="lesson-description">Screening finds and removes precancerous cells before they ever become cancer, checking for early warning signs in people who feel completely healthy — which is what makes it genuinely preventive, not just diagnostic.</p>
+                </div>
+                <button type="button" class="btn btn-primary lesson-watch-btn" data-video="cervical-cancer-chapter-03-why-screening-matters.html" data-title="Why Screening Matters">
+                  <i class="bi bi-play-circle"></i> Watch video
+                </button>
+              </div>
+              <div class="lesson-row">
+                <div class="lesson-info">
+                  <span class="lesson-title">Pap Test vs. HPV Test</span>
+                  <p class="lesson-description">The Pap test examines cervical cells for abnormal changes, while the HPV test checks for the high-risk virus that causes them. Which test — and how often — depends mainly on your age.</p>
+                </div>
+                <button type="button" class="btn btn-primary lesson-watch-btn" data-video="cervical-cancer-chapter-04-pap-test-vs-hpv-test.html" data-title="Pap Test vs. HPV Test">
+                  <i class="bi bi-play-circle"></i> Watch video
+                </button>
+              </div>
+              <div class="lesson-row">
+                <div class="lesson-info">
+                  <span class="lesson-title">What Happens During the Exam</span>
+                  <p class="lesson-description">A step-by-step walkthrough of a routine screening visit, from check-in to the exam itself. It usually takes just 10 to 15 minutes, with at most brief discomfort rather than pain.</p>
+                </div>
+                <button type="button" class="btn btn-primary lesson-watch-btn" data-video="cervical-cancer-chapter-05-what-happens-during-the-exam.html" data-title="What Happens During the Exam">
+                  <i class="bi bi-play-circle"></i> Watch video
+                </button>
+              </div>
+              <div class="lesson-row">
+                <div class="lesson-info">
+                  <span class="lesson-title">The Screening Journey</span>
+                  <p class="lesson-description">Follow one woman's path through the entire screening process, from the invitation letter to booking, the test itself, and receiving results, to see just how manageable each step really is.</p>
+                </div>
+                <button type="button" class="btn btn-primary lesson-watch-btn" data-video="cervical-cancer-chapter-14-the-screening-journey.html" data-title="The Screening Journey">
+                  <i class="bi bi-play-circle"></i> Watch video
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="topic-heading-3">
+            <button class="topic-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#topic-collapse-3" aria-expanded="false" aria-controls="topic-collapse-3">
+              <span class="topic-title">What happens if a test is abnormal?</span>
+              <span class="topic-count">2 lessons</span>
+              <i class="bi bi-chevron-down"></i>
+            </button>
+          </h2>
+          <div id="topic-collapse-3" class="accordion-collapse collapse" aria-labelledby="topic-heading-3"
+            data-bs-parent="#lessonTopicsAccordion">
+            <div class="accordion-body topic-body">
+              <div class="lesson-row">
+                <div class="lesson-info">
+                  <span class="lesson-title">HPV Positive: What Now?</span>
+                  <p class="lesson-description">A positive HPV result means the virus was detected — nothing more. It doesn't mean you have cancer, and most positive results resolve on their own with monitoring alone.</p>
+                </div>
+                <button type="button" class="btn btn-primary lesson-watch-btn" data-video="cervical-cancer-chapter-06-hpv-positive-what-now.html" data-title="HPV Positive: What Now?">
+                  <i class="bi bi-play-circle"></i> Watch video
+                </button>
+              </div>
+              <div class="lesson-row">
+                <div class="lesson-info">
+                  <span class="lesson-title">Colposcopy Explained</span>
+                  <p class="lesson-description">A colposcopy is simply a closer examination of the cervix after an abnormal screening result — similar to a Pap test, usually with mild discomfort, and over in 15 to 20 minutes.</p>
+                </div>
+                <button type="button" class="btn btn-primary lesson-watch-btn" data-video="cervical-cancer-chapter-07-colposcopy-explained.html" data-title="Colposcopy Explained">
+                  <i class="bi bi-play-circle"></i> Watch video
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="topic-heading-4">
+            <button class="topic-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#topic-collapse-4" aria-expanded="false" aria-controls="topic-collapse-4">
+              <span class="topic-title">Screening at different stages of life</span>
+              <span class="topic-count">2 lessons</span>
+              <i class="bi bi-chevron-down"></i>
+            </button>
+          </h2>
+          <div id="topic-collapse-4" class="accordion-collapse collapse" aria-labelledby="topic-heading-4"
+            data-bs-parent="#lessonTopicsAccordion">
+            <div class="accordion-body topic-body">
+              <div class="lesson-row">
+                <div class="lesson-info">
+                  <span class="lesson-title">Pregnancy & Screening</span>
+                  <p class="lesson-description">Screening is generally safe during pregnancy and breastfeeding, with testing after birth typically resuming around 12 weeks postpartum.</p>
+                </div>
+                <button type="button" class="btn btn-primary lesson-watch-btn" data-video="cervical-cancer-chapter-11-pregnancy-and-screening.html" data-title="Pregnancy & Screening">
+                  <i class="bi bi-play-circle"></i> Watch video
+                </button>
+              </div>
+              <div class="lesson-row">
+                <div class="lesson-info">
+                  <span class="lesson-title">Menopause & Screening</span>
+                  <p class="lesson-description">Screening doesn't automatically stop at menopause — guidelines generally continue through age 65, and stopping earlier is a decision made with a doctor, not a default.</p>
+                </div>
+                <button type="button" class="btn btn-primary lesson-watch-btn" data-video="cervical-cancer-chapter-12-menopause-and-screening.html" data-title="Menopause & Screening">
+                  <i class="bi bi-play-circle"></i> Watch video
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="topic-heading-5">
+            <button class="topic-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#topic-collapse-5" aria-expanded="false" aria-controls="topic-collapse-5">
+              <span class="topic-title">Practical support and FAQ</span>
+              <span class="topic-count">2 lessons</span>
+              <i class="bi bi-chevron-down"></i>
+            </button>
+          </h2>
+          <div id="topic-collapse-5" class="accordion-collapse collapse" aria-labelledby="topic-heading-5"
+            data-bs-parent="#lessonTopicsAccordion">
+            <div class="accordion-body topic-body">
+              <div class="lesson-row">
+                <div class="lesson-info">
+                  <span class="lesson-title">Overcoming Fear</span>
+                  <p class="lesson-description">Embarrassment, fear of results and anxiety about discomfort are some of the most common reasons women delay screening — and each one has a practical way through it.</p>
+                </div>
+                <button type="button" class="btn btn-primary lesson-watch-btn" data-video="cervical-cancer-chapter-10-overcoming-fear.html" data-title="Overcoming Fear">
+                  <i class="bi bi-play-circle"></i> Watch video
+                </button>
+              </div>
+              <div class="lesson-row">
+                <div class="lesson-info">
+                  <span class="lesson-title">Common Myths</span>
+                  <p class="lesson-description">From “no symptoms means I'm healthy” to “I'm too old for this to matter,” this lesson debunks the everyday myths that quietly keep women from getting screened.</p>
+                </div>
+                <button type="button" class="btn btn-primary lesson-watch-btn" data-video="cervical-cancer-chapter-08-common-myths.html" data-title="Common Myths">
+                  <i class="bi bi-play-circle"></i> Watch video
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        </div>
+      </div>
+
+      <!-- Modal Window (shared by every lesson) -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Lesson</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="modal-body">
+              <iframe id="modal-frame" style="width: 100%; height: 100%; border: 0"></iframe>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <!-- /Departments Tabs Section -->
+    <!-- /Departments Tabs Section FINO A QUI -->
 
     <!-- Featured Departments Section -->
     <section id="featured-departments" class="featured-departments section">
@@ -1561,7 +863,6 @@
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 

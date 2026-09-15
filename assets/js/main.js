@@ -7,6 +7,35 @@ License:
 (function() {
   "use strict";
 
+  /*Lesson video modal (Women's Health thematic lesson accordion)
+    Registered first so it still works even if a vendor library
+    further down (GLightbox, PureCounter, Swiper...) throws and
+    halts the rest of this script. */
+
+  document.querySelectorAll('.lesson-watch-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const modalEl = document.getElementById('exampleModal');
+      const frame = document.getElementById('modal-frame');
+      const label = document.getElementById('exampleModalLabel');
+      if (frame) frame.setAttribute('src', btn.dataset.video);
+      if (label) label.textContent = btn.dataset.title || 'Lesson';
+      if (modalEl && window.bootstrap) {
+        bootstrap.Modal.getOrCreateInstance(modalEl).show();
+      }
+    });
+  });
+
+  /* Blur focus before Bootstrap marks the modal aria-hidden on close,
+     otherwise the browser warns about hiding a focused element. */
+  const lessonModalEl = document.getElementById('exampleModal');
+  if (lessonModalEl) {
+    lessonModalEl.addEventListener('hide.bs.modal', () => {
+      if (lessonModalEl.contains(document.activeElement)) {
+        document.activeElement.blur();
+      }
+    });
+  }
+
   /*Apply .scrolled class to the body as the page is scrolled down*/
 
   function toggleScrolled() {
@@ -113,11 +142,13 @@ License:
   }
   window.addEventListener('load', aosInit);
 
-  /*Initiate glightbox*/
+  /*Initiate glightbox (only if the vendor library is actually loaded)*/
 
-  const glightbox = GLightbox({
-    selector: '.glightbox'
-  });
+  if (typeof GLightbox !== 'undefined') {
+    GLightbox({
+      selector: '.glightbox'
+    });
+  }
 
   /*Initiate Pure Counter*/
 
@@ -147,66 +178,6 @@ License:
     faqItem.addEventListener('click', () => {
       faqItem.parentNode.classList.toggle('faq-active');
     });
-  });
-
-  $('#modal-btn').on('click', function () {
-    $('#modal-frame').attr('src', 'cervical-cancer-explainer.html');
-  });
-  
-  $('#modal-btn-1').on('click', function () {
-    $('#modal-frame').attr('src', 'cervical-cancer-chapter-01-understanding-hpv.html');
-  });
-
-  $('#modal-btn-2').on('click', function () {
-  $('#modal-frame').attr('src', 'cervical-cancer-chapter-02-the-hpv-vaccine.html');
-  });
-
-  $('#modal-btn-3').on('click', function () {
-  $('#modal-frame').attr('src', 'cervical-cancer-chapter-03-why-screening-matters.html');
-  });
-
-  $('#modal-btn-4').on('click', function () {
-  $('#modal-frame').attr('src', 'cervical-cancer-chapter-04-pap-test-vs-hpv-test.html');
-  });
-
-  $('#modal-btn-5').on('click', function () {
-  $('#modal-frame').attr('src', 'cervical-cancer-chapter-05-what-happens-during-the-exam.html');
-  });
-
-  $('#modal-btn-6').on('click', function () {
-  $('#modal-frame').attr('src', 'cervical-cancer-chapter-06-hpv-positive-what-now.html');
-  });
-
-  $('#modal-btn-7').on('click', function () {
-  $('#modal-frame').attr('src', 'cervical-cancer-chapter-07-colposcopy-explained.html');
-  });
-
-  $('#modal-btn-8').on('click', function () {
-  $('#modal-frame').attr('src', 'cervical-cancer-chapter-08-common-myths.html');
-  });
-
-  $('#modal-btn-9').on('click', function () {
-  $('#modal-frame').attr('src', 'cervical-cancer-chapter-09-cervical-cancer-symptoms.html');
-  });
-
-  $('#modal-btn-10').on('click', function () {
-  $('#modal-frame').attr('src', 'cervical-cancer-chapter-10-overcoming-fear.html');
-  });
-
-  $('#modal-btn-11').on('click', function () {
-  $('#modal-frame').attr('src', 'cervical-cancer-chapter-11-pregnancy-and-screening.html');
-  });
-
-  $('#modal-btn-12').on('click', function () {
-  $('#modal-frame').attr('src', 'cervical-cancer-chapter-12-menopause-and-screening.html');
-  });
-
-  $('#modal-btn-13').on('click', function () {
-  $('#modal-frame').attr('src', 'cervical-cancer-chapter-13-lifestyle-and-prevention.html');
-  });
-
-  $('#modal-btn-14').on('click', function () {
-  $('#modal-frame').attr('src', 'cervical-cancer-chapter-14-the-screening-journey.html');
   });
 
 })();
