@@ -237,166 +237,259 @@
           <h2>Browse lessons by topic</h2>
           <p>Choose a topic area, then pick the specific lesson you want to watch.</p>
         </div>
-      </div>
-    </section>
 
-    <!-- Services Section -->
-    <section id="services" class="services section">
+        <div class="accordion lesson-accordion" id="lessonTopicsAccordion" data-aos="fade-up" data-aos-delay="150">
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-item">
-              <div class="service-image">
-                <img src="assets/img/health/cervical_info_crop.png" alt="Cardiology Services" class="img-fluid">
-                <div class="service-overlay">
-                
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="topic-heading-0">
+            <button class="topic-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#topic-collapse-0" aria-expanded="false" aria-controls="topic-collapse-0">
+              <span class="topic-title">Understanding HPV and cervical cancer</span>
+              <span class="topic-count">3 lessons</span>
+              <i class="bi bi-chevron-down"></i>
+            </button>
+          </h2>
+          <div id="topic-collapse-0" class="accordion-collapse collapse" aria-labelledby="topic-heading-0"
+            data-bs-parent="#lessonTopicsAccordion">
+            <div class="accordion-body topic-body">
+              <div class="lesson-row">
+                <div class="lesson-info">
+                  <span class="lesson-title">What is Cervical Cancer?</span>
+                  <p class="lesson-description">Cervical cancer develops in the cells lining the cervix, usually over many years and almost always linked to persistent HPV infection. Caught early through regular screening, it is one of the most preventable and treatable cancers.</p>
                 </div>
+                <button type="button" class="btn btn-primary lesson-watch-btn" data-video="cervical-cancer-explainer.html" data-title="What is Cervical Cancer?">
+                  <i class="bi bi-play-circle"></i> Watch video
+                </button>
               </div>
-              <div class="service-content">
-                <h3>Cardiology</h3>
-                <p>Comprehensive heart care with advanced diagnostic tools and treatment options for cardiovascular
-                  conditions.</p>
-                <div class="service-features">
-                  <span class="feature-item"><i class="fas fa-check"></i> ECG Testing</span>
-                  <span class="feature-item"><i class="fas fa-check"></i> Heart Surgery</span>
+              <div class="lesson-row">
+                <div class="lesson-info">
+                  <span class="lesson-title">Understanding HPV</span>
+                  <p class="lesson-description">HPV is an extremely common virus — most sexually active people are exposed to it at some point, and about 9 in 10 infections clear on their own. Only a small group of high-risk types can lead to cancer if an infection persists for years.</p>
                 </div>
-                <a href="womens-health - Copia.html" class="service-btn">
-                  <span>Learn More</span>
-                  <i class="fas fa-arrow-right"></i>
-                </a>
+                <button type="button" class="btn btn-primary lesson-watch-btn" data-video="cervical-cancer-chapter-01-understanding-hpv.html" data-title="Understanding HPV">
+                  <i class="bi bi-play-circle"></i> Watch video
+                </button>
+              </div>
+              <div class="lesson-row">
+                <div class="lesson-info">
+                  <span class="lesson-title">Cervical Cancer Symptoms</span>
+                  <p class="lesson-description">Unusual bleeding, discharge or pelvic pain can be warning signs, though early precancerous changes usually cause no symptoms at all — which is why regular screening matters even when you feel completely well.</p>
+                </div>
+                <button type="button" class="btn btn-primary lesson-watch-btn" data-video="cervical-cancer-chapter-09-cervical-cancer-symptoms.html" data-title="Cervical Cancer Symptoms">
+                  <i class="bi bi-play-circle"></i> Watch video
+                </button>
               </div>
             </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="250">
-            <div class="service-item">
-              <div class="service-image">
-                <img src="assets/img/health/neurology-3.webp" alt="Neurology Services" class="img-fluid">
-                <div class="service-overlay">
-                  <i class="fas fa-brain"></i>
-                </div>
-              </div>
-              <div class="service-content">
-                <h3>Neurology</h3>
-                <p>Expert neurological care for brain and nervous system disorders with state-of-the-art imaging
-                  technology.</p>
-                <div class="service-features">
-                  <span class="feature-item"><i class="fas fa-check"></i> MRI Scans</span>
-                  <span class="feature-item"><i class="fas fa-check"></i> Stroke Care</span>
-                </div>
-                <a href="service-details.html" class="service-btn">
-                  <span>Learn More</span>
-                  <i class="fas fa-arrow-right"></i>
-                </a>
-              </div>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="service-item">
-              <div class="service-image">
-                <img src="assets/img/health/orthopedics-1.webp" alt="Orthopedics Services" class="img-fluid">
-                <div class="service-overlay">
-                  <i class="fas fa-bone"></i>
-                </div>
-              </div>
-              <div class="service-content">
-                <h3>Orthopedics</h3>
-                <p>Specialized bone and joint treatment including sports medicine and reconstructive surgery procedures.
-                </p>
-                <div class="service-features">
-                  <span class="feature-item"><i class="fas fa-check"></i> Joint Replacement</span>
-                  <span class="feature-item"><i class="fas fa-check"></i> Sports Medicine</span>
-                </div>
-                <a href="service-details.html" class="service-btn">
-                  <span>Learn More</span>
-                  <i class="fas fa-arrow-right"></i>
-                </a>
-              </div>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="350">
-            <div class="service-item">
-              <div class="service-image">
-                <img src="assets/img/health/pediatrics-4.webp" alt="Pediatrics Services" class="img-fluid">
-                <div class="service-overlay">
-                  <i class="fas fa-child"></i>
-                </div>
-              </div>
-              <div class="service-content">
-                <h3>Pediatrics</h3>
-                <p>Dedicated healthcare for children from infancy through adolescence with specialized treatment
-                  protocols.</p>
-                <div class="service-features">
-                  <span class="feature-item"><i class="fas fa-check"></i> Well-Child Visits</span>
-                  <span class="feature-item"><i class="fas fa-check"></i> Immunizations</span>
-                </div>
-                <a href="service-details.html" class="service-btn">
-                  <span>Learn More</span>
-                  <i class="fas fa-arrow-right"></i>
-                </a>
-              </div>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="service-item">
-              <div class="service-image">
-                <img src="assets/img/health/emergency-2.webp" alt="Emergency Services" class="img-fluid">
-                <div class="service-overlay">
-                  <i class="fas fa-ambulance"></i>
-                </div>
-              </div>
-              <div class="service-content">
-                <h3>Emergency Care</h3>
-                <p>24/7 emergency medical services with rapid response teams and critical care capabilities.</p>
-                <div class="service-features">
-                  <span class="feature-item"><i class="fas fa-check"></i> Trauma Center</span>
-                  <span class="feature-item"><i class="fas fa-check"></i> Critical Care</span>
-                </div>
-                <a href="service-details.html" class="service-btn">
-                  <span>Learn More</span>
-                  <i class="fas fa-arrow-right"></i>
-                </a>
-              </div>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="450">
-            <div class="service-item">
-              <div class="service-image">
-                <img src="assets/img/health/laboratory-3.webp" alt="Laboratory Services" class="img-fluid">
-                <div class="service-overlay">
-                  <i class="fas fa-microscope"></i>
-                </div>
-              </div>
-              <div class="service-content">
-                <h3>Laboratory Testing</h3>
-                <p>Advanced diagnostic laboratory services with comprehensive testing panels and rapid result delivery.
-                </p>
-                <div class="service-features">
-                  <span class="feature-item"><i class="fas fa-check"></i> Blood Tests</span>
-                  <span class="feature-item"><i class="fas fa-check"></i> Pathology</span>
-                </div>
-                <a href="service-details.html" class="service-btn">
-                  <span>Learn More</span>
-                  <i class="fas fa-arrow-right"></i>
-                </a>
-              </div>
-            </div>
-          </div><!-- End Service Item -->
-
+          </div>
         </div>
 
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="topic-heading-1">
+            <button class="topic-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#topic-collapse-1" aria-expanded="false" aria-controls="topic-collapse-1">
+              <span class="topic-title">Prevention and vaccination</span>
+              <span class="topic-count">2 lessons</span>
+              <i class="bi bi-chevron-down"></i>
+            </button>
+          </h2>
+          <div id="topic-collapse-1" class="accordion-collapse collapse" aria-labelledby="topic-heading-1"
+            data-bs-parent="#lessonTopicsAccordion">
+            <div class="accordion-body topic-body">
+              <div class="lesson-row">
+                <div class="lesson-info">
+                  <span class="lesson-title">The HPV Vaccine</span>
+                  <p class="lesson-description">The HPV vaccine is one of the most effective tools for preventing the infections that lead to cervical cancer. It's recommended from age 11-12, extensively safety-tested, and works alongside — not instead of — regular screening.</p>
+                </div>
+                <button type="button" class="btn btn-primary lesson-watch-btn" data-video="cervical-cancer-chapter-02-the-hpv-vaccine.html" data-title="The HPV Vaccine">
+                  <i class="bi bi-play-circle"></i> Watch video
+                </button>
+              </div>
+              <div class="lesson-row">
+                <div class="lesson-info">
+                  <span class="lesson-title">Lifestyle & Prevention</span>
+                  <p class="lesson-description">Not smoking, vaccination and general immune health all help lower your risk, but no lifestyle choice replaces regular screening, which remains the most reliable way to catch changes early.</p>
+                </div>
+                <button type="button" class="btn btn-primary lesson-watch-btn" data-video="cervical-cancer-chapter-13-lifestyle-and-prevention.html" data-title="Lifestyle & Prevention">
+                  <i class="bi bi-play-circle"></i> Watch video
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="topic-heading-2">
+            <button class="topic-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#topic-collapse-2" aria-expanded="false" aria-controls="topic-collapse-2">
+              <span class="topic-title">Cervical screening: what you need to know</span>
+              <span class="topic-count">4 lessons</span>
+              <i class="bi bi-chevron-down"></i>
+            </button>
+          </h2>
+          <div id="topic-collapse-2" class="accordion-collapse collapse" aria-labelledby="topic-heading-2"
+            data-bs-parent="#lessonTopicsAccordion">
+            <div class="accordion-body topic-body">
+              <div class="lesson-row">
+                <div class="lesson-info">
+                  <span class="lesson-title">Why Screening Matters</span>
+                  <p class="lesson-description">Screening finds and removes precancerous cells before they ever become cancer, checking for early warning signs in people who feel completely healthy — which is what makes it genuinely preventive, not just diagnostic.</p>
+                </div>
+                <button type="button" class="btn btn-primary lesson-watch-btn" data-video="cervical-cancer-chapter-03-why-screening-matters.html" data-title="Why Screening Matters">
+                  <i class="bi bi-play-circle"></i> Watch video
+                </button>
+              </div>
+              <div class="lesson-row">
+                <div class="lesson-info">
+                  <span class="lesson-title">Pap Test vs. HPV Test</span>
+                  <p class="lesson-description">The Pap test examines cervical cells for abnormal changes, while the HPV test checks for the high-risk virus that causes them. Which test — and how often — depends mainly on your age.</p>
+                </div>
+                <button type="button" class="btn btn-primary lesson-watch-btn" data-video="cervical-cancer-chapter-04-pap-test-vs-hpv-test.html" data-title="Pap Test vs. HPV Test">
+                  <i class="bi bi-play-circle"></i> Watch video
+                </button>
+              </div>
+              <div class="lesson-row">
+                <div class="lesson-info">
+                  <span class="lesson-title">What Happens During the Exam</span>
+                  <p class="lesson-description">A step-by-step walkthrough of a routine screening visit, from check-in to the exam itself. It usually takes just 10 to 15 minutes, with at most brief discomfort rather than pain.</p>
+                </div>
+                <button type="button" class="btn btn-primary lesson-watch-btn" data-video="cervical-cancer-chapter-05-what-happens-during-the-exam.html" data-title="What Happens During the Exam">
+                  <i class="bi bi-play-circle"></i> Watch video
+                </button>
+              </div>
+              <div class="lesson-row">
+                <div class="lesson-info">
+                  <span class="lesson-title">The Screening Journey</span>
+                  <p class="lesson-description">Follow one woman's path through the entire screening process, from the invitation letter to booking, the test itself, and receiving results, to see just how manageable each step really is.</p>
+                </div>
+                <button type="button" class="btn btn-primary lesson-watch-btn" data-video="cervical-cancer-chapter-14-the-screening-journey.html" data-title="The Screening Journey">
+                  <i class="bi bi-play-circle"></i> Watch video
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="topic-heading-3">
+            <button class="topic-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#topic-collapse-3" aria-expanded="false" aria-controls="topic-collapse-3">
+              <span class="topic-title">What happens if a test is abnormal?</span>
+              <span class="topic-count">2 lessons</span>
+              <i class="bi bi-chevron-down"></i>
+            </button>
+          </h2>
+          <div id="topic-collapse-3" class="accordion-collapse collapse" aria-labelledby="topic-heading-3"
+            data-bs-parent="#lessonTopicsAccordion">
+            <div class="accordion-body topic-body">
+              <div class="lesson-row">
+                <div class="lesson-info">
+                  <span class="lesson-title">HPV Positive: What Now?</span>
+                  <p class="lesson-description">A positive HPV result means the virus was detected — nothing more. It doesn't mean you have cancer, and most positive results resolve on their own with monitoring alone.</p>
+                </div>
+                <button type="button" class="btn btn-primary lesson-watch-btn" data-video="cervical-cancer-chapter-06-hpv-positive-what-now.html" data-title="HPV Positive: What Now?">
+                  <i class="bi bi-play-circle"></i> Watch video
+                </button>
+              </div>
+              <div class="lesson-row">
+                <div class="lesson-info">
+                  <span class="lesson-title">Colposcopy Explained</span>
+                  <p class="lesson-description">A colposcopy is simply a closer examination of the cervix after an abnormal screening result — similar to a Pap test, usually with mild discomfort, and over in 15 to 20 minutes.</p>
+                </div>
+                <button type="button" class="btn btn-primary lesson-watch-btn" data-video="cervical-cancer-chapter-07-colposcopy-explained.html" data-title="Colposcopy Explained">
+                  <i class="bi bi-play-circle"></i> Watch video
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="topic-heading-4">
+            <button class="topic-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#topic-collapse-4" aria-expanded="false" aria-controls="topic-collapse-4">
+              <span class="topic-title">Screening at different stages of life</span>
+              <span class="topic-count">2 lessons</span>
+              <i class="bi bi-chevron-down"></i>
+            </button>
+          </h2>
+          <div id="topic-collapse-4" class="accordion-collapse collapse" aria-labelledby="topic-heading-4"
+            data-bs-parent="#lessonTopicsAccordion">
+            <div class="accordion-body topic-body">
+              <div class="lesson-row">
+                <div class="lesson-info">
+                  <span class="lesson-title">Pregnancy & Screening</span>
+                  <p class="lesson-description">Screening is generally safe during pregnancy and breastfeeding, with testing after birth typically resuming around 12 weeks postpartum.</p>
+                </div>
+                <button type="button" class="btn btn-primary lesson-watch-btn" data-video="cervical-cancer-chapter-11-pregnancy-and-screening.html" data-title="Pregnancy & Screening">
+                  <i class="bi bi-play-circle"></i> Watch video
+                </button>
+              </div>
+              <div class="lesson-row">
+                <div class="lesson-info">
+                  <span class="lesson-title">Menopause & Screening</span>
+                  <p class="lesson-description">Screening doesn't automatically stop at menopause — guidelines generally continue through age 65, and stopping earlier is a decision made with a doctor, not a default.</p>
+                </div>
+                <button type="button" class="btn btn-primary lesson-watch-btn" data-video="cervical-cancer-chapter-12-menopause-and-screening.html" data-title="Menopause & Screening">
+                  <i class="bi bi-play-circle"></i> Watch video
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="topic-heading-5">
+            <button class="topic-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#topic-collapse-5" aria-expanded="false" aria-controls="topic-collapse-5">
+              <span class="topic-title">Practical support and FAQ</span>
+              <span class="topic-count">2 lessons</span>
+              <i class="bi bi-chevron-down"></i>
+            </button>
+          </h2>
+          <div id="topic-collapse-5" class="accordion-collapse collapse" aria-labelledby="topic-heading-5"
+            data-bs-parent="#lessonTopicsAccordion">
+            <div class="accordion-body topic-body">
+              <div class="lesson-row">
+                <div class="lesson-info">
+                  <span class="lesson-title">Overcoming Fear</span>
+                  <p class="lesson-description">Embarrassment, fear of results and anxiety about discomfort are some of the most common reasons women delay screening — and each one has a practical way through it.</p>
+                </div>
+                <button type="button" class="btn btn-primary lesson-watch-btn" data-video="cervical-cancer-chapter-10-overcoming-fear.html" data-title="Overcoming Fear">
+                  <i class="bi bi-play-circle"></i> Watch video
+                </button>
+              </div>
+              <div class="lesson-row">
+                <div class="lesson-info">
+                  <span class="lesson-title">Common Myths</span>
+                  <p class="lesson-description">From “no symptoms means I'm healthy” to “I'm too old for this to matter,” this lesson debunks the everyday myths that quietly keep women from getting screened.</p>
+                </div>
+                <button type="button" class="btn btn-primary lesson-watch-btn" data-video="cervical-cancer-chapter-08-common-myths.html" data-title="Common Myths">
+                  <i class="bi bi-play-circle"></i> Watch video
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        </div>
       </div>
 
-    </section><!-- /Services Section -->
-
-
+      <!-- Modal Window (shared by every lesson) -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Lesson</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="modal-body">
+              <iframe id="modal-frame" style="width: 100%; height: 100%; border: 0"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /Departments Tabs Section FINO A QUI -->
 
     <!-- Featured Departments Section -->
     <section id="featured-departments" class="featured-departments section">

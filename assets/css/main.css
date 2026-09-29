@@ -4189,6 +4189,7 @@ section,
   left: 0;
   right: 0;
   bottom: 0;
+  background: linear-gradient(45deg, var(--accent-color), color-mix(in srgb, var(--accent-color), transparent 20%));
   border-radius: linear-gradient(45deg, var(--accent-color), color-mix(in srgb, var(--accent-color), transparent 20%));
   opacity: 0;
   display: flex;
