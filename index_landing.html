@@ -176,84 +176,61 @@
 
     </section><!-- /Hero Section -->
 
-    <!-- Home About Section -->
-    <section id="home-about" class="home-about section department-details section">
+    <!-- Service Details 2 Section -->
+    <section id="service-details-2" class="service-details-2 section">
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-        <div class="row align-items-center">
-          <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right" data-aos-delay="200">
-            <div class="about-content">
-              <h2 class="section-heading">The Challenge</h2>
-              <p class="lead-text">Cervical cancer is highly preventable through regular screening, yet significant disparities exist in screening uptake and health outcomes between immigrant and native Italian populations.</p>
+        <div class="row">
 
-              <p class="lead-text">Without comprehensive data on these disparities across different immigrant groups and regions, policymakers lack the evidence needed to design effective, culturally-sensitive interventions.</p>
-
-            </div>
-          </div>
-
-          <div class="col-lg-6" data-aos="fade-left" data-aos-delay="300">
-            <div class="about-visual">
-
-              <div class="main-image">
-                <img src="assets/img/health/national-cancer-institute.jpg" alt="Modern medical facility" class="img-fluid">
+          <div class="col-lg-8 mx-auto text-center mb-5" data-aos="fade-up" data-aos-delay="150">
+            <div class="service-header">
+              <div class="service-category">
+                <span>Navigation Guide</span>
               </div>
+              <h2>Which category of user are you?</h2>
+              <p class="lead">Choose the best suited option to reach the section of the website most useful for you.</p>
             </div>
           </div>
+
         </div>
 
-        <div class="expert-care-section" data-aos="fade-up" data-aos-delay="300">
-          <div class="row align-items-center">
-            <div class="col-lg-6" data-aos="fade-right" data-aos-delay="400">
-              <div class="expert-image">
-                <img src="assets/img/health/vitaly-gariev-2.jpg" alt="Neurological Expert" class="img-fluid">
+        <div class="row gy-4 mt-5">
+
+          <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="100">
+            <div class="action-card primary">
+              <div class="card-header">
+                <i class="bi bi-gender-female"></i>
+                <h4>Woman</h4>
               </div>
-            </div>
-
-            <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right" data-aos-delay="400">
-              <div class="expert-content">
-                <h2>Addressing Health Inequalities in Cervical Cancer Prevention</h2>
-                <p class="lead">Health inequalities in cervical cancer prevention can be influenced by differences in access to healthcare, health information, language, and socioeconomic circumstances. These factors may affect participation in screening and access to appropriate information and care.</p>
-                <p class="lead">DCIMIT investigates these inequalities among migrant populations in Italy, with the aim of improving understanding of the barriers that may contribute to differences in cervical cancer prevention and early detection.</p>
-                <p class="lead">By generating evidence on these barriers and identifying opportunities to improve access to screening and relevant health information, the project seeks to contribute to the development of more equitable approaches to cervical cancer prevention and early detection.</p>
-
-<!--
-                <div class="expertise-list">
-                  <div class="expertise-item">
-                    <i class="bi bi-1-circle"></i>
-                    <span>Mixed-methods study: Understanding lived experiences and barriers</span>
-                  </div>
-                  <div class="expertise-item">
-                    <i class="bi bi-2-circle"></i>
-                    <span>Registry-based analysis: Population-level incidence and survival data</span>
-                  </div>
-                  <div class="expertise-item">
-                    <i class="bi bi-3-circle"></i>
-                    <span>Community intervention: Culturally tailored educational programs</span>
-                  </div>
-                  <div class="expertise-item">
-                    <i class="bi bi-4-circle"></i>
-                    <span>AIRTUM collaboration: Comprehensive national cancer registry data</span>
-                  </div>
-                  <div class="expertise-item">
-                    <i class="bi bi-5-circle"></i>
-                    <span>Evidence translation: From research to actionable policy</span>
-                  </div>
-                </div> -->
-
-
+              <p>In this section you will find information about cervical cancer</p>
+              <div class="card-footer">
+                <a href="#!" class="btn-action">Enter Women's Health Section</a>
+                <span class="availability">We grant tools for all women, with a special focus on immigrant communities</span>
               </div>
             </div>
           </div>
+
+          <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="200">
+            <div class="action-card secondary">
+              <div class="card-header">
+                <i class="bi bi-book"></i>
+                <h4>Researcher</h4>
+              </div>
+              <p>investigate inequalities in cervical cancer prevention among immigrant women</p>
+              <div class="card-footer">
+                <a href="tel:+15551234567" class="btn-action">Know more about our Research</a>
+                <span class="availability">The DCIMIT project comprises three complementary studies designed to provide comprehensive insights into cervical cancer disparities among immigrant populations in Italy</span>
+              </div>
+            </div>
+          </div>
+
+
         </div>
-        
-        
-        
 
       </div>
 
-    </section><!-- /Home About Section -->
-
+    </section><!-- /Service Details 2 Section -->
     
 
     <!-- Featured Departments Section -->
@@ -700,6 +677,46 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+
+
+  <!-- Auto-scroll from the hero section down to #home-about, a few seconds after load -->
+  <script>
+    (function () {
+      const START_DELAY_MS = 3000;
+      const TICK_MS = 10;
+      const PX_PER_TICK = 10;
+
+      function isInViewport(el) {
+        const rect = el.getBoundingClientRect();
+        return rect.bottom > 0 && rect.top < window.innerHeight;
+      }
+
+      function pageScroll() {
+        const heroEl = document.getElementById('hero');
+        const targetEl = document.getElementById('service-details-2');
+        if (!heroEl || !targetEl) return;
+        if (!isInViewport(heroEl)) return; // only auto-scroll while the hero section is being viewed
+        
+        // Match the site's own scroll-margin-top for sections (main.css),
+        // otherwise the fixed header covers the start of the section.
+        const headerOffset = window.matchMedia('(max-width: 1199px)').matches ? 66 : 90;
+        // Small extra nudge so the previous section's accent line scrolls fully out of view.
+        const EXTRA_MARGIN = 20;
+        const targetY = targetEl.getBoundingClientRect().top + window.scrollY - headerOffset + EXTRA_MARGIN;
+
+        function tick() {
+          window.scrollBy(0, PX_PER_TICK);
+          if (window.scrollY < targetY) {
+            setTimeout(tick, TICK_MS);
+          }
+        }
+        tick();
+      }
+
+      setTimeout(pageScroll, START_DELAY_MS);
+    })();
+  </script>
+
 
 </body>
 
