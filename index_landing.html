@@ -685,6 +685,15 @@
       const START_DELAY_MS = 3000;
       const TICK_MS = 10;
       const PX_PER_TICK = 10;
+      const STORAGE_KEY = 'dcimit-home-autoscroll-seen';
+      
+      // Run only on the first visit: localStorage persists across sessions.
+      // If storage is unavailable (blocked/private mode), fall through and scroll.
+
+      try {
+        if (localStorage.getItem(STORAGE_KEY)) return;
+        localStorage.setItem(STORAGE_KEY, '1');
+      } catch (e) {}
 
       function isInViewport(el) {
         const rect = el.getBoundingClientRect();
