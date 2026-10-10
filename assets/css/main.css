@@ -1471,7 +1471,7 @@ section,
 --------------------------------------------------------------*/
 .home-about {
   padding: 100px 0;
-  background-color: var(--surface-color);
+  background: color-mix(in srgb, var(--accent-color) 10%, transparent);
 }
 
 .home-about .about-content .section-heading {
