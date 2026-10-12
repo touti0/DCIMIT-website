@@ -4071,7 +4071,7 @@ section,
 }
 
 .department-details .expert-care-section .expert-content .lead {
-  font-size: 1.125rem;
+  font-size: 1.25rem;
   line-height: 1.7;
   color: color-mix(in srgb, var(--default-color), transparent 20%);
   margin-bottom: 2.5rem;
@@ -4647,7 +4647,7 @@ section,
 }
 
 .service-details-2 .action-card .card-header h4 {
-  font-size: 1.3rem;
+  font-size: 2rem;
   font-weight: 600;
   margin: 0;
 }
@@ -4671,7 +4671,7 @@ section,
 
 .service-details-2 .action-card .card-footer .availability {
   display: block;
-  font-size: 0.85rem;
+  font-size: 1rem;
   color: color-mix(in srgb, var(--default-color), transparent 40%);
   font-weight: 500;
 }
