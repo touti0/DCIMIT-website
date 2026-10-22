@@ -34,6 +34,26 @@
 
 
   <style>
+    /* PNG icon that behaves like a Font Awesome glyph: 1em box, inherits the text colour */
+    .icon-uterus {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      background-color: currentColor;
+      -webkit-mask: url("assets/img/health/uterus.png") center / contain no-repeat;
+      mask: url("assets/img/health/uterus.png") center / contain no-repeat;
+    }
+    /* same look and hover animation as the Font Awesome icons in the services overlay */
+    .services .service-image .service-overlay .icon-uterus {
+      font-size: 4rem;
+      color: var(--contrast-color);
+      transform: scale(0.7);
+      transition: transform 0.3s ease;
+    }
+    .services .service-image:hover .service-overlay .icon-uterus {
+      transform: scale(1);
+    }
+
     /* ===== Thematic lesson accordion ===== */
     .lesson-accordion {
       margin-top: 10px;
@@ -126,6 +146,8 @@
       align-items: center;
       gap: 6px;
     }
+
+
     @media (max-width: 576px) {
       .lesson-accordion .lesson-row {
         flex-direction: column;
@@ -140,6 +162,7 @@
         padding: 16px 18px;
         font-size: 0.95rem;
       }
+
     }
   </style>
 
@@ -234,8 +257,8 @@
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
         <div class="section-title text-center" data-aos="fade-up">
-          <h2>Browse lessons by topic</h2>
-          <p>Choose a topic area, then pick the specific lesson you want to watch.</p>
+          <h2>Information about Cervical Cancer</h2>
+          <p>Choose a topic area to learn more about it.</p>
         </div>
       </div>
     </section>
@@ -252,17 +275,17 @@
               <div class="service-image">
                 <img src="assets/img/health/cervical_info_crop.png" alt="First Lesson" class="img-fluid">
                 <div class="service-overlay">
-                
+                  <span class="icon-uterus" role="img" aria-label="Uterus"></span>
                 </div>
+                <a href="https://www.flaticon.com/free-icons/gynecology" title="gynecology icons">Gynecology icons created by juicy_fish - Flaticon</a>
               </div>
               <div class="service-content">
-                <h3>Title</h3>
-                <p>Comprehensive heart care with advanced diagnostic tools and treatment options for cardiovascular
-                  conditions.</p>
-                <div class="service-features">
+                <h3>What is Cervical Cancer?</h3>
+                <p>Cervical cancer develops in the cells lining the cervix, usually over many years and almost always linked to persistent HPV infection. Caught early through regular screening, it is one of the most preventable and treatable cancers.</p>
+             <!--   <div class="service-features">
                   <span class="feature-item"><i class="fas fa-check"></i> ECG Testing</span>
                   <span class="feature-item"><i class="fas fa-check"></i> Heart Surgery</span>
-                </div>
+                </div> -->
                 <a href="womens-health - Copia.html" class="service-btn">
                   <span>Learn More</span>
                   <i class="fas fa-arrow-right"></i>
@@ -276,17 +299,18 @@
               <div class="service-image">
                 <img src="assets/img/health/neurology-3.webp" alt="Neurology Services" class="img-fluid">
                 <div class="service-overlay">
-                  <i class="fas fa-brain"></i>
+                  <span class="icon-uterus" role="img" aria-label="Uterus"></span>
                 </div>
+                <a href="https://www.flaticon.com/free-icons/gynecology" title="gynecology icons">Gynecology icons created by juicy_fish - Flaticon</a>
               </div>
               <div class="service-content">
                 <h3>Title</h3>
                 <p>Expert neurological care for brain and nervous system disorders with state-of-the-art imaging
                   technology.</p>
-                <div class="service-features">
-                  <span class="feature-item"><i class="fas fa-check"></i> MRI Scans</span>
-                  <span class="feature-item"><i class="fas fa-check"></i> Stroke Care</span>
-                </div>
+             <!--   <div class="service-features">
+                  <span class="feature-item"><i class="fas fa-check"></i> ECG Testing</span>
+                  <span class="feature-item"><i class="fas fa-check"></i> Heart Surgery</span>
+                </div> -->
                 <a href="service-details.html" class="service-btn">
                   <span>Learn More</span>
                   <i class="fas fa-arrow-right"></i>
@@ -300,8 +324,9 @@
               <div class="service-image">
                 <img src="assets/img/health/orthopedics-1.webp" alt="Orthopedics Services" class="img-fluid">
                 <div class="service-overlay">
-                  <i class="fas fa-bone"></i>
+                  <span class="icon-uterus" role="img" aria-label="Uterus"></span>
                 </div>
+                <a href="https://www.flaticon.com/free-icons/gynecology" title="gynecology icons">Gynecology icons created by juicy_fish - Flaticon</a>
               </div>
               <div class="service-content">
                 <h3>Title</h3>
@@ -324,8 +349,9 @@
               <div class="service-image">
                 <img src="assets/img/health/pediatrics-4.webp" alt="Pediatrics Services" class="img-fluid">
                 <div class="service-overlay">
-                  <i class="fas fa-child"></i>
+                  <span class="icon-uterus" role="img" aria-label="Uterus"></span>
                 </div>
+                <a href="https://www.flaticon.com/free-icons/gynecology" title="gynecology icons">Gynecology icons created by juicy_fish - Flaticon</a>
               </div>
               <div class="service-content">
                 <h3>Title</h3>
@@ -348,8 +374,9 @@
               <div class="service-image">
                 <img src="assets/img/health/emergency-2.webp" alt="Emergency Services" class="img-fluid">
                 <div class="service-overlay">
-                  <i class="fas fa-ambulance"></i>
+                  <span class="icon-uterus" role="img" aria-label="Uterus"></span>
                 </div>
+                <a href="https://www.flaticon.com/free-icons/gynecology" title="gynecology icons">Gynecology icons created by juicy_fish - Flaticon</a>
               </div>
               <div class="service-content">
                 <h3>Title</h3>
@@ -371,8 +398,9 @@
               <div class="service-image">
                 <img src="assets/img/health/laboratory-3.webp" alt="Laboratory Services" class="img-fluid">
                 <div class="service-overlay">
-                  <i class="fas fa-microscope"></i>
+                  <span class="icon-uterus" role="img" aria-label="Uterus"></span>
                 </div>
+                <a href="https://www.flaticon.com/free-icons/gynecology" title="gynecology icons">Gynecology icons created by juicy_fish - Flaticon</a>
               </div>
               <div class="service-content">
                 <h3>Title</h3>
@@ -451,10 +479,8 @@
                   Are you eligible for routine cervical cancer screening?
                 </p>
                 <div class="specialty-features">
-                  <span><i class="bi bi-check-circle-fill"></i>Answer a few simple questions about your medical history and previous cervical screening.
-                    Imaging</span>
-                  <span><i class="bi bi-check-circle-fill"></i>find out whether you may follow the routine screening pathway or whether you should consult a healthcare professional for individualized guidance.
-                    Surgery</span>
+                  <span><i class="bi bi-check-circle-fill"></i>Answer a few simple questions about your medical history and previous cervical screening.</span>
+                  <span><i class="bi bi-check-circle-fill"></i>find out whether you may follow the routine screening pathway or whether you should consult a healthcare professional for individualized guidance.</span>
                 </div>
                 <a href="screening-eligibility-checker.html" class="specialty-link" target="_blank">
                 Check your symptoms<i class="bi bi-arrow-right"></i>
@@ -505,16 +531,16 @@
 
             <div class="col-lg-8">
               <div class="contact-content" data-aos="fade-up" data-aos-delay="200">
-                <h2>Have Questions?</h2>
+                <h2>Healthcare Services</h2>
                 <p>If you have questions about cervical cancer screening or need assistance accessing healthcare services, please contact your local health authority (ASL) or reach out to our research team.</p>
               </div>
             </div>
 
-            <div class="col-lg-4">
+            <div  class="col-lg-4">
               <div class="contact-actions" data-aos="fade-up" data-aos-delay="300">
                 <a href="https://guidaservizi.fascicolo-sanitario.it/dettaglio/prestazione/3152773" class="emergency-call" target="_blank">
                   <i class="bi bi-map"></i>
-                  <span>Find local ASL</span>
+                  <span>Explore Services</span>
                 </a>
                 <a href="contact.html" class="contact-link">Contact us</a>
               </div>

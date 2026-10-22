@@ -509,10 +509,11 @@
   <!-- Auto-scroll from the hero section down to #service-details-2, a few seconds after load -->
   <script>
     (function () {
-      const START_DELAY_MS = 3000;
-      const TICK_MS = 10;
-      const PX_PER_TICK = 10;
+      const START_DELAY_MS = 2500;
       const STORAGE_KEY = 'dcimit-home-autoscroll-seen';
+
+      // Skip the animation for people who asked their system to reduce motion.
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
       // Run only on the first visit: localStorage persists across sessions.
       // If storage is unavailable (blocked/private mode), fall through and scroll.
@@ -538,15 +539,73 @@
         const headerOffset = window.matchMedia('(max-width: 1199px)').matches ? 66 : 90;
         // Small extra nudge so the previous section's accent line scrolls fully out of view.
         const EXTRA_MARGIN = 20;
-        const targetY = targetEl.getBoundingClientRect().top + window.scrollY - headerOffset + EXTRA_MARGIN;
+        // Space to leave under the cards, and minimum gap kept between the header and the cards.
+        const CARDS_BOTTOM_GAP = 24;
+        const CARDS_TOP_GAP = 16;
 
-        function tick() {
-          window.scrollBy(0, PX_PER_TICK);
-          if (window.scrollY < targetY) {
-            setTimeout(tick, TICK_MS);
+        // Document position of an element, ignoring AOS transforms (which shift getBoundingClientRect).
+        function absTop(el) {
+          let y = 0;
+          for (let e = el; e; e = e.offsetParent) y += e.offsetTop;
+          return y;
+        }
+
+        function getTargetY() {
+          const base = absTop(targetEl) - headerOffset + EXTRA_MARGIN;
+          const cards = targetEl.querySelectorAll('.action-card');
+          if (!cards.length) return base;
+
+          let cardsTop = Infinity;
+          let cardsBottom = 0;
+          cards.forEach((c) => {
+            cardsTop = Math.min(cardsTop, absTop(c));
+            cardsBottom = Math.max(cardsBottom, absTop(c) + c.offsetHeight);
+          });
+
+          // Scroll further only as much as needed to show the cards completely, but never so far
+          // that they slide under the fixed header.
+          const needed = cardsBottom + CARDS_BOTTOM_GAP - window.innerHeight;
+          const limit = cardsTop - headerOffset - CARDS_TOP_GAP;
+          return Math.max(base, Math.min(needed, limit));
+        }
+
+        const startY = window.scrollY;
+        const distance = getTargetY() - startY;
+        if (distance <= 0) return;
+
+        // Longer trips take a bit longer, but always stay within a comfortable range.
+        const duration = Math.min(3300, Math.max(1900, 1400 + distance * 0.6));
+        const easeInOutCubic = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+
+        // main.css sets `html { scroll-behavior: smooth }`, which would fight a per-frame scroll.
+        const root = document.documentElement;
+        const prevBehavior = root.style.scrollBehavior;
+        root.style.scrollBehavior = 'auto';
+
+        let rafId = 0;
+        const cancelEvents = ['wheel', 'touchstart', 'mousedown', 'keydown'];
+
+        function stop() {
+          cancelAnimationFrame(rafId);
+          cancelEvents.forEach((ev) => window.removeEventListener(ev, stop));
+          root.style.scrollBehavior = prevBehavior;
+        }
+        // Hand control back immediately if the visitor starts scrolling themselves.
+        cancelEvents.forEach((ev) => window.addEventListener(ev, stop, { passive: true }));
+
+        let t0 = null;
+        function frame(now) {
+          if (t0 === null) t0 = now;
+          const progress = Math.min((now - t0) / duration, 1);
+          // Re-read the target every frame: images/animations may shift the layout while we scroll.
+          window.scrollTo(0, startY + (getTargetY() - startY) * easeInOutCubic(progress));
+          if (progress < 1) {
+            rafId = requestAnimationFrame(frame);
+          } else {
+            stop();
           }
         }
-        tick();
+        rafId = requestAnimationFrame(frame);
       }
 
       setTimeout(pageScroll, START_DELAY_MS);
