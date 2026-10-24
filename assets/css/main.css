@@ -960,6 +960,10 @@ h6 {
   padding: 80px 0 10px;
 }
 
+.heading-contact{
+  padding: 80px 0;
+}
+
 .page-title .heading h1 {
   font-size: 38px;
   font-weight: 500;
@@ -2043,6 +2047,7 @@ section,
   border-radius: 20px;
   padding: 40px;
   margin-top: 60px;
+  margin-bottom: 60px;
   color: var(--contrast-color);
 }
 
@@ -2835,6 +2840,10 @@ section,
 /*--------------------------------------------------------------
 # Call To Action Section
 --------------------------------------------------------------*/
+#category{
+  padding:60px;
+}
+
 .call-to-action {
   padding: 120px 0 100px;
 }
@@ -2960,6 +2969,7 @@ section,
 
 .call-to-action .features-section {
   margin-bottom: 120px;
+  background: color-mix(in srgb, var(--accent-color) 10%, transparent);
 }
 
 .call-to-action .features-section .feature-block {
@@ -5620,6 +5630,11 @@ a.header-cta {
 
 .contact .contact-info-item .info-content p:last-child {
   margin-bottom: 0;
+}
+
+.form-check{
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  text-align: left;  /*     era font     */
 }
 
 .contact .contact-form-card {

@@ -94,27 +94,47 @@
 
     <!-- Page Title -->
     <div class="page-title">
-      <div class="heading">
+      <div class="heading-contact">
         <div class="container">
           <div class="row d-flex justify-content-center text-center">
             <div class="col-lg-8">
               <h1 class="heading-title">Contact</h1>
               <p class="mb-0">
-               We're here to listen, support, and collaborate
+               Whether you are a woman who seek information or a researcher interested in contributing to our work, <br>we welcome your questions, perspectives, and enquiries.
               </p>
             </div>
           </div>
         </div>
       </div>
-   <!--    <nav class="breadcrumbs">
-        <div class="container">
-          <ol>
-            <li><a href="index.html">Home</a></li>
-            <li class="current">Contact</li>
-          </ol>
-        </div>
-      </nav> -->
     </div>
+
+    <section id="category" class=" section light-background">
+
+      <div class="container aos-init aos-animate">
+        <div class="features-section">
+
+          <div class="row g-5">
+
+            <div class="col-lg-6">
+              <div class="feature-block" data-aos="fade-up" data-aos-delay="200">
+                <h3>For Women</h3>
+                <p>Have you experienced challenges in accessing cervical cancer prevention, screening, diagnosis, or care? <br>If you would like to share your experience or learn more about the issues addressed by DCIMIT, we would be glad to hear from you. Your perspective can help inform research into inequalities in cervical cancer prevention among immigrant women in Italy.</p>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="feature-block" data-aos="fade-up" data-aos-delay="300">
+                <h3>For Researchers</h3>
+                <p>Are you interested in cervical cancer prevention, health inequalities, or migrant health? <br>If you would like to learn more about DCIMIT or explore opportunities for research collaboration, please get in touch with our team.</p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
     <!-- End Page Title -->
 
     <!-- Contact Section -->
@@ -148,15 +168,17 @@
                 </div>
               </div>
 
-
             </div>
           </div>
 
           <div class="col-lg-7">
             <div class="contact-form-card" data-aos="fade-up" data-aos-delay="200">
-              <h2>Send us a Message</h2>
-              <p class="mb-4">If you are a woman facing challenges related to cervical cancer, especially those connected to access, diagnosis, or care—and you feel your experience relates to the disparities we are researching—please don't hesitate to reach out. We are here to listen, support, and help where we can.</p>
+              <h2>Get in touch with the DCIMIT team</h2>
+              <p class="mb-4"></p></p>
 
+              <p class="mb-4">Share your experiences or ask questions.</p>
+              
+              <!--Contact form-->
               <form action="forms/contact.php" method="post" class="php-email-form">
                 <div class="row g-4">
                   <div class="col-md-6">
@@ -184,11 +206,26 @@
                     <div class="sent-message">Your message has been sent. Thank you!</div>
                   </div>
 
+                        <div class="form-check" style="padding-bottom: 1%; text-align:left;">
+                          <label class="form-check-labell" for="flexCheckDefault" >
+                          <input class="form-check-input" type="checkbox" id="flexCheckDefault" onclick="handleDisable(this)"/>
+
+                            I consent to the processing of my data. Our <a href="privacy_policy.html" style="color: #7451a6;" target="_blank">Privacy Policy</a>.
+                          </label>
+                        </div>                  
+
                   <div class="col-12">
-                    <button type="submit" class="btn btn-submit">Send Message</button>
+                    <button type="submit" class="btn btn-submit" name="lookUpLocation" disabled>Send Message</button>
                   </div>
                 </div>
               </form>
+
+<script>
+  function handleDisable(elm) {
+    document.getElementsByName('lookUpLocation')[0].disabled = !elm.checked;
+  }
+</script>
+
             </div>
           </div>
         </div>
