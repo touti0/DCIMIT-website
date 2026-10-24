@@ -1081,7 +1081,7 @@ section,
   left: 0;
   right: 0;
   bottom: 0;
-  background: url("../img/bg/back_g.png") center/cover; /*Foto di <a href="https://unsplash.com/it/@pawel_czerwinski?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Pawel Czerwinski</a> su <a href="https://unsplash.com/it/foto/modello-di-sfondo-848z7lbCjoo?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>*/
+  background: url("../img/bg/back_g.webp") center/cover; /*Foto di <a href="https://unsplash.com/it/@pawel_czerwinski?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Pawel Czerwinski</a> su <a href="https://unsplash.com/it/foto/modello-di-sfondo-848z7lbCjoo?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>*/
       
   opacity: 0.08;
   z-index: 0;
