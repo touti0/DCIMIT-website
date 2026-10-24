@@ -191,6 +191,24 @@ h6 {
   text-decoration: underline;
 }
 
+/* Keep the funding message on one line: wrapping it with line-height 0 made the two lines overlap */
+@media (max-width: 575px) {
+  .header .topbar .contact-info,
+  .header .topbar .contact-info i {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .header .topbar .contact-info i a {
+    display: block;
+    max-width: 100%;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
 .header .topbar .social-links a {
   color: color-mix(in srgb, var(--contrast-color), transparent 40%);
   line-height: 0;
