@@ -503,6 +503,21 @@ h6 {
     color: var(--contrast-color);
   }
 
+  /* Keep the dropdown arrow right next to its label instead of pushing it to the far edge */
+  .navmenu .dropdown>a {
+    justify-content: flex-start;
+  }
+
+  .navmenu .dropdown>a i {
+    margin-left: 8px;
+  }
+
+  /* Language switch: only as wide as its two buttons */
+  .navmenu .language {
+    width: fit-content;
+    margin: 10px 20px 6px;
+  }
+
   .navmenu a:hover,
   .navmenu .active,.navmenu .active:focus
   .navmenu .active:focus {
@@ -900,7 +915,7 @@ h6 {
   height: 115px;
   margin: -58px 0 0 -36px;
   background: url("../img/preloader-ribbon.svg") center / contain no-repeat;
-  opacity: 0.7;
+  opacity: 0.4;
 }
 
 /*--------------------------------------------------------------

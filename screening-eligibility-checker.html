@@ -552,39 +552,41 @@
     <!-- HEADER -->
     <header id="header" class="header fixed-top">
       <div class="topbar d-flex align-items-center dark-background">
-        <div
-          class="container d-flex justify-content-center justify-content-md-between"
-        >
+        <div class="container d-flex justify-content-center justify-content-md-between">
+
           <div class="contact-info d-flex align-items-center">
-            <i class="bi bi-envelope d-flex align-items-center"
-              ><a href="mailto:valentina.biagioli@unibo.it">valentina.biagioli@unibo.it</a></i
-            >
-            <i class="bi bi-phone d-flex align-items-center ms-4"
-              ><span>+1 5589 55488 55</span></i
-            >
+            <i class=" d-flex align-items-center"><a
+                href="https://site.unibo.it/dcimit/it/eventi">This research was funded by AIRC as part of the MFAG - 30481 project.</a></i>
           </div>
+
           <div class="social-links d-none d-md-flex align-items-center">
-            <a href="#!" class="twitter"><i class="bi bi-twitter-x"></i></a>
-            <a href="#!" class="facebook"><i class="bi bi-facebook"></i></a>
-            <a href="#!" class="instagram"><i class="bi bi-instagram"></i></a>
-            <a href="#!" class="linkedin"><i class="bi bi-linkedin"></i></a>
+            <a href="https://site.unibo.it/dcimit/it/eventi" class="twitter"><i class="bi bi-pc-display-horizontal"></i></a>
           </div>
         </div>
-      </div>
-      <!-- End Top Bar -->
+      </div><!-- End Top Bar -->
 
       <div class="branding d-flex align-items-cente">
         <div
           class="container position-relative d-flex align-items-center justify-content-between"
         >
           <a href="index.html" class="logo d-flex align-items-center">
-            <h1 class="sitename">DCIMIT</h1>
+            <!-- Uncomment the line below if you also wish to use an image logo -->
+            <img src="assets/img/airc_logo.png" alt="AIRC Logo">
+            <img src="assets/img/alma_logo.webp" alt="Unibo Logo">
+            <img src="assets/img/logo_crop.webp" alt="DCIMIT Logo">
+            <!-- <h1 class="sitename">DCIMIT</h1>  TITOLO DEL SITO -->
           </a>
 
         <nav id="navmenu" class="navmenu">
           <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="womens-health.html" class="active nav-highlight">Women's Health</a></li>
+            <li class="dropdown"><a href="womens-health.html" class="active nav-highlight"><span>Women's Health</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="womens-health.html#departments-tabs">Lessons</a></li>
+              <li><a href="womens-health.html#featured-departments">Interactive Tools</a></li>
+              <li><a href="womens-health.html#call-to-action">Other Services</a></li>
+            </ul>
+            </li>
             <li class="dropdown"><a href="research.html"><span>Research</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
               <li><a href="mix-study.html">Mixed Method Study</a></li>
