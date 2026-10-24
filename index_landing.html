@@ -509,6 +509,8 @@
   <!-- Auto-scroll from the hero section down to #service-details-2, a few seconds after load -->
   <script>
     (function () {
+      // Phones and tablets (also in landscape, up to ~1400px with a touch screen): go slower and wait a bit more.
+      const isNarrow = window.matchMedia('(max-width: 1199px), (pointer: coarse) and (max-width: 1400px)').matches;
       const START_DELAY_MS = 2500;
       const STORAGE_KEY = 'dcimit-home-autoscroll-seen';
 
@@ -562,6 +564,10 @@
             cardsBottom = Math.max(cardsBottom, absTop(c) + c.offsetHeight);
           });
 
+          // If the cards can't fit on screen together (e.g. stacked on a phone), stop at the section start.
+          const fits = cardsBottom - cardsTop + headerOffset + CARDS_TOP_GAP + CARDS_BOTTOM_GAP <= window.innerHeight;
+          if (!fits) return base;
+
           // Scroll further only as much as needed to show the cards completely, but never so far
           // that they slide under the fixed header.
           const needed = cardsBottom + CARDS_BOTTOM_GAP - window.innerHeight;
@@ -574,8 +580,13 @@
         if (distance <= 0) return;
 
         // Longer trips take a bit longer, but always stay within a comfortable range.
-        const duration = Math.min(3300, Math.max(1900, 1400 + distance * 0.6));
+        // On narrow screens aim for a steady, gentle pace (about 320px/s on average) with a softer curve.
+        const duration = isNarrow
+          ? Math.min(6000, Math.max(2500, distance / 0.32))
+          : Math.min(3300, Math.max(1900, 1400 + distance * 0.6));
         const easeInOutCubic = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+        const easeInOutSine = (t) => -(Math.cos(Math.PI * t) - 1) / 2;
+        const ease = isNarrow ? easeInOutSine : easeInOutCubic;
 
         // main.css sets `html { scroll-behavior: smooth }`, which would fight a per-frame scroll.
         const root = document.documentElement;
@@ -598,7 +609,7 @@
           if (t0 === null) t0 = now;
           const progress = Math.min((now - t0) / duration, 1);
           // Re-read the target every frame: images/animations may shift the layout while we scroll.
-          window.scrollTo(0, startY + (getTargetY() - startY) * easeInOutCubic(progress));
+          window.scrollTo(0, startY + (getTargetY() - startY) * ease(progress));
           if (progress < 1) {
             rafId = requestAnimationFrame(frame);
           } else {
@@ -608,7 +619,15 @@
         rafId = requestAnimationFrame(frame);
       }
 
-      setTimeout(pageScroll, START_DELAY_MS);
+      // Count the delay from when the page has really finished loading, so slow phones still show the hero first.
+      function scheduleScroll() {
+        setTimeout(pageScroll, START_DELAY_MS);
+      }
+      if (document.readyState === 'complete') {
+        scheduleScroll();
+      } else {
+        window.addEventListener('load', scheduleScroll, { once: true });
+      }
     })();
   </script>
 
