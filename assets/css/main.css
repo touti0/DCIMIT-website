@@ -2473,6 +2473,44 @@ section,
   }
 }
 
+    /* ===== Owl carousel ("Other Resources") ===== */
+    .btn-lg-square {
+      width: 48px;
+      height: 48px;
+      padding: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .team-carousel .owl-nav {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 24px;
+    }
+    .team-carousel .owl-nav .owl-prev,
+    .team-carousel .owl-nav .owl-next {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--accent-color);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    .team-carousel .owl-nav .owl-prev:hover,
+    .team-carousel .owl-nav .owl-next:hover {
+      background: var(--purple);
+      transform: translateY(-2px);
+    }
+
+
+
+
+
 /*--------------------------------------------------------------
 # Find A Doctor Section
 --------------------------------------------------------------*/
