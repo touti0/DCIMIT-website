@@ -1013,11 +1013,12 @@ h6 {
 /*--------------------------------------------------------------
 # Global Sections
 --------------------------------------------------------------*/
+
 section,
 .section {
   color: var(--default-color);
   background-color: var(--background-color);
-  padding: 60px 0;
+  padding: 40px 0;
   scroll-margin-top: 90px;
   overflow: clip;
 }
@@ -1035,7 +1036,7 @@ section,
 --------------------------------------------------------------*/
 .section-title {
   text-align: center;
-  padding-bottom: 60px;
+  padding-bottom: 30px;
   position: relative;
 }
 
@@ -4176,7 +4177,7 @@ section,
 # Services Section
 --------------------------------------------------------------*/
 .services {
-  padding: 80px 0;
+ /*-- padding: 80px 0; */
 }
 
 .services .service-item {
@@ -4733,18 +4734,18 @@ section,
 # Doctors Section
 --------------------------------------------------------------*/
 .doctors .doctor-card {
-  background: var(--surface-color);
+  background-color: var(--background-color);
   border-radius: 15px;
   padding: 25px;
   text-align: center;
   height: 100%;
   transition: all 0.3s ease;
-  box-shadow: 0 5px 20px color-mix(in srgb, var(--default-color), transparent 90%);
+ /* box-shadow: 0 5px 20px color-mix(in srgb, var(--default-color), transparent 90%);  */
 }
 
 .doctors .doctor-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 15px 40px color-mix(in srgb, var(--default-color), transparent 80%);
+ /* box-shadow: 0 15px 40px color-mix(in srgb, var(--default-color), transparent 80%); */
 }
 
 .doctors .doctor-card:hover .doctor-overlay {
