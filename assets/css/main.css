@@ -231,8 +231,26 @@ h6 {
 }
 
 .header .logo img {
-  max-height: 36px;
+  max-height: 50px;
   margin-right: 8px;
+}
+
+/* Narrow desktop (container is only 1140px wide): slightly smaller logos so the nav still fits */
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+  .header .logo img {
+    max-height: 48px;
+  }
+}
+
+/* Tablet / phone: tighter bar padding so bigger logos still fit the same 60px header */
+@media (max-width: 1199px) {
+  .header .branding {
+    padding: 8px 0;
+  }
+
+  .header .logo img {
+    max-height: 42px;
+  }
 }
 
 @media (max-width: 575px) {
@@ -241,7 +259,7 @@ h6 {
   }
 
   .header .logo img {
-    max-height: 28px;
+    max-height: 40px;
     margin-right: 5px;
   }
 }
@@ -416,6 +434,13 @@ h6 {
     top: 0;
     left: -100%;
     visibility: visible;
+  }
+}
+
+/* Narrow desktop: tighter gaps between menu items to make room for the larger header logos */
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+  .navmenu>ul>li {
+    padding: 15px 12px;
   }
 }
 
@@ -952,6 +977,17 @@ h6 {
   bottom: 15px;
 }
 
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
 /*--------------------------------------------------------------
 # Disable aos animation delay on mobile devices
 --------------------------------------------------------------*/
@@ -1028,6 +1064,17 @@ section,
   section,
   .section {
     scroll-margin-top: 66px;
+  }
+}
+
+/* Landing page button: stop the jump just under the (collapsed) fixed header, so no strip of the hero shows above this section */
+#service-details-2 {
+  scroll-margin-top: 60px;
+}
+
+@media (max-width: 1199px) {
+  #service-details-2 {
+    scroll-margin-top: 50px;
   }
 }
 
@@ -1109,7 +1156,7 @@ section,
 }
 
 .hero .hero-content {
-  padding: 2rem 0;
+  
 }
 
 .hero .hero-content .trust-badges {
@@ -1247,13 +1294,13 @@ section,
 }
 
 .hero .hero-content .hero-actions .btn.btn-primary {
-  background: var(--accent-color);
+  background: var(--nav-hover-color);
   color: var(--contrast-color);
 }
 
 .hero .hero-content .hero-actions .btn.btn-primary:hover {
-  background:  #EF714F;
-  /*transform: translateY(-2px);*/
+  background: var(--accent-color);
+  transform: translateY(-2px);
   
 }
 

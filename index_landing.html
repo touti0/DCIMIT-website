@@ -8,9 +8,6 @@
   <meta name="description" content="The Homepage of the website developed for the DCIMIT Project">
   <meta name="keywords" content="DCIMIT, cervical cancer, clinical research">
 
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -35,7 +32,7 @@
 <body class="index-page">
 
   <header id="header" class="header fixed-top">
-
+<!-- 
     <div class="topbar d-flex align-items-center dark-background">
       <div class="container d-flex justify-content-center justify-content-md-between">
 
@@ -48,7 +45,7 @@
           <a href="https://site.unibo.it/dcimit/it/eventi" class="twitter"><i class="bi bi-pc-display-horizontal"></i></a>
         </div>
       </div>
-    </div><!-- End Top Bar -->
+    </div>End Top Bar -->
 
     <div class="branding d-flex align-items-cente">
 
@@ -148,16 +145,8 @@
                 </div>
               </div>
 
-              <div class="hero-actions" data-aos="fade-right" data-aos-delay="600">
-                <a href="appointment.html" class="btn btn-primary">Explore Research</a>
-                <a href="https://www.youtube.com/" class="btn btn-outline">
-                  <i class="bi bi-play-circle me-2"></i>
-                  About the Project 
-                </a>
-                <a href="data.html" class="btn btn-outline">
-                 
-                  View Data 
-                </a>
+              <div class="hero-actions" data-aos="fade-right" data-aos-delay="500" data-aos-anchor=".hero-stats">
+                <a href="index_landing.html#service-details-2" class="btn btn-primary">Explore Research <i class="fa-solid fa-arrow-down"></i></a>
               </div>
 
               
@@ -512,12 +501,12 @@
   <script src="assets/js/main.js"></script>
 
 
-  <!-- Auto-scroll from the hero section down to #service-details-2, a few seconds after load -->
+  <!-- Auto-scroll from the hero section down to #service-details-2, shortly after load -->
   <script>
     (function () {
-      // Phones and tablets (also in landscape, up to ~1400px with a touch screen): go slower and wait a bit more.
+      // Phones and tablets (also in landscape, up to ~1400px with a touch screen): go slower.
       const isNarrow = window.matchMedia('(max-width: 1199px), (pointer: coarse) and (max-width: 1400px)').matches;
-      const START_DELAY_MS = 2500;
+      const START_DELAY_MS = 1200;
       const STORAGE_KEY = 'dcimit-home-autoscroll-seen';
 
       // Skip the animation for people who asked their system to reduce motion.
@@ -525,7 +514,6 @@
 
       // Run only on the first visit: localStorage persists across sessions.
       // If storage is unavailable (blocked/private mode), fall through and scroll.
-
       try {
         if (localStorage.getItem(STORAGE_KEY)) return;
         localStorage.setItem(STORAGE_KEY, '1');
@@ -541,12 +529,10 @@
         const targetEl = document.getElementById('service-details-2');
         if (!heroEl || !targetEl) return;
         if (!isInViewport(heroEl)) return; // only auto-scroll while the hero section is being viewed
-        
-        // Match the site's own scroll-margin-top for sections (main.css),
-        // otherwise the fixed header covers the start of the section.
-        const headerOffset = window.matchMedia('(max-width: 1199px)').matches ? 66 : 90;
-        // Small extra nudge so the previous section's accent line scrolls fully out of view.
-        const EXTRA_MARGIN = 20;
+
+        // Same stop position as the "Explore Research" anchor button (scroll-margin-top in main.css),
+        // so the fixed header never covers the section and no strip of the hero shows above it.
+        const headerOffset = parseFloat(getComputedStyle(targetEl).scrollMarginTop) || 60;
         // Space to leave under the cards, and minimum gap kept between the header and the cards.
         const CARDS_BOTTOM_GAP = 24;
         const CARDS_TOP_GAP = 16;
@@ -559,7 +545,7 @@
         }
 
         function getTargetY() {
-          const base = absTop(targetEl) - headerOffset + EXTRA_MARGIN;
+          const base = absTop(targetEl) - headerOffset;
           const cards = targetEl.querySelectorAll('.action-card');
           if (!cards.length) return base;
 
@@ -636,7 +622,6 @@
       }
     })();
   </script>
-
 
 </body>
 
