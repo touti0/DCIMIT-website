@@ -27,6 +27,8 @@
   --accent-color: #3C9B91; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
   --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
   --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+  /* Shadows */
+  --n-shadow-sm: 0 2px 8px rgba(11, 20, 55, 0.06);
 }
 
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
@@ -4448,6 +4450,67 @@ section,
   .services .service-features .feature-item {
     justify-content: flex-start;
   }
+}
+
+
+
+/*--------------------------------------------------------------
+# Portfolio Section
+--------------------------------------------------------------*/
+
+/* Portfolio card */
+.portfolio-card {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: var(--n-shadow-sm);
+  aspect-ratio: 4/3;
+}
+
+.portfolio-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+
+.portfolio-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(11,20,55,0) 30%, rgba(11,20,55,0.88) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--n-space-md);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.portfolio-card:hover .portfolio-overlay { opacity: 1; }
+.portfolio-card:hover img { transform: scale(1.08); }
+
+.portfolio-overlay h5 { color: #fff; margin-bottom: 0.25rem; }
+.portfolio-overlay span { color: rgba(255,255,255,0.7); font-size: 0.85rem; }
+
+/* Eyebrow label */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--n-font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--n-primary);
+  background: var(--n-bg-alt);
+  padding: 0.4rem 1rem;
+  border-radius: var(--n-radius-pill);
+  margin-bottom: var(--n-space-sm);
+}
+
+.eyebrow::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--n-primary);
+  display: inline-block;
 }
 
 /*--------------------------------------------------------------
