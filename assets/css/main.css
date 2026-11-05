@@ -34,7 +34,7 @@
   --n-space-lg: 2.5rem;
   --n-space-xl: 4rem;
   --n-space-2xl: 6rem;
-  --n-gradient-primary: linear-gradient(5deg, #3C9B91 90%, #6941C6 100%);
+  --n-gradient-primary: linear-gradient(5deg, #3C9B91 90%, #3C9B91 100%);
 }
 
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
