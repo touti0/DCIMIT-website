@@ -568,6 +568,21 @@ h6 {
   .navmenu .language {
     width: fit-content;
     margin: 10px 20px 6px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  /* In the mobile menu the list opens inline instead of floating */
+  .navmenu .language .lang-menu {
+    position: static;
+    margin-top: 4px;
+    box-shadow: none;
+    background: transparent;
+    padding: 2px 0 0;
+  }
+
+  .navmenu .language .lang-menu::before {
+    display: none;
   }
 
   .navmenu a:hover,
@@ -5066,10 +5081,85 @@ section,
 
 .language {
     display: flex;
+    position: relative;
     margin-left: 22px;
     background: #eaf0ed;
     padding: 3px;
     border-radius: 9px;
+}
+
+/* Language dropdown: current language shown, the others listed on hover/focus/tap */
+.language .lang-current {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 9px 10px;
+}
+
+.language .lang-current i {
+    font-size: 9px;
+    transition: transform 0.2s ease;
+}
+
+.language:hover .lang-current i,
+.language.open .lang-current i {
+    transform: rotate(180deg);
+}
+
+.language .lang-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    min-width: 150px;
+    flex-direction: column;
+    gap: 2px;
+    margin-top: 6px;
+    padding: 6px;
+    background: #fff;
+    border-radius: 9px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
+    z-index: 1001;
+}
+
+/* Invisible bridge so the menu doesn't close while the pointer crosses the gap */
+.language .lang-menu::before {
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: 0;
+    right: 0;
+    height: 8px;
+}
+
+.language:hover .lang-menu,
+.language:focus-within .lang-menu,
+.language.open .lang-menu {
+    display: flex;
+}
+
+.language .lang-menu button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 8px 10px;
+    font-size: 13px;
+    color: var(--default-color);
+    text-align: left;
+}
+
+.language .lang-menu button span {
+    min-width: 22px;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+.language .lang-menu button:hover,
+.language .lang-menu button:focus-visible {
+    background: #eaf0ed;
+    color: var(--heading-color);
 }
 
 .language .active {
@@ -5616,16 +5706,16 @@ a.header-cta {
 }
 
 .faq .faq-item.faq-active .faq-header .faq-number {
-  color: var(--accent-color);
+  color: #EF714F;
   font-weight: 500;
 }
 
 .faq .faq-item.faq-active .faq-header h4 {
-  color: var(--accent-color);
+  color: #EF714F;
 }
 
 .faq .faq-item.faq-active .faq-header .faq-toggle {
-  color: var(--accent-color);
+  color: #EF714F;
   transform: rotate(0deg);
 }
 

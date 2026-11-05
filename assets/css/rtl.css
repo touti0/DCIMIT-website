@@ -1,0 +1,68 @@
+/*--------------------------------------------------------------
+# Right-to-left adjustments (Arabic pages, loaded after main.css)
+--------------------------------------------------------------*/
+:root {
+  --default-font: "Cairo", "Roboto", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  --heading-font: "Cairo", "Montserrat", sans-serif;
+  --nav-font: "Cairo", "Lato", sans-serif;
+}
+
+/* Language switch sits on the other side of the nav items */
+.language {
+  margin-left: 0;
+  margin-right: 22px;
+}
+
+.language .lang-menu {
+  right: auto;
+  left: 0;
+}
+
+.language .lang-menu button {
+  text-align: right;
+}
+
+/* "2010 - 2022" must keep its left-to-right order */
+.hero .hero-content .hero-stats .stat-item h3 {
+  direction: ltr;
+  text-align: right;
+}
+
+/* Footer AIRC logo is floated left inline: put it on the reading side */
+.footer .brand-section .service-btn > div {
+  float: right !important;
+}
+
+.featured-departments .highlight-list li:before {
+  content: "←";
+  margin-right: 0;
+  margin-left: 10px;
+}
+
+@media (min-width: 1200px) {
+  .navmenu .dropdown ul {
+    left: auto;
+    right: 14px;
+  }
+
+  .navmenu .dropdown>a i {
+    margin-left: 0;
+    margin-right: 5px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .navmenu .dropdown>a i {
+    margin-left: 0;
+    margin-right: 8px;
+  }
+
+  .navmenu .language {
+    margin: 10px 20px 6px;
+  }
+
+  .mobile-nav-toggle {
+    margin-right: 0;
+    margin-left: 10px;
+  }
+}

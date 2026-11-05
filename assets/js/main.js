@@ -112,13 +112,27 @@ License:
 
   /*Activate Language Button*/
 
-  document.querySelectorAll(".language button").forEach((btn) =>
+  // The current language button opens/closes the list (needed on touch screens, hover handles desktop)
+  document.querySelectorAll(".language .lang-current").forEach((current) =>
+    current.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const open = current.parentElement.classList.toggle("open");
+      current.setAttribute("aria-expanded", open);
+    }),
+  );
+
+  document.addEventListener("click", () =>
+    document.querySelectorAll(".language.open").forEach((l) => {
+      l.classList.remove("open");
+      l.querySelector(".lang-current").setAttribute("aria-expanded", "false");
+    }),
+  );
+
+  document.querySelectorAll(".language .lang-menu button").forEach((btn) =>
     btn.addEventListener("click", () => {
-      const it = btn.dataset.lang === "it";
-      document.documentElement.lang = it ? "it" : "en";
-      document
-        .querySelectorAll(".language button")
-        .forEach((b) => b.classList.toggle("active", b === btn));
+      const lang = btn.dataset.lang;
+      const it = lang === "it";
+      document.documentElement.lang = lang;
       document.querySelectorAll("[data-it]").forEach((el) => {
         if (!el.dataset.en) el.dataset.en = el.innerHTML;
         el.innerHTML = it ? el.dataset.it : el.dataset.en;

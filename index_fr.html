@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Accueil - Projet DCIMIT</title>
+  <meta name="description" content="La page d'accueil du site web développé pour le projet DCIMIT">
+  <meta name="keywords" content="DCIMIT, cancer du col de l'utérus, recherche clinique">
+
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header fixed-top">
+<!-- 
+    <div class="topbar d-flex align-items-center dark-background">
+      <div class="container d-flex justify-content-center justify-content-md-between">
+
+        <div class="contact-info d-flex align-items-center">
+          <i class=" d-flex align-items-center"><a
+              href="https://site.unibo.it/dcimit/it/eventi">Cette recherche a été financée par l'AIRC dans le cadre du projet MFAG - 30481.</a></i>
+        </div>
+
+        <div class="social-links d-none d-md-flex align-items-center">
+          <a href="https://site.unibo.it/dcimit/it/eventi" class="twitter"><i class="bi bi-pc-display-horizontal"></i></a>
+        </div>
+      </div>
+    </div>End Top Bar -->
+
+    <div class="branding d-flex align-items-cente">
+
+      <div class="container position-relative d-flex align-items-center justify-content-between">
+        <a href="index_fr.html" class="logo d-flex align-items-center">
+          <!-- Uncomment the line below if you also wish to use an image logo -->
+          <img src="assets/img/airc_logo.png" alt="AIRC Logo">
+          <img src="assets/img/alma_logo.webp" alt="Unibo Logo">
+          <img src="assets/img/logo_crop.webp" alt="DCIMIT Logo">
+         <!-- <h1 class="sitename">DCIMIT</h1>  TITOLO DEL SITO -->  
+          
+        </a>
+
+        <nav id="navmenu" class="navmenu">
+          <ul>
+            <li><a href="index_fr.html" class="active">Accueil</a></li>
+            <li class="dropdown"><a href="womens-health.html" class="nav-highlight"><span>Santé des femmes</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="womens-health.html#departments-tabs">Leçons</a></li>
+              <li><a href="womens-health.html#featured-departments">Outils interactifs</a></li>
+              <li><a href="womens-health.html#call-to-action">Autres services</a></li>
+            </ul>
+            </li>
+            <li class="dropdown"><a href="research.html"><span>Recherche</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="mix-study.html">Étude à méthodes mixtes</a></li>
+              <li><a href="register-study.html">Étude basée sur les registres</a></li>
+              <li><a href="interventional-study.html">Étude interventionnelle</a></li>
+            </ul>
+            </li>
+            <!-- <li><a href="data.html">Data</a></li> -->
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="resources.html">Ressources</a>
+            <li><a href="team.html">Équipe</a>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="partner.html">Partenaires</a></li>
+            <div class="language">
+
+              <!-- is it better to rewrite innerHTML? -->
+               
+            <button type="button" class="lang-current active" data-lang="fr" aria-haspopup="true" aria-expanded="false" aria-label="Langue : Français">FR <i class="bi bi-chevron-down"></i></button><div class="lang-menu" role="menu"><button type="button" role="menuitem" data-lang="en" lang="en" onclick="window.location.href='index_landing.html';"><span>EN</span> English</button><button type="button" role="menuitem" data-lang="it" lang="it" onclick="window.location.href='index_it.html';"><span>IT</span> Italiano</button><button type="button" role="menuitem" data-lang="ar" lang="ar" onclick="window.location.href='index_ar.html';"><span>AR</span> العربية</button><button type="button" role="menuitem" data-lang="ro" lang="ro" onclick="window.location.href='index_ro.html';"><span>RO</span> Română</button></div>
+            </div>
+           <!--  <a href="contact.html" class="header-cta">Contact us</a> -->
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+
+      </div>
+
+    </div>
+
+  </header>
+
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section">
+
+      
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <div class="hero-content">
+
+
+              <h1 data-aos="fade-right" data-aos-delay="300">
+                <br>
+                Prévention et dépistage précoce du cancer du col de l'utérus chez les <span class="title_color">immigrés en Italie</span>
+              </h1>
+
+              <p class="hero-description" data-aos="fade-right" data-aos-delay="400">
+                Comprendre et réduire les inégalités de santé entre les communautés immigrées et les Italiens de naissance afin d'améliorer la prévention du cancer du col de l'utérus et les résultats du dépistage. 
+              </p>
+
+              <div class="hero-stats mb-4" data-aos="fade-right" data-aos-delay="500">
+                <div class="stat-item">
+                  <h3><span data-purecounter-start="0" data-purecounter-end="10" data-purecounter-duration="2"
+                      class="purecounter"></span></h3>
+                  <p>Centres cliniques</p>
+                </div>
+                <div class="stat-item">
+                  <h3><span data-purecounter-start="0" data-purecounter-end="300" data-purecounter-duration="2"
+                      class="purecounter"></span>+</h3>
+                  <p>Participants au questionnaire</p>
+                </div>
+                <div class="stat-item">
+                  <h3><span data-purecounter-start="0" data-purecounter-end="60" data-purecounter-duration="2"
+                      class="purecounter"></span></h3>
+                  <p>Entretiens qualitatifs</p>
+                </div>
+                <div class="stat-item">
+                  <h3><span>2010 - </span>
+                  <span data-purecounter-start="2010" data-purecounter-end="2022" data-purecounter-duration="2" class="purecounter">2010</span></h3>
+                  <p>Données du registre national couvertes</p>
+                </div>
+              </div>
+
+              <div class="hero-actions" data-aos="fade-right" data-aos-delay="500" data-aos-anchor=".hero-stats">
+                <a href="index_fr.html#service-details-2" class="btn btn-primary">Découvrir la recherche <i class="fa-solid fa-arrow-down"></i></a>
+              </div>
+
+              
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="hero-visual" data-aos="fade-left" data-aos-delay="400">
+              <div class="main-image">
+                <img src="assets/img/health/dcimit_logo.webp" alt="Dcimit Logo" class="img-fluid">
+
+
+              </div>
+              <div class="background-elements">
+                <div class="logo-backdrop" aria-hidden="true"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /Hero Section -->
+
+    <!-- Service Details 2 Section -->
+    <section id="service-details-2" class="service-details-2 section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row">
+
+          <div class="col-lg-8 mx-auto text-center mb-5" data-aos="fade-up" data-aos-delay="150">
+            <div class="service-header">
+              <div class="service-category">
+                <span>Guide de navigation</span>
+              </div>
+              <h2>Veuillez sélectionner l'option qui décrit le mieux la raison de votre visite</h2>
+              <p class="lead">Choisissez l'option la plus adaptée pour accéder à la section du site qui vous est la plus utile.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row gy-4 ">
+
+          <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="100">
+            <div class="action-card primary">
+              <div class="card-header">
+                <i class="bi bi-gender-female"></i>
+                <h4>Pour les femmes</h4>
+              </div>
+              <p>DCIMIT propose des informations accessibles pour vous aider à comprendre la prévention du cancer du col de l'utérus, les options de dépistage et le moment de consulter un médecin</p>
+              <div class="card-footer">
+                <a href="womens-health.html" class="btn-action">Trouvez des informations fiables sur la prévention du cancer du col de l'utérus </a>
+                <span class="availability">Si vous êtes une femme et recherchez des informations et des soins adaptés</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="200">
+            <div class="action-card secondary">
+              <div class="card-header">
+                <i class="bi bi-book"></i>
+                <h4>Pour les chercheurs</h4>
+              </div> 
+              <p>L'objectif du projet DCIMIT est de produire des données probantes pour éclairer des stratégies de dépistage plus équitables et adaptées aux cultures</p>
+              <div class="card-footer">
+                <a href="publications.html" class="btn-action">Découvrez comment contribuer à la recherche</a>
+                <span class="availability">Nous accueillons les chercheurs souhaitant faire progresser les connaissances et les données probantes dans ce domaine</span>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section><!-- /Service Details 2 Section -->
+
+    <!-- Home About Section -->
+    <section id="home-about" class="home-about section department-details section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row align-items-center">
+          <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right" data-aos-delay="200">
+            <div class="about-content">
+              <h2 class="section-heading">Le défi</h2>
+              <p class="lead-text">Le cancer du col de l'utérus est hautement évitable grâce à un dépistage régulier, mais d'importantes disparités existent dans le recours au dépistage et dans les résultats de santé entre les populations immigrées et les populations italiennes d'origine.</p>
+
+              <p class="lead-text">Les données systématiques sur ces disparités entre groupes d'immigrés et entre régions restent limitées. Le projet DCIMIT vise à apporter des données probantes pouvant éclairer la conception d'interventions adaptées aux cultures.</p>
+
+            </div>
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-left" data-aos-delay="300">
+            <div class="about-visual">
+
+              <div class="main-image">
+                <img src="assets/img/health/national-cancer-institute.webp" alt="Modern medical facility" class="img-fluid">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="expert-care-section" data-aos="fade-up" data-aos-delay="300">
+          <div class="row align-items-center">
+            <div class="col-lg-6" data-aos="fade-right" data-aos-delay="400">
+              <div class="expert-image">
+                <img src="assets/img/health/cdc-unsplash.webp" alt="Neurological Expert" class="img-fluid">
+              </div>
+            </div>
+
+            <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right" data-aos-delay="400">
+              <div class="expert-content">
+                <h2>Impact attendu</h2>
+                <p class="lead">Les inégalités de santé dans la prévention du cancer du col de l'utérus peuvent être influencées par des différences d'accès aux soins, d'information en santé, de langue et de situation socio-économique. Ces facteurs peuvent affecter la participation au dépistage ainsi que l'accès à des informations et à des soins appropriés.</p>
+                <p class="lead">DCIMIT étudie ces inégalités parmi les populations migrantes en Italie, dans le but de mieux comprendre les obstacles qui peuvent contribuer aux différences en matière de prévention et de dépistage précoce du cancer du col de l'utérus.</p>
+                <p class="lead">En produisant des données probantes sur ces obstacles et en identifiant des pistes pour améliorer l'accès au dépistage et aux informations de santé pertinentes, le projet cherche à contribuer à l'élaboration d'approches plus équitables de la prévention et du dépistage précoce du cancer du col de l'utérus.</p>
+
+<!--
+                <div class="expertise-list">
+                  <div class="expertise-item">
+                    <i class="bi bi-1-circle"></i>
+                    <span>Mixed-methods study: Understanding lived experiences and barriers</span>
+                  </div>
+                  <div class="expertise-item">
+                    <i class="bi bi-2-circle"></i>
+                    <span>Registry-based analysis: Population-level incidence and survival data</span>
+                  </div>
+                  <div class="expertise-item">
+                    <i class="bi bi-3-circle"></i>
+                    <span>Community intervention: Culturally tailored educational programs</span>
+                  </div>
+                  <div class="expertise-item">
+                    <i class="bi bi-4-circle"></i>
+                    <span>AIRTUM collaboration: Comprehensive national cancer registry data</span>
+                  </div>
+                  <div class="expertise-item">
+                    <i class="bi bi-5-circle"></i>
+                    <span>Evidence translation: From research to actionable policy</span>
+                  </div>
+                </div> -->
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+           
+
+      </div>
+
+    </section><!-- /Home About Section -->    
+
+
+    <!-- Featured Departments Section -->
+    <section id="featured-departments" class="featured-departments section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Objectifs de la recherche</h2>
+        <p>Une approche systématique pour comprendre et réduire les disparités liées au cancer du col de l'utérus</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row g-5">
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="department-highlight">
+              <div class="highlight-icon">
+                <i class="bi bi-shield-plus"></i>
+              </div>
+              <h4>Comprendre les expériences</h4>
+              <p>Identifier les déterminants qui influencent le dépistage précoce et l'accès aux soins chez les femmes immigrées au moyen de questionnaires (300 participantes) et d'entretiens approfondis (60 femmes) dans 10 centres cliniques.</p>
+              <ul class="highlight-list">
+                <li>Première étape</li>
+              </ul>
+        <!--      <a href="" class="highlight-cta">Learn More</a> -->
+            </div>
+          </div><!-- End Department Highlight -->
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="department-highlight_2">
+              <div class="highlight-icon_2">
+                <i class="bi bi-people"></i>
+              </div>
+              <h4>Analyser les données de population</h4>
+              <p>Comparer l'incidence, la mortalité et la survie du cancer du col de l'utérus entre les femmes immigrées et les femmes nées en Italie à partir des données des registres nationaux des cancers (2010-2022), en collaboration avec l'AIRTUM.</p>
+              <ul class="highlight-list">
+                <li>Deuxième étape</li>
+              </ul>
+         <!--      <a href="" class="highlight-cta">Learn More</a> -->
+            </div>
+          </div><!-- End Department Highlight -->
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="department-highlight_3">
+              <div class="highlight-icon_3">
+                <i class="bi bi-activity" style="color: #ed7b3d;"></i>
+              </div>
+              <h4>Tester les interventions</h4>
+              <p>Évaluer l'efficacité de programmes éducatifs adaptés aux cultures pour accroître la participation au dépistage du col de l'utérus chez 205 femmes immigrées à Rome, par rapport à un groupe témoin à Milan.</p>
+              <ul class="highlight-list">
+                <li>Étape finale</li>
+              </ul>
+        <!--      <a href="" class="highlight-cta">Learn More</a> -->
+            </div>
+          </div><!-- End Department Highlight -->
+
+
+
+
+
+        </div>
+
+        <div class="emergency-banner" data-aos="fade-up" data-aos-delay="400">
+          <div class="row align-items-center">
+            <div class="col-lg-8">
+              <div class="emergency-content">
+                <h3>Collaborer avec l'équipe de recherche</h3>
+                <p>Nous accueillons les contacts de chercheurs, de cliniciens et d'institutions intéressés par ce sujet.</p>
+              </div>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+              <a href="contact.html" class="emergency-btn">
+                <i class="bi bi-envelope"></i>
+                Contacter l'équipe de recherche
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>   <!-- /Featured Departments Section -->
+
+  </main>
+
+  <footer id="footer" class="footer-16 footer position-relative">
+
+    <div class="container">
+
+      <div class="footer-main" data-aos="fade-up" data-aos-delay="100">
+        <div class="row align-items-start">
+
+          <div class="col-lg-5">
+            <div class="brand-section">
+              <a href="https://site.unibo.it/dcimit/it" class="logo d-flex align-items-center mb-4" target="_blank">
+                <span class="sitename">DCIMIT</span>
+              </a>
+              <p class="brand-description">Cette recherche a été financée par l'AIRC dans le cadre du projet MFAG - 30481. <br>Responsable scientifique : Valentina Biagioli</p>
+              <a href="https://www.airc.it/" class="service-btn" target="_blank">
+              <div role="img" aria-label="AIRC Logo" style="float:left; width:90px; height:90px; padding:12px; box-sizing:content-box; background-color:white; border-radius:50%; background-image:url('assets/img/airc_logo.png'); background-origin:content-box; background-size:contain; background-repeat:no-repeat; background-position:center"></div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-7">
+            <div class="footer-nav-wrapper">
+              <div class="row">
+
+
+                <div class="col-6 col-lg-3">
+                  <div class="nav-column">
+                    <h6>Explorer</h6>
+                    <nav class="footer-nav">
+                      <a href="#!">Santé des femmes</a>
+                      <a href="#!">Recherche</a>
+                      <!-- <a href="#!">Data</a> -->
+                    </nav>
+                  </div>
+                </div>
+
+                <div class="col-6 col-lg-3">
+                  <div class="nav-column">
+                    <h6>Projet</h6>
+                    <nav class="footer-nav">
+                      <a href="publications.html">Publications</a>
+                      <a href="#!">Ressources</a>
+                      <a href="#!">Ressources utiles</a>
+                    </nav>
+                  </div>
+                </div>
+
+                <div class="col-6 col-lg-3">
+                  <div class="nav-column">
+                    <h6>Rester en contact</h6>
+                    <nav class="footer-nav">
+                      <a href="#!">Équipe</a>
+                      <a href="#!">Contact</a>
+                      <a href="#!">Partenaires</a>
+                    </nav>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="bottom-content" data-aos="fade-up" data-aos-delay="300">
+          <div class="row align-items-center">
+
+            <div class="col-lg-6">
+              <div class="copyright">
+                <p>© <span class="sitename">DCIMIT</span>. Tous droits réservés.</p>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="legal-links">
+                <a href="#!">Politique de confidentialité</a>
+                <a href="#!">Conditions d'utilisation</a>
+                <a href="#!">Politique relative aux cookies</a>
+                <div class="credits">
+                  
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#!" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+
+  <!-- Auto-scroll from the hero section down to #service-details-2, shortly after load -->
+  <script>
+    (function () {
+      // Phones and tablets (also in landscape, up to ~1400px with a touch screen): go slower.
+      const isNarrow = window.matchMedia('(max-width: 1199px), (pointer: coarse) and (max-width: 1400px)').matches;
+      const START_DELAY_MS = 1200;
+      const STORAGE_KEY = 'dcimit-home-autoscroll-seen';
+
+      // Skip the animation for people who asked their system to reduce motion.
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      // Run only on the first visit: localStorage persists across sessions.
+      // If storage is unavailable (blocked/private mode), fall through and scroll.
+      try {
+        if (localStorage.getItem(STORAGE_KEY)) return;
+        localStorage.setItem(STORAGE_KEY, '1');
+      } catch (e) {}
+
+      function isInViewport(el) {
+        const rect = el.getBoundingClientRect();
+        return rect.bottom > 0 && rect.top < window.innerHeight;
+      }
+
+      function pageScroll() {
+        const heroEl = document.getElementById('hero');
+        const targetEl = document.getElementById('service-details-2');
+        if (!heroEl || !targetEl) return;
+        if (!isInViewport(heroEl)) return; // only auto-scroll while the hero section is being viewed
+
+        // Same stop position as the "Explore Research" anchor button (scroll-margin-top in main.css),
+        // so the fixed header never covers the section and no strip of the hero shows above it.
+        const headerOffset = parseFloat(getComputedStyle(targetEl).scrollMarginTop) || 60;
+        // Space to leave under the cards, and minimum gap kept between the header and the cards.
+        const CARDS_BOTTOM_GAP = 24;
+        const CARDS_TOP_GAP = 16;
+
+        // Document position of an element, ignoring AOS transforms (which shift getBoundingClientRect).
+        function absTop(el) {
+          let y = 0;
+          for (let e = el; e; e = e.offsetParent) y += e.offsetTop;
+          return y;
+        }
+
+        function getTargetY() {
+          const base = absTop(targetEl) - headerOffset;
+          const cards = targetEl.querySelectorAll('.action-card');
+          if (!cards.length) return base;
+
+          let cardsTop = Infinity;
+          let cardsBottom = 0;
+          cards.forEach((c) => {
+            cardsTop = Math.min(cardsTop, absTop(c));
+            cardsBottom = Math.max(cardsBottom, absTop(c) + c.offsetHeight);
+          });
+
+          // If the cards can't fit on screen together (e.g. stacked on a phone), stop at the section start.
+          const fits = cardsBottom - cardsTop + headerOffset + CARDS_TOP_GAP + CARDS_BOTTOM_GAP <= window.innerHeight;
+          if (!fits) return base;
+
+          // Scroll further only as much as needed to show the cards completely, but never so far
+          // that they slide under the fixed header.
+          const needed = cardsBottom + CARDS_BOTTOM_GAP - window.innerHeight;
+          const limit = cardsTop - headerOffset - CARDS_TOP_GAP;
+          return Math.max(base, Math.min(needed, limit));
+        }
+
+        const startY = window.scrollY;
+        const distance = getTargetY() - startY;
+        if (distance <= 0) return;
+
+        // Longer trips take a bit longer, but always stay within a comfortable range.
+        // On narrow screens aim for a steady, gentle pace (about 320px/s on average) with a softer curve.
+        const duration = isNarrow
+          ? Math.min(6000, Math.max(2500, distance / 0.32))
+          : Math.min(3300, Math.max(1900, 1400 + distance * 0.6));
+        const easeInOutCubic = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+        const easeInOutSine = (t) => -(Math.cos(Math.PI * t) - 1) / 2;
+        const ease = isNarrow ? easeInOutSine : easeInOutCubic;
+
+        // main.css sets `html { scroll-behavior: smooth }`, which would fight a per-frame scroll.
+        const root = document.documentElement;
+        const prevBehavior = root.style.scrollBehavior;
+        root.style.scrollBehavior = 'auto';
+
+        let rafId = 0;
+        const cancelEvents = ['wheel', 'touchstart', 'mousedown', 'keydown'];
+
+        function stop() {
+          cancelAnimationFrame(rafId);
+          cancelEvents.forEach((ev) => window.removeEventListener(ev, stop));
+          root.style.scrollBehavior = prevBehavior;
+        }
+        // Hand control back immediately if the visitor starts scrolling themselves.
+        cancelEvents.forEach((ev) => window.addEventListener(ev, stop, { passive: true }));
+
+        let t0 = null;
+        function frame(now) {
+          if (t0 === null) t0 = now;
+          const progress = Math.min((now - t0) / duration, 1);
+          // Re-read the target every frame: images/animations may shift the layout while we scroll.
+          window.scrollTo(0, startY + (getTargetY() - startY) * ease(progress));
+          if (progress < 1) {
+            rafId = requestAnimationFrame(frame);
+          } else {
+            stop();
+          }
+        }
+        rafId = requestAnimationFrame(frame);
+      }
+
+      // Count the delay from when the page has really finished loading, so slow phones still show the hero first.
+      function scheduleScroll() {
+        setTimeout(pageScroll, START_DELAY_MS);
+      }
+      if (document.readyState === 'complete') {
+        scheduleScroll();
+      } else {
+        window.addEventListener('load', scheduleScroll, { once: true });
+      }
+    })();
+  </script>
+
+</body>
+
+</html>
