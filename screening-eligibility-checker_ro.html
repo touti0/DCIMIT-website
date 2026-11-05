@@ -1,0 +1,920 @@
+<!doctype html>
+<html lang="ro">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Verificator de eligibilitate pentru screening</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon" />
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link
+      href="assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link
+      href="assets/vendor/fontawesome-free/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+    <!-- Main CSS File -->
+    <link href="assets/css/main.css" rel="stylesheet" />
+
+    <style>
+      /* ========================================= COLOR PALETTE ========================================= */
+      :root {
+        --teal: #3c9b91;
+        --teal-dark: #174f4a;
+        --teal-light: #f7fbfa;
+        --purple: #7451a6;
+        --purple-light: #ebe3f5;
+        --purple-dark: #7451a6;
+        --orange: #ef714f;
+        --dark: #172d2e;
+        --white: #ffffff;
+        --border: #dceae7;
+        --shadow: 0 10px 30px rgba(23, 79, 74, 0.08);
+      }
+
+      /* ========================================= CARD ========================================= */
+      .triage-card {
+        background: var(--white);
+        border-radius: 18px;
+        padding: 10px 90px 90px 90px;
+        box-shadow: var(--shadow);
+      }
+      .card-heading {
+        margin-bottom: 25px;
+        text-align: center;
+      }
+      .card-heading h2 {
+        margin: 0 0 7px;
+        color: var(--teal-dark);
+        font-size: 1.4rem;
+      }
+      .card-heading p {
+        margin: 0;
+        color: #657b79;
+        font-size: 0.92rem;
+      }
+      .section-block {
+        margin-bottom: 30px;
+      }
+      .section-block h3 {
+        color: var(--teal-dark);
+        font-size: 1.05rem;
+        font-weight: 700;
+        margin-bottom: 4px;
+      }
+      .section-block .section-hint {
+        color: #657b79;
+        font-size: 0.85rem;
+        margin-bottom: 14px;
+      }
+
+      /* ========================================= EXCLUSION OPTIONS (checkbox grid) ========================================= */
+      .symptom-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+      .symptom-option {
+        position: relative;
+      }
+      .symptom-option input {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+      }
+      .symptom-option label {
+        display: flex;
+        align-items: center;
+        min-height: 64px;
+        padding: 14px 17px;
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        cursor: pointer;
+        color: var(--dark);
+        font-size: 0.92rem;
+        transition: all 0.2s ease;
+      }
+      .symptom-option label:hover {
+        border-color: var(--purple);
+        background: var(--purple-light);
+      }
+      .symptom-option input:checked + label {
+        border-color: var(--purple);
+        background: #ebe3f5;
+        color: var(--purple-dark);
+        font-weight: 600;
+        box-shadow: inset 4px 0 0 var(--purple);
+      }
+
+
+      /* ========================================= AGE INPUT ========================================= */
+      .age-input-wrap {
+        max-width: 220px;
+        margin: 0 auto;
+      }
+      .age-input-wrap input {
+        width: 100%;
+        padding: 14px 17px;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        font-size: 1.1rem;
+        text-align: center;
+        color: var(--dark);
+        transition: all 0.2s ease;
+      }
+      .age-input-wrap input:focus {
+        outline: none;
+        border-color: var(--purple);
+        box-shadow: 0 0 0 3px rgba(116, 81, 166, 0.15);
+      }
+
+      /* ========================================= YES/NO CHOICE PILLS ========================================= */
+      .choice-question {
+        margin-bottom: 18px;
+      }
+      .choice-question > p {
+        color: var(--dark);
+        font-size: 0.92rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+      .choice-row {
+        display: flex;
+        gap: 12px;
+      }
+      .choice-option {
+        position: relative;
+        flex: 1;
+      }
+      .choice-option input {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+      }
+      .choice-option label {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 50px;
+        padding: 10px 16px;
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        cursor: pointer;
+        color: var(--dark);
+        font-size: 0.92rem;
+        font-weight: 600;
+        transition: all 0.2s ease;
+      }
+      .choice-option label:hover {
+        border-color: var(--teal);
+        background: var(--teal-light);
+      }
+      .choice-option input:checked + label {
+        border-color: var(--teal);
+        background: var(--teal-light);
+        color: var(--teal-dark);
+        box-shadow: inset 4px 0 0 var(--teal);
+      }
+
+      .conditional-section {
+        display: none;
+        padding-top: 6px;
+      }
+      .conditional-section.visible {
+        display: block;
+      }
+      .age-bracket-note {
+        text-align: center;
+        color: var(--purple-dark);
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin-top: 10px;
+        min-height: 1.2em;
+      }
+
+      /* ========================================= BUTTON ========================================= */
+      .button-container {
+        margin-top: 30px;
+        text-align: center;
+      }
+
+      /* ========================================= RESULT ========================================= */
+      #chatOutput {
+        display: none;
+        margin-top: 25px;
+        padding: 25px;
+        border-radius: 12px;
+        background: var(--teal-light);
+        border: 1px solid var(--border);
+        text-align: center;
+      }
+      #chatOutput.visible {
+        display: block;
+      }
+      #chatOutput.warning {
+        background: #fbeee9;
+        border-color: #f3c9bb;
+      }
+      .result-label {
+        margin-bottom: 7px;
+        color: var(--orange);
+        font-size: 1.1rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+      }
+      .result-message {
+        color: var(--teal-dark);
+        font-size: 1.15rem;
+        font-weight: 700;
+      }
+      .result-note {
+        margin-top: 12px;
+        color: #657b79;
+        font-size: 0.85rem;
+      }
+      .result-pregnancy-note {
+        margin-top: 14px;
+        padding-top: 14px;
+        border-top: 1px dashed var(--border);
+        color: var(--teal-dark);
+        font-size: 0.85rem;
+      }
+
+      /* ========================================= FOOTER ========================================= */
+      footer {
+        padding: 30px 20px;
+        background: var(--teal-dark);
+        color: rgba(255, 255, 255, 0.8);
+        text-align: center;
+        font-size: 0.8rem;
+      }
+
+      /* ========================================= RESPONSIVE ========================================= */
+      @media (max-width: 700px) {
+        .triage-card {
+          padding: 23px;
+        }
+        .symptom-list {
+          grid-template-columns: 1fr;
+        }
+        .header-inner {
+          padding: 0 5px;
+        }
+        h1 {
+          font-size: 2.3rem;
+        }
+      }
+    </style>
+
+    <script>
+      /* ===================================================================
+         Screening Eligibility Checker — rule-based engine
+         Applies only to average-risk women (see exclusion criteria below).
+         Rules 1–8 as specified by the clinical protocol.
+      =================================================================== */
+
+      function toggleAgeSection() {
+        const age = parseInt(document.getElementById("ageInput").value, 10);
+        const under25Note = document.getElementById("under25Note");
+        const papSection = document.getElementById("papSection");
+        const hpvSection = document.getElementById("hpvSection");
+        const olderSection = document.getElementById("olderSection");
+        const gapNote = document.getElementById("ageGapNote");
+
+        [under25Note, papSection, hpvSection, olderSection, gapNote].forEach(
+          (el) => el.classList.remove("visible"),
+        );
+
+        if (isNaN(age)) return;
+
+        if (age < 25) {
+          under25Note.classList.add("visible");
+        } else if (age >= 25 && age <= 29) {
+          papSection.classList.add("visible");
+        } else if (age >= 30 && age <= 64) {
+          hpvSection.classList.add("visible");
+        } else if (age > 65) {
+          olderSection.classList.add("visible");
+        } else {
+          /* age === 65: falls between the 30–64 and >65 brackets */
+          gapNote.classList.add("visible");
+        }
+      }
+
+      function toggleHpvFollowUp() {
+        const hpvTested = document.querySelector(
+          'input[name="hpvTested"]:checked',
+        );
+        const followUp = document.getElementById("hpvResultFollowUp");
+        if (hpvTested && hpvTested.value === "yes") {
+          followUp.classList.add("visible");
+        } else {
+          followUp.classList.remove("visible");
+        }
+      }
+
+      function getRadioValue(name) {
+        const el = document.querySelector(`input[name="${name}"]:checked`);
+        return el ? el.value : null;
+      }
+
+      function checkEligibility() {
+        const exclusions = {
+          prevCancer: document.getElementById("excl-cancer").checked,
+          hiv: document.getElementById("excl-hiv").checked,
+          immunosuppression: document.getElementById("excl-immunosuppression")
+            .checked,
+          des: document.getElementById("excl-des").checked,
+          cin2plus: document.getElementById("excl-cin2plus").checked,
+          hysterectomy: document.getElementById("excl-hysterectomy").checked,
+        };
+        const pregnant = document.getElementById("info-pregnant").checked;
+
+        const pregnancyNote = pregnant
+          ? "Sarcina nu elimină nevoia de evaluare a rezultatelor anormale, dar poate schimba conduita. Discută calendarul cu clinicianul tău."
+          : "";
+
+        /* --- Exclusions unrelated to hysterectomy / CIN2+: outside this pathway --- */
+        if (
+          exclusions.prevCancer ||
+          exclusions.hiv ||
+          exclusions.immunosuppression ||
+          exclusions.des
+        ) {
+          showResult(
+            "În afara acestui parcurs",
+            "Acest instrument se aplică doar femeilor cu risc mediu. Pe baza răspunsurilor tale, planul tău de screening trebuie stabilit împreună cu un clinician, urmând protocolul special adecvat.",
+            pregnancyNote,
+            true,
+          );
+          return;
+        }
+
+        /* --- Rule 8: previous CIN2+ (always takes priority, regardless of age or hysterectomy) --- */
+        if (exclusions.cin2plus) {
+          showResult(
+            "Trimitere către protocolul de supraveghere",
+            "Algoritmul de screening de rutină nu se aplică. Monitorizarea trebuie să continue conform protocolului de supraveghere dedicat post-CIN2+.",
+            pregnancyNote,
+            true,
+          );
+          return;
+        }
+
+        /* --- Rule 7: hysterectomy with cervix removed, no previous CIN2+ --- */
+        if (exclusions.hysterectomy) {
+          showResult(
+            "Nu mai este necesar screening cervical de rutină",
+            "Motiv: histerectomie totală în antecedente, cu îndepărtarea colului uterin pentru o boală benignă, fără istoric de CIN2+.",
+            pregnancyNote,
+          );
+          return;
+        }
+
+        /* --- Age-based rules --- */
+        const ageRaw = document.getElementById("ageInput").value;
+        const age = parseInt(ageRaw, 10);
+
+        if (ageRaw === "" || isNaN(age)) {
+          showResult(
+            "Vârsta este obligatorie",
+            "Introdu o vârstă pentru a continua.",
+            "",
+            true,
+          );
+          return;
+        }
+
+        /* Rule 1 */
+        if (age < 25) {
+          showResult(
+            "Screeningul cervical de rutină NU este recomandat",
+            "Motiv: vârsta sub 25 de ani.",
+            pregnancyNote,
+          );
+          return;
+        }
+
+        /* Rules 2–3 */
+        if (age >= 25 && age <= 29) {
+          const papRecent = getRadioValue("papRecent");
+          if (papRecent === null) {
+            showResult(
+              "Răspuns obligatoriu",
+              "Indică dacă a fost efectuat un test Babeș-Papanicolau în ultimii 3 ani.",
+              "",
+              true,
+            );
+            return;
+          }
+          if (papRecent === "no") {
+            showResult(
+              "Se recomandă testul Babeș-Papanicolau",
+              "Motiv: vârsta 25–29 de ani, fără citologie cervicală în ultimii 3 ani.",
+              pregnancyNote,
+            );
+          } else {
+            showResult(
+              "Momentan nu este necesar niciun screening",
+              "Motiv: vârsta 25–29 de ani, cu test Babeș-Papanicolau efectuat în ultimii 3 ani.",
+              pregnancyNote,
+            );
+          }
+          return;
+        }
+
+        /* Rules 4–5 */
+        if (age >= 30 && age <= 64) {
+          const hpvTested = getRadioValue("hpvTested");
+          if (hpvTested === null) {
+            showResult(
+              "Răspuns obligatoriu",
+              "Indică dacă a fost efectuat un test HPV în ultimii 5 ani.",
+              "",
+              true,
+            );
+            return;
+          }
+          if (hpvTested === "no") {
+            showResult(
+              "Se recomandă testul HPV",
+              "Motiv: vârsta 30–64 de ani, fără screening HPV în ultimii 5 ani.",
+              pregnancyNote,
+            );
+            return;
+          }
+          const hpvNegative = getRadioValue("hpvNegative");
+          if (hpvNegative === null) {
+            showResult(
+              "Răspuns obligatoriu",
+              "Indică dacă rezultatul testului HPV a fost negativ.",
+              "",
+              true,
+            );
+            return;
+          }
+          if (hpvNegative === "yes") {
+            showResult(
+              "Reinvitare de rutină",
+              "Motiv: vârsta 30–64 de ani, HPV negativ în ultimii 5 ani.",
+              pregnancyNote,
+            );
+          } else {
+            showResult(
+              "În afara acestui parcurs",
+              "Un rezultat HPV nenegativ necesită monitorizare conform protocolului clinic adecvat; nu este acoperit de acest parcurs de rutină.",
+              pregnancyNote,
+              true,
+            );
+          }
+          return;
+        }
+
+        /* Rule 6 */
+        if (age > 65) {
+          const adequate = getRadioValue("adequateNegative");
+          if (adequate === null) {
+            showResult(
+              "Răspuns obligatoriu",
+              "Indică dacă există o înregistrare a unor screeninguri negative anterioare adecvate.",
+              "",
+              true,
+            );
+            return;
+          }
+          if (adequate === "yes") {
+            showResult(
+              "Oprirea screeningului de rutină",
+              "Motiv: vârsta peste 65 de ani, cu screeninguri negative anterioare adecvate.",
+              pregnancyNote,
+            );
+          } else {
+            showResult(
+              "Istoric de screening insuficient pentru o recomandare de rutină",
+              "Vârsta peste 65 de ani, fără un istoric confirmat de screeninguri negative adecvate, iese din regulile definite. Discută cu un clinician.",
+              pregnancyNote,
+              true,
+            );
+          }
+          return;
+        }
+
+        /* age === 65: gap in the defined rule set */
+        showResult(
+          "Nicio regulă definită pentru această vârstă",
+          "Vârsta de 65 de ani se află între intervalele 30–64 și peste 65 definite de reguli. Consultă un clinician.",
+          pregnancyNote,
+          true,
+        );
+      }
+
+      function showResult(message, note, pregnancyNote, isWarning) {
+        const output = document.getElementById("chatOutput");
+        output.classList.toggle("warning", !!isWarning);
+        output.innerHTML = `
+          <div class="result-label">${isWarning ? "Atenționare" : "Recomandare"}</div>
+          <div class="result-message">${message}</div>
+          <div class="result-note">${note}</div>
+          ${pregnancyNote ? `<div class="result-pregnancy-note">${pregnancyNote}</div>` : ""}
+        `;
+        output.classList.add("visible");
+        output.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    </script>
+  </head>
+
+  <body class="departments-page">
+    <!-- HEADER -->
+    <header id="header" class="header fixed-top">
+<!-- 
+      <div class="topbar d-flex align-items-center dark-background">
+        <div class="container d-flex justify-content-center justify-content-md-between">
+
+          <div class="contact-info d-flex align-items-center">
+            <i class=" d-flex align-items-center"><a
+                href="https://site.unibo.it/dcimit/it/eventi">This research was funded by AIRC as part of the MFAG - 30481 project.</a></i>
+          </div>
+
+          <div class="social-links d-none d-md-flex align-items-center">
+            <a href="https://site.unibo.it/dcimit/it/eventi" class="twitter"><i class="bi bi-pc-display-horizontal"></i></a>
+          </div>
+        </div>
+      </div>End Top Bar -->
+
+      <div class="branding d-flex align-items-cente">
+        <div
+          class="container position-relative d-flex align-items-center justify-content-between"
+        >
+          <a href="index_ro.html" class="logo d-flex align-items-center">
+            <!-- Uncomment the line below if you also wish to use an image logo -->
+            <img src="assets/img/airc_logo.png" alt="AIRC Logo">
+            <img src="assets/img/alma_logo.webp" alt="Unibo Logo">
+            <img src="assets/img/logo_crop.webp" alt="DCIMIT Logo">
+            <!-- <h1 class="sitename">DCIMIT</h1>  TITOLO DEL SITO -->
+          </a>
+
+        <nav id="navmenu" class="navmenu">
+          <ul>
+            <li><a href="index_ro.html">Acasă</a></li>
+            <li class="dropdown"><a href="womens-health_ro.html" class="active nav-highlight"><span>Sănătatea femeii</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="womens-health_ro.html#departments-tabs">Lecții</a></li>
+              <li><a href="womens-health_ro.html#featured-departments">Instrumente interactive</a></li>
+              <li><a href="womens-health_ro.html#call-to-action">Alte servicii</a></li>
+            </ul>
+            </li>
+            <li class="dropdown"><a href="research_ro.html"><span>Cercetare</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="mix-study_ro.html">Studiu cu metode mixte</a></li>
+              <li><a href="register-study_ro.html">Studiu bazat pe registre</a></li>
+              <li><a href="interventional-study_ro.html">Studiu de intervenție</a></li>
+            </ul>
+            </li>
+            <!-- <li><a href="data_ro.html">Data</a></li> -->
+            <li><a href="publications_ro.html">Publicații</a></li>
+            <li class="dropdown"><a href="resources_ro.html"><span>Resurse</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="data_ro.html">Glosar</a></li>
+              <li><a href="links_ro.html">Linkuri utile</a></li>
+              <li><a href="resources-new_ro.html">Perspective și evenimente</a></li>
+            </ul>
+            </li>
+            <li><a href="team_ro.html">Echipa</a></li>
+            <li><a href="contact_ro.html">Contact</a></li>
+            <li><a href="partner_ro.html">Parteneri</a></li>
+            <div class="language">
+            <button type="button" class="lang-current active" data-lang="ro" aria-haspopup="true" aria-expanded="false" aria-label="Limba: Română">RO <i class="bi bi-chevron-down"></i></button><div class="lang-menu" role="menu"><button type="button" role="menuitem" data-lang="en" lang="en" onclick="window.location.href='screening-eligibility-checker.html';"><span>EN</span> English</button><button type="button" role="menuitem" data-lang="it" lang="it" onclick="window.location.href='screening-eligibility-checker_it.html';"><span>IT</span> Italiano</button><button type="button" role="menuitem" data-lang="ar" lang="ar" onclick="window.location.href='screening-eligibility-checker_ar.html';"><span>AR</span> العربية</button><button type="button" role="menuitem" data-lang="fr" lang="fr" onclick="window.location.href='screening-eligibility-checker_fr.html';"><span>FR</span> Français</button></div>
+            </div>
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main class="main">
+    <!-- Page Title -->
+    <div class="page-title">
+      <div class="heading">
+        <div class="container">
+          <div class="row d-flex justify-content-center text-center">
+            <div class="col-lg-8">
+              <h1 class="heading-title">Verificator de eligibilitate pentru screening</h1>
+              <p class="mb-0">
+                Acest instrument ajută la stabilirea parcursului de screening cervical de rutină recomandat femeilor cu risc mediu.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+ <!--  <nav class="breadcrumbs">
+        <div class="container">
+          <ol>
+            <li><a href="index_ro.html">Home</a></li>
+            <li class="current">Screening Eligibility Checker</li>
+          </ol>
+        </div>
+      </nav>  -->
+    </div><!-- End Page Title -->
+
+    <!-- Alert box -->
+    <section id="terms-of-service" class="terms-of-service section">
+        <div class="container" data-aos="fade-up">
+            <div class="tos-content" data-aos="fade-up" data-aos-delay="200">
+            <div id="user-accounts" class="content-section">
+                <div class="alert-box">
+                <i class="bi bi-exclamation-triangle"></i>
+                <div class="alert-content">
+                    <h5 style="font-weight: 700;">Notă importantă</h5>
+                    <p>Acest instrument se aplică doar <strong>femeilor cu risc mediu</strong> și are caracter informativ — nu înlocuiește sfatul medical profesionist sau judecata unui clinician. Dacă ți se aplică oricare dintre criteriile de excludere de mai jos, acest parcurs de rutină nu este potrivit și ar trebui să discuți cu un clinician despre protocolul special corect.</p>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+
+      <!-- ELIGIBILITY CARD -->
+      <section id="appointment" class="triage-card appointmnet section">
+        <div class="booking-wrapper">
+
+          <!-- Step 1: age + previous screening history -->
+          <div class="section-block">
+            <div class="card-heading">
+              <h2 style="font-weight:600;">Câți ani ai?</h2>
+              <p>Folosit pentru a aplica regula corectă în funcție de vârstă.</p>
+            </div>
+            <div class="age-input-wrap">
+              <input
+                type="number"
+                id="ageInput"
+                min="0"
+                max="120"
+                placeholder="Vârsta"
+                oninput="toggleAgeSection()"
+              />
+            </div>
+
+            <div id="under25Note" class="age-bracket-note conditional-section">
+              Screeningul de rutină nu se aplică sub vârsta de 25 de ani — nu sunt necesare alte întrebări.
+            </div>
+            <div id="ageGapNote" class="age-bracket-note conditional-section">
+              Vârsta de 65 de ani se află între intervalele definite de reguli (30–64 și peste 65).
+            </div>
+
+            <!-- 25–29 bracket -->
+            <div id="papSection" class="conditional-section">
+              <div class="choice-question">
+                <p>Ai făcut un test Babeș-Papanicolau (citologie) în ultimii 3 ani?</p>
+                <div class="choice-row">
+                  <div class="choice-option">
+                    <input type="radio" name="papRecent" id="papYes" value="yes" />
+                    <label for="papYes">Da</label>
+                  </div>
+                  <div class="choice-option">
+                    <input type="radio" name="papRecent" id="papNo" value="no" />
+                    <label for="papNo">Nu</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 30–64 bracket -->
+            <div id="hpvSection" class="conditional-section">
+              <div class="choice-question">
+                <p>Ai făcut un test HPV în ultimii 5 ani?</p>
+                <div class="choice-row">
+                  <div class="choice-option">
+                    <input type="radio" name="hpvTested" id="hpvYes" value="yes" onchange="toggleHpvFollowUp()" />
+                    <label for="hpvYes">Da</label>
+                  </div>
+                  <div class="choice-option">
+                    <input type="radio" name="hpvTested" id="hpvNo" value="no" onchange="toggleHpvFollowUp()" />
+                    <label for="hpvNo">Nu</label>
+                  </div>
+                </div>
+              </div>
+              <div id="hpvResultFollowUp" class="choice-question conditional-section">
+                <p>A fost rezultatul testului HPV negativ?</p>
+                <div class="choice-row">
+                  <div class="choice-option">
+                    <input type="radio" name="hpvNegative" id="hpvNegYes" value="yes" />
+                    <label for="hpvNegYes">Da, negativ</label>
+                  </div>
+                  <div class="choice-option">
+                    <input type="radio" name="hpvNegative" id="hpvNegNo" value="no" />
+                    <label for="hpvNegNo">Nu / pozitiv</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- >65 bracket -->
+            <div id="olderSection" class="conditional-section">
+              <div class="choice-question">
+                <p>Există o înregistrare a unor screeninguri negative anterioare adecvate?</p>
+                <div class="choice-row">
+                  <div class="choice-option">
+                    <input type="radio" name="adequateNegative" id="adequateYes" value="yes" />
+                    <label for="adequateYes">Da</label>
+                  </div>
+                  <div class="choice-option">
+                    <input type="radio" name="adequateNegative" id="adequateNo" value="no" />
+                    <label for="adequateNo">Nu</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2: relevant health conditions -->
+          <div class="section-block">
+            <div class="card-heading">
+              <h2 style="font-weight:600;">Ți se aplică vreuna dintre următoarele?</h2>
+              <p>Selectează toate variantele care se aplică. Oricare dintre ele te scoate din parcursul de screening de rutină.</p>
+            </div>
+
+            <div class="symptom-list">
+              <div class="symptom-option">
+                <input type="checkbox" id="excl-cancer" />
+                <label for="excl-cancer">Cancer de col uterin în antecedente</label>
+              </div>
+              <div class="symptom-option">
+                <input type="checkbox" id="excl-cin2plus" />
+                <label for="excl-cin2plus">CIN2, CIN3 sau AIS în antecedente (inclusiv sub supraveghere)</label>
+              </div>
+              <div class="symptom-option">
+                <input type="checkbox" id="excl-hiv" />
+                <label for="excl-hiv">Infecție cu HIV</label>
+              </div>
+              <div class="symptom-option">
+                <input type="checkbox" id="excl-immunosuppression" />
+                <label for="excl-immunosuppression">Altă imunosupresie semnificativă</label>
+              </div>
+              <div class="symptom-option">
+                <input type="checkbox" id="excl-des" />
+                <label for="excl-des">Expunere la DES în uter</label>
+              </div>
+              <div class="symptom-option">
+                <input type="checkbox" id="excl-hysterectomy" />
+                <label for="excl-hysterectomy">Histerectomie totală în antecedente, cu îndepărtarea colului uterin, pentru o boală benignă</label>
+              </div>
+              <div class="symptom-option">
+                <input type="checkbox" id="info-pregnant" />
+                <label for="info-pregnant">În prezent însărcinată</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="button-container">
+            <button type="button" class="btn btn-primary" onclick="checkEligibility()">Verifică eligibilitatea</button>
+          </div>
+          <div id="chatOutput"></div>
+        </div>
+      </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+  <footer id="footer" class="footer-16 footer position-relative">
+
+    <div class="container">
+
+      <div class="footer-main" data-aos="fade-up" data-aos-delay="100">
+        <div class="row align-items-start">
+
+          <div class="col-lg-5">
+            <div class="brand-section">
+              <a href="index_ro.html" class="logo d-flex align-items-center mb-4">
+                <span class="sitename">DCIMIT</span>
+              </a>
+              <p class="brand-description">Această cercetare a fost finanțată de AIRC în cadrul proiectului MFAG - 30481. <br>Investigator principal: Valentina Biagioli</p>
+              <a href="https://www.airc.it/" class="service-btn" target="_blank">
+              <div role="img" aria-label="AIRC Logo" style="float:left; width:90px; height:90px; padding:12px; box-sizing:content-box; background-color:white; border-radius:50%; background-image:url('assets/img/airc_logo.png'); background-origin:content-box; background-size:contain; background-repeat:no-repeat; background-position:center"></div>
+              </a>
+              
+            </div>
+          </div>
+
+          <div class="col-lg-7">
+            <div class="footer-nav-wrapper">
+              <div class="row">
+
+
+                <div class="col-6 col-lg-3">
+                  <div class="nav-column">
+                    <h6>Explorează</h6>
+                    <nav class="footer-nav">
+                      <a href="#!">Sănătatea femeii</a>
+                      <a href="#!">Cercetare</a>
+                      <!-- <a href="#!">Data</a> -->
+                    </nav>
+                  </div>
+                </div>
+
+                <div class="col-6 col-lg-3">
+                  <div class="nav-column">
+                    <h6>Proiect</h6>
+                    <nav class="footer-nav">
+                      <a href="publications_ro.html">Publicații</a>
+                      <a href="#!">Resurse</a>
+                      <a href="#!">Resurse utile</a>
+                    </nav>
+                  </div>
+                </div>
+
+                <div class="col-6 col-lg-3">
+                  <div class="nav-column">
+                    <h6>Conectează-te</h6>
+                    <nav class="footer-nav">
+                      <a href="#!">Echipa</a>
+                      <a href="#!">Contact</a>
+                      <a href="#!">Parteneri</a>
+                    </nav>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="bottom-content" data-aos="fade-up" data-aos-delay="300">
+          <div class="row align-items-center">
+
+            <div class="col-lg-6">
+              <div class="copyright">
+                <p>© <span class="sitename">DCIMIT</span>. Toate drepturile rezervate.</p>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="legal-links">
+                <a href="#!">Politica de confidențialitate</a>
+                <a href="#!">Termeni și condiții</a>
+                <a href="#!">Politica privind cookie-urile</a>
+                <div class="credits">
+                  
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </footer>
+  <!-- Scroll Top -->
+  <a href="#!" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+</html>

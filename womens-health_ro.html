@@ -1,0 +1,845 @@
+<!doctype html>
+<html lang="ro">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>DCIMIT - Pagina Sănătatea femeii</title>
+  <meta name="description"
+    content="Pagină pentru a ajuta femeile să afle mai multe despre screeningul, prevenirea și depistarea precoce a cancerului de col uterin." />
+  <meta name="keywords" content="screening cancer de col uterin, prevenire, depistare precoce" />
+
+  <!-- Favicons -->
+
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+    rel="stylesheet" />
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+  <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" />
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet" />
+
+  <!-- Libraries Stylesheet -->
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+
+  <style>
+    /* PNG icon that behaves like a Font Awesome glyph: 1em box, inherits the text colour */
+    .icon-uterus {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      background-color: currentColor;
+      -webkit-mask: url("assets/img/health/uterus.png") center / contain no-repeat;
+      mask: url("assets/img/health/uterus.png") center / contain no-repeat;
+    }
+    /* same look and hover animation as the Font Awesome icons in the services overlay */
+    .services .service-image .service-overlay .icon-uterus {
+      font-size: 4rem;
+      color: var(--contrast-color);
+      transform: scale(0.7);
+      transition: transform 0.3s ease;
+    }
+    .services .service-image:hover .service-overlay .icon-uterus {
+      transform: scale(1);
+    }
+
+
+    /* ===== Thematic lesson accordion ===== */
+    .lesson-accordion {
+      margin-top: 10px;
+    }
+    .lesson-accordion .accordion-item {
+      border: none;
+      margin-bottom: 14px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(17, 35, 68, 0.08);
+    }
+    .lesson-accordion .accordion-header {
+      margin: 0;
+    }
+    .lesson-accordion .topic-button {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 20px 26px;
+      background: var(--purple);
+      color: #ffffff;
+      border: none;
+      font-family: var(--heading-font);
+      font-size: 1.05rem;
+      font-weight: 700;
+      text-align: left;
+      cursor: pointer;
+      transition: background 0.25s ease;
+    }
+    .lesson-accordion .topic-button .topic-title {
+      flex: 1;
+      
+    }
+    .lesson-accordion .topic-button .topic-count {
+      font-weight: 500;
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.7);
+      white-space: nowrap;
+    }
+    .lesson-accordion .topic-button:hover,
+    .lesson-accordion .topic-button:not(.collapsed) {
+      background: var(--accent-color);
+    }
+    .lesson-accordion .topic-button .bi-chevron-down {
+      transition: transform 0.3s ease;
+      color: #ef714f;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .lesson-accordion .topic-button:not(.collapsed) .bi-chevron-down {
+      transform: rotate(180deg);
+    }
+    .lesson-accordion .topic-body {
+      background: #ffffff;
+      padding: 6px 10px;
+      border-radius: 20px;
+      border-bottom: 5px solid #EF714F;
+    }
+    .lesson-accordion .lesson-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 18px 20px;
+      border-bottom: 1px solid #eef2f4;
+    }
+    .lesson-accordion .lesson-row:last-child {
+      border-bottom: none;
+    }
+    .lesson-accordion .lesson-info {
+      min-width: 0;
+    }
+    .lesson-accordion .lesson-row .lesson-title {
+      display: block;
+      font-weight: 600;
+      color: var(--heading-color);
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+    .lesson-accordion .lesson-row .lesson-description {
+      margin: 0;
+      color: #657b79;
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+    .lesson-accordion .lesson-row .btn {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+
+    @media (max-width: 576px) {
+      .lesson-accordion .lesson-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .lesson-accordion .lesson-row .btn {
+        align-self: stretch;
+        justify-content: center;
+      }
+      .lesson-accordion .topic-button {
+        padding: 16px 18px;
+        font-size: 0.95rem;
+      }
+
+    }
+  </style>
+
+</head>
+
+<body class="departments-page">
+  <header id="header" class="header fixed-top">
+<!-- 
+    <div class="topbar d-flex align-items-center dark-background">
+      <div class="container d-flex justify-content-center justify-content-md-between">
+
+        <div class="contact-info d-flex align-items-center">
+          <i class=" d-flex align-items-center"><a
+              href="https://site.unibo.it/dcimit/it/eventi">This research was funded by AIRC as part of the MFAG - 30481 project.</a></i>
+        </div>
+
+        <div class="social-links d-none d-md-flex align-items-center">
+          <a href="https://site.unibo.it/dcimit/it/eventi" class="twitter"><i class="bi bi-pc-display-horizontal"></i></a>
+        </div>
+      </div>
+    </div>End Top Bar -->
+
+    <div class="branding d-flex align-items-cente">
+      <div class="container position-relative d-flex align-items-center justify-content-between">
+        <a href="index_ro.html" class="logo d-flex align-items-center">
+          <!-- Uncomment the line below if you also wish to use an image logo -->
+          <img src="assets/img/airc_logo.png" alt="AIRC Logo">
+          <img src="assets/img/alma_logo.webp" alt="Unibo Logo">
+          <img src="assets/img/logo_crop.webp" alt="DCIMIT Logo">
+          <!-- <h1 class="sitename">DCIMIT</h1>  TITOLO DEL SITO -->
+        </a>
+
+        <nav id="navmenu" class="navmenu">
+          <ul>
+            <li><a href="index_ro.html">Acasă</a></li>
+            <li class="dropdown"><a href="womens-health_ro.html" class="active nav-highlight"><span>Sănătatea femeii</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="womens-health_ro.html#departments-tabs">Lecții</a></li>
+              <li><a href="womens-health_ro.html#featured-departments">Instrumente interactive</a></li>
+              <li><a href="womens-health_ro.html#call-to-action">Alte servicii</a></li>
+            </ul>
+            </li>
+            <li class="dropdown"><a href="research_ro.html"><span>Cercetare</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="mix-study_ro.html">Studiu cu metode mixte</a></li>
+              <li><a href="register-study_ro.html">Studiu bazat pe registre</a></li>
+              <li><a href="interventional-study_ro.html">Studiu de intervenție</a></li>
+            </ul>
+            </li>
+            <!-- <li><a href="data_ro.html">Data</a></li> -->
+            <li><a href="publications_ro.html">Publicații</a></li>
+            <li class="dropdown"><a href="resources_ro.html"><span>Resurse</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="data_ro.html">Glosar</a></li>
+              <li><a href="links_ro.html">Linkuri utile</a></li>
+              <li><a href="resources-new_ro.html">Perspective și evenimente</a></li>
+            </ul>
+            </li>
+            <li><a href="team_ro.html">Echipa</a></li>
+            <li><a href="contact_ro.html">Contact</a></li>
+            <li><a href="partner_ro.html">Parteneri</a></li>
+            <div class="language">
+              <!-- is it better to rewrite innerHTML? -->
+
+              <button type="button" class="lang-current active" data-lang="ro" aria-haspopup="true" aria-expanded="false" aria-label="Limba: Română">RO <i class="bi bi-chevron-down"></i></button><div class="lang-menu" role="menu"><button type="button" role="menuitem" data-lang="en" lang="en" onclick="window.location.href='womens-health.html';"><span>EN</span> English</button><button type="button" role="menuitem" data-lang="it" lang="it" onclick="window.location.href='womens-health_it.html';"><span>IT</span> Italiano</button><button type="button" role="menuitem" data-lang="ar" lang="ar" onclick="window.location.href='womens-health_ar.html';"><span>AR</span> العربية</button><button type="button" role="menuitem" data-lang="fr" lang="fr" onclick="window.location.href='womens-health_fr.html';"><span>FR</span> Français</button></div>
+            </div>
+            <!--  <a href="contact_ro.html" class="header-cta">Contact us</a> -->
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- Page Title -->
+    <div class="page-title">
+      <div class="heading">
+        <div class="container">
+          <div class="row d-flex justify-content-center text-center">
+            <div class="col-lg-8">
+              <h1 class="heading-title">Sănătatea femeii</h1>
+              <p class="mb-0">
+                Informații esențiale despre screeningul, prevenirea și depistarea precoce a cancerului de col uterin pentru toate femeile, cu accent special pe comunitățile de imigranți.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--    <nav class="breadcrumbs">
+        <div class="container">
+          <ol>
+            <li><a href="index_ro.html">Home</a></li>
+            <li class="current">Women's Health</li>
+          </ol>
+        </div>
+      </nav> end nav breadcrumbs-->
+    </div>
+    <!-- End Page Title -->
+
+    <!-- Departments Tabs Section -->
+    <section id="departments-tabs" class="departments-tabs section">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="section-title text-center" data-aos="fade-up">
+          <h2>Informații despre cancerul de col uterin</h2>
+          <p>Alege un subiect pentru a afla mai multe despre el.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-item">
+              <div class="service-image">
+                <img src="assets/img/health/cervical_info_crop.png" alt="First Lesson" class="img-fluid">
+                <div class="service-overlay">
+                  <span class="icon-uterus" role="img" aria-label="Uterus"></span>
+                </div>
+                <a href="https://www.flaticon.com/free-icons/gynecology" title="gynecology icons">Gynecology icons created by juicy_fish - Flaticon</a>
+              </div>
+              <div class="service-content">
+                <h3>Ce este cancerul de col uterin?</h3>
+                <p>Cancerul de col uterin se dezvoltă în celulele care căptușesc colul uterin, de obicei în decursul multor ani și aproape întotdeauna în legătură cu o infecție persistentă cu HPV. Depistat precoce prin screening regulat, este unul dintre cele mai ușor de prevenit și de tratat tipuri de cancer.</p>
+             <!--   <div class="service-features">
+                  <span class="feature-item"><i class="fas fa-check"></i> ECG Testing</span>
+                  <span class="feature-item"><i class="fas fa-check"></i> Heart Surgery</span>
+                </div> -->
+                <a href="womens-health - Copia.html" class="service-btn">
+                  <span>Află mai multe</span>
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="250">
+            <div class="service-item">
+              <div class="service-image">
+                <img src="assets/img/health/lesson-hpv.webp" alt="Understanding HPV" class="img-fluid">
+                <div class="service-overlay">
+                  <span class="icon-uterus" role="img" aria-label="Uterus"></span>
+                </div>
+                <a href="https://www.flaticon.com/free-icons/gynecology" title="gynecology icons">Gynecology icons created by juicy_fish - Flaticon</a>
+              </div>
+              <div class="service-content">
+                <h3>Înțelegerea HPV</h3>
+                <p>HPV este un virus extrem de comun — majoritatea persoanelor active sexual sunt expuse la el la un moment dat, iar aproximativ 9 din 10 infecții dispar de la sine. Doar un grup mic de tipuri cu risc ridicat poate duce la cancer dacă infecția persistă ani de zile.</p>
+             <!--   <div class="service-features">
+                  <span class="feature-item"><i class="fas fa-check"></i> ECG Testing</span>
+                  <span class="feature-item"><i class="fas fa-check"></i> Heart Surgery</span>
+                </div> -->
+                <a href="service-details.html" class="service-btn">
+                  <span>Află mai multe</span>
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-item">
+              <div class="service-image">
+                <img src="assets/img/health/lesson-symptoms.webp" alt="Cervical Cancer Symptoms" class="img-fluid">
+                <div class="service-overlay">
+                  <span class="icon-uterus" role="img" aria-label="Uterus"></span>
+                </div>
+                <a href="https://www.flaticon.com/free-icons/gynecology" title="gynecology icons">Gynecology icons created by juicy_fish - Flaticon</a>
+              </div>
+              <div class="service-content">
+                <h3>Simptomele cancerului de col uterin</h3>
+                <p>Sângerările neobișnuite, secrețiile sau durerea pelvină pot fi semne de alarmă, deși modificările precanceroase timpurii nu provoacă de obicei niciun simptom — de aceea screeningul regulat contează chiar și atunci când te simți perfect bine.
+                </p>
+                <a href="service-details.html" class="service-btn">
+                  <span>Află mai multe</span>
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="350">
+            <div class="service-item">
+              <div class="service-image">
+                <img src="assets/img/health/lesson-vaccine.webp" alt="The HPV Vaccine" class="img-fluid">
+                <div class="service-overlay">
+                  <span class="icon-uterus" role="img" aria-label="Uterus"></span>
+                </div>
+                <a href="https://www.flaticon.com/free-icons/gynecology" title="gynecology icons">Gynecology icons created by juicy_fish - Flaticon</a>
+              </div>
+              <div class="service-content">
+                <h3>Vaccinul HPV</h3>
+                <p>Vaccinul HPV este unul dintre cele mai eficiente instrumente pentru prevenirea infecțiilor care duc la cancer de col uterin. Este recomandat începând de la 11-12 ani, a fost testat pe larg din punct de vedere al siguranței și funcționează alături de screeningul regulat, nu în locul acestuia.</p>
+                <a href="service-details.html" class="service-btn">
+                  <span>Află mai multe</span>
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-item">
+              <div class="service-image">
+                <img src="assets/img/health/lesson-lifestyle.webp" alt="Lifestyle &amp; Prevention" class="img-fluid">
+                <div class="service-overlay">
+                  <span class="icon-uterus" role="img" aria-label="Uterus"></span>
+                </div>
+                <a href="https://www.flaticon.com/free-icons/gynecology" title="gynecology icons">Gynecology icons created by juicy_fish - Flaticon</a>
+              </div>
+              <div class="service-content">
+                <h3>Stil de viață și prevenție</h3>
+                <p>Faptul că nu fumezi, vaccinarea și o sănătate imunitară bună contribuie la reducerea riscului, dar nicio alegere de stil de viață nu înlocuiește screeningul regulat, care rămâne cea mai sigură cale de a depista din timp modificările.</p>
+                <a href="service-details.html" class="service-btn">
+                  <span>Află mai multe</span>
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="450">
+            <div class="service-item">
+              <div class="service-image">
+                <img src="assets/img/health/lesson-screening.webp" alt="Why Screening Matters" class="img-fluid">
+                <div class="service-overlay">
+                  <span class="icon-uterus" role="img" aria-label="Uterus"></span>
+                </div>
+                <a href="https://www.flaticon.com/free-icons/gynecology" title="gynecology icons">Gynecology icons created by juicy_fish - Flaticon</a>
+              </div>
+              <div class="service-content">
+                <h3>De ce contează screeningul</h3>
+                <p>Screeningul depistează și îndepărtează celulele precanceroase înainte să devină cancer, căutând primele semne de alarmă la persoane care se simt complet sănătoase — ceea ce îl face cu adevărat preventiv, nu doar diagnostic.
+                </p>
+                <a href="service-details.html" class="service-btn">
+                  <span>Află mai multe</span>
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div><!-- End Service Item -->
+
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="450">
+            <div class="service-item">
+              <div class="service-image">
+                <img src="assets/img/health/lesson-pap-hpv.webp" alt="Pap Test vs. HPV Test" class="img-fluid">
+                <div class="service-overlay">
+                  <span class="icon-uterus" role="img" aria-label="Uterus"></span>
+                </div>
+                <a href="https://www.flaticon.com/free-icons/gynecology" title="gynecology icons">Gynecology icons created by juicy_fish - Flaticon</a>
+              </div>
+              <div class="service-content">
+                <h3>Test Babeș-Papanicolau și test HPV</h3>
+                <p>Testul Babeș-Papanicolau examinează celulele colului uterin pentru modificări anormale, în timp ce testul HPV caută virusul cu risc ridicat care le provoacă. Alegerea testului — și frecvența acestuia — depinde în principal de vârsta ta.
+                </p>
+                <a href="service-details.html" class="service-btn">
+                  <span>Află mai multe</span>
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div><!-- End Service Item -->          
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-item">
+              <div class="service-image">
+                <img src="assets/img/health/lesson-exam.webp" alt="What Happens During the Exam" class="img-fluid">
+                <div class="service-overlay">
+                  <span class="icon-uterus" role="img" aria-label="Uterus"></span>
+                </div>
+                <a href="https://www.flaticon.com/free-icons/gynecology" title="gynecology icons">Gynecology icons created by juicy_fish - Flaticon</a>
+              </div>
+              <div class="service-content">
+                <h3>Ce se întâmplă în timpul examinării</h3>
+                <p>Un ghid pas cu pas al unei vizite de screening de rutină, de la înregistrare până la examinarea propriu-zisă. Durează de obicei doar 10-15 minute, cu cel mult un disconfort scurt, nu durere.
+                </p>
+                <a href="service-details.html" class="service-btn">
+                  <span>Află mai multe</span>
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="350">
+            <div class="service-item">
+              <div class="service-image">
+                <img src="assets/img/health/lesson-journey.webp" alt="The Screening Journey" class="img-fluid">
+                <div class="service-overlay">
+                  <span class="icon-uterus" role="img" aria-label="Uterus"></span>
+                </div>
+                <a href="https://www.flaticon.com/free-icons/gynecology" title="gynecology icons">Gynecology icons created by juicy_fish - Flaticon</a>
+              </div>
+              <div class="service-content">
+                <h3>Parcursul screeningului</h3>
+                <p>Urmărește parcursul unei femei prin întregul proces de screening, de la scrisoarea de invitație la programare, test și primirea rezultatelor, pentru a vedea cât de simplu este, de fapt, fiecare pas.</p>
+                <a href="service-details.html" class="service-btn">
+                  <span>Află mai multe</span>
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-item">
+              <div class="service-image">
+                <img src="assets/img/health/lesson-hpv-positive.webp" alt="HPV Positive: What Now?" class="img-fluid">
+                <div class="service-overlay">
+                  <span class="icon-uterus" role="img" aria-label="Uterus"></span>
+                </div>
+                <a href="https://www.flaticon.com/free-icons/gynecology" title="gynecology icons">Gynecology icons created by juicy_fish - Flaticon</a>
+              </div>
+              <div class="service-content">
+                <h3>HPV pozitiv: ce urmează?</h3>
+                <p>Un rezultat HPV pozitiv înseamnă doar că virusul a fost detectat — nimic mai mult. Nu înseamnă că ai cancer, iar majoritatea rezultatelor pozitive se rezolvă de la sine prin simplă monitorizare.</p>
+                <div class="service-features">
+                  <span class="feature-item"><i class="fas fa-check"></i> Centru de traumatologie</span>
+                  <span class="feature-item"><i class="fas fa-check"></i> Terapie intensivă</span>
+                </div>
+                <a href="service-details.html" class="service-btn">
+                  <span>Află mai multe</span>
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="450">
+            <div class="service-item">
+              <div class="service-image">
+                <img src="assets/img/health/lesson-colposcopy.webp" alt="Colposcopy Explained" class="img-fluid">
+                <div class="service-overlay">
+                  <span class="icon-uterus" role="img" aria-label="Uterus"></span>
+                </div>
+                <a href="https://www.flaticon.com/free-icons/gynecology" title="gynecology icons">Gynecology icons created by juicy_fish - Flaticon</a>
+              </div>
+              <div class="service-content">
+                <h3>Colposcopia explicată</h3>
+                <p>Colposcopia este pur și simplu o examinare mai atentă a colului uterin după un rezultat anormal al screeningului — asemănătoare cu testul Babeș-Papanicolau, de obicei cu un disconfort ușor, și se încheie în 15-20 de minute.
+                </p>
+                <a href="service-details.html" class="service-btn">
+                  <span>Află mai multe</span>
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div><!-- End Service Item -->
+
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="450">
+            <div class="service-item">
+              <div class="service-image">
+                <img src="assets/img/health/lesson-pregnancy.webp" alt="Pregnancy &amp; Screening" class="img-fluid">
+                <div class="service-overlay">
+                  <span class="icon-uterus" role="img" aria-label="Uterus"></span>
+                </div>
+                <a href="https://www.flaticon.com/free-icons/gynecology" title="gynecology icons">Gynecology icons created by juicy_fish - Flaticon</a>
+              </div>
+              <div class="service-content">
+                <h3>Sarcina și screeningul</h3>
+                <p>Screeningul este în general sigur în timpul sarcinii și al alăptării, iar testarea după naștere se reia de obicei în jurul a 12 săptămâni postpartum.
+                </p>
+                <a href="service-details.html" class="service-btn">
+                  <span>Află mai multe</span>
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div><!-- End Service Item -->          
+
+        </div>
+
+      </div>
+
+    </section><!-- /Services Section -->
+
+
+
+    <!-- Featured Departments Section -->
+    <section id="featured-departments" class="featured-departments section">
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Instrumente interactive</h2>
+        <p>Încearcă instrumentele noastre interactive pentru a te simți mai văzută și mai bine ghidată.</p>
+      </div>
+      <!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row g-5">
+          <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="100">
+            <div class="specialty-card">
+              <div class="specialty-content">
+                <div class="specialty-meta">
+                  <span class="specialty-label">Instrument informativ</span>
+                </div>
+                <h3 style="font-weight: 500">Triajul simptomelor</h3>
+                <p style="color: #3c4049">
+                  Nu ești sigură cât de urgent trebuie tratate simptomele tale?
+                </p>
+                <div class="specialty-features">
+                  <span><i class="bi bi-check-circle-fill"></i>Începe evaluarea simptomelor și află când poate fi important să ceri îngrijire medicală.</span>
+                  <span><i class="bi bi-check-circle-fill"></i>Primește îndrumări clare privind nivelul adecvat de atenție.</span>
+                </div>
+                <a href="symptom-triage_ro.html" class="specialty-link" target="_blank">
+                  Verifică-ți simptomele<i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+              <div class="specialty-visual">
+                <img src="assets/img/health/vitaly-gariev.webp" alt="Cardiovascular Medicine" class="img-fluid" />
+                <div class="visual-overlay">
+                  <i class="bi bi-clipboard-pulse"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End Specialty Card -->
+
+          <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="200">
+            <div class="specialty-card_2">
+              <div class="specialty-content">
+                <div class="specialty-meta">
+                  <span class="specialty-label">Se aplică doar femeilor cu risc mediu</span>
+                </div>
+                <h3 style="font-weight: 500">Verificator de eligibilitate pentru screening</h3>
+                <p>
+                  Ești eligibilă pentru screeningul de rutină al cancerului de col uterin?
+                </p>
+                <div class="specialty-features">
+                  <span><i class="bi bi-check-circle-fill"></i>Răspunde la câteva întrebări simple despre istoricul tău medical și screeningurile cervicale anterioare.</span>
+                  <span><i class="bi bi-check-circle-fill"></i>află dacă poți urma parcursul de screening de rutină sau dacă ar trebui să consulți un profesionist din sănătate pentru îndrumări personalizate.</span>
+                </div>
+                <a href="screening-eligibility-checker_ro.html" class="specialty-link" target="_blank">
+                Verifică-ți simptomele<i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+              <div class="specialty-visual">
+                <img src="assets/img/health/accuray.webp" alt="Neurological Sciences" class="img-fluid" />
+                <div class="visual-overlay">
+                  <i class="bi bi-clipboard-data"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End Specialty Card -->
+        </div>
+
+    </section>
+    <!-- /Featured Departments Section -->
+
+
+    <section id="call-to-action" class="call-to-action section light-background">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="contact-block">
+          <div class="row">
+
+            <div class="col-lg-8">
+              <div class="contact-content" data-aos="fade-up" data-aos-delay="200">
+                <h2>Servicii de sănătate</h2>
+                <p>Dacă ai întrebări despre screeningul cancerului de col uterin sau ai nevoie de ajutor pentru a accesa serviciile de sănătate, contactează autoritatea sanitară locală (ASL) sau echipa noastră de cercetare.</p>
+              </div>
+            </div>
+
+            <div  class="col-lg-4">
+              <div class="contact-actions" data-aos="fade-up" data-aos-delay="300">
+                <a href="data_ro.html" class="emergency-call" target="_blank">
+                  <i class="bi bi-map"></i>
+                  <span>Explorează serviciile</span>
+                </a>
+                <a href="contact_ro.html" class="contact-link">Contactează-ne</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="featured-departments" class="featured-departments section">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Alte resurse</h2>
+        <p>Găsește alte resurse utile</p>
+      </div>
+
+    <!-- Team Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="owl-carousel team-carousel position-relative">
+                <div class="team-item">
+                    <div class="row g-0 bg-light-custom rounded overflow-hidden">
+                        <div class="col-12 col-sm-5 h-100">
+                            <img class="img-fluid h-100" src="assets/img/health/dcimit_logo.webp" style="object-fit: cover;">
+                        </div>
+                        <div class="col-12 col-sm-7 h-100 d-flex flex-column">
+                            <div class="mt-auto p-4">
+                                <h2>Resursă</h2>
+                                <h6 class="fw-normal fst-italic text-primary-custom mb-4">Subtitlul cardului</h6>
+                                <p class="m-0">Dolor lorem eos dolor duo eirmod sea. Dolor sit magna rebum clita rebum dolor</p>
+                            </div>
+                            <div class="d-flex mt-auto border-top p-4">
+                                <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-3" href="#!"><i
+                                        class="bi-box-arrow-up-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-item">
+                    <div class="row g-0 bg-light-custom rounded overflow-hidden">
+                        <div class="col-12 col-sm-5 h-100">
+                            <img class="img-fluid h-100" src="assets/img/health/dcimit_logo.webp" style="object-fit: cover;">
+                        </div>
+                        <div class="col-12 col-sm-7 h-100 d-flex flex-column">
+                            <div class="mt-auto p-4">
+                                <h2>Resursă</h2>
+                                <h6 class="fw-normal fst-italic text-primary-custom mb-4">Subtitlul cardului</h6>
+                                <p class="m-0">Dolor lorem eos dolor duo eirmod sea. Dolor sit magna rebum clita rebum dolor</p>
+                            </div>
+                            <div class="d-flex mt-auto border-top p-4">
+                                <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-3" href="#!"><i
+                                        class="bi-box-arrow-up-right"></i></a>                              
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-item">
+                    <div class="row g-0 bg-light-custom rounded overflow-hidden">
+                        <div class="col-12 col-sm-5 h-100">
+                            <img class="img-fluid h-100" src="assets/img/health/dcimit_logo.webp" style="object-fit: cover;">
+                        </div>
+                        <div class="col-12 col-sm-7 h-100 d-flex flex-column">
+                            <div class="mt-auto p-4">
+                                <h2>Resursă</h2>
+                                <h6 class="fw-normal fst-italic text-primary-custom mb-4">Subtitlul cardului</h6>
+                                <p class="m-0">Dolor lorem eos dolor duo eirmod sea. Dolor sit magna rebum clita rebum dolor</p>
+                            </div>
+                            <div class="d-flex mt-auto border-top p-4">
+                                <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-3" href="#!"><i
+                                        class="bi-box-arrow-up-right"></i></a>                              
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Team End -->
+    </section>
+    
+  
+  </main>
+
+
+  <footer id="footer" class="footer-16 footer position-relative">
+
+    <div class="container">
+
+      <div class="footer-main" data-aos="fade-up" data-aos-delay="100">
+        <div class="row align-items-start">
+
+          <div class="col-lg-5">
+            <div class="brand-section">
+              <a href="index_ro.html" class="logo d-flex align-items-center mb-4">
+                <span class="sitename">DCIMIT</span>
+              </a>
+              <p class="brand-description">Această cercetare a fost finanțată de AIRC în cadrul proiectului MFAG - 30481. <br>Investigator principal: Valentina Biagioli</p>
+              <a href="https://www.airc.it/" class="service-btn" target="_blank">
+              <div role="img" aria-label="AIRC Logo" style="float:left; width:90px; height:90px; padding:12px; box-sizing:content-box; background-color:white; border-radius:50%; background-image:url('assets/img/airc_logo.png'); background-origin:content-box; background-size:contain; background-repeat:no-repeat; background-position:center"></div>
+              </a>
+              
+            </div>
+          </div>
+
+          <div class="col-lg-7">
+            <div class="footer-nav-wrapper">
+              <div class="row">
+
+
+                <div class="col-6 col-lg-3">
+                  <div class="nav-column">
+                    <h6>Explorează</h6>
+                    <nav class="footer-nav">
+                      <a href="#!">Sănătatea femeii</a>
+                      <a href="#!">Cercetare</a>
+                      <!-- <a href="#!">Data</a> -->
+                    </nav>
+                  </div>
+                </div>
+
+                <div class="col-6 col-lg-3">
+                  <div class="nav-column">
+                    <h6>Proiect</h6>
+                    <nav class="footer-nav">
+                      <a href="publications_ro.html">Publicații</a>
+                      <a href="#!">Resurse</a>
+                      <a href="#!">Resurse utile</a>
+                    </nav>
+                  </div>
+                </div>
+
+                <div class="col-6 col-lg-3">
+                  <div class="nav-column">
+                    <h6>Conectează-te</h6>
+                    <nav class="footer-nav">
+                      <a href="#!">Echipa</a>
+                      <a href="#!">Contact</a>
+                      <a href="#!">Parteneri</a>
+                    </nav>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="bottom-content" data-aos="fade-up" data-aos-delay="300">
+          <div class="row align-items-center">
+
+            <div class="col-lg-6">
+              <div class="copyright">
+                <p>© <span class="sitename">DCIMIT</span>. Toate drepturile rezervate.</p>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="legal-links">
+                <a href="#!">Politica de confidențialitate</a>
+                <a href="#!">Termeni și condiții</a>
+                <a href="#!">Politica privind cookie-urile</a>
+                <div class="credits">
+                  
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#!" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>

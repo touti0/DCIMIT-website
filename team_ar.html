@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>DCIMIT - الفريق</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+  <style>
+    /* FontAwesome for working BootSnippet :> */
+
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+#team {
+    background: #eee !important;
+}
+
+/* Doctors section: light tint of the accent color */
+
+
+#doctors .doctor-card {
+    background-color: transparent;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: #108d6f;
+    border-color: #108d6f;
+    box-shadow: none;
+    outline: none;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #3C9B91;
+    border-color: #3C9B91;
+}
+
+
+section .section-title {
+    text-align: center;
+    color: #007b5e;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
+
+#team .card {
+    border: none;
+    background: #ffffff;
+    box-shadow: var(--bs-box-shadow-sm) !important;
+    border-bottom-width: 2px; 
+    border-bottom-style: solid;
+    border-bottom-color: #EF714F;
+    overflow: hidden;
+}
+
+.image-flip:hover .backside,
+.image-flip.hover .backside {
+    -webkit-transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+    -o-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+    border-radius: .25rem;
+}
+
+.image-flip:hover .frontside,
+.image-flip.hover .frontside {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+.mainflip {
+    -webkit-transition: 1s;
+    -webkit-transform-style: preserve-3d;
+    -ms-transition: 1s;
+    -moz-transition: 1s;
+    -moz-transform: perspective(1000px);
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transition: 1s;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+.frontside {
+    position: relative;
+    -webkit-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    z-index: 2;
+    margin-bottom: 30px;
+}
+
+.backside {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: white;
+    -webkit-transform: rotateY(-180deg);
+    -moz-transform: rotateY(-180deg);
+    -o-transform: rotateY(-180deg);
+    -ms-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+    -webkit-box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
+    -moz-box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
+    box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
+}
+
+.frontside,
+.backside {
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transition: 1s;
+    -webkit-transform-style: preserve-3d;
+    -moz-transition: 1s;
+    -moz-transform-style: preserve-3d;
+    -o-transition: 1s;
+    -o-transform-style: preserve-3d;
+    -ms-transition: 1s;
+    -ms-transform-style: preserve-3d;
+    transition: 1s;
+    transform-style: preserve-3d;
+}
+
+.frontside .card,
+.backside .card {
+    min-height: 312px;
+}
+
+.backside .card a {
+    font-size: 18px;
+    color: #3C9B91; !important;
+}
+
+.frontside .card .card-title,
+.backside .card .card-title {
+    color: #3C9B91; !important;
+}
+
+.frontside .card .card-body img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+  </style>
+
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="assets/css/rtl.css" rel="stylesheet">
+</head>
+
+<body class="services-page">
+
+  <header id="header" class="header fixed-top">
+
+<!-- 
+    <div class="topbar d-flex align-items-center dark-background">
+      <div class="container d-flex justify-content-center justify-content-md-between">
+
+        <div class="contact-info d-flex align-items-center">
+          <i class=" d-flex align-items-center"><a
+              href="https://site.unibo.it/dcimit/it/eventi">This research was funded by AIRC as part of the MFAG - 30481 project.</a></i>
+        </div>
+
+        <div class="social-links d-none d-md-flex align-items-center">
+          <a href="https://site.unibo.it/dcimit/it/eventi" class="twitter"><i class="bi bi-pc-display-horizontal"></i></a>
+        </div>
+      </div>
+    </div>End Top Bar -->
+
+    <div class="branding d-flex align-items-cente">
+
+      <div class="container position-relative d-flex align-items-center justify-content-between">
+        <a href="index_ar.html" class="logo d-flex align-items-center">
+          <!-- Uncomment the line below if you also wish to use an image logo -->
+          <img src="assets/img/airc_logo.png" alt="AIRC Logo">
+          <img src="assets/img/alma_logo.webp" alt="Unibo Logo">
+          <img src="assets/img/logo_crop.webp" alt="DCIMIT Logo">
+          <!-- <h1 class="sitename">DCIMIT</h1>  TITOLO DEL SITO -->
+        </a>
+
+        <nav id="navmenu" class="navmenu">
+          <ul>
+            <li><a href="index_ar.html">الرئيسية</a></li>
+            <li class="dropdown"><a href="womens-health_ar.html" class="nav-highlight"><span>صحة المرأة</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="womens-health_ar.html#departments-tabs">الدروس</a></li>
+              <li><a href="womens-health_ar.html#featured-departments">أدوات تفاعلية</a></li>
+              <li><a href="womens-health_ar.html#call-to-action">خدمات أخرى</a></li>
+            </ul>
+            </li>
+            <li class="dropdown"><a href="research_ar.html"><span>البحث</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="mix-study_ar.html">دراسة بالمنهج المختلط</a></li>
+              <li><a href="register-study_ar.html">دراسة قائمة على السجلات</a></li>
+              <li><a href="interventional-study_ar.html">دراسة تدخلية</a></li>
+            </ul>
+            </li>
+            <!-- <li><a href="data_ar.html">Data</a></li> -->
+            <li><a href="publications_ar.html">المنشورات</a></li>
+            <li class="dropdown"><a href="resources_ar.html"><span>الموارد</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="data_ar.html">مسرد المصطلحات</a></li>
+              <li><a href="links_ar.html">روابط مفيدة</a></li>
+              <li><a href="resources-new_ar.html">رؤى وفعاليات</a></li>
+            </ul>
+            </li>
+            <li><a href="team_ar.html" class="active">الفريق</a></li>
+            <li><a href="contact_ar.html">اتصل بنا</a></li>
+            <li><a href="partner_ar.html">الشركاء</a></li>
+            <div class="language">
+
+              <!-- is it better to rewrite innerHTML? -->
+               
+            <button type="button" class="lang-current active" data-lang="ar" aria-haspopup="true" aria-expanded="false" aria-label="اللغة: العربية">AR <i class="bi bi-chevron-down"></i></button><div class="lang-menu" role="menu"><button type="button" role="menuitem" data-lang="en" lang="en" onclick="window.location.href='team.html';"><span>EN</span> English</button><button type="button" role="menuitem" data-lang="it" lang="it" onclick="window.location.href='team_it.html';"><span>IT</span> Italiano</button><button type="button" role="menuitem" data-lang="fr" lang="fr" onclick="window.location.href='team_fr.html';"><span>FR</span> Français</button><button type="button" role="menuitem" data-lang="ro" lang="ro" onclick="window.location.href='team_ro.html';"><span>RO</span> Română</button></div>
+            </div>
+           <!--  <a href="contact_ar.html" class="header-cta">Contact us</a> -->
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+
+      </div>
+
+    </div>
+
+  </header>
+
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title">
+      <div class="heading-contact">
+        <div class="container">
+          <div class="row d-flex justify-content-center text-center">
+            <div class="col-lg-8">
+              <h1 class="heading-title">فريق البحث</h1>
+              <p class="mb-0">
+                خبراء مكرَّسون للحد من الفوارق في سرطان عنق الرحم بين النساء المهاجرات في إيطاليا
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--  <nav class="breadcrumbs">
+        <div class="container">
+          <ol>
+            <li><a href="index_ar.html">Home</a></li>
+            <li class="current">Data</li>
+          </ol>
+        </div>
+      </nav> -->
+    </div>
+    <!-- End Page Title -->
+
+    
+    <!-- Experts Section -->
+    <div id="doctors" class="doctors section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4 justify-content-center">
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="doctor-card">
+              <div class="doctor-image">
+                <img src="assets/img/person/valentina.jpeg" alt="Valentina Biagioli photo" class="img-fluid">
+                <div class="doctor-overlay">
+                  <div class="social-links">
+                    <a href="mailto:valentina.biagioli@unibo.it"><i class="bi bi-envelope"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="doctor-content">
+                <h4>Valentina Biagioli</h4>
+                <span class="specialty">الباحث الرئيسي لمشروع DCIMIT</span>
+                <p>المواضيع: </p>
+              </div>
+            </div>
+          </div><!-- End Expert Card -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="doctor-card">
+              <div class="doctor-image">
+                <img src="assets/img/person/boffetta.jpeg" alt="Paolo Boffetta" class="img-fluid" style="object-position: center top;">
+                <div class="doctor-overlay">
+                  <div class="social-links">
+                    <a href="mailto:paolo.boffetta@unibo.it"><i class="bi bi-envelope"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="doctor-content">
+                <h4>Paolo Boffetta</h4>
+                <span class="specialty">مشرف على مشروع DCIMIT</span>
+                <p>المواضيع:</p>
+              </div>
+            </div>
+          </div><!-- End Expert Card -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="doctor-card">
+              <div class="doctor-image">
+                <img src="assets/img/person/kazem.jpeg" alt="Kazem Zendehdel" class="img-fluid">
+                <div class="doctor-overlay">
+                  <div class="social-links">
+                    <a href="mailto:kazem.zendehdel@unibo.it"><i class="bi bi-envelope"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="doctor-content">
+                <h4>Kazem Zendehdel</h4>
+                <span class="specialty">مشرف مشارك في مشروع DCIMIT</span>
+                <p>المواضيع:</p>
+              </div>
+            </div>
+          </div><!-- End Expert Card -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="doctor-card">
+              <div class="doctor-image">
+                <img src="assets/img/person/person_icon_purp.svg" alt="Fereshte Lotfi" class="img-fluid">
+                <div class="doctor-overlay">
+                  <div class="social-links">
+                    <a href="mailto:fereshte.lotfi@unibo.it"><i class="bi bi-envelope"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="doctor-content">
+                <h4>Fereshte Lotfi </h4>
+                <span class="specialty">مساعد بحث في مشروع DCIMIT</span>
+                <p>المواضيع:</p>
+              </div>
+            </div>
+          </div><!-- End Expert Card -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+            <div class="doctor-card">
+              <div class="doctor-image">
+                <img src="assets/img/person/person_icon_purp.svg" alt="Mohsen Boughriou" class="img-fluid">
+                <div class="doctor-overlay">
+                  <div class="social-links">
+                    <a href="mailto:mohsen.boughriou@unibo.it"><i class="bi bi-envelope"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="doctor-content">
+                <h4>Mohsen Boughriou</h4>
+                <span class="specialty">زميل باحث في الدراسة 2</span>
+                <p>المواضيع:</p>
+              </div>
+            </div>
+          </div><!-- End Expert Card -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="doctor-card">
+              <div class="doctor-image">
+                <img src="assets/img/person/person_icon_purp.svg" alt="Eleonora Gorgati" class="img-fluid">
+                <div class="doctor-overlay">
+                  <div class="social-links">
+                    <a href="mailto:eleonora.gorgati2@unibo.it"><i class="bi bi-envelope"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="doctor-content">
+                <h4>Eleonora Gorgati</h4>
+                <span class="specialty">زميل باحث في الدراستين 1 و 3</span>
+                <p>المواضيع:</p>
+              </div>
+            </div>
+          </div><!-- End Expert Card -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="doctor-card">
+              <div class="doctor-image">
+                <img src="assets/img/person/person_icon_purp.svg" alt="Diego Serraino" class="img-fluid">
+                <div class="doctor-overlay">
+                  <div class="social-links">
+                    <a href="mailto:"><i class="bi bi-envelope"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="doctor-content">
+                <h4>Diego Serraino</h4>
+                <span class="specialty">مستشار للدراسة 2</span>
+                <p>المواضيع:</p>
+              </div>
+            </div>
+          </div><!-- End Expert Card -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="doctor-card">
+              <div class="doctor-image">
+                <img src="assets/img/person/person_icon_purp.svg" alt="Angela Cuoco" class="img-fluid">
+                <div class="doctor-overlay">
+                  <div class="social-links">
+                    <a href="mailto:"><i class="bi bi-envelope"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="doctor-content">
+                <h4>Angela Cuoco</h4>
+                <span class="specialty">مستشار للدراسة 1</span>
+                <p>المواضيع:</p>
+              </div>
+            </div>
+          </div><!-- End Expert Card -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="doctor-card">
+              <div class="doctor-image">
+                <img src="assets/img/person/person_icon_purp.svg" alt="Sara Dionisi" class="img-fluid">
+                <div class="doctor-overlay">
+                  <div class="social-links">
+                    <a href="mailto:"><i class="bi bi-envelope"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="doctor-content">
+                <h4>Sara Dionisi</h4>
+                <span class="specialty">مستشار للدراسة 3</span>
+                <p>المواضيع:</p>
+              </div>
+            </div>
+          </div><!-- End Expert Card -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="doctor-card">
+              <div class="doctor-image">
+                <img src="assets/img/person/person_icon_purp.svg" alt="Miriam Alviggi" class="img-fluid">
+                <div class="doctor-overlay">
+                  <div class="social-links">
+                    <a href="mailto:"><i class="bi bi-envelope"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="doctor-content">
+                <h4>Miriam Alviggi</h4>
+                <span class="specialty">مستشار للدراسة 1</span>
+                <p>المواضيع:</p>
+              </div>
+            </div>
+          </div><!-- End Expert Card -->          
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="doctor-card">
+              <div class="doctor-image">
+                <img src="assets/img/person/ariele.jpg" alt="Ariele Santello" class="img-fluid">
+                <div class="doctor-overlay">
+                  <div class="social-links">
+                    <a href="mailto:ariele.santello2@unibo.it"><i class="bi bi-envelope"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="doctor-content">
+                <h4>Ariele Santello</h4>
+                <span class="specialty">مستشار لاستراتيجيات النشر</span>
+                <p>المواضيع: تصميم تجربة المستخدم، الويب الدلالي، تطوير الويب</p>
+              </div>
+            </div>
+          </div><!-- End Expert Card -->
+
+          
+        </div>
+
+      </div>
+
+    </div><!-- /Experts Section -->
+
+
+
+        <!-- Featured Departments Section -->
+    <section id="featured-departments" class="featured-departments section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="emergency-banner" data-aos="fade-up" data-aos-delay="400">
+          <div class="row align-items-center">
+            <div class="col-lg-8">
+              <div class="emergency-content">
+                <h3>انضم إلى فريقنا البحثي</h3>
+                <p>هل ترغب في المساهمة في مهمتنا للحد من الفوارق الصحية؟ نرحب بتعاون الباحثين والعاملين في الرعاية الصحية والمؤسسات.</p>
+              </div>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+              <a href="valentina.biagioli@unibo.it" class="emergency-btn">
+                <i class="bi bi-envelope"></i>
+                  تواصل مع الباحث الرئيسي</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /Featured Departments Section -->
+
+  </main>
+
+
+  <footer id="footer" class="footer-16 footer position-relative">
+
+    <div class="container">
+
+      <div class="footer-main" data-aos="fade-up" data-aos-delay="100">
+        <div class="row align-items-start">
+
+          <div class="col-lg-5">
+            <div class="brand-section">
+              <a href="index_ar.html" class="logo d-flex align-items-center mb-4">
+                <span class="sitename">DCIMIT</span>
+              </a>
+              <p class="brand-description">تم تمويل هذا البحث من AIRC ضمن مشروع MFAG - 30481. <br>الباحث الرئيسي: Valentina Biagioli</p>
+              <a href="https://www.airc.it/" class="service-btn" target="_blank">
+              <div role="img" aria-label="AIRC Logo" style="float:left; width:90px; height:90px; padding:12px; box-sizing:content-box; background-color:white; border-radius:50%; background-image:url('assets/img/airc_logo.png'); background-origin:content-box; background-size:contain; background-repeat:no-repeat; background-position:center"></div>
+              </a>
+              
+            </div>
+          </div>
+
+          <div class="col-lg-7">
+            <div class="footer-nav-wrapper">
+              <div class="row">
+
+
+                <div class="col-6 col-lg-3">
+                  <div class="nav-column">
+                    <h6>استكشف</h6>
+                    <nav class="footer-nav">
+                      <a href="#!">صحة المرأة</a>
+                      <a href="#!">البحث</a>
+                      <!-- <a href="#!">Data</a> -->
+                    </nav>
+                  </div>
+                </div>
+
+                <div class="col-6 col-lg-3">
+                  <div class="nav-column">
+                    <h6>المشروع</h6>
+                    <nav class="footer-nav">
+                      <a href="publications_ar.html">المنشورات</a>
+                      <a href="#!">الموارد</a>
+                      <a href="#!">موارد مفيدة</a>
+                    </nav>
+                  </div>
+                </div>
+
+                <div class="col-6 col-lg-3">
+                  <div class="nav-column">
+                    <h6>تواصل</h6>
+                    <nav class="footer-nav">
+                      <a href="#!">الفريق</a>
+                      <a href="#!">اتصل بنا</a>
+                      <a href="#!">الشركاء</a>
+                    </nav>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="bottom-content" data-aos="fade-up" data-aos-delay="300">
+          <div class="row align-items-center">
+
+            <div class="col-lg-6">
+              <div class="copyright">
+                <p>© <span class="sitename">DCIMIT</span>. جميع الحقوق محفوظة.</p>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="legal-links">
+                <a href="#!">سياسة الخصوصية</a>
+                <a href="#!">شروط الخدمة</a>
+                <a href="#!">سياسة ملفات تعريف الارتباط</a>
+                <div class="credits">
+                  
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#!" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

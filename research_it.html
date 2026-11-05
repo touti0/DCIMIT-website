@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>DCIMIT - Pagina Ricerca</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+
+</head>
+
+<body class="service-details-page">
+
+  <header id="header" class="header fixed-top">
+
+<!-- 
+    <div class="topbar d-flex align-items-center dark-background">
+      <div class="container d-flex justify-content-center justify-content-md-between">
+
+        <div class="contact-info d-flex align-items-center">
+          <i class=" d-flex align-items-center"><a
+              href="https://site.unibo.it/dcimit/it/eventi">This research was funded by AIRC as part of the MFAG - 30481 project.</a></i>
+        </div>
+
+        <div class="social-links d-none d-md-flex align-items-center">
+          <a href="https://site.unibo.it/dcimit/it/eventi" class="twitter"><i class="bi bi-pc-display-horizontal"></i></a>
+        </div>
+      </div>
+    </div>End Top Bar -->
+
+    <div class="branding d-flex align-items-cente">
+
+      <div class="container position-relative d-flex align-items-center justify-content-between">
+        <a href="index_it.html" class="logo d-flex align-items-center">
+          <!-- Uncomment the line below if you also wish to use an image logo -->
+          <img src="assets/img/airc_logo.png" alt="AIRC Logo">
+          <img src="assets/img/alma_logo.webp" alt="Unibo Logo">
+          <img src="assets/img/logo_crop.webp" alt="DCIMIT Logo">
+          <!-- <h1 class="sitename">DCIMIT</h1>  TITOLO DEL SITO -->
+        </a>
+
+        <nav id="navmenu" class="navmenu">
+          <ul>
+            <li><a href="index_it.html">Home</a></li>
+            <li class="dropdown"><a href="womens-health_it.html" class="nav-highlight"><span>Salute della donna</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="womens-health_it.html#departments-tabs">Lezioni</a></li>
+              <li><a href="womens-health_it.html#featured-departments">Strumenti interattivi</a></li>
+              <li><a href="womens-health_it.html#call-to-action">Altri servizi</a></li>
+            </ul>
+            </li>
+            <li class="dropdown"><a href="research_it.html" class="active"><span>Ricerca</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="mix-study_it.html">Studio a metodi misti</a></li>
+              <li><a href="register-study_it.html">Studio basato sui registri</a></li>
+              <li><a href="interventional-study_it.html">Studio di intervento</a></li>
+            </ul>
+            </li>
+            <!-- <li><a href="data_it.html">Data</a></li> -->
+            <li><a href="publications_it.html">Pubblicazioni</a></li>
+            <li class="dropdown"><a href="resources_it.html"><span>Risorse</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="data_it.html">Glossario</a></li>
+              <li><a href="links_it.html">Link utili</a></li>
+              <li><a href="resources-new_it.html">Approfondimenti ed eventi</a></li>
+            </ul>
+            </li>
+            <li><a href="team_it.html">Team</a></li>
+            <li><a href="contact_it.html">Contatti</a></li>
+            <li><a href="partner_it.html">Partner</a></li>
+            <div class="language">
+
+              <!-- is it better to rewrite innerHTML? -->
+               
+            <button type="button" class="lang-current active" data-lang="it" aria-haspopup="true" aria-expanded="false" aria-label="Lingua: Italiano">IT <i class="bi bi-chevron-down"></i></button><div class="lang-menu" role="menu"><button type="button" role="menuitem" data-lang="en" lang="en" onclick="window.location.href='research.html';"><span>EN</span> English</button><button type="button" role="menuitem" data-lang="ar" lang="ar" onclick="window.location.href='research_ar.html';"><span>AR</span> العربية</button><button type="button" role="menuitem" data-lang="fr" lang="fr" onclick="window.location.href='research_fr.html';"><span>FR</span> Français</button><button type="button" role="menuitem" data-lang="ro" lang="ro" onclick="window.location.href='research_ro.html';"><span>RO</span> Română</button></div>
+            </div>
+           <!--  <a href="contact_it.html" class="header-cta">Contact us</a> -->
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+
+      </div>
+
+    </div>
+
+  </header>
+
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title">
+      <div class="heading">
+        <div class="container">
+          <div class="row d-flex justify-content-center text-center">
+            <div class="col-lg-8">
+              <h1 class="heading-title">Disegno dello studio</h1>
+              <p class="mb-0">
+                Il progetto DCIMIT comprende tre studi complementari pensati per offrire una visione completa delle disparità nel cancro della cervice uterina tra le popolazioni immigrate in Italia
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+   <!--   <nav class="breadcrumbs">
+        <div class="container">
+          <ol>
+            <li><a href="index_it.html">Home</a></li>
+            <li class="current">Service Details</li>
+          </ol>
+        </div>
+      </nav>-->
+    </div>
+
+
+    <!-- Service Details 2 Section -->
+    <section id="service-details-2" class="service-details-2 section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="section-title text-center" data-aos="fade-up">
+          <h2>Disegno e obiettivo del progetto</h2>
+          <p>Verranno condotti tre sotto-studi</p>
+        </div>
+
+
+
+          
+
+          <div class="col-12" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-overview">
+              <div class="row align-items-center">
+                <div class="main-image"><img src="assets/img/health/schema_studi_en.png" alt="" class="schema-studi-img"></div>
+                
+
+                <div class="col-lg-13">
+                  <h3>RAZIONALE DEL PROGETTO</h3>
+                  <p>Il cancro della cervice uterina è il quarto tumore più frequente tra le donne a livello mondiale. In Italia si stimano 2.382 nuovi casi nel 2024. Quasi il 99% dei casi è causato dal papillomavirus umano (HPV), un virus molto comune che si trasmette soprattutto per via sessuale. Nella maggior parte dei casi l'infezione si risolve da sola, ma se persiste nel tempo può evolvere in tumore. Fortunatamente, si tratta di un tumore altamente prevenibile.</p>
+                  <p>In Italia il vaccino contro l'HPV è gratuito per ragazze e ragazzi tra i 12 e i 26 anni. Le donne tra i 25 e i 64 anni sono invitate a partecipare ai programmi di screening con Pap test o test HPV. Tuttavia l'accesso a questi programmi è disomogeneo: nel biennio 2021-2022 ha partecipato allo screening solo il 77,7% delle donne eleggibili, con una percentuale ancora più bassa tra le donne immigrate (72%).</p>
+                  <p>Gli immigrati costituiscono oltre l'8,6% della popolazione residente in Italia. Molte donne immigrate affrontano barriere linguistiche, difficoltà economiche e una conoscenza limitata del sistema sanitario: fattori che ostacolano la loro partecipazione allo screening e alle cure successive, aumentando il rischio di diagnosi tardive e, di conseguenza, una mortalità più elevata.</p>
+                </div>
+
+                <div class="col-lg-13">
+                  <h3>DISEGNO DELLO STUDIO</h3>
+                  <p>Questo progetto indaga le disuguaglianze nella prevenzione del cancro della cervice uterina tra le donne immigrate in Italia attraverso tre sotto-studi complementari: uno studio a metodi misti, uno studio basato sui registri e uno studio di intervento di comunità. L'obiettivo è ridurre l'incidenza del cancro della cervice uterina tra le donne immigrate, promuovere una maggiore partecipazione ai programmi di screening e fornire indicazioni utili per sviluppare strategie di sanità pubblica più eque e inclusive.</p>
+                  <p>Il progetto di ricerca intende rispondere a tre domande chiave:
+                    <ol>
+                      <li>Quali sono le principali barriere che ostacolano la diagnosi precoce del cancro della cervice uterina nelle donne immigrate?</li>
+                      <li>Esistono differenze nell'incidenza, nella mortalità e nella sopravvivenza del cancro della cervice uterina tra donne immigrate e donne italiane?</li>
+                      <li>Gli interventi di comunità possono aiutare le donne immigrate a partecipare di più ai programmi di screening del cancro della cervice uterina?</li>
+                    </ol>
+                  </p>
+                  <p></p>
+              </div>
+
+
+
+            </div>
+      </div>
+
+        
+
+    </section><!-- /Service Details 2 Section -->
+
+  </main>
+
+
+  <footer id="footer" class="footer-16 footer position-relative">
+
+    <div class="container">
+
+      <div class="footer-main" data-aos="fade-up" data-aos-delay="100">
+        <div class="row align-items-start">
+
+          <div class="col-lg-5">
+            <div class="brand-section">
+              <a href="index_it.html" class="logo d-flex align-items-center mb-4">
+                <span class="sitename">DCIMIT</span>
+              </a>
+              <p class="brand-description">Questa ricerca è stata finanziata da AIRC nell'ambito del progetto MFAG - 30481. <br>Responsabile scientifico: Valentina Biagioli</p>
+              <a href="https://www.airc.it/" class="service-btn" target="_blank">
+              <div role="img" aria-label="AIRC Logo" style="float:left; width:90px; height:90px; padding:12px; box-sizing:content-box; background-color:white; border-radius:50%; background-image:url('assets/img/airc_logo.png'); background-origin:content-box; background-size:contain; background-repeat:no-repeat; background-position:center"></div>
+              </a>
+              
+            </div>
+          </div>
+
+          <div class="col-lg-7">
+            <div class="footer-nav-wrapper">
+              <div class="row">
+
+
+                <div class="col-6 col-lg-3">
+                  <div class="nav-column">
+                    <h6>Esplora</h6>
+                    <nav class="footer-nav">
+                      <a href="#!">Salute della donna</a>
+                      <a href="#!">Ricerca</a>
+                      <!-- <a href="#!">Data</a> -->
+                    </nav>
+                  </div>
+                </div>
+
+                <div class="col-6 col-lg-3">
+                  <div class="nav-column">
+                    <h6>Progetto</h6>
+                    <nav class="footer-nav">
+                      <a href="publications_it.html">Pubblicazioni</a>
+                      <a href="#!">Risorse</a>
+                      <a href="#!">Risorse utili</a>
+                    </nav>
+                  </div>
+                </div>
+
+                <div class="col-6 col-lg-3">
+                  <div class="nav-column">
+                    <h6>Connettiti</h6>
+                    <nav class="footer-nav">
+                      <a href="#!">Team</a>
+                      <a href="#!">Contatti</a>
+                      <a href="#!">Partner</a>
+                    </nav>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="bottom-content" data-aos="fade-up" data-aos-delay="300">
+          <div class="row align-items-center">
+
+            <div class="col-lg-6">
+              <div class="copyright">
+                <p>© <span class="sitename">DCIMIT</span>. Tutti i diritti riservati.</p>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="legal-links">
+                <a href="#!">Informativa sulla privacy</a>
+                <a href="#!">Termini di servizio</a>
+                <a href="#!">Cookie Policy</a>
+                <div class="credits">
+                  
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#!" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

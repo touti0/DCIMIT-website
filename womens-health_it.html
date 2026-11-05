@@ -1,0 +1,845 @@
+<!doctype html>
+<html lang="it">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>DCIMIT - Pagina Salute della donna</title>
+  <meta name="description"
+    content="Pagina per aiutare le donne a conoscere meglio lo screening, la prevenzione e la diagnosi precoce del cancro della cervice uterina." />
+  <meta name="keywords" content="screening del cancro della cervice uterina, prevenzione, diagnosi precoce" />
+
+  <!-- Favicons -->
+
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+    rel="stylesheet" />
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+  <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" />
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet" />
+
+  <!-- Libraries Stylesheet -->
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+
+  <style>
+    /* PNG icon that behaves like a Font Awesome glyph: 1em box, inherits the text colour */
+    .icon-uterus {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      background-color: currentColor;
+      -webkit-mask: url("assets/img/health/uterus.png") center / contain no-repeat;
+      mask: url("assets/img/health/uterus.png") center / contain no-repeat;
+    }
+    /* same look and hover animation as the Font Awesome icons in the services overlay */
+    .services .service-image .service-overlay .icon-uterus {
+      font-size: 4rem;
+      color: var(--contrast-color);
+      transform: scale(0.7);
+      transition: transform 0.3s ease;
+    }
+    .services .service-image:hover .service-overlay .icon-uterus {
+      transform: scale(1);
+    }
+
+
+    /* ===== Thematic lesson accordion ===== */
+    .lesson-accordion {
+      margin-top: 10px;
+    }
+    .lesson-accordion .accordion-item {
+      border: none;
+      margin-bottom: 14px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(17, 35, 68, 0.08);
+    }
+    .lesson-accordion .accordion-header {
+      margin: 0;
+    }
+    .lesson-accordion .topic-button {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 20px 26px;
+      background: var(--purple);
+      color: #ffffff;
+      border: none;
+      font-family: var(--heading-font);
+      font-size: 1.05rem;
+      font-weight: 700;
+      text-align: left;
+      cursor: pointer;
+      transition: background 0.25s ease;
+    }
+    .lesson-accordion .topic-button .topic-title {
+      flex: 1;
+      
+    }
+    .lesson-accordion .topic-button .topic-count {
+      font-weight: 500;
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.7);
+      white-space: nowrap;
+    }
+    .lesson-accordion .topic-button:hover,
+    .lesson-accordion .topic-button:not(.collapsed) {
+      background: var(--accent-color);
+    }
+    .lesson-accordion .topic-button .bi-chevron-down {
+      transition: transform 0.3s ease;
+      color: #ef714f;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .lesson-accordion .topic-button:not(.collapsed) .bi-chevron-down {
+      transform: rotate(180deg);
+    }
+    .lesson-accordion .topic-body {
+      background: #ffffff;
+      padding: 6px 10px;
+      border-radius: 20px;
+      border-bottom: 5px solid #EF714F;
+    }
+    .lesson-accordion .lesson-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 18px 20px;
+      border-bottom: 1px solid #eef2f4;
+    }
+    .lesson-accordion .lesson-row:last-child {
+      border-bottom: none;
+    }
+    .lesson-accordion .lesson-info {
+      min-width: 0;
+    }
+    .lesson-accordion .lesson-row .lesson-title {
+      display: block;
+      font-weight: 600;
+      color: var(--heading-color);
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+    .lesson-accordion .lesson-row .lesson-description {
+      margin: 0;
+      color: #657b79;
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+    .lesson-accordion .lesson-row .btn {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+
+    @media (max-width: 576px) {
+      .lesson-accordion .lesson-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .lesson-accordion .lesson-row .btn {
+        align-self: stretch;
+        justify-content: center;
+      }
+      .lesson-accordion .topic-button {
+        padding: 16px 18px;
+        font-size: 0.95rem;
+      }
+
+    }
+  </style>
+
+</head>
+
+<body class="departments-page">
+  <header id="header" class="header fixed-top">
+<!-- 
+    <div class="topbar d-flex align-items-center dark-background">
+      <div class="container d-flex justify-content-center justify-content-md-between">
+
+        <div class="contact-info d-flex align-items-center">
+          <i class=" d-flex align-items-center"><a
+              href="https://site.unibo.it/dcimit/it/eventi">This research was funded by AIRC as part of the MFAG - 30481 project.</a></i>
+        </div>
+
+        <div class="social-links d-none d-md-flex align-items-center">
+          <a href="https://site.unibo.it/dcimit/it/eventi" class="twitter"><i class="bi bi-pc-display-horizontal"></i></a>
+        </div>
+      </div>
+    </div>End Top Bar -->
+
+    <div class="branding d-flex align-items-cente">
+      <div class="container position-relative d-flex align-items-center justify-content-between">
+        <a href="index_it.html" class="logo d-flex align-items-center">
+          <!-- Uncomment the line below if you also wish to use an image logo -->
+          <img src="assets/img/airc_logo.png" alt="AIRC Logo">
+          <img src="assets/img/alma_logo.webp" alt="Unibo Logo">
+          <img src="assets/img/logo_crop.webp" alt="DCIMIT Logo">
+          <!-- <h1 class="sitename">DCIMIT</h1>  TITOLO DEL SITO -->
+        </a>
+
+        <nav id="navmenu" class="navmenu">
+          <ul>
+            <li><a href="index_it.html">Home</a></li>
+            <li class="dropdown"><a href="womens-health_it.html" class="active nav-highlight"><span>Salute della donna</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="womens-health_it.html#departments-tabs">Lezioni</a></li>
+              <li><a href="womens-health_it.html#featured-departments">Strumenti interattivi</a></li>
+              <li><a href="womens-health_it.html#call-to-action">Altri servizi</a></li>
+            </ul>
+            </li>
+            <li class="dropdown"><a href="research_it.html"><span>Ricerca</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="mix-study_it.html">Studio a metodi misti</a></li>
+              <li><a href="register-study_it.html">Studio basato sui registri</a></li>
+              <li><a href="interventional-study_it.html">Studio di intervento</a></li>
+            </ul>
+            </li>
+            <!-- <li><a href="data_it.html">Data</a></li> -->
+            <li><a href="publications_it.html">Pubblicazioni</a></li>
+            <li class="dropdown"><a href="resources_it.html"><span>Risorse</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="data_it.html">Glossario</a></li>
+              <li><a href="links_it.html">Link utili</a></li>
+              <li><a href="resources-new_it.html">Approfondimenti ed eventi</a></li>
+            </ul>
+            </li>
+            <li><a href="team_it.html">Team</a></li>
+            <li><a href="contact_it.html">Contatti</a></li>
+            <li><a href="partner_it.html">Partner</a></li>
+            <div class="language">
+              <!-- is it better to rewrite innerHTML? -->
+
+              <button type="button" class="lang-current active" data-lang="it" aria-haspopup="true" aria-expanded="false" aria-label="Lingua: Italiano">IT <i class="bi bi-chevron-down"></i></button><div class="lang-menu" role="menu"><button type="button" role="menuitem" data-lang="en" lang="en" onclick="window.location.href='womens-health.html';"><span>EN</span> English</button><button type="button" role="menuitem" data-lang="ar" lang="ar" onclick="window.location.href='womens-health_ar.html';"><span>AR</span> العربية</button><button type="button" role="menuitem" data-lang="fr" lang="fr" onclick="window.location.href='womens-health_fr.html';"><span>FR</span> Français</button><button type="button" role="menuitem" data-lang="ro" lang="ro" onclick="window.location.href='womens-health_ro.html';"><span>RO</span> Română</button></div>
+            </div>
+            <!--  <a href="contact_it.html" class="header-cta">Contact us</a> -->
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- Page Title -->
+    <div class="page-title">
+      <div class="heading">
+        <div class="container">
+          <div class="row d-flex justify-content-center text-center">
+            <div class="col-lg-8">
+              <h1 class="heading-title">Salute della donna</h1>
+              <p class="mb-0">
+                Informazioni essenziali su screening, prevenzione e diagnosi precoce del cancro della cervice uterina per tutte le donne, con particolare attenzione alle comunità immigrate.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--    <nav class="breadcrumbs">
+        <div class="container">
+          <ol>
+            <li><a href="index_it.html">Home</a></li>
+            <li class="current">Women's Health</li>
+          </ol>
+        </div>
+      </nav> end nav breadcrumbs-->
+    </div>
+    <!-- End Page Title -->
+
+    <!-- Departments Tabs Section -->
+    <section id="departments-tabs" class="departments-tabs section">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="section-title text-center" data-aos="fade-up">
+          <h2>Informazioni sul cancro della cervice uterina</h2>
+          <p>Scegli un argomento per saperne di più.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-item">
+              <div class="service-image">
+                <img src="assets/img/health/cervical_info_crop.png" alt="First Lesson" class="img-fluid">
+                <div class="service-overlay">
+                  <span class="icon-uterus" role="img" aria-label="Uterus"></span>
+                </div>
+                <a href="https://www.flaticon.com/free-icons/gynecology" title="gynecology icons">Gynecology icons created by juicy_fish - Flaticon</a>
+              </div>
+              <div class="service-content">
+                <h3>Che cos'è il cancro della cervice uterina?</h3>
+                <p>Il cancro della cervice uterina si sviluppa nelle cellule che rivestono la cervice, di solito nell'arco di molti anni e quasi sempre in seguito a un'infezione persistente da HPV. Individuato precocemente con lo screening regolare, è uno dei tumori più prevenibili e curabili.</p>
+             <!--   <div class="service-features">
+                  <span class="feature-item"><i class="fas fa-check"></i> ECG Testing</span>
+                  <span class="feature-item"><i class="fas fa-check"></i> Heart Surgery</span>
+                </div> -->
+                <a href="womens-health - Copia.html" class="service-btn">
+                  <span>Scopri di più</span>
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="250">
+            <div class="service-item">
+              <div class="service-image">
+                <img src="assets/img/health/lesson-hpv.webp" alt="Understanding HPV" class="img-fluid">
+                <div class="service-overlay">
+                  <span class="icon-uterus" role="img" aria-label="Uterus"></span>
+                </div>
+                <a href="https://www.flaticon.com/free-icons/gynecology" title="gynecology icons">Gynecology icons created by juicy_fish - Flaticon</a>
+              </div>
+              <div class="service-content">
+                <h3>Capire l'HPV</h3>
+                <p>L'HPV è un virus estremamente comune: la maggior parte delle persone sessualmente attive vi entra in contatto prima o poi e circa 9 infezioni su 10 si risolvono da sole. Solo un piccolo gruppo di tipi ad alto rischio può portare al tumore se l'infezione persiste per anni.</p>
+             <!--   <div class="service-features">
+                  <span class="feature-item"><i class="fas fa-check"></i> ECG Testing</span>
+                  <span class="feature-item"><i class="fas fa-check"></i> Heart Surgery</span>
+                </div> -->
+                <a href="service-details.html" class="service-btn">
+                  <span>Scopri di più</span>
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-item">
+              <div class="service-image">
+                <img src="assets/img/health/lesson-symptoms.webp" alt="Cervical Cancer Symptoms" class="img-fluid">
+                <div class="service-overlay">
+                  <span class="icon-uterus" role="img" aria-label="Uterus"></span>
+                </div>
+                <a href="https://www.flaticon.com/free-icons/gynecology" title="gynecology icons">Gynecology icons created by juicy_fish - Flaticon</a>
+              </div>
+              <div class="service-content">
+                <h3>Sintomi del cancro della cervice uterina</h3>
+                <p>Sanguinamenti insoliti, perdite o dolore pelvico possono essere segnali d'allarme, anche se le prime alterazioni precancerose di solito non causano alcun sintomo: per questo lo screening regolare è importante anche quando ci si sente perfettamente bene.
+                </p>
+                <a href="service-details.html" class="service-btn">
+                  <span>Scopri di più</span>
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="350">
+            <div class="service-item">
+              <div class="service-image">
+                <img src="assets/img/health/lesson-vaccine.webp" alt="The HPV Vaccine" class="img-fluid">
+                <div class="service-overlay">
+                  <span class="icon-uterus" role="img" aria-label="Uterus"></span>
+                </div>
+                <a href="https://www.flaticon.com/free-icons/gynecology" title="gynecology icons">Gynecology icons created by juicy_fish - Flaticon</a>
+              </div>
+              <div class="service-content">
+                <h3>Il vaccino contro l'HPV</h3>
+                <p>Il vaccino contro l'HPV è uno degli strumenti più efficaci per prevenire le infezioni che portano al cancro della cervice uterina. È raccomandato a partire dagli 11-12 anni, è stato ampiamente testato per la sicurezza e agisce insieme allo screening regolare, non al suo posto.</p>
+                <a href="service-details.html" class="service-btn">
+                  <span>Scopri di più</span>
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-item">
+              <div class="service-image">
+                <img src="assets/img/health/lesson-lifestyle.webp" alt="Lifestyle &amp; Prevention" class="img-fluid">
+                <div class="service-overlay">
+                  <span class="icon-uterus" role="img" aria-label="Uterus"></span>
+                </div>
+                <a href="https://www.flaticon.com/free-icons/gynecology" title="gynecology icons">Gynecology icons created by juicy_fish - Flaticon</a>
+              </div>
+              <div class="service-content">
+                <h3>Stile di vita e prevenzione</h3>
+                <p>Non fumare, vaccinarsi e mantenere un buon sistema immunitario aiutano a ridurre il rischio, ma nessuna scelta di stile di vita sostituisce lo screening regolare, che resta il modo più affidabile per individuare precocemente le alterazioni.</p>
+                <a href="service-details.html" class="service-btn">
+                  <span>Scopri di più</span>
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="450">
+            <div class="service-item">
+              <div class="service-image">
+                <img src="assets/img/health/lesson-screening.webp" alt="Why Screening Matters" class="img-fluid">
+                <div class="service-overlay">
+                  <span class="icon-uterus" role="img" aria-label="Uterus"></span>
+                </div>
+                <a href="https://www.flaticon.com/free-icons/gynecology" title="gynecology icons">Gynecology icons created by juicy_fish - Flaticon</a>
+              </div>
+              <div class="service-content">
+                <h3>Perché lo screening è importante</h3>
+                <p>Lo screening individua e rimuove le cellule precancerose prima che diventino un tumore, cercando i primi segnali di allarme in persone che si sentono perfettamente sane: è questo che lo rende davvero preventivo, e non solo diagnostico.
+                </p>
+                <a href="service-details.html" class="service-btn">
+                  <span>Scopri di più</span>
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div><!-- End Service Item -->
+
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="450">
+            <div class="service-item">
+              <div class="service-image">
+                <img src="assets/img/health/lesson-pap-hpv.webp" alt="Pap Test vs. HPV Test" class="img-fluid">
+                <div class="service-overlay">
+                  <span class="icon-uterus" role="img" aria-label="Uterus"></span>
+                </div>
+                <a href="https://www.flaticon.com/free-icons/gynecology" title="gynecology icons">Gynecology icons created by juicy_fish - Flaticon</a>
+              </div>
+              <div class="service-content">
+                <h3>Pap test e test HPV a confronto</h3>
+                <p>Il Pap test esamina le cellule della cervice alla ricerca di alterazioni anomale, mentre il test HPV cerca il virus ad alto rischio che le causa. Quale test e con quale frequenza dipende soprattutto dall'età.
+                </p>
+                <a href="service-details.html" class="service-btn">
+                  <span>Scopri di più</span>
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div><!-- End Service Item -->          
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-item">
+              <div class="service-image">
+                <img src="assets/img/health/lesson-exam.webp" alt="What Happens During the Exam" class="img-fluid">
+                <div class="service-overlay">
+                  <span class="icon-uterus" role="img" aria-label="Uterus"></span>
+                </div>
+                <a href="https://www.flaticon.com/free-icons/gynecology" title="gynecology icons">Gynecology icons created by juicy_fish - Flaticon</a>
+              </div>
+              <div class="service-content">
+                <h3>Cosa succede durante la visita</h3>
+                <p>Una guida passo dopo passo a una visita di screening di routine, dall'accettazione all'esame vero e proprio. Di solito dura solo 10-15 minuti, con al massimo un breve fastidio più che dolore.
+                </p>
+                <a href="service-details.html" class="service-btn">
+                  <span>Scopri di più</span>
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="350">
+            <div class="service-item">
+              <div class="service-image">
+                <img src="assets/img/health/lesson-journey.webp" alt="The Screening Journey" class="img-fluid">
+                <div class="service-overlay">
+                  <span class="icon-uterus" role="img" aria-label="Uterus"></span>
+                </div>
+                <a href="https://www.flaticon.com/free-icons/gynecology" title="gynecology icons">Gynecology icons created by juicy_fish - Flaticon</a>
+              </div>
+              <div class="service-content">
+                <h3>Il percorso dello screening</h3>
+                <p>Segui il percorso di una donna lungo tutto il processo di screening, dalla lettera d'invito alla prenotazione, dal test al ritiro dei risultati, per vedere quanto sia semplice ogni passaggio.</p>
+                <a href="service-details.html" class="service-btn">
+                  <span>Scopri di più</span>
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-item">
+              <div class="service-image">
+                <img src="assets/img/health/lesson-hpv-positive.webp" alt="HPV Positive: What Now?" class="img-fluid">
+                <div class="service-overlay">
+                  <span class="icon-uterus" role="img" aria-label="Uterus"></span>
+                </div>
+                <a href="https://www.flaticon.com/free-icons/gynecology" title="gynecology icons">Gynecology icons created by juicy_fish - Flaticon</a>
+              </div>
+              <div class="service-content">
+                <h3>HPV positivo: e adesso?</h3>
+                <p>Un risultato positivo al test HPV significa che il virus è stato rilevato, nient'altro. Non significa che hai un tumore e la maggior parte dei risultati positivi si risolve da sola con il solo monitoraggio.</p>
+                <div class="service-features">
+                  <span class="feature-item"><i class="fas fa-check"></i> Centro traumatologico</span>
+                  <span class="feature-item"><i class="fas fa-check"></i> Terapia intensiva</span>
+                </div>
+                <a href="service-details.html" class="service-btn">
+                  <span>Scopri di più</span>
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="450">
+            <div class="service-item">
+              <div class="service-image">
+                <img src="assets/img/health/lesson-colposcopy.webp" alt="Colposcopy Explained" class="img-fluid">
+                <div class="service-overlay">
+                  <span class="icon-uterus" role="img" aria-label="Uterus"></span>
+                </div>
+                <a href="https://www.flaticon.com/free-icons/gynecology" title="gynecology icons">Gynecology icons created by juicy_fish - Flaticon</a>
+              </div>
+              <div class="service-content">
+                <h3>La colposcopia spiegata</h3>
+                <p>La colposcopia è semplicemente un esame più ravvicinato della cervice dopo un risultato anomalo dello screening: simile a un Pap test, di solito con un lieve fastidio, e si conclude in 15-20 minuti.
+                </p>
+                <a href="service-details.html" class="service-btn">
+                  <span>Scopri di più</span>
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div><!-- End Service Item -->
+
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="450">
+            <div class="service-item">
+              <div class="service-image">
+                <img src="assets/img/health/lesson-pregnancy.webp" alt="Pregnancy &amp; Screening" class="img-fluid">
+                <div class="service-overlay">
+                  <span class="icon-uterus" role="img" aria-label="Uterus"></span>
+                </div>
+                <a href="https://www.flaticon.com/free-icons/gynecology" title="gynecology icons">Gynecology icons created by juicy_fish - Flaticon</a>
+              </div>
+              <div class="service-content">
+                <h3>Gravidanza e screening</h3>
+                <p>Lo screening è generalmente sicuro durante la gravidanza e l'allattamento, e i test dopo il parto riprendono in genere intorno alle 12 settimane dal parto.
+                </p>
+                <a href="service-details.html" class="service-btn">
+                  <span>Scopri di più</span>
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div><!-- End Service Item -->          
+
+        </div>
+
+      </div>
+
+    </section><!-- /Services Section -->
+
+
+
+    <!-- Featured Departments Section -->
+    <section id="featured-departments" class="featured-departments section">
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Strumenti interattivi</h2>
+        <p>Prova i nostri strumenti interattivi per sentirti più ascoltata e guidata.</p>
+      </div>
+      <!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row g-5">
+          <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="100">
+            <div class="specialty-card">
+              <div class="specialty-content">
+                <div class="specialty-meta">
+                  <span class="specialty-label">Strumento informativo</span>
+                </div>
+                <h3 style="font-weight: 500">Valutazione dei sintomi</h3>
+                <p style="color: #3c4049">
+                  Non sai quanto siano urgenti i tuoi sintomi?
+                </p>
+                <div class="specialty-features">
+                  <span><i class="bi bi-check-circle-fill"></i>Avvia la valutazione dei sintomi e scopri quando può essere importante rivolgersi a un medico.</span>
+                  <span><i class="bi bi-check-circle-fill"></i>Ricevi indicazioni chiare sul livello di attenzione appropriato.</span>
+                </div>
+                <a href="symptom-triage_it.html" class="specialty-link" target="_blank">
+                  Controlla i tuoi sintomi<i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+              <div class="specialty-visual">
+                <img src="assets/img/health/vitaly-gariev.webp" alt="Cardiovascular Medicine" class="img-fluid" />
+                <div class="visual-overlay">
+                  <i class="bi bi-clipboard-pulse"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End Specialty Card -->
+
+          <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="200">
+            <div class="specialty-card_2">
+              <div class="specialty-content">
+                <div class="specialty-meta">
+                  <span class="specialty-label">Si applica solo alle donne a rischio medio</span>
+                </div>
+                <h3 style="font-weight: 500">Verifica dell'idoneità allo screening</h3>
+                <p>
+                  Hai diritto allo screening di routine del cancro della cervice uterina?
+                </p>
+                <div class="specialty-features">
+                  <span><i class="bi bi-check-circle-fill"></i>Rispondi ad alcune semplici domande sulla tua storia clinica e sui precedenti screening cervicali.</span>
+                  <span><i class="bi bi-check-circle-fill"></i>scopri se puoi seguire il percorso di screening di routine o se è meglio consultare un professionista sanitario per indicazioni personalizzate.</span>
+                </div>
+                <a href="screening-eligibility-checker_it.html" class="specialty-link" target="_blank">
+                Controlla i tuoi sintomi<i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+              <div class="specialty-visual">
+                <img src="assets/img/health/accuray.webp" alt="Neurological Sciences" class="img-fluid" />
+                <div class="visual-overlay">
+                  <i class="bi bi-clipboard-data"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End Specialty Card -->
+        </div>
+
+    </section>
+    <!-- /Featured Departments Section -->
+
+
+    <section id="call-to-action" class="call-to-action section light-background">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="contact-block">
+          <div class="row">
+
+            <div class="col-lg-8">
+              <div class="contact-content" data-aos="fade-up" data-aos-delay="200">
+                <h2>Servizi sanitari</h2>
+                <p>Se hai domande sullo screening del cancro della cervice uterina o hai bisogno di aiuto per accedere ai servizi sanitari, contatta la tua azienda sanitaria locale (ASL) o il nostro gruppo di ricerca.</p>
+              </div>
+            </div>
+
+            <div  class="col-lg-4">
+              <div class="contact-actions" data-aos="fade-up" data-aos-delay="300">
+                <a href="data_it.html" class="emergency-call" target="_blank">
+                  <i class="bi bi-map"></i>
+                  <span>Esplora i servizi</span>
+                </a>
+                <a href="contact_it.html" class="contact-link">Contattaci</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="featured-departments" class="featured-departments section">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Altre risorse</h2>
+        <p>Trova altre risorse utili</p>
+      </div>
+
+    <!-- Team Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="owl-carousel team-carousel position-relative">
+                <div class="team-item">
+                    <div class="row g-0 bg-light-custom rounded overflow-hidden">
+                        <div class="col-12 col-sm-5 h-100">
+                            <img class="img-fluid h-100" src="assets/img/health/dcimit_logo.webp" style="object-fit: cover;">
+                        </div>
+                        <div class="col-12 col-sm-7 h-100 d-flex flex-column">
+                            <div class="mt-auto p-4">
+                                <h2>Risorsa</h2>
+                                <h6 class="fw-normal fst-italic text-primary-custom mb-4">Sottotitolo della scheda</h6>
+                                <p class="m-0">Dolor lorem eos dolor duo eirmod sea. Dolor sit magna rebum clita rebum dolor</p>
+                            </div>
+                            <div class="d-flex mt-auto border-top p-4">
+                                <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-3" href="#!"><i
+                                        class="bi-box-arrow-up-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-item">
+                    <div class="row g-0 bg-light-custom rounded overflow-hidden">
+                        <div class="col-12 col-sm-5 h-100">
+                            <img class="img-fluid h-100" src="assets/img/health/dcimit_logo.webp" style="object-fit: cover;">
+                        </div>
+                        <div class="col-12 col-sm-7 h-100 d-flex flex-column">
+                            <div class="mt-auto p-4">
+                                <h2>Risorsa</h2>
+                                <h6 class="fw-normal fst-italic text-primary-custom mb-4">Sottotitolo della scheda</h6>
+                                <p class="m-0">Dolor lorem eos dolor duo eirmod sea. Dolor sit magna rebum clita rebum dolor</p>
+                            </div>
+                            <div class="d-flex mt-auto border-top p-4">
+                                <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-3" href="#!"><i
+                                        class="bi-box-arrow-up-right"></i></a>                              
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-item">
+                    <div class="row g-0 bg-light-custom rounded overflow-hidden">
+                        <div class="col-12 col-sm-5 h-100">
+                            <img class="img-fluid h-100" src="assets/img/health/dcimit_logo.webp" style="object-fit: cover;">
+                        </div>
+                        <div class="col-12 col-sm-7 h-100 d-flex flex-column">
+                            <div class="mt-auto p-4">
+                                <h2>Risorsa</h2>
+                                <h6 class="fw-normal fst-italic text-primary-custom mb-4">Sottotitolo della scheda</h6>
+                                <p class="m-0">Dolor lorem eos dolor duo eirmod sea. Dolor sit magna rebum clita rebum dolor</p>
+                            </div>
+                            <div class="d-flex mt-auto border-top p-4">
+                                <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-3" href="#!"><i
+                                        class="bi-box-arrow-up-right"></i></a>                              
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Team End -->
+    </section>
+    
+  
+  </main>
+
+
+  <footer id="footer" class="footer-16 footer position-relative">
+
+    <div class="container">
+
+      <div class="footer-main" data-aos="fade-up" data-aos-delay="100">
+        <div class="row align-items-start">
+
+          <div class="col-lg-5">
+            <div class="brand-section">
+              <a href="index_it.html" class="logo d-flex align-items-center mb-4">
+                <span class="sitename">DCIMIT</span>
+              </a>
+              <p class="brand-description">Questa ricerca è stata finanziata da AIRC nell'ambito del progetto MFAG - 30481. <br>Responsabile scientifico: Valentina Biagioli</p>
+              <a href="https://www.airc.it/" class="service-btn" target="_blank">
+              <div role="img" aria-label="AIRC Logo" style="float:left; width:90px; height:90px; padding:12px; box-sizing:content-box; background-color:white; border-radius:50%; background-image:url('assets/img/airc_logo.png'); background-origin:content-box; background-size:contain; background-repeat:no-repeat; background-position:center"></div>
+              </a>
+              
+            </div>
+          </div>
+
+          <div class="col-lg-7">
+            <div class="footer-nav-wrapper">
+              <div class="row">
+
+
+                <div class="col-6 col-lg-3">
+                  <div class="nav-column">
+                    <h6>Esplora</h6>
+                    <nav class="footer-nav">
+                      <a href="#!">Salute della donna</a>
+                      <a href="#!">Ricerca</a>
+                      <!-- <a href="#!">Data</a> -->
+                    </nav>
+                  </div>
+                </div>
+
+                <div class="col-6 col-lg-3">
+                  <div class="nav-column">
+                    <h6>Progetto</h6>
+                    <nav class="footer-nav">
+                      <a href="publications_it.html">Pubblicazioni</a>
+                      <a href="#!">Risorse</a>
+                      <a href="#!">Risorse utili</a>
+                    </nav>
+                  </div>
+                </div>
+
+                <div class="col-6 col-lg-3">
+                  <div class="nav-column">
+                    <h6>Connettiti</h6>
+                    <nav class="footer-nav">
+                      <a href="#!">Team</a>
+                      <a href="#!">Contatti</a>
+                      <a href="#!">Partner</a>
+                    </nav>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="bottom-content" data-aos="fade-up" data-aos-delay="300">
+          <div class="row align-items-center">
+
+            <div class="col-lg-6">
+              <div class="copyright">
+                <p>© <span class="sitename">DCIMIT</span>. Tutti i diritti riservati.</p>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="legal-links">
+                <a href="#!">Informativa sulla privacy</a>
+                <a href="#!">Termini di servizio</a>
+                <a href="#!">Cookie Policy</a>
+                <div class="credits">
+                  
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#!" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>
