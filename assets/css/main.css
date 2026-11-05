@@ -140,6 +140,10 @@ h6 {
   animation: php-email-form-loading 1s linear infinite;
 }
 
+.text-primary-custom { color: #EF714F;}
+
+.bg-light-custom { background-color: color-mix(in srgb, var(--accent-color) 10%, transparent);}
+
 @keyframes php-email-form-loading {
   0% {
     transform: rotate(0deg);
@@ -4918,7 +4922,7 @@ section,
 .doctors .doctor-card {
   background-color: var(--background-color);
   border-radius: 15px;
-  padding: 25px;
+  padding: 35px;
   text-align: center;
   height: 100%;
   transition: all 0.3s ease;
@@ -4939,9 +4943,9 @@ section,
   margin-bottom: 25px;
   overflow: hidden;
   border-radius: 50%;
-  width: 150px;
-  height: 150px;
-  margin: 0 auto 25px;
+  width: 180px;
+  height: 180px;
+  margin: 0 auto 30px;
 }
 
 .doctors .doctor-image img {
@@ -4994,7 +4998,7 @@ section,
 }
 
 .doctors .doctor-content h4 {
-  font-size: 22px;
+  font-size: 26px;
   font-weight: 700;
   margin-bottom: 8px;
   color: var(--heading-color);
@@ -5003,13 +5007,13 @@ section,
 .doctors .doctor-content .specialty {
   color: var(--accent-color);
   font-weight: 600;
-  font-size: 16px;
+  font-size: 19px;
   margin-bottom: 15px;
   display: block;
 }
 
 .doctors .doctor-content p {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.6;
   margin-bottom: 20px;
   color: color-mix(in srgb, var(--default-color), transparent 20%);
@@ -5095,24 +5099,24 @@ a.header-cta {
 
 @media (max-width: 768px) {
   .doctors .doctor-card {
-    padding: 20px;
+    padding: 28px;
   }
 
   .doctors .doctor-image {
-    width: 120px;
-    height: 120px;
+    width: 150px;
+    height: 150px;
   }
 
   .doctors .doctor-content h4 {
-    font-size: 20px;
+    font-size: 24px;
   }
 
   .doctors .doctor-content .specialty {
-    font-size: 14px;
+    font-size: 17px;
   }
 
   .doctors .doctor-content p {
-    font-size: 13px;
+    font-size: 15px;
   }
 
   .doctors .btn-appointment {
