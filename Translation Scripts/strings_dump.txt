@@ -1,0 +1,332 @@
+0	contact	DCIMIT - Contact Page
+1	MANY(16)	EN
+2	MANY(16)	IT
+3	MANY(16)	Italiano
+4	MANY(16)	AR
+5	MANY(16)	FR
+6	MANY(16)	Français
+7	MANY(16)	RO
+8	MANY(16)	Română
+9	contact	Whether you are a woman who seek information or a researcher interested in contributing to our work,
+10	contact	we welcome your questions, perspectives, and enquiries.
+11	contact	For Women
+12	contact	Have you experienced challenges in accessing cervical cancer prevention, screening, diagnosis, or care?
+13	contact	If you would like to share your experience or learn more about the issues addressed by DCIMIT, we would be glad to hear from you. Your perspective can help inform research into inequalities in cervical cancer prevention among immigrant women in Italy.
+14	contact	Are you interested in cervical cancer prevention, health inequalities, or migrant health?
+15	contact	If you would like to learn more about DCIMIT or explore opportunities for research collaboration, please get in touch with our team.
+16	contact	Our Address
+17	contact	DIMEC - DIPARTIMENTO DI SCIENZE MEDICHE E CHIRURGICHE
+18	contact	Via Masserenti 9 Bologna, BO, 40100 Italy
+19	contact	Email Address
+20	contact	dcimit@dcimit.org
+21	contact	Get in touch with the DCIMIT team
+22	contact	Share your experiences or ask questions.
+23	contact	Loading
+24	contact	Your message has been sent. Thank you!
+25	contact	I consent to the processing of my data. Our
+26	contact	Send Message
+27	MANY(16)	DCIMIT
+28	MANY(16)	. All rights reserved.
+29	MANY(4)	Glossary
+30	data	Learn terms and concepts regarding the project's topic
+31	data	Immigrant, migrant, and people with a migration background
+32	data	in the DICE protocols, we used the term “immigrant,” but I would also include the other two terms, as they are often used interchangeably.
+33	data	Hard-to-reach populations and underserved populations
+34	data	Terms used in public health, social research, and policy to describe groups that face significant barriers to engagement, representation, or resources, though they emphasize slightly different structural issues.
+35	data	Equity
+36	data	The project is also grounded in a social justice perspective.
+37	data	Social determinants of health
+38	data	A framework that goes beyond the biomedical approach.
+39	data	Intersectionality
+40	data	Our population experiences the intersection of two key determinants, gender and migration.
+41	data	Transcultural health
+42	data	One aim is to promote health and culturally sensitive health services.
+43	MANY(5)	DCIMIT - Research page
+44	interventional-study,mix-study,register-study	Our Research Studies
+45	MANY(4)	The DCIMIT project comprises three complementary studies designed to provide comprehensive insights into cervical cancer disparities among immigrant populations in Italy
+46	interventional-study	Study 3
+47	interventional-study	Community-Based Intervention
+48	interventional-study	Testing a community-based intervention designed for healthy immigrant women, culturally and linguistically tailored to reduce barriers and increase participation in cervical cancer screening.
+49	interventional-study,mix-study,register-study	Specific Objectives
+50	interventional-study	1. Design and implement culturally targeted intervention for healthy immigrant women
+51	interventional-study	2. Obtain screening status data at baseline and post-intervention
+52	interventional-study	3. Evaluate intervention effectiveness using generalized estimation equations
+53	interventional-study,mix-study,register-study	Methods
+54	interventional-study	LOCATION: Rome (ASL Roma 2)
+55	interventional-study	Participants: 205 healthy immigrant women (no screening in last 5 years)
+56	interventional-study	DURATION: 18 months active intervention + 2 years follow-up
+57	interventional-study	Eligibility Criteria
+58	interventional-study	- Aged 25-65
+59	interventional-study	- Born in Eastern Europe, Asia, or South-Central America
+60	interventional-study	Intervention
+61	interventional-study	Interactive 2-hour educational sessions in groups of 15-20
+62	interventional-study	Control
+63	interventional-study	Matched immigrant women in Milan
+64	links,resources,Resources-new	Useful Links
+65	links,resources,Resources-new	Insights & Events
+66	links	Browse usefool tools and resources.
+67	links	Cardiology
+68	links	Comprehensive heart care with advanced diagnostic tools and expert cardiologists dedicated to your cardiovascular health.
+69	links,womens-health	Learn More
+70	links	Neurology
+71	links	Advanced treatment for neurological disorders with cutting-edge technology and specialized neurological care teams.
+72	links	Orthopedics
+73	links	Expert bone and joint care offering comprehensive treatment from sports injuries to complex reconstructive surgery.
+74	links	Pediatrics
+75	links	Specialized medical care for infants, children, and adolescents with compassionate pediatric specialists.
+76	links	Dermatology
+77	links	Complete skin care services from medical dermatology to cosmetic procedures for healthy, beautiful skin.
+78	links	Oncology
+79	links	Comprehensive cancer care with multidisciplinary approach and latest treatment options for all cancer types.
+80	mix-study	Study 1
+81	mix-study	Understanding Barriers and Facilitators
+82	mix-study	This study aims to investigate the factors that influence early diagnosis and access to care in immigrant women with cervical cancer in Italy, within a framework of social justice and right to health.
+83	mix-study	1. Collect quantitative data on perceived determinants of early detection
+84	mix-study	2. Collect qualitative data on experiences in accessing screening and care
+85	mix-study	3. Integrate and compare data to understand factors affecting equal access
+86	mix-study	PARTICIPANTS: 300 immigrant women with cervical cancer
+87	mix-study	CENTERS: 10 clinical centers across Italy
+88	mix-study	APPROACH: Two-phase design: questionnaire (300 women) + in-depth interviews (60 women)
+89	mix-study	Eligibility Criteria:
+90	mix-study	- Aged above 18
+91	mix-study	- Diagnosed with cervical cancer or HSIL in Italy within past 5 years
+92	mix-study	- Born in a High Migratory Pressure Country
+93	mix-study	- Currently living in Italy
+94	partner	Our Partners
+95	partner	The DCIMIT project is made possible through collaboration with leading Italian healthcare institutions, research centers, and cancer organizations
+96	partner	Funded By AIRC
+97	partner	This research has received funding from the Italian Foundation for Cancer Research (AIRC) under MFAG 2024 ID. 30481 project – Principal Investigator: Valentina Biagioli
+98	partner	AIRC - Associazione Italiana per la Ricerca sul Cancro
+99	partner	Main Funding Partner
+100	partner	Visit Website
+101	partner	UNIBO
+102	partner	Department of Medical and Surgical Sciences at the University of Bologna, leading the DCIMIT research project and coordinating all study activities.
+103	partner	University of Bologna - DIMEC
+104	partner	Coordinating Institution
+105	partner	IRCCS Policlinico Sant'Orsola
+106	partner	Major teaching hospital in Bologna, providing clinical expertise and patient recruitment for the mixed-methods study.
+107	partner	Clinical Partner
+108	partner	Gynecology and the Pathophysiology of Human Reproduction
+109	partner	AIRTUM
+110	partner	Italian Association of Cancer Registries, collaborating on the register-based study to analyze population-level cancer data across Italy.
+111	partner	Registry Data Partner
+112	partner	Associazione Italiana Registri Tumori
+113	partner	Sapienza Università di Roma
+114	partner	Department of Public Health and Infectious Diseases at Sapienza University, contributing expertise in public health and epidemiology.
+115	partner	Research Partner
+116	partner	Sapienza University of Rome - DSPMI
+117	partner	AIIAO
+118	partner	Italian Association of Oncology Nurses, supporting patient care aspects and community engagement in the intervention study.
+119	partner	Nursing Partner
+120	partner	AIIAO - Associazione Italiana Infermieri di Area Oncologica
+121	partner	AIOM
+122	partner	Italian Association of Medical Oncology, providing expertise and supporting cancer research initiatives nationwide.
+123	partner	Medical Oncology Partner
+124	partner	AIOM - Associazione Italiana di Oncologia Medica
+125	partner	Policlinico Gemelli
+126	partner	Leading research hospital specializing in women's and children's health, contributing clinical expertise to the DCIMIT project.
+127	partner	Clinical Research Partner
+128	partner	Fondazione Policlinico Universitario Agostino Gemelli IRCCS
+129	partner	IRCCS CRO
+130	partner	IRCCS Oncology Center of Excellence
+131	partner	Istituto di ricovero e cura a carattere scientifico "Centro di riferimento oncologico" diAviano
+132	partner	IRCCS - Fondazione Pascale
+133	partner	“Giovanni Pascale Foundation” National Institute for Cancer Research and Treatment.
+134	partner	Istituto Nazionale Tumori- Fondazione Pascale
+135	publications	Papers &amp; Publications
+136	publications	While the results of this project are still under investigation, we invite you to read previous studies which provide valuable insight into cervical cancer disparities among immigrant populations in Italy.
+137	publications	Search the publications
+138	publications	Use free text search, or filter by year and author
+139	publications	Search
+140	publications,resources	Year
+141	publications,resources	All years
+142	publications,resources	Author
+143	publications,resources	All authors
+144	publications,resources	Reset filters
+145	publications	No publications match your search. Try a different keyword, year or author.
+146	register-study	Study 2
+147	register-study	Population-Level Analysis
+148	register-study	A register-based study analyzing data from regional population-based cancer registries across Italy in collaboration with AIRTUM, covering the years 2010-2022.
+149	register-study	1. Evaluate cervical cancer incidence and mortality among immigrant vs. Italian-born women
+150	register-study	2. Evaluate differences in survival rates between groups
+151	register-study	3. Analyze patterns by country of birth, age, and cancer stage
+152	register-study	DATA SOURCE: Regional population-based cancer registries (PBCRs)
+153	register-study	PERIOD: 2010-2022
+154	register-study	PARTNER: Italian Association of Cancer Registries (AIRTUM)
+155	register-study	Analysis
+156	register-study	Cervical cancer incidence, mortality, and survival rates compared between immigrant and non-immigrant women by country of birth
+157	research	Study Design
+158	research	Project Desing and Objective
+159	research	Three sub-studies will be conducted
+160	research	PROJECT RATIONAL
+161	research	Cervical cancer is the fourth most common cancer among women worldwide. In Italy, an estimated 2,382 new cases were reported in 2024. Nearly 99% of cervical cancer cases are caused by the human papillomavirus (HPV), a very common virus transmitted primarily through sexual contact. In most cases, the infection clears up on its own, but if it persists over time, it can develop into cancer. Fortunately, this is a highly preventable cancer.
+162	research	In Italy, the HPV vaccine is free for girls and boys between the ages of 12 and 26. Women between the ages of 25 and 64 are encouraged to participate in screening programs through Pap tests or HPV tests. However, access to these programs is uneven: in the 2021-2022 period, only 77.7% of eligible women participated in screening, with an even lower percentage among immigrant women (72%).
+163	research	Immigrants make up more than 8.6% of Italy's resident population. Many immigrant women face language barriers, financial difficulties, and limited knowledge of the healthcare system—factors that hinder their participation in screening and follow-up care, increasing the risk of late diagnoses and, consequently, higher mortality rates.
+164	research	STUDY DESIGN
+165	research	This project investigates inequalities in cervical cancer prevention among immigrant women in Italy through three complementary substudies: a mixed-methods study, a registry-based study, and a community-based intervention study. The goal is to reduce the incidence of cervical cancer among immigrant women, promote greater participation in screening programs, and provide useful guidance for developing more equitable and inclusive public health strategies.
+166	research	The research project seeks to answer three key questions:
+167	research	What are the main barriers hindering early diagnosis of cervical cancer in immigrant women?
+168	research	Are there differences in the incidence, mortality, and survival rates of cervical cancer between immigrant women and Italian women?
+169	research	Can community-based interventions help immigrant women participate more in cervical cancer screening programs?
+170	resources	Downloadable materials from the DCIMIT project: posters, protocols and curated reading lists.
+171	resources	Browse the resources
+172	resources	Filter by year and author
+173	resources	No resources match this filter combination.
+174	Resources-new,womens-health	DCIMIT - Women's Health page
+175	Resources-new	A selection of recent engagements across events and projects.
+176	Resources-new	Events
+177	Resources-new	All Events
+178	Resources-new	Insights
+179	Resources-new	Bandi
+180	Resources-new	Expired
+181	Resources-new	Conference · Insight
+182	Resources-new	Salute Senza Confini
+183	Resources-new	Subtitle · Category
+184	Resources-new	Title
+185	screening-eligibility-checker,womens-health	Screening Eligibility Checker
+186	screening-eligibility-checker	Department Details
+187	screening-eligibility-checker	Service Details
+188	screening-eligibility-checker	Appointment
+189	screening-eligibility-checker	Testimonials
+190	screening-eligibility-checker	Frequently Asked Questions
+191	screening-eligibility-checker	Gallery
+192	screening-eligibility-checker	Terms
+193	screening-eligibility-checker	Privacy
+194	screening-eligibility-checker	Dropdown 1
+195	screening-eligibility-checker	Deep Dropdown
+196	screening-eligibility-checker	Deep Dropdown 1
+197	screening-eligibility-checker	Deep Dropdown 2
+198	screening-eligibility-checker	Deep Dropdown 3
+199	screening-eligibility-checker	Deep Dropdown 4
+200	screening-eligibility-checker	Deep Dropdown 5
+201	screening-eligibility-checker	Dropdown 2
+202	screening-eligibility-checker	Dropdown 3
+203	screening-eligibility-checker	Dropdown 4
+204	screening-eligibility-checker	This tool helps determine the recommended routine cervical screening pathway for average-risk women.
+205	screening-eligibility-checker,symptom-triage	Important Notice
+206	screening-eligibility-checker	This tool applies only to
+207	screening-eligibility-checker	average-risk women
+208	screening-eligibility-checker	and is informational — it does not replace professional medical advice or a clinician's judgment. If any of the exclusion criteria below apply to you, this routine pathway is not appropriate and you should speak with a clinician about the correct special protocol.
+209	screening-eligibility-checker	What is your age?
+210	screening-eligibility-checker	Used to apply the correct age-based rule.
+211	screening-eligibility-checker	Routine screening does not apply below age 25 — no further questions needed.
+212	screening-eligibility-checker	Age 65 falls between the defined rule brackets (30–64 and over 65).
+213	screening-eligibility-checker	Have you had a Pap (cytology) test in the previous 3 years?
+214	screening-eligibility-checker	Yes
+215	screening-eligibility-checker	No
+216	screening-eligibility-checker	Have you had an HPV test in the previous 5 years?
+217	screening-eligibility-checker	Was the HPV test result negative?
+218	screening-eligibility-checker	Yes, negative
+219	screening-eligibility-checker	No / positive
+220	screening-eligibility-checker	Is there a record of adequate previous negative screening?
+221	screening-eligibility-checker	Do any of the following apply to you?
+222	screening-eligibility-checker	Select all that apply. Any of these move you outside the routine screening pathway.
+223	screening-eligibility-checker	Previous cervical cancer
+224	screening-eligibility-checker	Previous CIN2, CIN3, or AIS (including under surveillance)
+225	screening-eligibility-checker	HIV infection
+226	screening-eligibility-checker	Other significant immunosuppression
+227	screening-eligibility-checker	In-utero DES exposure
+228	screening-eligibility-checker	Previous total hysterectomy with cervix removed for benign disease
+229	screening-eligibility-checker	Currently pregnant
+230	screening-eligibility-checker	Check eligibility
+231	symptom-triage	Symptom Triage Tool
+232	symptom-triage,womens-health	Symptom Triage
+233	symptom-triage	This tool helps determine whether selected symptoms may require prompt medical assessment.
+234	symptom-triage	This is an informational tool and does not replace professional medical advice. If you are experiencing severe or rapidly worsening symptoms, seek medical assistance immediately.
+235	symptom-triage	Which symptoms are you experiencing?
+236	symptom-triage	Select all that apply.
+237	symptom-triage	Bleeding after sexual intercourse
+238	symptom-triage	Bleeding after menopause
+239	symptom-triage	Bleeding between menstrual periods
+240	symptom-triage	Persistent abnormal vaginal discharge
+241	symptom-triage	Foul-smelling discharge
+242	symptom-triage	Persistent pelvic pain
+243	symptom-triage	Persistent lower back pain
+244	symptom-triage	Associated gynecologic symptoms
+245	symptom-triage	Leg swelling
+246	symptom-triage	Unexplained weight loss
+247	symptom-triage	Persistent fatigue
+248	symptom-triage	Check symptoms
+249	team	DCIMIT - Data page
+250	team	Research Team
+251	team	Dedicated experts working to reduce cervical cancer disparities among immigrant women in Italy
+252	team	Valentina Biagioli
+253	team	PI of the DCIMIT project
+254	team	Topics:
+255	team	Paolo Boffetta
+256	team	Supervisor of the DCIMIT project
+257	team	Kazem Zendehdel
+258	team	Co-supervisor of the DCIMIT project
+259	team	Fereshte Lotfi
+260	team	Research assistant of the DCIMIT project
+261	team	Mohsen Boughriou
+262	team	Research fellow focused on study 2
+263	team	Eleonora Gorgati
+264	team	Research fellow focused on study 1 and 3
+265	team	Diego Serraino
+266	team	Consultant for study 2
+267	team	Angela Cuoco
+268	team	Consultant for study 1
+269	team	Sara Dionisi
+270	team	Consultant for study 3
+271	team	Miriam Alviggi
+272	team	Ariele Santello
+273	team	Consultant for dissemination strategies
+274	team	Topics: User Experience Design, Semantic Web, Web Development
+275	team	Join our Research Team
+276	team	Interested in contributing to our mission of reducing health disparities? We welcome collaboration from researchers, healthcare professionals, and institutions.
+277	team	Contact Principal Investigator
+278	womens-health	Essential information about cervical cancer screening, prevention, and early detection for all women, with special focus on immigrant communities.
+279	womens-health	Information about Cervical Cancer
+280	womens-health	Choose a topic area to learn more about it.
+281	womens-health	Gynecology icons created by juicy_fish - Flaticon
+282	womens-health	What is Cervical Cancer?
+283	womens-health	Cervical cancer develops in the cells lining the cervix, usually over many years and almost always linked to persistent HPV infection. Caught early through regular screening, it is one of the most preventable and treatable cancers.
+284	womens-health	Understanding HPV
+285	womens-health	HPV is an extremely common virus — most sexually active people are exposed to it at some point, and about 9 in 10 infections clear on their own. Only a small group of high-risk types can lead to cancer if an infection persists for years.
+286	womens-health	Cervical Cancer Symptoms
+287	womens-health	Unusual bleeding, discharge or pelvic pain can be warning signs, though early precancerous changes usually cause no symptoms at all — which is why regular screening matters even when you feel completely well.
+288	womens-health	The HPV Vaccine
+289	womens-health	The HPV vaccine is one of the most effective tools for preventing the infections that lead to cervical cancer. It's recommended from age 11-12, extensively safety-tested, and works alongside — not instead of — regular screening.
+290	womens-health	Lifestyle & Prevention
+291	womens-health	Not smoking, vaccination and general immune health all help lower your risk, but no lifestyle choice replaces regular screening, which remains the most reliable way to catch changes early.
+292	womens-health	Why Screening Matters
+293	womens-health	Screening finds and removes precancerous cells before they ever become cancer, checking for early warning signs in people who feel completely healthy — which is what makes it genuinely preventive, not just diagnostic.
+294	womens-health	Pap Test vs. HPV Test
+295	womens-health	SThe Pap test examines cervical cells for abnormal changes, while the HPV test checks for the high-risk virus that causes them. Which test — and how often — depends mainly on your age.
+296	womens-health	What Happens During the Exam
+297	womens-health	A step-by-step walkthrough of a routine screening visit, from check-in to the exam itself. It usually takes just 10 to 15 minutes, with at most brief discomfort rather than pain.
+298	womens-health	The Screening Journey
+299	womens-health	Follow one woman's path through the entire screening process, from the invitation letter to booking, the test itself, and receiving results, to see just how manageable each step really is.
+300	womens-health	HPV Positive: What Now?
+301	womens-health	A positive HPV result means the virus was detected — nothing more. It doesn't mean you have cancer, and most positive results resolve on their own with monitoring alone.
+302	womens-health	Trauma Center
+303	womens-health	Critical Care
+304	womens-health	Colposcopy Explained
+305	womens-health	A colposcopy is simply a closer examination of the cervix after an abnormal screening result — similar to a Pap test, usually with mild discomfort, and over in 15 to 20 minutes.
+306	womens-health	Pregnancy & Screening
+307	womens-health	SScreening is generally safe during pregnancy and breastfeeding, with testing after birth typically resuming around 12 weeks postpartum.
+308	womens-health	Try our interactive tools to feel more seen and guided.
+309	womens-health	Informational tool
+310	womens-health	Not sure how urgently your symptoms need attention?
+311	womens-health	Start your symptom assessment and find out when it may be important to seek medical care.
+312	womens-health	Receive clear guidance on the appropriate level of attention.
+313	womens-health	Check your symptoms
+314	womens-health	This should only apply to average-risk women
+315	womens-health	Are you eligible for routine cervical cancer screening?
+316	womens-health	Answer a few simple questions about your medical history and previous cervical screening.
+317	womens-health	find out whether you may follow the routine screening pathway or whether you should consult a healthcare professional for individualized guidance.
+318	womens-health	Healthcare Services
+319	womens-health	If you have questions about cervical cancer screening or need assistance accessing healthcare services, please contact your local health authority (ASL) or reach out to our research team.
+320	womens-health	Explore Services
+321	womens-health	Contact us
+322	womens-health	Other Resources
+323	womens-health	Find other useful resources
+324	womens-health	Resource
+325	womens-health	Subtitle of card
+326	womens-health	Dolor lorem eos dolor duo eirmod sea. Dolor sit magna rebum clita rebum dolor
+327	index	Cervical Cancer Prevention and Early Detection Among
+328	index	Immigrants in Italy
+329	index	About the Project
+330	index	View Data
+331	index	Systematic data on these disparities across immigrant groups and regions remain limited. The DCIMIT project aims to contribute evidence that can inform the design of culturally sensitive interventions.
