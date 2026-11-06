@@ -172,6 +172,7 @@
           <a href="https://site.unibo.it/dcimit/it/eventi/salute-senza-confini-prevenzione-del-tumore-della-cervice-uterina-nelle-donne-immigrate" class="portfolio-card d-block">
             <img src="assets/img/bg/conference.png" target="_blank" alt="Conference Locandina">
             <div class="portfolio-overlay">
+              <span>30/10/2026</span>
               <span>Conférence · Analyse</span>
               <h5>Salute Senza Confini</h5>
             </div>
@@ -345,6 +346,21 @@
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
   <script>
+    // Cards with a date (dd/mm/yyyy) in their overlay span get "expired" in data-category once that day has passed
+    (function () {
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      document.querySelectorAll('[data-category]').forEach(card => {
+        const dateSpan = [...card.querySelectorAll('.portfolio-overlay span')]
+          .find(s => /^\d{1,2}\/\d{1,2}\/\d{4}$/.test(s.textContent.trim()));
+        if (!dateSpan) return;
+        const [day, month, year] = dateSpan.textContent.trim().split('/').map(Number);
+        const cats = card.dataset.category.split(',').map(c => c.trim()).filter(c => c && c !== 'expired');
+        if (new Date(year, month - 1, day) < today) cats.push('expired');
+        card.dataset.category = cats.join(', ');
+      });
+    })();
+
     // Portfolio filter (vanilla JS)
     document.querySelectorAll('.filter-btn').forEach(btn => {
       btn.addEventListener('click', function () {
