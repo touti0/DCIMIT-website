@@ -657,6 +657,74 @@ h6 {
 /*--------------------------------------------------------------
 # Global Footer
 --------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Funding banner (above the footer)
+--------------------------------------------------------------*/
+.funding {
+  background: var(--background-color);
+  padding: 60px 0;
+}
+
+.funding .funding-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+.funding .funding-logo-link {
+  display: block;
+  flex: 0 0 auto;
+}
+
+.funding .funding-logo {
+  flex: 0 0 auto;
+  width: 90px;
+  height: 90px;
+  padding: 24px;
+  box-sizing: content-box;
+  border: 1px solid #123c40;
+  border-radius: 50%;
+  background: #fff url("../img/airc_logo.png") center/contain no-repeat;
+  background-origin: content-box;
+}
+
+.funding .funding-text {
+  max-width: 460px;
+}
+
+.funding .funding-text h3 {
+  display: inline-block;
+  margin: 0 0 6px;
+  font-size: 22px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-bottom: 1px solid #EF714F;
+}
+
+.funding .funding-text h3:hover {
+  border-bottom-color: transparent;
+}
+
+.funding .funding-text h3 a {
+  color: #EF714F;
+  text-decoration: none;
+}
+
+.funding .funding-text p {
+  margin: 0;
+  font-size: 19px;
+  line-height: 1.75;
+  color: var(--default-color);
+}
+
+@media (max-width: 575px) {
+  .funding .funding-content {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
 .footer-16 {
   background: #123c40;
   color: var(--default-color);
@@ -868,7 +936,7 @@ h6 {
 }
 
 .footer-16 .footer-bottom .legal-links a {
-  font-size: 13px;
+  font-size: 15px;
   color: color-mix(in srgb, #a5bbbb, transparent 50%);
   text-decoration: none;
   font-weight: 300;
