@@ -36,6 +36,148 @@ License:
     });
   }
 
+  /*Cookie policy popup (opened from the "Cookie Policy" link in the footer)
+    Registered early so it keeps working if a vendor library further down throws. */
+
+  const COOKIE_POLICY_URL = 'https://www.unibo.it/it/ateneo/privacy-e-note-legali/privacy/cookie-e-altri-strumenti-di-tracciamento-dei-dati-personali-nei-siti-del-sistema-portale-di-ateneo';
+  const COOKIE_TEXTS = {
+    it: {
+      title: 'Questo sito web utilizza i cookie',
+      text: 'Nel nostro sito utilizziamo cookie tecnici necessari per il suo funzionamento.',
+      more: 'Se chiudi questo banner continuerai la navigazione solo con i cookie necessari.',
+      info: 'Per maggiori informazioni consulta la nostra ',
+      link: 'Cookie policy',
+      close: 'Chiudi'
+    },
+    en: {
+      title: 'This website uses cookies',
+      text: 'We use technical cookies on our site that are necessary for it to work.',
+      more: 'If you close this banner you will continue browsing with necessary cookies only.',
+      info: 'For more information please see our ',
+      link: 'Cookie policy',
+      close: 'Close'
+    },
+    fr: {
+      title: 'Ce site web utilise des cookies',
+      text: 'Nous utilisons sur notre site des cookies techniques nécessaires à son fonctionnement.',
+      more: 'Si vous fermez cette bannière, vous continuerez la navigation avec les seuls cookies nécessaires.',
+      info: 'Pour plus d\'informations, consultez notre ',
+      link: 'Politique relative aux cookies',
+      close: 'Fermer'
+    },
+    ro: {
+      title: 'Acest site web folosește cookie-uri',
+      text: 'Pe site-ul nostru folosim cookie-uri tehnice, necesare funcționării acestuia.',
+      more: 'Dacă închizi acest banner, vei continua navigarea doar cu cookie-urile necesare.',
+      info: 'Pentru mai multe informații consultă ',
+      link: 'Politica privind cookie-urile',
+      close: 'Închide'
+    },
+    ar: {
+      title: 'يستخدم هذا الموقع ملفات تعريف الارتباط',
+      text: 'نستخدم في موقعنا ملفات تعريف ارتباط تقنية ضرورية لعمله.',
+      more: 'إذا أغلقت هذا الشريط، فستواصل التصفح باستخدام ملفات تعريف الارتباط الضرورية فقط.',
+      info: 'لمزيد من المعلومات، اطّلع على ',
+      link: 'سياسة ملفات تعريف الارتباط',
+      close: 'إغلاق'
+    }
+  };
+
+  let cookiePopup = null;
+  let cookieOpener = null;
+
+  function buildCookiePopup() {
+    const t = COOKIE_TEXTS[(document.documentElement.lang || 'en').slice(0, 2)] || COOKIE_TEXTS.en;
+    const overlay = document.createElement('div');
+    overlay.className = 'cookie-popup';
+    overlay.hidden = true;
+
+    const dialog = document.createElement('div');
+    dialog.className = 'cookie-popup-dialog';
+    dialog.setAttribute('role', 'dialog');
+    dialog.setAttribute('aria-modal', 'true');
+    dialog.setAttribute('aria-labelledby', 'cookie-popup-title');
+
+    const closeX = document.createElement('button');
+    closeX.type = 'button';
+    closeX.className = 'cookie-popup-x';
+    closeX.setAttribute('aria-label', t.close);
+    closeX.innerHTML = '<i class="bi bi-x-lg" aria-hidden="true"></i>';
+
+    const title = document.createElement('h2');
+    title.id = 'cookie-popup-title';
+    title.textContent = t.title;
+
+    const text = document.createElement('p');
+    text.textContent = t.text;
+
+    const more = document.createElement('p');
+    more.appendChild(document.createTextNode(t.more));
+    more.appendChild(document.createElement('br'));
+    more.appendChild(document.createTextNode(t.info));
+    const link = document.createElement('a');
+    link.href = COOKIE_POLICY_URL;
+    link.target = '_blank';
+    link.rel = 'noopener';
+    link.textContent = t.link;
+    more.appendChild(link);
+    more.appendChild(document.createTextNode('.'));
+
+    const closeBtn = document.createElement('button');
+    closeBtn.type = 'button';
+    closeBtn.className = 'cookie-popup-close';
+    closeBtn.textContent = t.close;
+
+    dialog.append(closeX, title, text, more, closeBtn);
+    overlay.appendChild(dialog);
+    document.body.appendChild(overlay);
+
+    [closeX, closeBtn].forEach((b) => b.addEventListener('click', closeCookiePopup));
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) closeCookiePopup();
+    });
+    overlay.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeCookiePopup();
+      } else if (e.key === 'Tab') {
+        // keep keyboard focus inside the dialog
+        const items = [closeX, link, closeBtn];
+        const first = items[0];
+        const last = items[items.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    });
+    return overlay;
+  }
+
+  function openCookiePopup(opener) {
+    if (!cookiePopup) cookiePopup = buildCookiePopup();
+    cookieOpener = opener;
+    cookiePopup.hidden = false;
+    document.body.classList.add('cookie-popup-open');
+    cookiePopup.querySelector('.cookie-popup-close').focus();
+  }
+
+  function closeCookiePopup() {
+    if (!cookiePopup) return;
+    cookiePopup.hidden = true;
+    document.body.classList.remove('cookie-popup-open');
+    if (cookieOpener) cookieOpener.focus();
+  }
+
+  document.querySelectorAll('.legal-links a[href*="cookie-e-altri-strumenti"]').forEach((link) => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      openCookiePopup(link);
+    });
+  });
+
   /*Apply .scrolled class to the body as the page is scrolled down*/
 
   function toggleScrolled() {
