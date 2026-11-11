@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2000" height="1180" viewBox="0 0 2000 1180">
+  <defs>
+    <linearGradient id="gLeft" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#DFA78D"/>
+      <stop offset="1" stop-color="#F2DDD3"/>
+    </linearGradient>
+    <linearGradient id="gMid" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#E4BCA6"/>
+      <stop offset="1" stop-color="#F6E8E1"/>
+    </linearGradient>
+    <linearGradient id="gRight" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#EDD5C5"/>
+      <stop offset="1" stop-color="#F8EFEA"/>
+    </linearGradient>
+    <linearGradient id="gEll" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#DFA98F"/>
+      <stop offset="1" stop-color="#F2DCD2"/>
+    </linearGradient>
+    <linearGradient id="gArrowMid" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#E9C8B4"/>
+      <stop offset="1" stop-color="#E5BEA7"/>
+    </linearGradient>
+    <filter id="sh" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#B07A60" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <rect width="2000" height="1180" fill="#FFFFFF"/>
+
+  <!-- Boxes -->
+  <rect x="195" y="46" width="483" height="586" rx="36" fill="url(#gLeft)" filter="url(#sh)"/>
+  <rect x="772" y="8" width="482" height="504" rx="36" fill="url(#gMid)" filter="url(#sh)"/>
+  <rect x="1342" y="55" width="483" height="587" rx="36" fill="url(#gRight)" filter="url(#sh)"/>
+
+  <!-- Arrows -->
+  <polygon points="639,627 675,585 740,640 760,602 778,694 686,705 708,682" fill="#D9A389"/>
+  <rect x="991" y="498" width="50" height="84" fill="url(#gArrowMid)"/>
+  <polygon points="953,582 1079,582 1016,651" fill="#E5BEA7"/>
+  <polygon points="1390,627 1354,585 1292,636 1272,602 1252,694 1344,705 1322,682" fill="#F0DACE"/>
+
+  <!-- Ellipse -->
+  <ellipse cx="1015" cy="908" rx="395" ry="232" fill="url(#gEll)"/>
+
+  <g font-family="Segoe UI, Open Sans, Arial, sans-serif" text-anchor="middle" fill="#1E1E1E">
+    <!-- Left -->
+    <text x="436" y="278" font-size="27" font-weight="800">MIXED-METHODS STUDY</text>
+    <g font-size="23" fill="#333">
+      <text x="436" y="331">To identify the factors influencing early</text>
+      <text x="436" y="364">diagnosis and access to care among</text>
+      <text x="436" y="398">immigrant women diagnosed with</text>
+      <text x="436" y="431">HSIL or cervical cancer.</text>
+    </g>
+
+    <!-- Middle -->
+    <text x="1013" y="139" font-size="27" font-weight="800">REGISTRY-BASED STUDY</text>
+    <g font-size="23" fill="#333">
+      <text x="1013" y="193">To provide a comprehensive</text>
+      <text x="1013" y="226">assessment of differences in incidence,</text>
+      <text x="1013" y="260">mortality and survival for cervical</text>
+      <text x="1013" y="293">cancer between immigrant and non-</text>
+      <text x="1013" y="326">immigrant women.</text>
+    </g>
+
+    <!-- Right -->
+    <text x="1584" y="284" font-size="27" font-weight="800">COMMUNITY INTERVENTION</text>
+    <text x="1584" y="320" font-size="27" font-weight="800">STUDY</text>
+    <g font-size="23" fill="#333">
+      <text x="1584" y="374">To develop an educational program</text>
+      <text x="1584" y="407">aimed at increasing participation in</text>
+      <text x="1584" y="441">cervical cancer screening.</text>
+    </g>
+
+    <!-- Ellipse text -->
+    <g font-size="27" fill="#333">
+      <text x="1015" y="853">The three studies address disparities from</text>
+      <text x="1015" y="892"><tspan font-weight="700" fill="#1E1E1E">different and complementary perspectives</tspan>, with the</text>
+      <text x="1015" y="931">goal of generating knowledge that will make</text>
+      <text x="1015" y="970" font-weight="700" fill="#1E1E1E">prevention more accessible and equitable.</text>
+    </g>
+  </g>
+</svg>

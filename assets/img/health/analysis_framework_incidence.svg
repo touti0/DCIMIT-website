@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1460" height="1010" viewBox="0 0 1460 1010">
+  <defs>
+    <linearGradient id="topGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7DD5F0"/>
+      <stop offset="1" stop-color="#6C9FEF"/>
+    </linearGradient>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F5F9FB"/>
+      <stop offset="1" stop-color="#F3FAF7"/>
+    </linearGradient>
+  </defs>
+  <rect width="1460" height="1010" fill="#FFFFFF"/>
+  <rect x="0" y="48" width="1455" height="960" rx="40" fill="url(#bgGrad)"/>
+
+  <text x="706" y="155" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="60" font-weight="700" fill="#161B2E">Analysis Framework (2010-2022)</text>
+
+  <!-- connector top -> incidence -->
+  <line x1="707" y1="438" x2="707" y2="573" stroke="#5FCDE4" stroke-width="5"/>
+  <!-- dashed incidence -> comparative -->
+  <line x1="707" y1="728" x2="707" y2="805" stroke="#92CFC8" stroke-width="4" stroke-dasharray="12,8"/>
+
+  <!-- Cancer Registries -->
+  <rect x="418" y="303" width="578" height="135" rx="26" fill="url(#topGrad)"/>
+  <text x="707" y="352" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="34" font-weight="700" fill="#FFFFFF">Cancer Registries (AIRTUM)</text>
+  <text x="707" y="400" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="25" fill="#FFFFFF">Regional PBCRs - Italy</text>
+
+  <!-- Incidence -->
+  <rect x="534" y="573" width="346" height="155" rx="22" fill="#92CFC8"/>
+  <text x="707" y="632" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="30" font-weight="700" fill="#FFFFFF">Incidence</text>
+  <text x="707" y="670" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#FFFFFF">By country of birth</text>
+  <text x="707" y="703" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#FFFFFF">Age groups</text>
+
+  <!-- Comparative Analysis -->
+  <rect x="418" y="805" width="578" height="135" rx="26" fill="#EBB3A3"/>
+  <text x="707" y="853" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="34" font-weight="700" fill="#FFFFFF">Comparative Analysis</text>
+  <text x="707" y="902" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="25" fill="#FFFFFF">Immigrant vs. Italian-born Women</text>
+</svg>
