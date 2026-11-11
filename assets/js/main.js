@@ -7,6 +7,16 @@ License:
 (function() {
   "use strict";
 
+  /*Cookie created on the first visit (technical cookie, no personal data)*/
+
+  function createVisitCookie() {
+    if (!document.cookie.includes("site_visited=")) {
+      document.cookie = "site_visited=yes; max-age=31536000; path=/";
+    }
+  }
+
+  createVisitCookie();
+
   /*Lesson video modal (Women's Health thematic lesson accordion)
     Registered first so it still works even if a vendor library
     further down (GLightbox, PureCounter, Swiper...) throws and
