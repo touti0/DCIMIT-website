@@ -52,7 +52,10 @@ License:
     when the "Cookie Settings" link in the footer is clicked.
     Registered early so it keeps working if a vendor library further down throws. */
 
-  const COOKIE_POLICY_URL = 'https://www.unibo.it/it/ateneo/privacy-e-note-legali/privacy/cookie-e-altri-strumenti-di-tracciamento-dei-dati-personali-nei-siti-del-sistema-portale-di-ateneo';
+  // Unibo publishes this page only in Italian and English
+  const COOKIE_POLICY_URL = (document.documentElement.lang || 'en').slice(0, 2) === 'it'
+    ? 'https://www.unibo.it/it/ateneo/privacy-e-note-legali/privacy/cookie-e-altri-strumenti-di-tracciamento-dei-dati-personali-nei-siti-del-sistema-portale-di-ateneo'
+    : 'https://www.unibo.it/en/university/privacy-policy-and-legal-notes/privacy-policy/cookies-and-other-personal-data-tracking-tools-on-the-university-portal-system-websites';
   const COOKIE_TEXTS = {
     it: {
       title: 'Questo sito web utilizza i cookie',
@@ -175,7 +178,7 @@ License:
     cookieOpener = null;
   }
 
-  document.querySelectorAll('.legal-links a[href*="cookie-e-altri-strumenti"]').forEach((link) => {
+  document.querySelectorAll('.legal-links a[href*="cookie"]').forEach((link) => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
       openCookiePopup(link);
@@ -189,6 +192,188 @@ License:
       openCookiePopup();
     }
   }
+
+  /*Keyboard access to the main menu.
+    Also registered early, independent of the code below.
+    - skip link to the main content
+    - hamburger button and submenu arrows reachable with Tab, Enter/Space to activate
+    - desktop dropdowns and language list open on focus; arrows move inside them, Esc closes them */
+
+  const NAV_TEXTS = {
+    en: { toggle: 'Toggle navigation menu', sub: 'Show or hide submenu', skip: 'Skip to main content' },
+    it: { toggle: 'Apri o chiudi il menu di navigazione', sub: 'Mostra o nascondi il sottomenu', skip: 'Vai al contenuto principale' },
+    fr: { toggle: 'Afficher ou masquer le menu de navigation', sub: 'Afficher ou masquer le sous-menu', skip: 'Aller au contenu principal' },
+    ro: { toggle: 'Deschide sau închide meniul de navigare', sub: 'Arată sau ascunde submeniul', skip: 'Salt la conținutul principal' },
+    ar: { toggle: 'فتح أو إغلاق قائمة التنقل', sub: 'إظهار أو إخفاء القائمة الفرعية', skip: 'تخطَّ إلى المحتوى الرئيسي' }
+  };
+
+  (function setupKeyboardMenu() {
+    const t = NAV_TEXTS[(document.documentElement.lang || 'en').slice(0, 2)] || NAV_TEXTS.en;
+    const body = document.body;
+    const nav = document.getElementById('navmenu');
+
+    // The skip link goes to #service-details-2 on the pages that have it, otherwise to <main>
+    const main = document.querySelector('main');
+    const skipTarget = document.getElementById('service-details-2') || main;
+    if (skipTarget) {
+      if (!skipTarget.id) skipTarget.id = 'main-content';
+      skipTarget.setAttribute('tabindex', '-1');
+      const skip = document.createElement('a');
+      skip.className = 'skip-link';
+      skip.href = '#' + skipTarget.id;
+      skip.textContent = t.skip;
+      body.insertBefore(skip, body.firstChild);
+    }
+    if (!nav) return;
+
+    const mobileOpen = () => body.classList.contains('mobile-nav-active');
+    const burger = nav.querySelector('.mobile-nav-toggle');
+    const chevrons = nav.querySelectorAll('.toggle-dropdown');
+
+    if (burger) {
+      burger.setAttribute('role', 'button');
+      burger.setAttribute('tabindex', '0');
+      burger.setAttribute('aria-label', t.toggle);
+      burger.setAttribute('aria-controls', 'navmenu');
+      const syncBurger = () => burger.setAttribute('aria-expanded', mobileOpen() ? 'true' : 'false');
+      syncBurger();
+      new MutationObserver(syncBurger).observe(body, { attributes: true, attributeFilter: ['class'] });
+    }
+
+    // Submenu arrows are only separate controls in the mobile menu (on desktop the submenu opens on focus)
+    chevrons.forEach((icon) => {
+      const link = icon.parentNode;
+      const sync = () => icon.setAttribute('aria-expanded', link.classList.contains('active') ? 'true' : 'false');
+      new MutationObserver(sync).observe(link, { attributes: true, attributeFilter: ['class'] });
+      sync();
+    });
+    nav.querySelectorAll('.dropdown > a').forEach((a) => a.setAttribute('aria-haspopup', 'true'));
+
+    const mq = window.matchMedia('(max-width: 1199px)');
+    function applyChevrons() {
+      chevrons.forEach((icon) => {
+        if (mq.matches) {
+          icon.setAttribute('role', 'button');
+          icon.setAttribute('tabindex', '0');
+          icon.setAttribute('aria-label', t.sub);
+        } else {
+          icon.removeAttribute('role');
+          icon.removeAttribute('tabindex');
+          icon.removeAttribute('aria-label');
+        }
+      });
+    }
+    applyChevrons();
+    mq.addEventListener('change', applyChevrons);
+
+    const dismissibles = nav.querySelectorAll('.dropdown, .language');
+    const reopen = (holder) => holder && holder.classList.remove('nav-dismissed');
+
+    document.addEventListener('keydown', (e) => {
+      const el = e.target;
+      if (!(el instanceof Element) || !nav.contains(el)) return;
+
+      // Enter / Space on the custom buttons
+      if ((e.key === 'Enter' || e.key === ' ') && (el === burger || el.matches('.toggle-dropdown'))) {
+        e.preventDefault();
+        el.click();
+        if (el === burger && mobileOpen()) {
+          const first = nav.querySelector('ul a');
+          if (first) first.focus();
+        }
+        return;
+      }
+
+      if (e.key === 'Escape') {
+        if (mobileOpen()) {
+          e.preventDefault();
+          burger.click();
+          burger.focus();
+          return;
+        }
+        const holder = el.closest('.dropdown, .language');
+        if (holder) {
+          e.preventDefault();
+          holder.classList.add('nav-dismissed');
+          const trigger = holder.matches('.language') ? holder.querySelector('.lang-current') : holder.querySelector(':scope > a');
+          if (holder.matches('.language')) {
+            holder.classList.remove('open');
+            trigger.setAttribute('aria-expanded', 'false');
+          }
+          trigger.focus();
+        }
+        return;
+      }
+
+      // Tab stays inside the open mobile menu
+      if (e.key === 'Tab' && mobileOpen()) {
+        const items = [...nav.querySelectorAll('a[href], button, [tabindex="0"]')]
+          .filter((x) => x === burger || x.offsetParent !== null);
+        const first = items[0];
+        const last = items[items.length - 1];
+        if (e.shiftKey && el === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && el === last) {
+          e.preventDefault();
+          first.focus();
+        }
+        return;
+      }
+
+      // Arrow keys inside a submenu / the language list
+      const list = el.closest('.dropdown > ul, .lang-menu');
+      if (list && ['ArrowDown', 'ArrowUp', 'Home', 'End'].includes(e.key)) {
+        const items = [...list.querySelectorAll(list.matches('.lang-menu') ? ':scope > button' : ':scope > li > a')];
+        const i = items.indexOf(el);
+        if (i < 0) return;
+        let next = i;
+        if (e.key === 'ArrowDown') next = (i + 1) % items.length;
+        else if (e.key === 'ArrowUp') next = (i - 1 + items.length) % items.length;
+        else if (e.key === 'Home') next = 0;
+        else next = items.length - 1;
+        e.preventDefault();
+        items[next].focus();
+        return;
+      }
+
+      // ArrowDown on a menu trigger opens it and moves into it
+      if (e.key === 'ArrowDown') {
+        if (el.matches('.dropdown > a')) {
+          const li = el.parentNode;
+          const ul = li.querySelector(':scope > ul');
+          reopen(li);
+          if (mq.matches && !ul.classList.contains('dropdown-active')) el.querySelector('.toggle-dropdown').click();
+          const first = ul.querySelector('a');
+          if (first) {
+            e.preventDefault();
+            first.focus();
+          }
+        } else if (el.matches('.lang-current')) {
+          reopen(el.parentNode);
+          const first = el.parentNode.querySelector('.lang-menu button');
+          if (first) {
+            e.preventDefault();
+            first.focus();
+          }
+        }
+      }
+    });
+
+    dismissibles.forEach((h) => h.addEventListener('mouseleave', () => reopen(h)));
+    nav.addEventListener('focusout', (e) => {
+      const h = e.target.closest('.dropdown, .language');
+      if (h && !h.contains(e.relatedTarget)) {
+        reopen(h);
+        const cur = h.querySelector('.lang-current');
+        if (cur && !h.classList.contains('open')) cur.setAttribute('aria-expanded', 'false');
+      }
+    });
+    nav.addEventListener('focusin', (e) => {
+      const h = e.target.closest('.language');
+      if (h && !h.classList.contains('nav-dismissed')) h.querySelector('.lang-current').setAttribute('aria-expanded', 'true');
+    });
+  })();
 
   /*Apply .scrolled class to the body as the page is scrolled down*/
 
