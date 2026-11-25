@@ -4,7 +4,6 @@
 
 /*--------------------------------------------------------------
 # Font & Color Variables
-# Help: https://bootstrapmade.com/color-system/
 --------------------------------------------------------------*/
 /* Fonts */
 :root {
@@ -98,61 +97,10 @@ h6 {
   font-family: var(--heading-font);
 }
 
-/* PHP Email Form Messages
-------------------------------*/
-.php-email-form .error-message {
-  display: none;
-  background: #df1529;
-  color: #ffffff;
-  text-align: left;
-  padding: 15px;
-  margin-bottom: 24px;
-  font-weight: 600;
-}
-
-.php-email-form .sent-message {
-  display: none;
-  color: #ffffff;
-  background: #059652;
-  text-align: center;
-  padding: 15px;
-  margin-bottom: 24px;
-  font-weight: 600;
-}
-
-.php-email-form .loading {
-  display: none;
-  background: var(--surface-color);
-  text-align: center;
-  padding: 15px;
-  margin-bottom: 24px;
-}
-
-.php-email-form .loading:before {
-  content: "";
-  display: inline-block;
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  margin: 0 10px -6px 0;
-  border: 3px solid var(--accent-color);
-  border-top-color: var(--surface-color);
-  animation: php-email-form-loading 1s linear infinite;
-}
-
 .text-primary-custom { color: #EF714F;}
 
 .bg-light-custom { background-color: color-mix(in srgb, var(--accent-color) 10%, transparent);}
 
-@keyframes php-email-form-loading {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
 
 
 
@@ -5389,69 +5337,6 @@ a.header-cta {
   }
 }
 
-.appointmnet .appointment-form .php-email-form input[type=text],
-.appointmnet .appointment-form .php-email-form input[type=email],
-.appointmnet .appointment-form .php-email-form input[type=tel],
-.appointmnet .appointment-form .php-email-form input[type=date],
-.appointmnet .appointment-form .php-email-form select,
-.appointmnet .appointment-form .php-email-form textarea {
-  color: var(--default-color);
-  background-color: transparent;
-  font-size: 14px;
-  border: 2px solid color-mix(in srgb, var(--default-color), transparent 80%);
-  border-radius: 8px;
-  padding: 15px;
-  transition: all 0.3s ease;
-}
-
-.appointmnet .appointment-form .php-email-form input[type=text]:focus,
-.appointmnet .appointment-form .php-email-form input[type=email]:focus,
-.appointmnet .appointment-form .php-email-form input[type=tel]:focus,
-.appointmnet .appointment-form .php-email-form input[type=date]:focus,
-.appointmnet .appointment-form .php-email-form select:focus,
-.appointmnet .appointment-form .php-email-form textarea:focus {
-  border-color: var(--accent-color);
-  box-shadow: 0 0 0 0.2rem color-mix(in srgb, var(--accent-color), transparent 80%);
-  outline: none;
-}
-
-.appointmnet .appointment-form .php-email-form input[type=text]::placeholder,
-.appointmnet .appointment-form .php-email-form input[type=email]::placeholder,
-.appointmnet .appointment-form .php-email-form input[type=tel]::placeholder,
-.appointmnet .appointment-form .php-email-form input[type=date]::placeholder,
-.appointmnet .appointment-form .php-email-form select::placeholder,
-.appointmnet .appointment-form .php-email-form textarea::placeholder {
-  color: color-mix(in srgb, var(--default-color), transparent 70%);
-}
-
-.appointmnet .appointment-form .php-email-form .form-select {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
-}
-
-.appointmnet .appointment-form .php-email-form .btn-book {
-  background-color: var(--accent-color);
-  color: var(--contrast-color);
-  padding: 15px 40px;
-  border: none;
-  border-radius: 8px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  transition: all 0.3s ease;
-  width: 100%;
-  cursor: pointer;
-}
-
-.appointmnet .appointment-form .php-email-form .btn-book:hover {
-  background-color: color-mix(in srgb, var(--accent-color), black 10%);
-  transform: translateY(-2px);
-}
-
-.appointmnet .appointment-form .php-email-form .btn-book:active {
-  transform: translateY(0);
-}
-
 .appointmnet .btn-primary {
   background: var(--accent-color);
   color: var(--contrast-color);
@@ -5960,6 +5845,26 @@ a.header-cta {
   gap: 30px;
 }
 
+/* Two contact containers side by side (they stack on small screens) */
+.contact .contact-containers {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.contact .contact-containers > .container {
+  flex: 1 1 480px;
+  max-width: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.contact .contact-containers .col-lg-5 {
+  flex: 0 0 100%;
+  width: 100%;
+  max-width: 100%;
+}
+
 .contact .contact-info-item {
   display: flex;
   gap: 20px;
@@ -5998,72 +5903,6 @@ a.header-cta {
   margin-bottom: 0;
 }
 
-.form-check{
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
-  text-align: left;  /*     era font     */
-}
-
-.contact .contact-form-card {
-  background-color: var(--surface-color);
-  border-radius: 12px;
-  padding: 40px;
-  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.03);
-}
-
-.contact .contact-form-card h2 {
-  font-size: 28px;
-  font-weight: 600;
-  margin-bottom: 10px;
-}
-
-.contact .contact-form-card p {
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
-  line-height: 1.7;
-  margin-bottom: 30px;
-}
-
-.contact .contact-form-card .form-control {
-  border-radius: 8px;
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 80%);
-  padding: 15px 20px;
-  height: calc(3.5rem + 2px);
-  background-color: var(--surface-color);
-  color: var(--default-color);
-  margin-bottom: 20px;
-}
-
-.contact .contact-form-card .form-control:focus {
-  border-color: var(--accent-color);
-  box-shadow: 0 0 0 0.25rem color-mix(in srgb, var(--accent-color), transparent 90%);
-}
-
-.contact .contact-form-card .form-control::placeholder {
-  color: color-mix(in srgb, var(--default-color), transparent 40%);
-}
-
-.contact .contact-form-card textarea.form-control {
-  min-height: 150px;
-  margin-bottom: 25px;
-}
-
-.contact .btn-submit {
-  background-color: var(--accent-color);
-  color: var(--contrast-color);
-  border: none;
-  padding: 15px 30px;
-  font-size: 16px;
-  font-weight: 500;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  width: 100%;
-}
-
-.contact .btn-submit:hover {
-  background-color: color-mix(in srgb, var(--accent-color), transparent 15%);
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-}
-
 .contact .map-container {
   position: relative;
   margin-top: 50px;
@@ -6090,10 +5929,6 @@ a.header-cta {
 }
 
 @media (max-width: 992px) {
-  .contact .contact-form-card {
-    padding: 30px;
-  }
-
   .contact .map-container {
     margin-top: 40px;
   }
@@ -6122,14 +5957,6 @@ a.header-cta {
     height: 50px;
   }
 
-  .contact .contact-form-card {
-    padding: 25px;
-  }
-
-  .contact .contact-form-card h2 {
-    font-size: 24px;
-  }
-
   .contact .map-container {
     margin-top: 30px;
   }
@@ -6145,10 +5972,6 @@ a.header-cta {
 }
 
 @media (max-width: 576px) {
-  .contact .contact-form-card {
-    padding: 20px;
-  }
-
   .contact .map-container {
     margin-top: 25px;
   }

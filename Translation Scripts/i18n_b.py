@@ -1,10 +1,6 @@
 # (english, it, fr, ro, ar) -- partner, publications, resources, links, events, team, form placeholders
 B = [
     # contact form placeholders
-    ("Your Name", "Il tuo nome", "Votre nom", "Numele tău", "اسمك"),
-    ("Your Email", "La tua email", "Votre e-mail", "E-mailul tău", "بريدك الإلكتروني"),
-    ("Subject", "Oggetto", "Objet", "Subiect", "الموضوع"),
-    ("Your Message", "Il tuo messaggio", "Votre message", "Mesajul tău", "رسالتك"),
 
     # partner
     ("DCIMIT - Partners page", "DCIMIT - Pagina Partner", "DCIMIT - Page Partenaires", "DCIMIT - Pagina Parteneri", "DCIMIT - صفحة الشركاء"),

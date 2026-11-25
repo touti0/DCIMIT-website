@@ -48,12 +48,6 @@ A = [
     ("DIMEC - DIPARTIMENTO DI SCIENZE MEDICHE E CHIRURGICHE", "DIMEC - DIPARTIMENTO DI SCIENZE MEDICHE E CHIRURGICHE", "DIMEC - DIPARTIMENTO DI SCIENZE MEDICHE E CHIRURGICHE", "DIMEC - DIPARTIMENTO DI SCIENZE MEDICHE E CHIRURGICHE", "DIMEC - DIPARTIMENTO DI SCIENZE MEDICHE E CHIRURGICHE"),
     ("Via Masserenti 9 Bologna, BO, 40100 Italy", "Via Masserenti 9 Bologna, BO, 40100 Italia", "Via Masserenti 9 Bologne, BO, 40100 Italie", "Via Masserenti 9 Bologna, BO, 40100 Italia", "Via Masserenti 9 بولونيا، BO، 40100 إيطاليا"),
     ("Email Address", "Indirizzo email", "Adresse e-mail", "Adresa de e-mail", "البريد الإلكتروني"),
-    ("Get in touch with the DCIMIT team", "Mettiti in contatto con il gruppo DCIMIT", "Contactez l'équipe DCIMIT", "Contactează echipa DCIMIT", "تواصل مع فريق DCIMIT"),
-    ("Share your experiences or ask questions.", "Condividi le tue esperienze o fai le tue domande.", "Partagez vos expériences ou posez vos questions.", "Împărtășește-ți experiențele sau pune întrebări.", "شاركنا تجاربك أو اطرح أسئلتك."),
-    ("Loading", "Caricamento", "Chargement", "Se încarcă", "جارٍ التحميل"),
-    ("Your message has been sent. Thank you!", "Il tuo messaggio è stato inviato. Grazie!", "Votre message a été envoyé. Merci !", "Mesajul tău a fost trimis. Mulțumim!", "تم إرسال رسالتك. شكرًا لك!"),
-    ("I consent to the processing of my data. Our", "Acconsento al trattamento dei miei dati. La nostra", "J'accepte le traitement de mes données. Notre", "Sunt de acord cu prelucrarea datelor mele. Consultă", "أوافق على معالجة بياناتي. اطّلع على"),
-    ("Send Message", "Invia messaggio", "Envoyer le message", "Trimite mesajul", "إرسال الرسالة"),
 
     # data / glossary
     ("Learn terms and concepts regarding the project's topic",

@@ -346,8 +346,8 @@ License:
     });
   });
 
-  // Team carousel
-  $(".team-carousel, .related-carousel").owlCarousel({
+  // Team carousel (needs jQuery and Owl Carousel, which only some pages load)
+  if (window.jQuery && jQuery.fn.owlCarousel) jQuery(".team-carousel, .related-carousel").owlCarousel({
       autoplay: true,
       smartSpeed: 1000,
       margin: 45,
