@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Resources</title>
+    <title>DCIMIT - Useful Links</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
 
@@ -236,121 +236,6 @@
       }
     </style>
 
-    <script>
-      /* ===================================================================
-         Resources — filter by year + author (no free-text search)
-      =================================================================== */
-
-      const resources = [
-        {
-          title:
-            "Disparities in cervical cancer prevention and early detection among immigrants in Italy: The DCIMIT study protocol",
-          authors: [
-            "Eleonora Gorgati",
-            "Fereshte Lotfi",
-            "Angela Cuoco",
-            "Mohsen Boughriou",
-            "Sara Dionisi",
-            "Kazem Zendehdel",
-            "Paolo Boffetta",
-            "Valentina Biagioli",
-          ],
-          year: 2025,
-          category: "Conference Poster",
-          venueInfo: "ESMO Congress 2025, Berlin — FPN: CN35",
-          abstract:
-            "Study protocol poster presenting the DCIMIT project: a mixed-methods multicenter study, a registry-based analysis and a community-based educational intervention aimed at reducing disparities in cervical cancer prevention and early detection among immigrant women in Italy.",
-          file: "assets/resources/DCIMITposterESMO07.pdf",
-        },
-        {
-          title:
-            "Useful References — Cervical Cancer & Immigrant Health Reading List",
-          authors: ["DCIMIT Project Team"],
-          year: 2025,
-          category: "Reference List",
-          venueInfo: "Curated bibliography, 18 references",
-          abstract:
-            "A curated list of key references on cervical cancer, HPV and screening disparities in immigrant populations, compiled to support the DCIMIT project's research and public health outreach.",
-          file: "assets/resources/USEFULREFERENCES.pdf",
-        },
-      ];
-
-      function populateFilters() {
-        const yearSelect = document.getElementById("yearFilter");
-        const years = [...new Set(resources.map((r) => r.year))].sort(
-          (a, b) => b - a,
-        );
-        years.forEach((y) => {
-          const opt = document.createElement("option");
-          opt.value = y;
-          opt.textContent = y;
-          yearSelect.appendChild(opt);
-        });
-
-        const authorSelect = document.getElementById("authorFilter");
-        const authors = [...new Set(resources.flatMap((r) => r.authors))].sort();
-        authors.forEach((a) => {
-          const opt = document.createElement("option");
-          opt.value = a;
-          opt.textContent = a;
-          authorSelect.appendChild(opt);
-        });
-      }
-
-      function renderResources(list) {
-        const container = document.getElementById("paperList");
-        const noResults = document.getElementById("noResults");
-
-        container.innerHTML = list
-          .map(
-            (r) => `
-          <div class="paper-card">
-            <span class="paper-journal-badge">${r.category}</span>
-            <h3 class="paper-title">${r.title}</h3>
-            <p class="paper-authors">${r.authors.join(", ")}</p>
-            <p class="paper-meta">${r.venueInfo} &middot; ${r.year}</p>
-            <p class="paper-abstract">${r.abstract}</p>
-            <a class="paper-link" href="${r.file}" download>
-              Download PDF <i class="bi bi-download"></i>
-            </a>
-            <span class="paper-file">${r.file.split("/").pop()}</span>
-          </div>
-        `,
-          )
-          .join("");
-
-        document.getElementById("resultsCount").textContent =
-          list.length === resources.length
-            ? `Showing all ${resources.length} resources`
-            : `Showing ${list.length} of ${resources.length} resources`;
-
-        noResults.classList.toggle("visible", list.length === 0);
-      }
-
-      function applyFilters() {
-        const year = document.getElementById("yearFilter").value;
-        const author = document.getElementById("authorFilter").value;
-
-        const filtered = resources.filter((r) => {
-          const matchesYear = year === "all" || r.year === parseInt(year, 10);
-          const matchesAuthor = author === "all" || r.authors.includes(author);
-          return matchesYear && matchesAuthor;
-        });
-
-        renderResources(filtered);
-      }
-
-      function resetFilters() {
-        document.getElementById("yearFilter").value = "all";
-        document.getElementById("authorFilter").value = "all";
-        applyFilters();
-      }
-
-      window.addEventListener("DOMContentLoaded", () => {
-        populateFilters();
-        renderResources(resources);
-      });
-    </script>
   </head>
 
   <body class="departments-page">

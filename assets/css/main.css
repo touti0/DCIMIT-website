@@ -629,6 +629,13 @@ main:focus,
   outline: none;
 }
 
+/* Icon marking links that open in a new tab */
+a .new-tab-icon {
+  display: inline-block;
+  margin-inline-start: 0.4em;
+  font-size: 0.8em;
+}
+
 .navmenu a:focus-visible,
 .navmenu .toggle-dropdown:focus-visible,
 .mobile-nav-toggle:focus-visible,
@@ -4910,12 +4917,13 @@ section,
 }
 
 .service-details-2 .action-card.primary .btn-action {
-  background: var(--accent-color);
+  background: color-mix(in srgb, var(--accent-color), black 10%);
   color: var(--contrast-color);
 }
 
 .service-details-2 .action-card.primary .btn-action:hover {
-  background: color-mix(in srgb, var(--accent-color), black 10%);
+  background: var(--accent-color);
+  color: var(--contrast-color);
   transform: translateY(-3px);
 }
 
@@ -6767,10 +6775,10 @@ a.header-cta {
   right: 0;
   bottom: 0;
   z-index: 100000;
-  padding: 18px 20px;
+  padding: 30px 20px;
   background: var(--surface-color);
   color: var(--default-color);
-  border-top: 3px solid var(--accent-color);
+  border-top: 4px solid var(--accent-color);
   box-shadow: 0 -6px 28px rgba(0, 0, 0, 0.18);
 }
 
@@ -6794,7 +6802,7 @@ a.header-cta {
 
 .cookie-popup-dialog h2 {
   margin: 0 0 6px;
-  font-size: 18px;
+  font-size: 21px;
   font-weight: 700;
   color: var(--heading-color);
 }
@@ -6816,7 +6824,7 @@ a.header-cta {
 
 @media (max-width: 767px) {
   .cookie-popup {
-    padding: 14px 16px;
+    padding: 22px 16px;
     max-height: 70vh;
     overflow-y: auto;
   }
@@ -6834,10 +6842,10 @@ a.header-cta {
 
 .cookie-popup-x {
   position: absolute;
-  top: -6px;
+  top: -20px;
   inset-inline-end: -8px;
-  width: 34px;
-  height: 34px;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -6845,7 +6853,7 @@ a.header-cta {
   border-radius: 50%;
   background: transparent;
   color: var(--default-color);
-  font-size: 16px;
+  font-size: 20px;
   cursor: pointer;
 }
 

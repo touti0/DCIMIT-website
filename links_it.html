@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Risorse</title>
+    <title>DCIMIT - Link utili</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
 
@@ -236,121 +236,6 @@
       }
     </style>
 
-    <script>
-      /* ===================================================================
-         Resources — filter by year + author (no free-text search)
-      =================================================================== */
-
-      const resources = [
-        {
-          title:
-            "Disparities in cervical cancer prevention and early detection among immigrants in Italy: The DCIMIT study protocol",
-          authors: [
-            "Eleonora Gorgati",
-            "Fereshte Lotfi",
-            "Angela Cuoco",
-            "Mohsen Boughriou",
-            "Sara Dionisi",
-            "Kazem Zendehdel",
-            "Paolo Boffetta",
-            "Valentina Biagioli",
-          ],
-          year: 2025,
-          category: "Poster di conferenza",
-          venueInfo: "ESMO Congress 2025, Berlin — FPN: CN35",
-          abstract:
-            "Poster del protocollo di studio che presenta il progetto DCIMIT: uno studio multicentrico a metodo misto, un'analisi basata sui registri e un intervento educativo di comunità volti a ridurre le disparità nella prevenzione e nella diagnosi precoce del cancro della cervice uterina tra le donne immigrate in Italia.",
-          file: "assets/resources/DCIMITposterESMO07.pdf",
-        },
-        {
-          title:
-            "Useful References — Cervical Cancer & Immigrant Health Reading List",
-          authors: ["DCIMIT Project Team"],
-          year: 2025,
-          category: "Elenco di riferimenti",
-          venueInfo: "Bibliografia selezionata, 18 riferimenti",
-          abstract:
-            "Un elenco selezionato di riferimenti chiave su cancro della cervice uterina, HPV e disparità nello screening nelle popolazioni immigrate, raccolto a sostegno della ricerca del progetto DCIMIT e delle attività di sanità pubblica.",
-          file: "assets/resources/USEFULREFERENCES.pdf",
-        },
-      ];
-
-      function populateFilters() {
-        const yearSelect = document.getElementById("yearFilter");
-        const years = [...new Set(resources.map((r) => r.year))].sort(
-          (a, b) => b - a,
-        );
-        years.forEach((y) => {
-          const opt = document.createElement("option");
-          opt.value = y;
-          opt.textContent = y;
-          yearSelect.appendChild(opt);
-        });
-
-        const authorSelect = document.getElementById("authorFilter");
-        const authors = [...new Set(resources.flatMap((r) => r.authors))].sort();
-        authors.forEach((a) => {
-          const opt = document.createElement("option");
-          opt.value = a;
-          opt.textContent = a;
-          authorSelect.appendChild(opt);
-        });
-      }
-
-      function renderResources(list) {
-        const container = document.getElementById("paperList");
-        const noResults = document.getElementById("noResults");
-
-        container.innerHTML = list
-          .map(
-            (r) => `
-          <div class="paper-card">
-            <span class="paper-journal-badge">${r.category}</span>
-            <h3 class="paper-title">${r.title}</h3>
-            <p class="paper-authors">${r.authors.join(", ")}</p>
-            <p class="paper-meta">${r.venueInfo} &middot; ${r.year}</p>
-            <p class="paper-abstract">${r.abstract}</p>
-            <a class="paper-link" href="${r.file}" download>
-              Scarica il PDF <i class="bi bi-download"></i>
-            </a>
-            <span class="paper-file">${r.file.split("/").pop()}</span>
-          </div>
-        `,
-          )
-          .join("");
-
-        document.getElementById("resultsCount").textContent =
-          list.length === resources.length
-            ? `Visualizzazione di tutte le ${resources.length} risorse`
-            : `Visualizzazione di ${list.length} risorse su ${resources.length}`;
-
-        noResults.classList.toggle("visible", list.length === 0);
-      }
-
-      function applyFilters() {
-        const year = document.getElementById("yearFilter").value;
-        const author = document.getElementById("authorFilter").value;
-
-        const filtered = resources.filter((r) => {
-          const matchesYear = year === "all" || r.year === parseInt(year, 10);
-          const matchesAuthor = author === "all" || r.authors.includes(author);
-          return matchesYear && matchesAuthor;
-        });
-
-        renderResources(filtered);
-      }
-
-      function resetFilters() {
-        document.getElementById("yearFilter").value = "all";
-        document.getElementById("authorFilter").value = "all";
-        applyFilters();
-      }
-
-      window.addEventListener("DOMContentLoaded", () => {
-        populateFilters();
-        renderResources(resources);
-      });
-    </script>
   </head>
 
   <body class="departments-page">

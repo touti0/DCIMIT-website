@@ -61,7 +61,7 @@ License:
       title: 'Questo sito web utilizza i cookie',
       text: 'Vengono installati solo cookie tecnici e anonimi per garantire il corretto funzionamento e il miglioramento del sito web.',
       more: 'Se chiudi questo banner continuerai la navigazione solo con i cookie necessari.',
-      info: 'Per maggiori informazioni consulta la nostra ',
+      info: 'Per maggiori informazioni sui cookie tecnici consulta la nostra ',
       link: 'Cookie policy',
       close: 'Chiudi',
       accept: 'Accetta i cookie necessari'
@@ -70,7 +70,7 @@ License:
       title: 'This website uses cookies',
       text: 'Only technical and anonymous cookies are installed to ensure the correct functioning and enhancement of the website.',
       more: 'If you close this banner you will continue browsing with necessary cookies only.',
-      info: 'For more information please see our ',
+      info: 'For more information about technical cookies please see our ',
       link: 'Cookie policy',
       close: 'Close',
       accept: 'Accept necessary cookies'
@@ -79,7 +79,7 @@ License:
       title: 'Ce site web utilise des cookies',
       text: 'Seuls des cookies techniques et anonymes sont installés afin de garantir le bon fonctionnement et l\'amélioration du site web.',
       more: 'Si vous fermez cette bannière, vous continuerez la navigation avec les seuls cookies nécessaires.',
-      info: 'Pour plus d\'informations, consultez notre ',
+      info: 'Pour plus d\'informations sur les cookies techniques, consultez notre ',
       link: 'Politique relative aux cookies',
       close: 'Fermer',
       accept: 'Accepter les cookies nécessaires'
@@ -88,7 +88,7 @@ License:
       title: 'Acest site web folosește cookie-uri',
       text: 'Sunt instalate doar cookie-uri tehnice și anonime pentru a asigura buna funcționare și îmbunătățirea site-ului web.',
       more: 'Dacă închizi acest banner, vei continua navigarea doar cu cookie-urile necesare.',
-      info: 'Pentru mai multe informații consultă ',
+      info: 'Pentru mai multe informații despre cookie-urile tehnice, consultă ',
       link: 'Politica privind cookie-urile',
       close: 'Închide',
       accept: 'Acceptă cookie-urile necesare'
@@ -97,7 +97,7 @@ License:
       title: 'يستخدم هذا الموقع ملفات تعريف الارتباط',
       text: 'يتم تثبيت ملفات تعريف ارتباط تقنية ومجهولة الهوية فقط لضمان حسن عمل الموقع وتحسينه.',
       more: 'إذا أغلقت هذا الشريط، فستواصل التصفح باستخدام ملفات تعريف الارتباط الضرورية فقط.',
-      info: 'لمزيد من المعلومات، اطّلع على ',
+      info: 'لمزيد من المعلومات حول ملفات تعريف الارتباط التقنية، اطّلع على ',
       link: 'سياسة ملفات تعريف الارتباط',
       close: 'إغلاق',
       accept: 'قبول ملفات تعريف الارتباط الضرورية'
@@ -135,23 +135,24 @@ License:
     text.textContent = t.text;
 
     const more = document.createElement('p');
-    more.appendChild(document.createTextNode(t.more));
-    more.appendChild(document.createElement('br'));
-    more.appendChild(document.createTextNode(t.info));
+    more.textContent = t.more;
+
+    const info = document.createElement('p');
+    info.appendChild(document.createTextNode(t.info));
     const link = document.createElement('a');
     link.href = COOKIE_POLICY_URL;
     link.target = '_blank';
     link.rel = 'noopener';
     link.textContent = t.link;
-    more.appendChild(link);
-    more.appendChild(document.createTextNode('.'));
+    info.appendChild(link);
+    info.appendChild(document.createTextNode('.'));
 
     const closeBtn = document.createElement('button');
     closeBtn.type = 'button';
     closeBtn.className = 'cookie-popup-close';
     closeBtn.textContent = t.accept;
 
-    body.append(title, text, more);
+    body.append(title, text, more, info);
     dialog.append(closeX, body, closeBtn);
     overlay.appendChild(dialog);
     document.body.appendChild(overlay);
@@ -374,6 +375,57 @@ License:
       if (h && !h.classList.contains('nav-dismissed')) h.querySelector('.lang-current').setAttribute('aria-expanded', 'true');
     });
   })();
+
+  /*Links that open in a new tab: add rel="noopener" and say so, with an icon for sighted
+    users and a hidden text for screen readers. Also covers links created later by scripts. */
+
+  const NEW_TAB_TEXTS = {
+    en: 'opens in a new tab',
+    it: 'si apre in una nuova scheda',
+    fr: 's\'ouvre dans un nouvel onglet',
+    ro: 'se deschide într-o filă nouă',
+    ar: 'يفتح في علامة تبويب جديدة'
+  };
+
+  function markNewTabLinks(root) {
+    const label = NEW_TAB_TEXTS[(document.documentElement.lang || 'en').slice(0, 2)] || NEW_TAB_TEXTS.en;
+    const links = [...root.querySelectorAll('a[target="_blank"]')];
+    if (root.matches && root.matches('a[target="_blank"]')) links.push(root);
+
+    links.forEach((link) => {
+      if (link.dataset.newTab) return;
+      link.dataset.newTab = 'true';
+      link.relList.add('noopener');
+
+      // an existing arrow icon becomes the "new tab" icon, otherwise one is added
+      // (links with data-no-new-tab-icon only get the hidden text)
+      if (!link.hasAttribute('data-no-new-tab-icon')) {
+        let icon = link.querySelector('i[class*="arrow"]');
+        if (!icon) {
+          icon = document.createElement('i');
+          link.appendChild(icon);
+        }
+        icon.className = 'bi bi-box-arrow-up-right new-tab-icon';
+        icon.setAttribute('aria-hidden', 'true');
+      }
+
+      if (link.hasAttribute('aria-label')) {
+        link.setAttribute('aria-label', link.getAttribute('aria-label') + ' (' + label + ')');
+      } else {
+        const hidden = document.createElement('span');
+        hidden.className = 'visually-hidden';
+        hidden.textContent = ' (' + label + ')';
+        link.appendChild(hidden);
+      }
+    });
+  }
+
+  markNewTabLinks(document.body);
+  new MutationObserver((mutations) => {
+    mutations.forEach((m) => m.addedNodes.forEach((node) => {
+      if (node.nodeType === 1) markNewTabLinks(node);
+    }));
+  }).observe(document.body, { childList: true, subtree: true });
 
   /*Apply .scrolled class to the body as the page is scrolled down*/
 
