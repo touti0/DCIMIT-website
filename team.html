@@ -157,9 +157,20 @@ section .section-title {
     color: #3C9B91; !important;
 }
 
+/* Same size and weight as the h4 of the doctor cards (.doctors .doctor-content h4 in main.css), green colour */
 .frontside .card .card-title,
 .backside .card .card-title {
-    color: #3C9B91; !important;
+    font-size: 26px;
+    font-weight: 700;
+    margin: 0 0 8px;
+    color: #3C9B91;
+}
+
+@media (max-width: 768px) {
+    .frontside .card .card-title,
+    .backside .card .card-title {
+        font-size: 24px;
+    }
 }
 
 .frontside .card .card-body img {
@@ -167,6 +178,11 @@ section .section-title {
     height: 120px;
     border-radius: 50%;
     object-fit: cover;
+}
+
+#team .card-text {
+    font-size: 18px;
+    color: var(--heading-color);
 }
 
 .frontside .card .card-body {
@@ -283,55 +299,7 @@ section .section-title {
     </div>
     <!-- End Page Title -->
 
-    
-    <!-- Experts Section -->
-    <div id="doctors" class="doctors section">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4 justify-content-center">
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="doctor-card">
-              <div class="doctor-image">
-                <img src="assets/img/person/person_icon_purp.svg" alt="Miriam Alviggi" class="img-fluid">
-                <div class="doctor-overlay">
-                  <div class="social-links">
-                    <a href=""><i class="bi bi-link"></i></a>
-                  </div>
-                </div>
-              </div>
-              <div class="doctor-content">
-                <h4>Miriam Alviggi</h4>
-                <span class="specialty">Consultant for study 1</span>
-                <p>Topics:</p>
-              </div>
-            </div>
-          </div><!-- End Expert Card -->          
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="doctor-card">
-              <div class="doctor-image">
-                <img src="assets/img/person/ariele.jpg" alt="Ariele Santello" class="img-fluid">
-                <div class="doctor-overlay">
-                  <div class="social-links">
-                    <a href=""><i class="bi bi-link"></i></a>
-                  </div>
-                </div>
-              </div>
-              <div class="doctor-content">
-                <h4>Ariele Santello</h4>
-                <span class="specialty">Consultant for dissemination strategies</span>
-                <p>Topics: User Experience Design, Semantic Web, Web Development</p>
-              </div>
-            </div>
-          </div><!-- End Expert Card -->
-
-          
-        </div>
-
-      </div>
-
+  
       
 <!-- Team -->
 <section id="team" class="pb-5">
@@ -346,7 +314,7 @@ section .section-title {
                             <div class="card">
                                 <div class="card-body text-center">
                                     <p></p>
-                                    <h4 class="card-title">Valentina Biagioli</h4>
+                                    <h2 class="card-title">Valentina Biagioli</h2>
                                     <p class="card-text">PI of the DCIMIT project</p>
                                     <a  class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
                                 </div>
@@ -355,7 +323,7 @@ section .section-title {
                         <div class="backside">
                             <div class="card">
                                 <div class="card-body text-center mt-4">
-                                    <h4 class="card-title">Topics of Research</h4>
+                                    <h2 class="card-title">Topics of Research</h2>
                                     <p class="card-text"> Disparities in cervical cancer prevention and early detection among immigrants, Self-care in patients with cancer, Continuity of care at home, symptom monitoring, safety</p>
                                     <p>valentina.biagioli@unibo.it</p>
                                   </div>
@@ -373,7 +341,7 @@ section .section-title {
                             <div class="card">
                                 <div class="card-body text-center">
                                     <p></p>
-                                    <h4 class="card-title">Paolo Boffetta</h4>
+                                    <h2 class="card-title">Paolo Boffetta</h2>
                                     <p class="card-text">Supervisor of the DCIMIT project</p>
                                     <a class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
                                 </div>
@@ -382,7 +350,7 @@ section .section-title {
                         <div class="backside">
                             <div class="card">
                                 <div class="card-body text-center mt-4">
-                                    <h4 class="card-title">Topics of Research</h4>
+                                    <h2 class="card-title">Topics of Research</h2>
                                     <p class="card-text">Occupational and environmental epidemiology, Molecular and genetic epidemiology consortia, Epidemiologic methods, Cancer prevention and control</p>
                                 </div>
                             </div>
@@ -399,7 +367,7 @@ section .section-title {
                             <div class="card">
                                 <div class="card-body text-center">
                                     <p></p>
-                                    <h4 class="card-title">Kazem Zendehdel</h4>
+                                    <h2 class="card-title">Kazem Zendehdel</h2>
                                     <p class="card-text">Co-supervisor of the DCIMIT project</p>
                                     <a class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
                                 </div>
@@ -408,7 +376,7 @@ section .section-title {
                         <div class="backside">
                             <div class="card">
                                 <div class="card-body text-center mt-4">
-                                    <h4 class="card-title">Topics of Research</h4>
+                                    <h2 class="card-title">Topics of Research</h2>
                                     <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>
                                 </div>
                             </div>
@@ -425,7 +393,7 @@ section .section-title {
                             <div class="card">
                                 <div class="card-body text-center">
                                     <p></p>
-                                    <h4 class="card-title">Fereshte Lotfi</h4>
+                                    <h2 class="card-title">Fereshte Lotfi</h2>
                                     <p class="card-text">Research assistant of the DCIMIT project</p>
                                     <a class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
                                 </div>
@@ -434,7 +402,7 @@ section .section-title {
                         <div class="backside">
                             <div class="card">
                                 <div class="card-body text-center mt-4">
-                                    <h4 class="card-title">Topics of Research</h4>
+                                    <h2 class="card-title">Topics of Research</h2>
                                     <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>
                                 </div>
                             </div>
@@ -451,7 +419,7 @@ section .section-title {
                             <div class="card">
                                 <div class="card-body text-center">
                                     <p></p>
-                                    <h4 class="card-title">Mohsen Boughriou</h4>
+                                    <h2 class="card-title">Mohsen Boughriou</h2>
                                     <p class="card-text">Research Fellow</p>
                                     <a class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
                                 </div>
@@ -460,7 +428,7 @@ section .section-title {
                         <div class="backside">
                             <div class="card">
                                 <div class="card-body text-center mt-4">
-                                    <h4 class="card-title">Topics of Research</h4>
+                                    <h2 class="card-title">Topics of Research</h2>
                                     <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>
                                 </div>
                             </div>
@@ -478,7 +446,7 @@ section .section-title {
                             <div class="card">
                                 <div class="card-body text-center">
                                     <p></p>
-                                    <h4 class="card-title">Eleonora Gorgati</h4>
+                                    <h2 class="card-title">Eleonora Gorgati</h2>
                                     <p class="card-text">Research Fellow</p>
                                     <a class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
                                 </div>
@@ -487,7 +455,7 @@ section .section-title {
                         <div class="backside">
                             <div class="card">
                                 <div class="card-body text-center mt-4">
-                                    <h4 class="card-title">Topics of Research</h4>
+                                    <h2 class="card-title">Topics of Research</h2>
                                     <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>
                                 </div>
                             </div>
@@ -504,7 +472,7 @@ section .section-title {
                             <div class="card">
                                 <div class="card-body text-center">
                                     <p></p>
-                                    <h4 class="card-title">Diego Serraino</h4>
+                                    <h2 class="card-title">Diego Serraino</h2>
                                     <p class="card-text">Consultant</p>
                                     <a class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
                                 </div>
@@ -513,7 +481,7 @@ section .section-title {
                         <div class="backside">
                             <div class="card">
                                 <div class="card-body text-center mt-4">
-                                    <h4 class="card-title">Topics of Research</h4>
+                                    <h2 class="card-title">Topics of Research</h2>
                                     <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>
                                 </div>
                             </div>
@@ -530,7 +498,7 @@ section .section-title {
                             <div class="card">
                                 <div class="card-body text-center">
                                     <p></p>
-                                    <h4 class="card-title">Angela Cuoco</h4>
+                                    <h2 class="card-title">Angela Cuoco</h2>
                                     <p class="card-text">Consultant</p>
                                     <a class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
                                 </div>
@@ -539,7 +507,7 @@ section .section-title {
                         <div class="backside">
                             <div class="card">
                                 <div class="card-body text-center mt-4">
-                                    <h4 class="card-title">Topics of Research</h4>
+                                    <h2 class="card-title">Topics of Research</h2>
                                     <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>
                                 </div>
                             </div>
@@ -556,7 +524,7 @@ section .section-title {
                             <div class="card">
                                 <div class="card-body text-center">
                                     <p></p>
-                                    <h4 class="card-title">Sara Dionisi</h4>
+                                    <h2 class="card-title">Sara Dionisi</h2>
                                     <p class="card-text">Consultant</p>
                                     <a class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
                                 </div>
@@ -565,7 +533,7 @@ section .section-title {
                         <div class="backside">
                             <div class="card">
                                 <div class="card-body text-center mt-4">
-                                    <h4 class="card-title">Topics of Research</h4>
+                                    <h2 class="card-title">Topics of Research</h2>
                                     <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>
                                 </div>
                             </div>
@@ -582,7 +550,7 @@ section .section-title {
                             <div class="card">
                                 <div class="card-body text-center">
                                     <p></p>
-                                    <h4 class="card-title">Miriam Alviggi</h4>
+                                    <h2 class="card-title">Miriam Alviggi</h2>
                                     <p class="card-text">Consultant</p>
                                     <a class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
                                 </div>
@@ -591,7 +559,7 @@ section .section-title {
                         <div class="backside">
                             <div class="card">
                                 <div class="card-body text-center mt-4">
-                                    <h4 class="card-title">Topics of Research</h4>
+                                    <h2 class="card-title">Topics of Research</h2>
                                     <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>
                                 </div>
                             </div>
@@ -608,7 +576,7 @@ section .section-title {
                             <div class="card">
                                 <div class="card-body text-center">
                                     <p></p>
-                                    <h4 class="card-title">Ariele Santello</h4>
+                                    <h2 class="card-title">Ariele Santello</h2>
                                     <p class="card-text">Research Fellow</p>
                                     <a class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
                                 </div>
@@ -617,7 +585,7 @@ section .section-title {
                         <div class="backside">
                             <div class="card">
                                 <div class="card-body text-center mt-4">
-                                    <h4 class="card-title">Topics of Research</h4>
+                                    <h2 class="card-title">Topics of Research</h2>
                                     <p class="card-text">User Experience Design, Semantic Web, Web Development</p>
                                 </div>
                             </div>
